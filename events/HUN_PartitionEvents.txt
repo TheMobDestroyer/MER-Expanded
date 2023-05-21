@@ -1,0 +1,2743 @@
+﻿
+#########################
+#PARTITION OF YUGOSLAVIA#
+#########################
+
+add_namespace = hungary_flavor_partition
+
+# The Partition of Yugoslavia 
+country_event = {
+	id = hungary_flavor_partition.10
+	title = hungary_flavor_partition.10.t
+	desc = hungary_flavor_partition.10.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = HUN_is_partitioning_YUG }
+	
+	#A fruitful agreement
+	option = {
+		name = hungary_flavor_partition.10.a	
+		every_country = {
+			limit = { is_subject_of = YUG }
+			YUG = { annex_country = { target = PREV transfer_troops = no } }
+		}
+		transfer_state = 45		#Novi Sad
+		transfer_state = 912	#Prekmurje
+		custom_effect_tooltip = HUN_will_get_one_unit_of_volunteer_corps
+		hidden_effect = { 				
+			load_oob = YUG_to_HUN_volunteer_corps
+			country_event = { id = hungary_flavor_partition.20 } 
+			
+			#ROOT has been a badboy
+			add_to_variable = { var = global.HUN_badboy_rating value = 1 }
+			every_country = {
+				limit = {
+					NOT = { has_war_with = HUN }
+					has_country_flag = HUN_policing_expansion_of_hungary
+				}
+				hidden_effect = { worsen_relations_with_HUN = yes }
+				custom_effect_tooltip = HUN_their_opinion_of_us_will_deteriorate
+				country_event = { id = hungary_flavor_gen.4 hours = 6 }
+			}
+		}			
+	}
+}
+
+# The fate of Slavonia
+country_event = {
+	id = hungary_flavor_partition.20
+	title = hungary_flavor_partition.20.t
+	desc = hungary_flavor_partition.20.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#We will have it back.
+	option = {
+		name = hungary_flavor_partition.20.a	
+		add_named_threat = { threat = 2 name = HUN_annexed_slavonia_threat }
+		transfer_state = 109	#Slavonia
+		hidden_effect = { country_event = { id = hungary_flavor_partition.30 } }			
+	}
+	
+	#Croatia will become our puppet.
+	option = {
+		name = hungary_flavor_partition.20.b	
+		add_named_threat = { threat = 1 name = HUN_puppeted_slavonia_threat }
+		CRO = { transfer_state = 109 }	#Slavonia
+		puppet = CRO
+		hidden_effect = { country_event = { id = hungary_flavor_partition.30 } }
+		109 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slavonia	
+	}
+	
+	#Croatia will become independent.
+	option = {
+		name = hungary_flavor_partition.20.c
+		CRO = { transfer_state = 109 }	#Slavonia
+		hidden_effect = { country_event = { id = hungary_flavor_partition.30 } }	
+		109 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slavonia		
+	}
+}
+
+# The fate of Croatia
+country_event = {
+	id = hungary_flavor_partition.30
+	title = hungary_flavor_partition.30.t
+	desc = hungary_flavor_partition.30.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it, just like Slavonia
+	option = {
+		name = hungary_flavor_partition.30.a	
+		trigger = {
+			owns_state = 109	#Slavonia
+		}
+		transfer_state = 915	#Croatia	
+		add_named_threat = { threat = 1 name = HUN_annexed_croatia_threat }
+		hidden_effect = { country_event = { id = hungary_flavor_partition.35 } }			
+	}
+	
+	#Give it back to Croatia
+	option = {
+		name = hungary_flavor_partition.30.b	
+		trigger = {
+			CRO = {
+				exists = yes
+				owns_state = 109	#Slavonia
+			}
+		}
+		CRO = {
+			transfer_state = 915	#Croatia
+			set_capital = { state = 915 }		#Croatia
+		}	
+		hidden_effect = { country_event = { id = hungary_flavor_partition.35 } }
+		915 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Croatia		
+	}
+}
+
+# The fate of Lika
+country_event = {
+	id = hungary_flavor_partition.35
+	title = hungary_flavor_partition.35.t
+	desc = hungary_flavor_partition.35.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#It belongs to Hungary
+	option = {
+		name = hungary_flavor_partition.35.a	
+		trigger = {
+			owns_state = 915	#Croatia
+		}
+		transfer_state = 921	#Lika	
+		add_named_threat = { threat = 1 name = HUN_annexed_lika_threat }
+		hidden_effect = { country_event = { id = hungary_flavor_partition.40 } }			
+	}
+	
+	#Give it back to Croatia
+	option = {
+		name = hungary_flavor_partition.35.b	
+		trigger = {
+			CRO = {
+				exists = yes
+				owns_state = 915	#Croatia
+			}
+		}
+		CRO = {
+			transfer_state = 921	#Lika
+		}	
+		hidden_effect = { country_event = { id = hungary_flavor_partition.40 } }
+		921 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Lika		
+	}
+	
+	#Give it to Italy, along with the coastline
+	option = {
+		name = hungary_flavor_partition.35.c	
+		ITA = {
+			transfer_state = 921	#Lika
+			transfer_state = 923	#Pag
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+			add_received_territory_flag = yes
+			add_named_threat = { threat = 1 name = HUN_annexed_lika_threat }
+		}	
+		hidden_effect = { country_event = { id = hungary_flavor_partition.50 } }
+		921 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Lika	
+		923 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Pag		
+	}
+}
+
+
+# The fate of Pag
+country_event = {
+	id = hungary_flavor_partition.40
+	title = hungary_flavor_partition.40.t
+	desc = hungary_flavor_partition.40.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.40.a	
+		trigger = {
+			owns_state = 915	#Croatia
+		}
+		transfer_state = 923	#Pag	
+		add_named_threat = { threat = 1 name = HUN_annexed_croatia_threat }
+		hidden_effect = { 
+			#ship "transfer"
+			if = { 
+				limit = { 
+					NOT = { has_cosmetic_tag = HUN_AHU } 
+					NOT = { has_cosmetic_tag = HUN_DNF } 
+				} 			
+				if = {
+					limit = { has_dlc = "Man the Guns" }
+					load_oob = YUG_to_HUN_ship_transfer
+					else = {
+						load_oob = YUG_to_HUN_ship_transfer_legacy
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					OR = {
+						has_cosmetic_tag = HUN_AHU 
+						has_cosmetic_tag = HUN_DNF
+					}
+				}
+				if = {
+					limit = { has_dlc = "Man the Guns" }
+					load_oob = YUG_to_AHU_ship_transfer
+					else = {
+						load_oob = YUG_to_AHU_ship_transfer_legacy
+					}
+				}
+			}	
+			country_event = { id = hungary_flavor_partition.50 } 
+		}			
+	}
+	
+	#Give it back to Croatia
+	option = {
+		name = hungary_flavor_partition.40.b	
+		trigger = {
+			CRO = {
+				exists = yes
+				owns_state = 915	#Croatia
+			}
+		}
+		CRO = { transfer_state = 923 }	#Pag
+		hidden_effect = { country_event = { id = hungary_flavor_partition.50 } }	
+		923 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Pag		
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.40.c	
+		ITA = { 
+			add_named_threat = { threat = 1 name = HUN_annexed_croatia_threat }
+			transfer_state = 923 	#Pag
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+			add_received_territory_flag = yes
+		}
+		
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.50 }
+		}	
+		923 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Pag			
+	}
+}
+
+# The fate of Serbia
+country_event = {
+	id = hungary_flavor_partition.50
+	title = hungary_flavor_partition.50.t
+	desc = hungary_flavor_partition.50.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.50.a
+		add_named_threat = { threat = 6 name = HUN_annexed_serbia_threat }
+		transfer_state = 107	#Serbia
+		transfer_state = 108	#Morava
+		transfer_state = 910	#Panceva
+		transfer_state = 911	#Srem
+		hidden_effect = { country_event = { id = hungary_flavor_partition.60 } }
+	}
+	#Create a Serbian puppet state
+	option = {
+		name = hungary_flavor_partition.50.b
+		add_named_threat = { threat = 2 name = HUN_puppeted_serbia_threat }
+		SER = {
+			transfer_state = 107	#Serbia
+			transfer_state = 108	#Morava		
+		}
+		puppet = SER
+		hidden_effect = { country_event = { id = hungary_flavor_partition.60 } }
+		107 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Serbia	
+		108 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Morava	
+	}
+	#Liberate Serbia
+	option = {
+		name = hungary_flavor_partition.50.c
+		SER = {
+			transfer_state = 107	#Serbia
+			transfer_state = 108	#Morava		
+		}
+		hidden_effect = { country_event = { id = hungary_flavor_partition.60 } }
+		107 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Serbia	
+		108 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Morava	
+	}
+}
+
+# The fate of Bosnia
+country_event = {
+	id = hungary_flavor_partition.60
+	title = hungary_flavor_partition.60.t
+	desc = hungary_flavor_partition.60.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.60.a	
+		trigger = {
+			104 = {	#Bosnia
+				any_neighbor_state = { is_owned_by = ROOT }
+			}
+		}
+		add_named_threat = { threat = 2 name = HUN_annexed_bosnia_threat }
+		transfer_state = 104	#Bosnia	
+		hidden_effect = { country_event = { id = hungary_flavor_partition.70 } }
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.60.b	
+		trigger = { SER = { exists = yes } }
+		SER = {				
+			add_named_threat = { threat = 1 name = HUN_annexed_bosnia_threat }
+			transfer_state = 104	#Bosnia	
+			add_state_core = 104	#Bosnia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.70 } 
+			SER = { 
+				add_received_territory_flag = yes 
+				add_received_territory_flag = yes 	#Bosnia is big enough to be worth 2 flags
+			}
+		}
+		104 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Bosnia	
+	}
+	
+	#Give it to Croatia
+	option = {
+		name = hungary_flavor_partition.60.c	
+		trigger = { CRO = { exists = yes } }
+		CRO = {				
+			add_named_threat = { threat = 1 name = HUN_annexed_bosnia_threat }
+			transfer_state = 104	#Bosnia	
+			add_state_core = 104	#Bosnia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.70 } 
+			CRO = { 
+				add_received_territory_flag = yes 
+				add_received_territory_flag = yes 	#Bosnia is big enough to be worth 2 flags
+			}
+		}
+		104 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Bosnia	
+	}
+	
+	#Liberate Bosnia
+	option = {
+		name = hungary_flavor_partition.60.e
+		BOS = {				
+			transfer_state = 104	#Bosnia	
+			add_state_core = 104	#Bosnia
+		}
+		hidden_effect = { country_event = { id = hungary_flavor_partition.70 } }
+		104 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Bosnia	
+	}
+}
+
+
+# The fate of Dalmatia
+country_event = {
+	id = hungary_flavor_partition.70
+	title = hungary_flavor_partition.70.t
+	desc = hungary_flavor_partition.70.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.70.a		
+		trigger = {
+			103 = {	#Dalmatia
+				any_neighbor_state = { is_owned_by = ROOT }
+			}
+		}
+		add_named_threat = { threat = 1 name = HUN_annexed_dalmatia_threat }
+		transfer_state = 103	#Dalmatia
+		hidden_effect = { country_event = { id = hungary_flavor_partition.80 } }
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.70.b		
+		trigger = {
+			103 = {	#Dalmatia
+				any_neighbor_state = { is_owned_by = SER }
+			}
+		}
+		SER = {			
+			add_named_threat = { threat = 1 name = HUN_annexed_dalmatia_threat }	
+			transfer_state = 103	#Dalmatia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.80 } 
+			SER = { add_received_territory_flag = yes }
+		}
+		103 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Dalmatia	
+	}
+	
+	#Give it to Croatia
+	option = {
+		name = hungary_flavor_partition.70.c		
+		trigger = {
+			103 = {	#Dalmatia
+				any_neighbor_state = { is_owned_by = CRO }
+			}
+		}
+		CRO = { transfer_state = 103 }	#Dalmatia
+		hidden_effect = { country_event = { id = hungary_flavor_partition.80 } }
+		103 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Dalmatia	
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.70.e	
+		ITA = {			
+			add_named_threat = { threat = 1 name = HUN_annexed_dalmatia_threat }	
+			transfer_state = 103	#Dalmatia
+		}
+		ITA = { custom_effect_tooltip = HUN_will_look_favorably_on_this_decision }
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.80 } 
+			ITA = { add_received_territory_flag = yes }
+		}
+		103 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Dalmatia	
+	}
+}
+
+# The fate of Torontal
+country_event = {
+	id = hungary_flavor_partition.80
+	title = hungary_flavor_partition.80.t
+	desc = hungary_flavor_partition.80.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#It belongs to us.
+	option = {
+		name = hungary_flavor_partition.80.a		
+		transfer_state = 910	#Torontal
+		hidden_effect = { country_event = { id = hungary_flavor_partition.90 } }
+	}
+	
+	#Serbia can have it.
+	option = {
+		name = hungary_flavor_partition.80.b
+		trigger = {
+			SER = { exists = yes } 
+		}
+		SER = { transfer_state = 910 }	#Torontal
+		hidden_effect = { country_event = { id = hungary_flavor_partition.90 } }
+		910 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Torontal	
+	}
+	
+	#Actually, let Romania have it.
+	option = {
+		name = hungary_flavor_partition.80.c
+		trigger = {
+			ROM = {
+				exists = yes
+				owns_state = 82	#Banat
+			}
+		}		
+		ROM = {	
+			transfer_state = 910 	#Torontal
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			ROM = { add_received_territory_flag = yes }
+			country_event = { id = hungary_flavor_partition.90 } 
+		}
+		910 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Torontal
+	}
+}
+
+# The fate of Srem
+country_event = {
+	id = hungary_flavor_partition.90
+	title = hungary_flavor_partition.90.t
+	desc = hungary_flavor_partition.90.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#It belongs to us.
+	option = {
+		name = hungary_flavor_partition.90.a		
+		transfer_state = 911	#Srem
+		hidden_effect = {
+			country_event = { id = hungary_flavor_partition.95 }
+		}
+	}
+	
+	#Serbia can have it
+	option = {
+		name = hungary_flavor_partition.90.b
+		trigger = {
+			SER = { exists = yes } 
+		}
+		SER = { transfer_state = 911 }	#Srem
+		hidden_effect = {
+			country_event = { id = hungary_flavor_partition.95 }
+		}
+		911 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Srem
+	}
+	
+	#Let us give it to Croatia
+	option = {
+		name = hungary_flavor_partition.90.c
+		trigger = {
+			CRO = { exists = yes } 
+		}
+		
+		CRO = {	transfer_state = 911 }	#Srem
+		hidden_effect = {
+			country_event = { id = hungary_flavor_partition.95 }
+		}
+		911 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Srem
+	}
+}
+
+# The fate of Belgrade
+country_event = {
+	id = hungary_flavor_partition.95
+	title = hungary_flavor_partition.95.t
+	desc = hungary_flavor_partition.95.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it.
+	option = {
+		name = hungary_flavor_partition.95.a
+		trigger = {
+			910 = { is_owned_by = ROOT }	#Torontal
+			911 = { is_owned_by = ROOT }	#Srem
+		}
+		transfer_state = 764	#Belgrade
+		hidden_effect = {
+			country_event = { id = hungary_flavor_partition.100 }
+		}
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.95.b
+		SER = { 
+			transfer_state = 764	#Belgrade
+			add_state_core = 764	#Belgrade
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision 
+			add_received_territory_flag = yes
+		}	
+		764 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Belgrade
+		hidden_effect = {
+			country_event = { id = hungary_flavor_partition.100 }
+		}
+	}
+}
+
+# The fate of Macedonia
+country_event = {
+	id = hungary_flavor_partition.100
+	title = hungary_flavor_partition.100.t
+	desc = hungary_flavor_partition.100.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.100.a	
+		trigger = {
+			106 = { any_neighbor_state = { is_owned_by = ROOT } }
+		}	
+		add_named_threat = { threat = 1 name = HUN_annexed_macedonia_threat }
+		
+		if = {
+			limit = {
+				BUL = { is_in_faction_with = ROOT }
+			}
+			BUL = { add_opinion_modifier = { target = ROOT modifier = HUN_betrayed_promises } }
+		}
+		transfer_state = 106	#Macedonia
+		hidden_effect = { country_event = { id = hungary_flavor_partition.105 } }
+	}
+	
+	#It belongs to Serbia
+	option = {
+		name = hungary_flavor_partition.100.b
+		trigger = {
+			SER = { exists = yes }
+			106 = { any_neighbor_state = { is_owned_by = SER } }
+		}	
+		
+		if = {
+			limit = {
+				BUL = { is_in_faction_with = ROOT }
+			}
+			BUL = { add_opinion_modifier = { target = ROOT modifier = HUN_betrayed_promises } }
+		}
+		SER = {				
+			transfer_state = 106	#Macedonia
+		}
+		hidden_effect = { country_event = { id = hungary_flavor_partition.105 } }
+		106 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Macedonia
+	}
+	
+	#Give it to Bulgaria
+	option = {
+		name = hungary_flavor_partition.100.c
+		trigger = {
+			BUL = { exists = yes }
+			106 = { any_neighbor_state = { is_owned_by = BUL } }
+		}
+		BUL = {
+			transfer_state = 106	#Macedonia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.105 } 
+			BUL = { add_received_territory_flag = yes }
+		}
+		106 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Macedonia
+	}
+	
+	#Liberate Macedonia
+	option = {
+		name = hungary_flavor_partition.100.e
+		MAC = {
+			transfer_state = 106	#Macedonia
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.105 } 
+		}
+		106 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Macedonia
+	}
+}
+
+# The fate of Southern Serbia
+country_event = {
+	id = hungary_flavor_partition.105
+	title = hungary_flavor_partition.105.t
+	desc = hungary_flavor_partition.105.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.105.a	
+		trigger = {
+			803 = { any_neighbor_state = { is_owned_by = ROOT } }
+		}
+		
+		if = {
+			limit = {
+				BUL = { is_in_faction_with = ROOT }
+			}
+			BUL = { add_opinion_modifier = { target = ROOT modifier = HUN_betrayed_promises } }
+		}
+		transfer_state = 803	#Southern Serbia
+		hidden_effect = { country_event = { id = hungary_flavor_partition.120 } }
+	}
+	
+	#It belongs to Serbia
+	option = {
+		name = hungary_flavor_partition.105.b
+		trigger = {
+			SER = { exists = yes }
+			803 = { any_neighbor_state = { is_owned_by = SER } }
+		}	
+		
+		if = {
+			limit = {
+				BUL = { is_in_faction_with = ROOT }
+			}
+			BUL = { add_opinion_modifier = { target = ROOT modifier = HUN_betrayed_promises } }
+		}
+		SER = {				
+			transfer_state = 803	#Southern Serbia
+		}
+		hidden_effect = { country_event = { id = hungary_flavor_partition.120 } }
+		803 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Southern Serbia
+	}
+	
+	#Give it to Bulgaria
+	option = {
+		name = hungary_flavor_partition.105.c
+		trigger = {
+			BUL = { exists = yes }
+			803 = { any_neighbor_state = { is_owned_by = BUL } }
+		}
+		BUL = {
+			transfer_state = 803	#Southern Serbia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.120 } 
+			BUL = { add_received_territory_flag = yes }
+		}
+		803 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Southern Serbia
+	}
+}
+
+# The fate of Tetovo
+country_event = {
+	id = hungary_flavor_partition.110
+	title = hungary_flavor_partition.110.t
+	desc = hungary_flavor_partition.110.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.110.a	
+		trigger = {
+			920 = { any_neighbor_state = { is_owned_by = ROOT } }	#Tetovo
+		}
+		transfer_state = 920	#Tetovo
+		hidden_effect = { country_event = { id = hungary_flavor_partition.130 } }
+		920 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Tetovo
+	}
+	
+	#Give it to Albania
+	option = {
+		name = hungary_flavor_partition.110.b	
+		trigger = {
+			920 = { any_neighbor_state = { is_owned_by = ALB } }	#Tetovo
+		}
+		ALB = { 
+			transfer_state = 920	#Tetovo
+			add_state_core = 920	#Tetovo
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision 
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.130 } 
+			ALB = { add_received_territory_flag = yes }
+		}
+		920 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Tetovo
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.110.c	
+		trigger = {
+			OR = {
+				920 = { any_neighbor_state = { is_owned_by = ITA } }	#Tetovo
+				920 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Tetovo
+			}
+		}
+		ITA = { 
+			transfer_state = 920	#Tetovo
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision 
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.130 } 
+			ITA = { add_received_territory_flag = yes }
+		}
+		920 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Tetovo
+	}
+	
+	#Give it to Bulgaria
+	option = {
+		name = hungary_flavor_partition.110.e	
+		trigger = {
+			106 = { is_owned_by = BUL }	#Macedonia
+		}
+		BUL = { 
+			transfer_state = 920	#Tetovo
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision 
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.130 } 
+			BUL = { add_received_territory_flag = yes }
+		}
+		920 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Tetovo
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.110.f	
+		trigger = {
+			106 = { is_owned_by = SER }	#Macedonia
+		}
+		SER = { transfer_state = 920 }	#Tetovo
+		hidden_effect = { country_event = { id = hungary_flavor_partition.130 } }
+		920 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Tetovo
+	}
+	
+	#Give it to Macedonia
+	option = {
+		name = hungary_flavor_partition.110.g	
+		trigger = {
+			106 = { is_owned_by = MAC }	#Macedonia
+		}
+		MAC = { transfer_state = 920 }	#Tetovo
+		hidden_effect = { country_event = { id = hungary_flavor_partition.130 } }
+		920 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Tetovo
+	}
+}
+
+# The fate of Kosovo
+country_event = {
+	id = hungary_flavor_partition.120
+	title = hungary_flavor_partition.120.t
+	desc = hungary_flavor_partition.120.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.120.a	
+		trigger = {
+			802 = { any_neighbor_state = { is_owned_by = ROOT } }	#Kosovo
+		}
+		transfer_state = 802	#Kosovo
+		hidden_effect = { country_event = { id = hungary_flavor_partition.110 } }
+	}
+	
+	#Give it to Albania
+	option = {
+		name = hungary_flavor_partition.120.b	
+		trigger = {
+			802 = { any_neighbor_state = { is_owned_by = ALB } }	#Kosovo
+		}
+		ALB = { 
+			transfer_state = 802	#Kosovo
+			add_state_core = 802	#Kosovo
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision 
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.110 } 
+			ALB = { add_received_territory_flag = yes }
+		}
+		802 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kosovo
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.120.c	
+		trigger = {
+			OR = {
+				802 = { any_neighbor_state = { is_owned_by = ITA } }	#Kosovo
+				802 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Kosovo
+			}
+		}
+		ITA = { 
+			transfer_state = 802	#Kosovo
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision 
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.110 } 
+			ITA = { add_received_territory_flag = yes }
+		}
+		802 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kosovo
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.120.e	
+		trigger = {
+			802 = { any_neighbor_state = { is_owned_by = SER } }	#Kosovo
+		}
+		SER = { 
+			transfer_state = 802	#Kosovo
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision 
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.110 } 
+			SER = { add_received_territory_flag = yes }
+		}
+		802 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kosovo
+	}
+	
+	#Liberate Kosovo
+	option = {
+		name = hungary_flavor_partition.120.f	
+		KOS = { 
+			transfer_state = 802	#Kosovo
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.110 } 
+		}
+		802 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kosovo
+	}
+}
+
+
+# The fate of Montenegro
+country_event = {
+	id = hungary_flavor_partition.130
+	title = hungary_flavor_partition.130.t
+	desc = hungary_flavor_partition.130.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.130.a	
+		trigger = {
+			105 = { any_neighbor_state = { is_owned_by = ROOT } }
+		}	
+		add_named_threat = { threat = 1 name = HUN_annexed_montenegro_threat }
+		transfer_state = 105	#Montenegro
+		hidden_effect = { country_event = { id = hungary_flavor_partition.140 } }
+	}
+	
+	#It belongs to Serbia
+	option = {
+		name = hungary_flavor_partition.130.b
+		trigger = {
+			SER = { exists = yes }
+			105 = { any_neighbor_state = { is_owned_by = SER } }
+		}	
+		SER = {
+			transfer_state = 105	#Montenegro
+			add_named_threat = { threat = 1 name = HUN_annexed_montenegro_threat }	
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.140 } 
+			SER = { add_received_territory_flag = yes }
+		}
+		105 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Montenegro
+	}
+	
+	#Give it to Albania
+	option = {
+		name = hungary_flavor_partition.130.c
+		trigger = {
+			ALB = { exists = yes }
+			44 = { is_owned_by = ALB }
+		}
+		if = { 
+			limit = { ROOT = { is_faction_leader = yes } } 
+			ALB = { country_event = { days = 1 id = hungary_flavor_alb.1 } }
+		}
+		ALB = {
+			transfer_state = 105	#Montenegro
+			add_named_threat = { threat = 1 name = HUN_annexed_montenegro_threat }	
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.140 } 
+			ALB = { add_received_territory_flag = yes }
+		}
+		105 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Montenegro
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.130.e
+		trigger = {
+			ITA = { exists = yes }
+			44 = { is_owned_by = ITA }
+			OR = {
+				44 = { is_owned_by = ITA }
+				44 = { OWNER = { is_subject_of = ITA } }
+			}
+		}
+		ITA = {
+			transfer_state = 105	#Montenegro
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.140 } 
+			ITA = { add_received_territory_flag = yes }
+		}
+		105 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Montenegro
+	}
+	
+	#Liberate Montenegro
+	option = {
+		name = hungary_flavor_partition.130.f
+		MNT = {
+			transfer_state = 105	#Montenegro
+		}
+		hidden_effect = { country_event = { id = hungary_flavor_partition.140 } }
+		105 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Montenegro
+	}
+}
+
+
+# The fate of Ulcinj
+country_event = {
+	id = hungary_flavor_partition.140
+	title = hungary_flavor_partition.140.t
+	desc = hungary_flavor_partition.140.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.140.a	
+		trigger = {
+			922 = { any_neighbor_state = { is_owned_by = ROOT } }	#Ulcinj
+		}
+		transfer_state = 922	#Ulcinj
+		hidden_effect = { country_event = { id = hungary_flavor_partition.150 } }
+	}
+	
+	#Give it to Montenegro
+	option = {
+		name = hungary_flavor_partition.140.b
+		trigger = {
+			922 = { any_neighbor_state = { is_owned_by = MNT } }	#Ulcinj
+		}
+		MNT = { 
+			transfer_state = 922	#Ulcinj
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.150 } 
+			MNT = { add_received_territory_flag = yes }
+		}
+		922 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ulcinj
+	}
+	
+	#Give it to Albania
+	option = {
+		name = hungary_flavor_partition.140.c
+		trigger = {
+			922 = { any_neighbor_state = { is_owned_by = ALB } }	#Ulcinj
+		}
+		ALB = { 
+			transfer_state = 922	#Ulcinj
+			add_state_core = 922	#Ulcinj
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.150 } 
+			ALB = { add_received_territory_flag = yes }
+		}
+		922 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ulcinj
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.140.e
+		trigger = {
+			OR = {
+				922 = { any_neighbor_state = { is_owned_by = ITA } }	#Ulcinj
+				922 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Ulcinj
+			}
+		}
+		ITA = { 
+			transfer_state = 922	#Ulcinj
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.150 } 
+			ITA = { add_received_territory_flag = yes }
+		}
+		922 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ulcinj
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.140.f	
+		trigger = {
+			922 = { any_neighbor_state = { is_owned_by = SER } }	#Ulcinj
+		}
+		SER = { 
+			transfer_state = 922	#Ulcinj
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.150 } 
+			SER = { add_received_territory_flag = yes }
+		}
+		922 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ulcinj
+	}
+}
+
+
+# The fate of Kotor
+country_event = {
+	id = hungary_flavor_partition.150
+	title = hungary_flavor_partition.150.t
+	desc = hungary_flavor_partition.150.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.150.a	
+		trigger = {
+			919 = { any_neighbor_state = { is_owned_by = ROOT } }	#Kotor
+		}
+		transfer_state = 919	#Kotor
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.155 } 
+		}
+	}
+	
+	#Give it to Montenegro
+	option = {
+		name = hungary_flavor_partition.150.b
+		trigger = {
+			919 = { any_neighbor_state = { is_owned_by = MNT } }	#Kotor
+		}
+		MNT = { transfer_state = 919 }		#Kotor
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.155 } 
+		}
+		919 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kotor
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.150.c
+		trigger = {
+			OR = {
+				919 = { any_neighbor_state = { is_owned_by = ITA } }	#Ulcinj
+				919 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Ulcinj
+			}
+		}
+		ITA = { 
+			transfer_state = 919	#Kotor
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.155 } 
+			ITA = { add_received_territory_flag = yes }
+		}
+		919 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kotor
+	}
+	
+	#Give it to Croatia
+	option = {
+		name = hungary_flavor_partition.150.e
+		trigger = {
+			919 = { any_neighbor_state = { is_owned_by = CRO } }	#Kotor
+		}
+		CRO = { 
+			transfer_state = 919	#Kotor
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			country_event = { id = hungary_flavor_partition.155 } 
+			CRO = { add_received_territory_flag = yes }
+		}
+		919 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kotor
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.150.f
+		trigger = {
+			919 = { any_neighbor_state = { is_owned_by = SER } }	#Kotor
+		}
+		SER = { 
+			transfer_state = 919	#Kotor
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = {
+			country_event = { id = hungary_flavor_partition.155 } 
+			SER = { add_received_territory_flag = yes }
+		}
+		919 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Kotor
+	}
+}
+
+
+# The fate of Herzegovina
+country_event = {
+	id = hungary_flavor_partition.155
+	title = hungary_flavor_partition.155.t
+	desc = hungary_flavor_partition.155.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.155.a	
+		trigger = {
+			104 = { is_owned_by = ROOT }	#Bosnia
+		}
+		transfer_state = 804	#Herzegovina
+		add_named_threat = { threat = 1 name = HUN_annexed_herzegovina_threat }	
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 163 } }	#Zara
+				country_event = { id = hungary_flavor_partition.160 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 913 } }	#Fiume
+						country_event = { id = hungary_flavor_partition.170 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 852 } }	#Istria
+								country_event = { id = hungary_flavor_partition.180 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 736 } }	#Primorska
+										country_event = { id = hungary_flavor_partition.190 }
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+												country_event = { id = hungary_flavor_partition.200 } 
+												else = {
+													if = {
+														limit = { YUG = { owns_state = 102 } } 	#Slovenia
+														country_event = { id = hungary_flavor_partition.220 } 
+														else = {
+															#end of negotiation
+															news_event = { hours = 4 id = hun_news.1 }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			} 
+		}
+	}
+	
+	#Give it to Bosnia
+	option = {
+		name = hungary_flavor_partition.155.b
+		trigger = {
+			104 = { is_owned_by = BOS }	#Bosnia
+		}
+		BOS = { transfer_state = 804 }		#Herzegovina
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 163 } }	#Zara
+				country_event = { id = hungary_flavor_partition.160 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 913 } }	#Fiume
+						country_event = { id = hungary_flavor_partition.170 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 852 } }	#Istria
+								country_event = { id = hungary_flavor_partition.180 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 736 } }	#Primorska
+										country_event = { id = hungary_flavor_partition.190 }
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+												country_event = { id = hungary_flavor_partition.200 } 
+												else = {
+													if = {
+														limit = { YUG = { owns_state = 102 } } 	#Slovenia
+														country_event = { id = hungary_flavor_partition.220 } 
+														else = {
+															#end of negotiation
+															news_event = { hours = 4 id = hun_news.1 }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			} 
+		}
+		if = { limit = { 804 = { is_core_of = ROOT } } remove_state_core = 804 }  				#Herzegovina
+		804 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Herzegovina
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.155.c
+		trigger = {
+			ITA = {
+				owns_state = 103	#Dalmatia
+				owns_state = 105	#Montenegro
+			}
+		}
+		ITA = { 
+			transfer_state = 804	#Herzegovina
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+			add_received_territory_flag = yes
+		}	
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 163 } }	#Zara
+				country_event = { id = hungary_flavor_partition.160 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 913 } }	#Fiume
+						country_event = { id = hungary_flavor_partition.170 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 852 } }	#Istria
+								country_event = { id = hungary_flavor_partition.180 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 736 } }	#Primorska
+										country_event = { id = hungary_flavor_partition.190 }
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+												country_event = { id = hungary_flavor_partition.200 } 
+												else = {
+													if = {
+														limit = { YUG = { owns_state = 102 } } 	#Slovenia
+														country_event = { id = hungary_flavor_partition.220 } 
+														else = {
+															#end of negotiation
+															news_event = { hours = 4 id = hun_news.1 }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = { limit = { 804 = { is_core_of = ROOT } } remove_state_core = 804 }  				#Herzegovina
+		804 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Herzegovina
+	}
+	
+	#Give it to Croatia
+	option = {
+		name = hungary_flavor_partition.155.e
+		trigger = {
+			CRO = { owns_state = 103 }	#Dalmatia
+		}
+		CRO = { 
+			transfer_state = 804	#Herzegovina
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+			add_received_territory_flag = yes
+		}	
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 163 } }	#Zara
+				country_event = { id = hungary_flavor_partition.160 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 913 } }	#Fiume
+						country_event = { id = hungary_flavor_partition.170 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 852 } }	#Istria
+								country_event = { id = hungary_flavor_partition.180 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 736 } }	#Primorska
+										country_event = { id = hungary_flavor_partition.190 }
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+												country_event = { id = hungary_flavor_partition.200 } 
+												else = {
+													if = {
+														limit = { YUG = { owns_state = 102 } } 	#Slovenia
+														country_event = { id = hungary_flavor_partition.220 } 
+														else = {
+															#end of negotiation
+															news_event = { hours = 4 id = hun_news.1 }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = { limit = { 804 = { is_core_of = ROOT } } remove_state_core = 804 }  				#Herzegovina
+		804 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Herzegovina
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.155.f
+		trigger = {
+			SER = { owns_state = 104 }	#Bosnia
+		}
+		SER = { 
+			transfer_state = 804	#Herzegovina
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+			add_received_territory_flag = yes
+		}	
+		hidden_effect = {
+			if = {
+				limit = { YUG = { owns_state = 163 } }	#Zara
+				country_event = { id = hungary_flavor_partition.160 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 913 } }	#Fiume
+						country_event = { id = hungary_flavor_partition.170 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 852 } }	#Istria
+								country_event = { id = hungary_flavor_partition.180 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 736 } }	#Primorska
+										country_event = { id = hungary_flavor_partition.190 }
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+												country_event = { id = hungary_flavor_partition.200 } 
+												else = {
+													if = {
+														limit = { YUG = { owns_state = 102 } } 	#Slovenia
+														country_event = { id = hungary_flavor_partition.220 } 
+														else = {
+															#end of negotiation
+															news_event = { hours = 4 id = hun_news.1 }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = { limit = { 804 = { is_core_of = ROOT } } remove_state_core = 804 }  				#Herzegovina
+		804 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Herzegovina
+	}
+	
+	#Liberate Herzegovina
+	option = {
+		name = hungary_flavor_partition.155.g
+		HRZ = { 
+			transfer_state = 804	#Herzegovina
+		}	
+		hidden_effect = {
+			if = {
+				limit = { YUG = { owns_state = 163 } }	#Zara
+				country_event = { id = hungary_flavor_partition.160 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 913 } }	#Fiume
+						country_event = { id = hungary_flavor_partition.170 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 852 } }	#Istria
+								country_event = { id = hungary_flavor_partition.180 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 736 } }	#Primorska
+										country_event = { id = hungary_flavor_partition.190 }
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+												country_event = { id = hungary_flavor_partition.200 } 
+												else = {
+													if = {
+														limit = { YUG = { owns_state = 102 } } 	#Slovenia
+														country_event = { id = hungary_flavor_partition.220 } 
+														else = {
+															#end of negotiation
+															news_event = { hours = 4 id = hun_news.1 }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = { limit = { 804 = { is_core_of = ROOT } } remove_state_core = 804 }  				#Herzegovina
+		804 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Herzegovina
+	}
+}
+
+
+# The fate of Zara
+country_event = {
+	id = hungary_flavor_partition.160
+	title = hungary_flavor_partition.160.t
+	desc = hungary_flavor_partition.160.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.160.a	
+		trigger = {
+			163 = { any_neighbor_state = { is_owned_by = ROOT } }	#Zara
+		}
+		transfer_state = 163	#Zara
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 913 } }	#Fiume
+				country_event = { id = hungary_flavor_partition.170 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 852 } }	#Istria
+						country_event = { id = hungary_flavor_partition.180 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 736 } }	#Primorska
+								country_event = { id = hungary_flavor_partition.190 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+										country_event = { id = hungary_flavor_partition.200 } 
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 102 } } 	#Slovenia
+												country_event = { id = hungary_flavor_partition.220 } 
+												else = {
+													#end of negotiation
+													news_event = { hours = 4 id = hun_news.1 }
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			} 
+		}
+	}
+	
+	#Give it to Croatia
+	option = {
+		name = hungary_flavor_partition.160.b	
+		trigger = {
+			163 = { any_neighbor_state = { is_owned_by = CRO } }	#Zara
+		}
+		CRO = {
+			transfer_state = 163	#Zara
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 913 } }	#Fiume
+				country_event = { id = hungary_flavor_partition.170 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 852 } }	#Istria
+						country_event = { id = hungary_flavor_partition.180 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 736 } }	#Primorska
+								country_event = { id = hungary_flavor_partition.190 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+										country_event = { id = hungary_flavor_partition.200 } 
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 102 } } 	#Slovenia
+												country_event = { id = hungary_flavor_partition.220 } 
+												else = {
+													#end of negotiation
+													news_event = { hours = 4 id = hun_news.1 }
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			} 
+			CRO = { add_received_territory_flag = yes }
+			if = { limit = { 163 = { is_core_of = ROOT } } remove_state_core = 163 }  				#Zara
+			163 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Zara
+		}
+	}
+	
+	#Give it to Serbia
+	option = {
+		name = hungary_flavor_partition.160.c	
+		trigger = {
+			163 = { any_neighbor_state = { is_owned_by = SER } }	#Zara
+		}
+		SER = {
+			transfer_state = 163	#Zara
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 913 } }	#Fiume
+				country_event = { id = hungary_flavor_partition.170 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 852 } }	#Istria
+						country_event = { id = hungary_flavor_partition.180 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 736 } }	#Primorska
+								country_event = { id = hungary_flavor_partition.190 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+										country_event = { id = hungary_flavor_partition.200 } 
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 102 } } 	#Slovenia
+												country_event = { id = hungary_flavor_partition.220 } 
+												else = {
+													#end of negotiation
+													news_event = { hours = 4 id = hun_news.1 }
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			} 
+			SER = { add_received_territory_flag = yes }
+			if = { limit = { 163 = { is_core_of = ROOT } } remove_state_core = 163 }  				#Zara
+			163 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Zara
+		}
+	}
+	
+	#Give it back to Italy
+	option = {
+		name = hungary_flavor_partition.160.e	
+		trigger = {
+			ITA = { exists = yes }
+		}
+		ITA = {
+			transfer_state = 163	#Zara
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 913 } }	#Fiume
+				country_event = { id = hungary_flavor_partition.170 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 852 } }	#Istria
+						country_event = { id = hungary_flavor_partition.180 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 736 } }	#Primorska
+								country_event = { id = hungary_flavor_partition.190 }
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+										country_event = { id = hungary_flavor_partition.200 } 
+										else = {
+											if = {
+												limit = { YUG = { owns_state = 102 } } 	#Slovenia
+												country_event = { id = hungary_flavor_partition.220 } 
+												else = {
+													#end of negotiation
+													news_event = { hours = 4 id = hun_news.1 }
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			} 
+			ITA = { add_received_territory_flag = yes }
+			if = { limit = { 163 = { is_core_of = ROOT } } remove_state_core = 163 }  				#Zara
+			163 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Zara
+		}
+	}
+}
+
+
+# The fate of Fiume
+country_event = {
+	id = hungary_flavor_partition.170
+	title = hungary_flavor_partition.170.t
+	desc = hungary_flavor_partition.170.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.170.a	
+		trigger = {
+			913 = { any_neighbor_state = { is_owned_by = ROOT } }	#Fiume
+		}
+		transfer_state = 913	#Fiume
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 852 } }	#Istria
+				country_event = { id = hungary_flavor_partition.180 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 736 } }	#Primorska
+						country_event = { id = hungary_flavor_partition.190 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+								country_event = { id = hungary_flavor_partition.200 } 
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 102 } } 	#Slovenia
+										country_event = { id = hungary_flavor_partition.220 } 
+										else = {
+											#end of negotiation
+											news_event = { hours = 4 id = hun_news.1 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#Give it to Croatia
+	option = {
+		name = hungary_flavor_partition.170.b	
+		trigger = {
+			913 = { any_neighbor_state = { is_owned_by = CRO } }	#Fiume
+		}
+		CRO = {
+			transfer_state = 913	#Fiume
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 852 } }	#Istria
+				country_event = { id = hungary_flavor_partition.180 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 736 } }	#Primorska
+						country_event = { id = hungary_flavor_partition.190 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+								country_event = { id = hungary_flavor_partition.200 } 
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 102 } } 	#Slovenia
+										country_event = { id = hungary_flavor_partition.220 } 
+										else = {
+											#end of negotiation
+											news_event = { hours = 4 id = hun_news.1 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			CRO = { add_received_territory_flag = yes }
+			if = { limit = { 913 = { is_core_of = ROOT } } remove_state_core = 913 }  				#Fiume
+			913 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Fiume
+		}
+	}
+	
+	#Give it back to Italy
+	option = {
+		name = hungary_flavor_partition.170.c	
+		trigger = {
+			ITA = { exists = yes }
+		}
+		ITA = {
+			transfer_state = 913	#Fiume
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 852 } }	#Istria
+				country_event = { id = hungary_flavor_partition.180 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 736 } }	#Primorska
+						country_event = { id = hungary_flavor_partition.190 }
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+								country_event = { id = hungary_flavor_partition.200 } 
+								else = {
+									if = {
+										limit = { YUG = { owns_state = 102 } } 	#Slovenia
+										country_event = { id = hungary_flavor_partition.220 } 
+										else = {
+											#end of negotiation
+											news_event = { hours = 4 id = hun_news.1 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			ITA = { add_received_territory_flag = yes }
+			if = { limit = { 913 = { is_core_of = ROOT } } remove_state_core = 913 }  				#Fiume
+			913 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Fiume
+		}
+	}
+}
+
+
+# The fate of Istria
+country_event = {
+	id = hungary_flavor_partition.180
+	title = hungary_flavor_partition.180.t
+	desc = hungary_flavor_partition.180.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.180.a	
+		trigger = {
+			852 = { any_neighbor_state = { is_owned_by = ROOT } }	#Istria
+		}
+		transfer_state = 852	#Istria
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 736 } }	#Primorska
+				country_event = { id = hungary_flavor_partition.190 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+						country_event = { id = hungary_flavor_partition.200 } 
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 102 } } 	#Slovenia
+								country_event = { id = hungary_flavor_partition.220 } 
+								else = {
+									#end of negotiation
+									news_event = { hours = 4 id = hun_news.1 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#Give it to Croatia
+	option = {
+		name = hungary_flavor_partition.180.b	
+		trigger = {
+			852 = { any_neighbor_state = { is_owned_by = CRO } }	#Istria
+		}
+		CRO = {
+			transfer_state = 852	#Istria
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 736 } }	#Primorska
+				country_event = { id = hungary_flavor_partition.190 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+						country_event = { id = hungary_flavor_partition.200 } 
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 102 } } 	#Slovenia
+								country_event = { id = hungary_flavor_partition.220 } 
+								else = {
+									#end of negotiation
+									news_event = { hours = 4 id = hun_news.1 }
+								}
+							}
+						}
+					}
+				}
+			}
+			CRO = { add_received_territory_flag = yes }
+			if = { limit = { 852 = { is_core_of = ROOT } } remove_state_core = 852 }  				#Istria
+			852 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Istria
+		}
+	}
+	
+	#Give it back to Italy
+	option = {
+		name = hungary_flavor_partition.180.c	
+		trigger = {
+			ITA = { exists = yes }
+		}
+		ITA = {
+			transfer_state = 852	#Istria
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 736 } }	#Primorska
+				country_event = { id = hungary_flavor_partition.190 }
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+						country_event = { id = hungary_flavor_partition.200 } 
+						else = {
+							if = {
+								limit = { YUG = { owns_state = 102 } } 	#Slovenia
+								country_event = { id = hungary_flavor_partition.220 } 
+								else = {
+									#end of negotiation
+									news_event = { hours = 4 id = hun_news.1 }
+								}
+							}
+						}
+					}
+				}
+			}
+			ITA = { add_received_territory_flag = yes }
+			if = { limit = { 852 = { is_core_of = ROOT } } remove_state_core = 852 }  				#Istria
+			852 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Istria
+		}
+	}
+}
+
+
+# The fate of Primorska
+country_event = {
+	id = hungary_flavor_partition.190
+	title = hungary_flavor_partition.190.t
+	desc = hungary_flavor_partition.190.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.190.a	
+		trigger = {
+			736 = { any_neighbor_state = { is_owned_by = ROOT } }	#Primorska
+		}
+		transfer_state = 736	#Primorska
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+				country_event = { id = hungary_flavor_partition.200 } 
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 102 } } 	#Slovenia
+						country_event = { id = hungary_flavor_partition.220 } 
+						else = {
+							#end of negotiation
+							news_event = { hours = 4 id = hun_news.1 }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#Give it back to Italy
+	option = {
+		name = hungary_flavor_partition.190.b	
+		#trigger = {
+		#	ITA = { exists = yes }
+		#}
+		ITA = {
+			transfer_state = 736	#Primorska
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = { 
+			if = {
+				limit = { YUG = { owns_state = 853 } }		#Ljubljana 
+				country_event = { id = hungary_flavor_partition.200 } 
+				else = {
+					if = {
+						limit = { YUG = { owns_state = 102 } } 	#Slovenia
+						country_event = { id = hungary_flavor_partition.220 } 
+						else = {
+							#end of negotiation
+							news_event = { hours = 4 id = hun_news.1 }
+						}
+					}
+				}
+			}
+			ITA = { add_received_territory_flag = yes }
+			if = { limit = { 736 = { is_core_of = ROOT } } remove_state_core = 736 }  				#Primorska
+			736 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Primorska
+		}
+	}
+}
+
+
+# The fate of Slovenia
+country_event = {
+	id = hungary_flavor_partition.200
+	title = hungary_flavor_partition.200.t
+	desc = hungary_flavor_partition.200.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.200.a	
+		trigger = {
+			OR = {
+				853 = { any_neighbor_state = { is_owned_by = ROOT } }	#Ljubljana
+				102 = { any_neighbor_state = { is_owned_by = ROOT } }	#Slovenia
+			}
+		}
+		transfer_state = 853	#Ljubljana
+		transfer_state = 102	#Slovenia
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+		}
+	}
+	
+	#Give it to Austria
+	option = {
+		name = hungary_flavor_partition.200.b
+		trigger = {
+			OR = {
+				853 = { any_neighbor_state = { is_owned_by = AUS } }	#Ljubljana
+				102 = { any_neighbor_state = { is_owned_by = AUS } }	#Slovenia
+			}
+			AUS = { NOT = { owns_state = 909 } }	#Burgenland
+		}
+		AUS = { 
+			transfer_state = 853	#Ljubljana
+			transfer_state = 102	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			AUS = {
+				add_received_territory_flag = yes
+				add_received_territory_flag = yes
+			}
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+	}
+	
+	#Make a deal with Austria
+	option = {
+		name = hungary_flavor_partition.200.c
+		trigger = {
+			OR = {
+				853 = { any_neighbor_state = { is_owned_by = AUS } }	#Ljubljana
+				102 = { any_neighbor_state = { is_owned_by = AUS } }	#Slovenia
+			}
+			AUS = { owns_state = 909 }	#Burgenland
+		}
+		custom_effect_tooltip = hungary_flavor_partition.200.c.tt
+		set_country_flag = HUN_offering_slovenia_to_austria
+		set_country_flag = HUN_offering_ljubljana_to_austria
+		hidden_effect = { country_event = { id = hungary_flavor_partition.240 } }
+	}
+	
+	#Give it to Germany
+	option = {
+		name = hungary_flavor_partition.200.e
+		trigger = {
+			OR = {
+				853 = { any_neighbor_state = { is_owned_by = GER } }	#Ljubljana
+				102 = { any_neighbor_state = { is_owned_by = GER } }	#Slovenia
+			}
+			NOT = { 853 = { any_neighbor_state = { is_owned_by = AUS } } }	#Ljubljana
+			NOT = { 102 = { any_neighbor_state = { is_owned_by = AUS } } }	#Slovenia
+		}
+		GER = { 
+			transfer_state = 853	#Ljubljana
+			transfer_state = 102	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			GER = {
+				add_received_territory_flag = yes
+				add_received_territory_flag = yes
+			}
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.200.f
+		trigger = {
+			OR = {
+				853 = { any_neighbor_state = { is_owned_by = ITA } }	#Ljubljana
+				853 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Ljubljana
+				102 = { any_neighbor_state = { is_owned_by = ITA } }	#Slovenia
+				102 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Slovenia
+			}
+			ITA = {
+				OR = {
+					NOT = {
+						owns_state = 163	#Zara
+						owns_state = 913	#Fiume
+					}
+					has_country_flag = refused_slovenia_for_zara
+				}
+			}
+		}
+		ITA = { 
+			transfer_state = 853	#Ljubljana
+			transfer_state = 102	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = {
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			ITA = {
+				add_received_territory_flag = yes
+				add_received_territory_flag = yes
+			}
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+	}
+	
+	#Make a deal with Italy
+	option = {
+		name = hungary_flavor_partition.200.g
+		trigger = {
+			OR = {
+				853 = { any_neighbor_state = { is_owned_by = ITA } }	#Ljubljana
+				853 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Ljubljana
+				102 = { any_neighbor_state = { is_owned_by = ITA } }	#Slovenia
+				102 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Slovenia
+			}
+			ITA = {
+				OR = {
+					163 = { any_neighbor_state = { is_owned_by = ITA } }	#Zara
+					163 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Zara
+				}
+				OR = {
+					913 = { any_neighbor_state = { is_owned_by = ITA } }	#Fiume
+					913 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Fiume
+				}				
+				NOT = { has_country_flag = refused_slovenia_for_zara }
+			}
+		}
+		custom_effect_tooltip = hungary_flavor_partition.200.g.tt
+		set_country_flag = HUN_offering_slovenia_to_italy
+		set_country_flag = HUN_offering_ljubljana_to_italy
+		hidden_effect = { country_event = { id = hungary_flavor_partition.230 } }
+	}
+	
+	#Liberate Slovenia
+	option = {
+		name = hungary_flavor_partition.200.h
+		SLV = { 
+			transfer_state = 853	#Ljubljana
+			transfer_state = 102	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+		hidden_effect = {
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			SLV = {
+				add_received_territory_flag = yes
+				add_received_territory_flag = yes
+			}
+		}
+	}
+	
+	#Decide for the northern and southern parts separately
+	option = {
+		name = hungary_flavor_partition.200.i
+		custom_effect_tooltip = hungary_flavor_partition.200.i.tt
+		set_country_flag = HUN_slovenia_split_decision
+		hidden_effect = { country_event = { id = hungary_flavor_partition.210 } }
+	}
+}
+
+
+# The fate of Northern Slovenia
+country_event = {
+	id = hungary_flavor_partition.210
+	title = hungary_flavor_partition.210.t
+	desc = hungary_flavor_partition.210.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it.
+	option = {
+		name = hungary_flavor_partition.210.a
+		trigger = {
+				102 = { any_neighbor_state = { is_owned_by = ROOT } }	#Slovenia			
+		}
+		add_named_threat = { threat = 1 name = HUN_annexed_slovenia_threat }
+		transfer_state = 102	#Slovenia
+		hidden_effect = { country_event = { id = hungary_flavor_partition.220 } }
+	}
+	
+	#Give it to Germany
+	option = {
+		name = hungary_flavor_partition.210.b
+		trigger = {
+			102 = { any_neighbor_state = { is_owned_by = GER } }	 #Slovenia
+			NOT = { 102 = { any_neighbor_state = { is_owned_by = AUS } } }	 #Slovenia
+		}
+		GER = { 
+			transfer_state = 102 	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = {
+			GER = { add_received_territory_flag = yes }
+			country_event = { id = hungary_flavor_partition.220 }
+		}
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+	}
+	
+	#Give it to Austria.
+	option = {
+		name = hungary_flavor_partition.210.c
+		trigger = {
+			102 = { any_neighbor_state = { is_owned_by = AUS } }
+			AUS = { NOT = { owns_state = 909 } }	#Burgenland
+		}
+		AUS = { 
+			transfer_state = 102 	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = {
+			AUS = { add_received_territory_flag = yes }
+			country_event = { id = hungary_flavor_partition.220 }
+		}
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+	}
+	
+	#Make a deal with Austria
+	option = {
+		name = hungary_flavor_partition.210.e
+		trigger = {
+			102 = { any_neighbor_state = { is_owned_by = AUS } }
+			AUS = {
+				exists = yes
+				NOT = { has_country_flag = refused_slovenia_for_burgenland }
+				owns_state = 909	#Burgenland
+			} 
+		}
+		custom_effect_tooltip = hungary_flavor_partition.210.e.tt
+		set_country_flag = HUN_offering_slovenia_to_austria
+		hidden_effect = { country_event = { id = hungary_flavor_partition.240 } }
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.210.f
+		trigger = {
+			OR = {
+				102 = { any_neighbor_state = { is_owned_by = ITA } }	#Slovenia
+				102 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Slovenia
+			}
+			OR = {
+				NOT = {
+					163 = { OWNER = { tag = ITA } }	#Zara
+					163 = { OWNER = { is_subject_of = ITA } }	#Zara
+					913 = { OWNER = { tag = ITA } }	#Fiume
+					913 = { OWNER = { is_subject_of = ITA } }	#Fiume
+				}
+				ITA = { has_country_flag = refused_slovenia_for_zara }
+			}
+		}
+		ITA = { 
+			transfer_state = 102 	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = {
+			ITA = { add_received_territory_flag = yes }
+			country_event = { id = hungary_flavor_partition.220 }
+		}
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+	}
+	
+	#Make a deal with Italy
+	option = {
+		name = hungary_flavor_partition.210.g
+		trigger = {
+			OR = {
+				102 = { any_neighbor_state = { is_owned_by = ITA } }	#Slovenia
+				102 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Slovenia
+			}
+			ITA = {
+				OR = {
+					163 = { OWNER = { tag = ITA } }	#Zara
+					163 = { OWNER = { is_subject_of = ITA } }	#Zara
+					913 = { OWNER = { tag = ITA } }	#Fiume
+					913 = { OWNER = { is_subject_of = ITA } }	#Fiume
+				}
+				NOT = { has_country_flag = refused_slovenia_for_zara }
+			}
+		}
+		custom_effect_tooltip = hungary_flavor_partition.210.g.tt
+		set_country_flag = HUN_offering_slovenia_to_italy
+		hidden_effect = { country_event = { id = hungary_flavor_partition.230 } }
+	}
+	
+	#Give it to the Slovenes.
+	option = {
+		name = hungary_flavor_partition.210.h
+		SLV = { 
+			transfer_state = 102 	#Slovenia
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}
+		hidden_effect = {
+			SLV = { add_received_territory_flag = yes }
+			country_event = { id = hungary_flavor_partition.220 }
+		}
+		if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+		102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+	}
+}
+
+
+# The fate of Ljubljana
+country_event = {
+	id = hungary_flavor_partition.220
+	title = hungary_flavor_partition.220.t
+	desc = hungary_flavor_partition.220.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Annex it
+	option = {
+		name = hungary_flavor_partition.220.a	
+		trigger = {
+			853 = { any_neighbor_state = { is_owned_by = ROOT } }	#Ljubljana
+		}
+		transfer_state = 853	#Ljubljana
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+		}
+	}
+	
+	#Give it to Austria
+	option = {
+		name = hungary_flavor_partition.220.b
+		trigger = {
+			853 = { any_neighbor_state = { is_owned_by = AUS } }	#Ljubljana
+		}
+		AUS = { 
+			transfer_state = 853	#Ljubljana
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			AUS = { add_received_territory_flag = yes }
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+	}
+	
+	#Give it to Germany
+	option = {
+		name = hungary_flavor_partition.220.c
+		trigger = {
+			853 = { any_neighbor_state = { is_owned_by = GER } }	#Ljubljana
+			NOT = { 853 = { any_neighbor_state = { is_owned_by = AUS } } }	#Ljubljana
+		}
+		GER = { 
+			transfer_state = 853	#Ljubljana
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			GER = { add_received_territory_flag = yes }
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+	}
+	
+	#Give it to Italy
+	option = {
+		name = hungary_flavor_partition.220.e
+		trigger = {
+			OR = {
+				853 = { any_neighbor_state = { is_owned_by = ITA } }	#Ljubljana
+				853 = { any_neighbor_state = { OWNER = { is_subject_of = ITA } } }	#Ljubljana
+			}
+			OR = {
+				NOT = {
+					163 = { OWNER = { tag = ITA } }	#Zara
+					163 = { OWNER = { is_subject_of = ITA } }	#Zara
+					913 = { OWNER = { tag = ITA } }	#Fiume
+					913 = { OWNER = { is_subject_of = ITA } }	#Fiume
+				}
+				ITA = { has_country_flag = refused_slovenia_for_zara }
+			}
+		}
+		ITA = { 
+			transfer_state = 853	#Ljubljana
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			ITA = { add_received_territory_flag = yes }
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+	}
+	
+	#Make a deal with Italy
+	option = {
+		name = hungary_flavor_partition.220.f
+		trigger = {
+			ITA = {
+				OR = {
+					163 = { OWNER = { tag = ITA } }	#Zara
+					163 = { OWNER = { is_subject_of = ITA } }	#Zara
+					913 = { OWNER = { tag = ITA } }	#Fiume
+					913 = { OWNER = { is_subject_of = ITA } }	#Fiume
+				}
+				NOT = { has_country_flag = refused_slovenia_for_zara }
+			}
+			owns_state = 923	#Pag
+		}
+		custom_effect_tooltip = hungary_flavor_partition.220.f.tt
+		set_country_flag = HUN_offering_ljubljana_to_italy
+		hidden_effect = { country_event = { id = hungary_flavor_partition.230 } }
+	}
+	
+	#Give it to the Slovenes
+	option = {
+		name = hungary_flavor_partition.220.g
+		SLV = { 
+			transfer_state = 853	#Ljubljana
+			custom_effect_tooltip = HUN_will_look_favorably_on_this_decision
+		}	
+		hidden_effect = { 
+			#end of negotiation
+			news_event = { hours = 4 id = hun_news.1 }
+			SLV = { add_received_territory_flag = yes }
+		}
+		if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+		853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+	}
+}
+
+
+# A deal with Italy
+country_event = {
+	id = hungary_flavor_partition.230
+	title = hungary_flavor_partition.230.t
+	desc = hungary_flavor_partition.230.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#We don't ask for anything in return.
+	option = {
+		name = hungary_flavor_partition.230.a
+		hidden_effect = {
+			if = {
+				limit = { HUN = { has_country_flag = HUN_offering_slovenia_to_italy } }
+				ITA = { 
+					transfer_state = 102	#Slovenia
+					add_received_territory_flag = yes
+				}
+				if = {
+					limit = { NOT = { HUN = { has_country_flag = HUN_offering_ljubljana_to_italy } } }
+					country_event = { hours = 4 id = hungary_flavor_partition.220 }
+				}
+			}
+			if = {
+				limit = { HUN = { has_country_flag = HUN_offering_ljubljana_to_italy } }
+				ITA = { 
+					transfer_state = 853	#Ljubljana
+					add_received_territory_flag = yes
+				}
+				#end of negotiation
+				news_event = { hours = 4 id = hun_news.1 }
+			}
+		}
+	}
+	
+	#We want Fiume
+	option = {
+		name = hungary_flavor_partition.230.b
+		trigger = {
+			OR = {
+				913 = { OWNER = { tag = ITA } }	#Fiume
+				913 = { OWNER = { is_subject_of = ITA } }	#Fiume
+			}
+		}	
+		hidden_effect = {
+			ITA = { 
+				set_country_flag = HUN_hungary_wants_fiume 
+				country_event = { hours = 4 id = hungary_flavor_ita.1 }
+			}
+		}
+	}
+	
+	#We want Zara
+	option = {
+		name = hungary_flavor_partition.230.c
+		trigger = {
+			OR = {
+				163 = { OWNER = { tag = ITA } }	#Zara
+				163 = { OWNER = { is_subject_of = ITA } }	#Zara
+			}
+		}	
+		hidden_effect = {
+			ITA = { 
+				set_country_flag = HUN_hungary_wants_zara 
+				country_event = { hours = 4 id = hungary_flavor_ita.1 }
+			}
+		}
+	}
+	
+	#We want Zara and Fiume
+	option = {
+		name = hungary_flavor_partition.230.e
+		trigger = {
+			OR = {
+				163 = { OWNER = { tag = ITA } }	#Zara
+				163 = { OWNER = { is_subject_of = ITA } }	#Zara
+			}
+			OR = {
+				913 = { OWNER = { tag = ITA } }	#Fiume
+				913 = { OWNER = { is_subject_of = ITA } }	#Fiume
+			}
+		}	
+		hidden_effect = {
+			ITA = { 
+				set_country_flag = HUN_hungary_wants_zara_and_fiume 
+				country_event = { hours = 4 id = hungary_flavor_ita.1 }
+			}
+		}
+	}
+}
+
+
+# A deal with Austria
+country_event = {
+	id = hungary_flavor_partition.240
+	title = hungary_flavor_partition.240.t
+	desc = hungary_flavor_partition.240.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#We don't ask for anything in return.
+	option = {
+		name = hungary_flavor_partition.240.a
+		hidden_effect = {
+			if = {
+				limit = { HUN = { has_country_flag = HUN_offering_slovenia_to_austria } }
+				AUS = { 
+					transfer_state = 102	#Slovenia
+					add_received_territory_flag = yes
+				}
+				if = {
+					limit = { NOT = { HUN = { has_country_flag = HUN_offering_ljubljana_to_austria } } }
+					country_event = { hours = 4 id = hungary_flavor_partition.220 }
+				}
+				if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+				102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+			}
+			if = {
+				limit = { HUN = { has_country_flag = HUN_offering_ljubljana_to_austria } }
+				AUS = { 
+					transfer_state = 853	#Ljubljana
+					add_received_territory_flag = yes
+				}
+				if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+				853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+				#end of negotiation
+				news_event = { hours = 4 id = hun_news.1 }
+			}
+		}
+	}
+	
+	#We want Burgenland
+	option = {
+		name = hungary_flavor_partition.240.b
+		trigger = {
+			AUS = { owns_state = 909 }	#Burgenland
+		}	
+		hidden_effect = {
+			AUS = { 
+				set_country_flag = HUN_hungary_wants_burgenland
+				country_event = { hours = 4 id = hungary_flavor_aus.3 }
+			}
+		}
+	}
+}
+
+# Italy accepts (Slovenia/Ljubljana for Adriatic ports)
+country_event = {
+	id = hungary_flavor_partition.250
+	title = hungary_flavor_partition.250.t
+	desc = hungary_flavor_partition.250.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Splendid
+	option = {
+		name = hungary_flavor_partition.250.a
+		if = {
+			limit = { ITA = { has_country_flag = HUN_hungary_wants_zara_and_fiume } }
+			transfer_state = 163	#Zara
+			transfer_state = 913	#Fiume
+		}
+		if = {
+			limit = { ITA = { has_country_flag = HUN_hungary_wants_zara } }
+			transfer_state = 163	#Zara 
+		}
+		if = {
+			limit = { ITA = { has_country_flag = HUN_hungary_wants_fiume } }
+			transfer_state = 913	#Fiume 
+		}
+		if = {
+			limit = { HUN = { has_country_flag = HUN_offering_ljubljana_to_italy } }
+			if = { limit = { 853 = { is_core_of = ROOT } } remove_state_core = 853 }  				#Ljubljana
+			853 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Ljubljana
+		}
+		if = {
+			limit = { HUN = { has_country_flag = HUN_offering_slovenia_to_italy } }
+			if = { limit = { 102 = { is_core_of = ROOT } } remove_state_core = 102 }  				#Slovenia
+			102 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Slovenia
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = { YUG = { owns_state = 853 } } 	#Ljubljana 
+				country_event = { id = hungary_flavor_partition.220 } 
+				else = {
+					#end of negotiation
+					news_event = { hours = 4 id = hun_news.1 }
+				}
+			}
+		}
+	}
+}
+
+# Italy declines (Slovenia/Ljubljana for Adriatic ports)
+country_event = {
+	id = hungary_flavor_partition.260
+	title = hungary_flavor_partition.260.t
+	desc = hungary_flavor_partition.260.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	#Strange
+	option = {
+		name = hungary_flavor_partition.260.a
+		if = {
+			limit = {
+				has_country_flag = HUN_offering_ljubljana_to_italy
+				has_country_flag = HUN_offering_slovenia_to_italy
+			}
+			country_event = { id = hungary_flavor_partition.200 }
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = HUN_offering_ljubljana_to_italy }
+				has_country_flag = HUN_offering_slovenia_to_italy
+			}
+			country_event = { id = hungary_flavor_partition.210 }
+		}
+		if = {
+			limit = {
+				has_country_flag = HUN_offering_ljubljana_to_italy
+				NOT = { has_country_flag = HUN_offering_slovenia_to_italy }
+			}
+			country_event = { id = hungary_flavor_partition.220 }
+		}
+	}
+}

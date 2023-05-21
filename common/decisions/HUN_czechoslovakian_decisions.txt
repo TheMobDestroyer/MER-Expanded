@@ -1,0 +1,37 @@
+political_actions = {
+
+	HUN_rename_the_country = {
+
+		icon = generic_political_discourse
+
+		cost = 0
+
+		available = {
+			NOT = {
+				owns_state = 70		#Western Slovakia
+				owns_state = 71		#Eastern Slovakia
+				owns_state = 664	#Southern Slovakia
+				owns_state = 928	#Sobrance
+			}
+		}
+
+		visible = {
+			tag = CZE
+			has_war = no
+			NOT = { has_cosmetic_tag = CZE_ONLY }
+			NOT = {
+				owns_state = 70		#Western Slovakia
+				owns_state = 71		#Eastern Slovakia
+				owns_state = 664	#Southern Slovakia
+				owns_state = 928	#Sobrance
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			set_cosmetic_tag = CZE_ONLY
+		}
+	}
+	
+}

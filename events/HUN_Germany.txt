@@ -1,0 +1,2016 @@
+﻿
+add_namespace = hungary_flavor_ger
+
+
+#########
+#GERMANY#
+#########
+
+# Hungary seeks membership in the Axis
+country_event = {
+	id = hungary_flavor_ger.1
+	title = hungary_flavor_ger.1.t
+	desc = hungary_flavor_ger.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Welcome our Hungarian friends
+	option = {
+		ai_chance = {
+			factor = 90						
+		}
+		name = hungary_flavor_ger.1.a
+		add_to_faction = FROM
+		FROM = { country_event = { days = 1 id = hungary_flavor.30 } }
+	}
+	
+	#We are better off without them
+	option = {
+		ai_chance = {
+			factor = 10		
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}	
+		}
+		name = hungary_flavor_ger.1.b
+		FROM = { country_event = { days = 1 id = hungary_flavor.31 } }
+	}
+}
+
+# Communism victorious
+country_event = {
+	id = hungary_flavor_ger.2
+	title = hungary_flavor_ger.2.t
+	desc = hungary_flavor_ger.2.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GER
+		has_government = communism
+		has_idea = communist_revolution
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	#Internationalism is the way to go.
+	option = {
+		trigger = {
+			any_country = {
+				has_government = communism
+				is_faction_leader = yes
+			}
+		}
+		ai_chance = {
+			factor = 70						
+		}
+		name = hungary_flavor_ger.2.a
+		remove_ideas = communist_revolution
+		random_country = {
+			limit = {
+				has_government = communism
+				is_faction_leader = yes
+			}
+			country_event = { days = 1 id = hungary_flavor_ger.3 } 
+		}
+	}
+	
+	#We need to continue the revolution on our own.
+	option = {
+		ai_chance = {
+			factor = 30
+		}
+		name = hungary_flavor_ger.2.b
+		remove_ideas = communist_revolution
+	}
+}
+
+# Communist Germany seeks entry into [Root.GetFactionName]
+country_event = {
+	id = hungary_flavor_ger.3
+	title = hungary_flavor_ger.3.t
+	desc = hungary_flavor_ger.3.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	#Of course we will.
+	option = {
+		ai_chance = {
+			factor = 1						
+		}
+		name = hungary_flavor_ger.3.a
+		add_to_faction = FROM
+	}
+	
+	#They need to find their own path.
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = hungary_flavor_ger.3.b
+	}
+}
+
+
+# [From.GetName] accepts faction membership
+country_event = {
+	id = hungary_flavor_ger.4
+	title = hungary_flavor_ger.4.t
+	desc = hungary_flavor_ger.4.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	#Onwards, comerades!
+	option = {
+		name = hungary_flavor_ger.4.a
+	}
+}
+
+# [From.GetName] declines faction membership
+country_event = {
+	id = hungary_flavor_ger.5
+	title = hungary_flavor_ger.5.t
+	desc = hungary_flavor_ger.5.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	#They must have their reasons.
+	option = {
+		name = hungary_flavor_ger.5.a
+	}
+}
+
+# Hungary seeks to restore Austro-Hungarian Monarchy
+country_event = {
+	id = hungary_flavor_ger.6
+	title = hungary_flavor_ger.6.t
+	desc = hungary_flavor_ger.6.d
+	picture = GFX_report_event_ahu_old
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	#This is of little consequence.
+	option = {
+		name = hungary_flavor_ger.6.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				has_government = communism
+			}
+		}
+	}
+	
+	#We can't let them interfere with our sphere of influence.
+	option = {
+		name = hungary_flavor_ger.6.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 10
+				HUN = { has_country_flag = HUN_realism }
+			}
+		}
+		HUN = { country_event = { hours = 6 id = hungary_flavor.66 } }
+	}
+}
+
+# Hungary refuses to back down
+country_event = {
+	id = hungary_flavor_ger.7
+	title = hungary_flavor_ger.7.t
+	desc = hungary_flavor_ger.7.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	#An intervention will be necessary.
+	option = {
+		name = hungary_flavor_ger.7.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 10
+				HUN = { has_country_flag = HUN_realism }
+			}
+		}
+		#declare_war_on = { target = FROM type = annex_everything }
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
+		}
+	}
+	
+	#They will regret opposing the power of [Root.GetName]... Later.
+	option = {
+		name = hungary_flavor_ger.7.b
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
+
+
+# Securing the loyalty of Hungary
+country_event = {
+	id = hungary_flavor_ger.8
+	title = hungary_flavor_ger.8.t
+	desc = hungary_flavor_ger.8.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	#Start preparations for Opearation Margaretha
+	option = {
+		name = hungary_flavor_ger.8.a
+		ai_chance = {
+			factor = 80
+		}
+		custom_effect_tooltip = hungary_flavor_ger.8.tt
+		hidden_effect = { HUN = { country_event = { days = 2 id = hungary_flavor.85 } } }
+		set_country_flag = HUN_operation_margaretha
+	}
+	
+	#Surely, they foster no thoughts of betrayal
+	option = {
+		name = hungary_flavor_ger.8.b
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 5
+				HUN = {
+					NOT = { has_country_flag = HUN_realism }
+				}
+			}
+		}
+	}
+}
+
+
+
+# Assisting Hungary
+country_event = {
+	id = hungary_flavor_ger.9
+	title = hungary_flavor_ger.9.t
+	desc = hungary_flavor_ger.9.d
+	picture = GFX_report_event_german_inspect_troops
+	
+	is_triggered_only = yes
+	
+	#We can spare a few generals
+	option = {
+		name = hungary_flavor_ger.9.a
+		ai_chance = {
+			factor = 70		
+			modifier = {
+				factor = 0.5
+				FROM = {  has_country_flag = HUN_realism }
+			}	
+		}
+		add_political_power = 50
+		remove_unit_leader = 13
+		remove_unit_leader = 17
+		effect_tooltip = { HUN = { add_ideas = { assistance_from_german_general_staff } } }
+		hidden_effect = { 
+			HUN = { 
+				set_country_flag = HUN_germany_full_help
+				country_event = { days = 1 id = hungary_flavor.94 } 
+			} 
+		}
+	}
+	
+	#Send a token mission of military advisors
+	option = {
+		name = hungary_flavor_ger.9.b
+		ai_chance = {
+			factor = 20
+		}
+		add_political_power = 50
+		effect_tooltip = { HUN = { add_ideas = { assistance_from_german_general_staff } } }
+		hidden_effect = { 
+			HUN = { 
+				set_country_flag = HUN_germany_partial_help
+				country_event = { days = 1 id = hungary_flavor.94 } 
+			} 
+		}
+	}
+	
+	#They do not have our support
+	option = {
+		name = hungary_flavor_ger.9.b
+		ai_chance = {
+			factor = 10
+		}
+		hidden_effect = { 
+			HUN = { 
+				set_country_flag = HUN_germany_no_help
+				country_event = { days = 1 id = hungary_flavor.95 } 
+			} 
+		}
+	}
+}
+
+
+# Deprecated
+# Italian claims on Ljubljana
+country_event = {
+	id = hungary_flavor_ger.10
+	title = hungary_flavor_ger.10.t
+	desc = hungary_flavor_ger.10.d
+	picture = GFX_report_event_german_inspect_troops
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	#They can have it
+	option = {
+		name = hungary_flavor_ger.10.a
+		ai_chance = {
+			factor = 90	
+		}
+		effect_tooltip = {
+			ITA = { transfer_state = 815 }	#Ljubjana
+		}
+		ITA = { country_event = { id = hungary_flavor_ita.7 } }
+	}
+	
+	#Ljubljana is ours
+	option = {
+		name = hungary_flavor_ger.10.b
+		ai_chance = {
+			factor = 10
+		}
+		ITA = { add_opinion_modifier = { target = ROOT modifier = HUN_denied_ljubjana } }
+	}
+}
+
+# Overlord of Austria asked about Anschluss
+country_event = {
+	id = hungary_flavor_ger.11
+	title = hungary_flavor_ger.11.t
+	desc = hungary_flavor_ger.11.d
+	picture = GFX_report_event_hitler_parade
+	
+	is_triggered_only = yes
+	
+	option = { # Accept
+		name = hungary_flavor_ger.11.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				add = -25
+				GER = { has_army_size = { size < 40 } }
+			}
+			modifier = {
+				add = 100
+				GER = { has_army_size = { size > 39 } }
+			}
+		}
+		GER = {
+			country_event = { hours = 2 id = germany.4 }
+		}
+	}
+	option = { # Refuse
+		name = hungary_flavor_ger.11.b
+		ai_chance = {
+			base = 10 
+
+			modifier = {
+				factor = 0
+				GER = { has_army_size = { size > 39 } }
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 20
+				GER = { has_army_size = { size < 30 } }
+			}
+		}
+		GER = {
+			add_opinion_modifier = { target = ROOT modifier = GER_anschluss_rejected }
+			country_event = { hours = 2 id = germany.29 }
+			if = { limit = { is_in_faction_with = ROOT }
+				remove_from_faction = ROOT
+			}
+		}
+	}
+}
+
+# The Fate of Czechoslovakia event for the overlord of CZE
+country_event = {
+	id = hungary_flavor_ger.12
+	title = hungary_flavor_ger.12.t
+	desc = hungary_flavor_ger.12.d
+	picture = GFX_report_event_german_politician_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Agree
+		name = hungary_flavor_ger.12.a
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_in_faction_with = ENG
+					is_in_faction_with = FRA
+					is_puppet = yes
+					GER = {
+						AND = {
+							has_war_with = ENG
+							has_war_with = FRA
+						}
+					}
+					GER = {
+						AND = {
+							has_war_with = SOV
+							OR = {
+								has_war_with = ENG
+								has_war_with = FRA
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					AND = {
+						is_faction_leader = yes
+						any_country = { is_in_faction_with = ROOT }
+					}
+					GER = {
+						OR = {
+							AND = {
+								has_war_with = ENG
+								NOT = {
+									has_war_with = FRA
+								}
+							}
+							AND = {
+								has_war_with = FRA
+								NOT = {
+									has_war_with = ENG
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		GER = { country_event = germany.55 }
+	}
+	option = { # Refuse
+		name = hungary_flavor_ger.12.b
+		ai_chance = {
+			factor = 100
+			modifier = {				
+				factor = 0
+				NOT = { is_in_faction_with = ENG }
+				NOT = { is_in_faction_with = FRA }
+				NOT = {
+					is_faction_leader = yes
+					any_country = { is_in_faction_with = ROOT }
+				}
+				is_puppet = no
+				NOT = {
+					GER = {
+						has_war_with = ENG
+						has_war_with = FRA
+					}
+				}
+				NOT = {
+					GER = {
+						has_war_with = SOV
+						OR = {
+							has_war_with = ENG
+							has_war_with = FRA
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				GER = {
+					OR = {
+						AND = {
+							has_war_with = ENG
+							NOT = {
+								has_war_with = FRA
+							}
+						}
+						AND = {
+							has_war_with = FRA
+							NOT = {
+								has_war_with = ENG
+							}
+						}
+					}
+				}
+			}
+		}
+		GER = { 
+			country_event = { id = germany.54 days = 1 }
+		}
+	}
+}
+
+# Deprecated
+# Former Hungarian lands in Serbia
+country_event = {
+	id = hungary_flavor_ger.13
+	title = hungary_flavor_ger.13.t
+	desc = hungary_flavor_ger.13.d
+	picture = GFX_report_event_german_inspect_troops
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	#We will offer them their lands back.
+	option = {
+		name = hungary_flavor_ger.13.a
+		ai_chance = {
+			factor = 80	
+		}
+		HUN = { country_event = { id = hungary_flavor.114 } }
+		effect_tooltip = {
+			HUN = { 
+				transfer_state = 808	#Torontal 
+				transfer_state = 809	#Srem 
+				add_opinion_modifier = { target = ROOT modifier = HUN_given_territory2 }
+				custom_effect_tooltip = needs_approval
+			}
+		}
+	}
+	
+	#They should be content with what they have.
+	option = {
+		name = hungary_flavor_ger.13.b
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+# Meeting with Horthy
+country_event = {
+	id = hungary_flavor_ger.14
+	title = hungary_flavor_ger.14.t
+	desc = {
+		text = hungary_flavor_ger.14.d_nothing
+		trigger = { has_global_flag = HUN_GER_agreement_hungary_wants_nothing }
+	}
+	desc = {
+		text = hungary_flavor_ger.14.d_carpathian_ruthenia
+		trigger = { has_global_flag = HUN_GER_agreement_hungary_wants_carpathian_ruthenia }
+	}
+	desc = {
+		text = hungary_flavor_ger.14.d_slovakia
+		trigger = { has_global_flag = HUN_GER_agreement_hungary_wants_slovakia }
+	}
+	picture = GFX_report_event_HUN_hitler_horthy_meeting
+	
+	is_triggered_only = yes
+	
+	#We can agree to these requests.
+	option = {
+		name = hungary_flavor_ger.14.a
+		trigger = {
+			NOT = { has_global_flag = HUN_GER_agreement_hungary_wants_nothing }
+		}
+		ai_chance = {
+			factor = 80	
+		}
+		HUN = { country_event = { id = hungary_flavor.116 } }
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = HUN_GER_agreement_hungary_wants_carpathian_ruthenia }
+				set_global_flag = HUN_GER_agreement_hungary_gets_carpathian_ruthenia
+			}
+			if = {
+				limit = { has_global_flag = HUN_GER_agreement_hungary_wants_slovakia }
+				set_global_flag = HUN_GER_agreement_hungary_gets_slovakia
+			}
+		}
+	}
+	
+	#We can make no promises.
+	option = {
+		name = hungary_flavor_ger.14.b
+		trigger = {
+			NOT = { has_global_flag = HUN_GER_agreement_hungary_wants_nothing }
+		}
+		ai_chance = {
+			factor = 20
+		}
+		HUN = { country_event = { id = hungary_flavor.117 } }
+	}
+	
+	#We will be carving up Czechoslovakia on our own terms then.
+	option = {
+		name = hungary_flavor_ger.14.c
+		trigger = {
+			has_global_flag = HUN_GER_agreement_hungary_wants_nothing
+		}
+		hidden_effect = { set_global_flag = HUN_GER_agreement_hungary_gets_nothing }
+	}
+}
+
+# The Fate of Czechoslovakia (fixing inexplicable conflict with vanilla files)
+country_event = {
+	id = hungary_flavor_ger.15
+	title = germany.53.t
+	desc = {
+		text = germany.55.d
+		trigger = { has_global_flag = end_of_czechoslovakia }
+	}
+	desc = {
+		text = germany.55.d_2
+		trigger = { NOT = { has_global_flag = end_of_czechoslovakia } }
+	}
+	picture = GFX_report_event_german_inspect_troops
+	
+	is_triggered_only = yes
+	
+	#Annex CZE, puppet SLO, ignore Carpathian Ruthenia
+	option = {
+		name = germany.55.a
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				OR = {
+					has_global_flag = HUN_GER_agreement_hungary_gets_nothing
+					has_global_flag = HUN_GER_agreement_hungary_gets_slovakia
+				}
+			}
+		}
+		trigger = {
+			SLO = { exists = no }
+		}
+		if = {
+			limit = {
+				70 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			SLO = { transfer_state = 70 }
+		}
+		if = {
+			limit = {
+				71 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			SLO = { transfer_state = 71 }
+		}
+		if = {
+			limit = {
+				828 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			SLO = { transfer_state = 828 }
+		}
+		if = {
+			limit = {
+				73 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			SLO = { transfer_state = 73 }	#Carpathian Ruthenia
+		}
+		if = {
+			limit = {
+				914 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			SLO = { transfer_state = 914 }	#Berehovo
+		}
+		if = {
+			limit = {
+				928 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			SLO = { transfer_state = 928 }	#Sobrance
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = HUN_GER_agreement_hungary_gets_nothing }
+				country_exists = HUN
+				914 = { is_owned_by = HUN }
+			}
+			HUN = { country_event = { hours = 4 id = hungary_flavor.104 } }
+		}
+		if = {
+			limit = { has_global_flag = HUN_GER_agreement_hungary_gets_slovakia }
+			HUN = { add_opinion_modifier = { target = ROOT modifier = HUN_betrayed_promises } }
+		}
+		
+		if = {
+			limit = {
+				664 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			SLO = { transfer_state = 664 }
+		}
+		if = {
+			limit = { country_exists = CZE }
+			annex_country = { target = CZE }
+		}
+		if = {
+			limit = { SLO = { NOT = { is_subject = yes } } }	#If Slovakia is already a puppet, GER doesn't steal it
+			puppet = SLO
+		}
+		if = {
+			limit = {
+				72 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+				country_exists = POL
+			}
+			POL = { transfer_state = 72 } # Give Poland Zaolzie
+		}
+
+		if = {
+			limit = {
+				72 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+				NOT = { country_exists = POL }
+			}
+			SLO = { transfer_state = 72 } # Give Slovakia Zaolzie
+		}
+
+		hidden_effect = {
+			country_event = { hours = 6 id = news.60 }
+			every_state = {
+				limit = {
+					is_owned_by = SLO
+				}
+				add_core_of = SLO
+			}
+			SLO = {
+				load_oob = SLO_1939
+				add_manpower = 9876
+			}
+		}
+	}
+	#Annex CZE, give Hungary SLO and Carpathian Ruthenia
+	option = {
+		name = germany.55.b
+		add_political_power = -20
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 30
+				OR = {
+				    HUN = { has_government = fascism }
+					has_global_flag = HUN_GER_agreement_hungary_gets_carpathian_ruthenia
+					has_global_flag = HUN_GER_agreement_hungary_gets_nothing
+					AND = {
+						NOT = { has_global_flag = HUN_GER_agreement_hungary_gets_carpathian_ruthenia }
+						NOT = { has_global_flag = HUN_GER_agreement_hungary_gets_nothing }
+						NOT = { has_global_flag = HUN_GER_agreement_hungary_gets_slovakia }
+						is_historical_focus_on = yes
+					}
+				}
+			}
+		}
+		trigger = {
+			664 = { is_owned_by = HUN }
+			HUN = {
+				is_friend_or_potential_friend_of_GER = yes
+			}
+		}
+		HUN = { country_event = germany.56 }
+		if = {
+			limit = {
+				72 = {
+					OR = {
+						is_owned_by = CZE
+						is_owned_by = GER
+					}
+				}
+			}
+			POL = { transfer_state = 72 } # Give Poland Zaolzie
+		}
+	}
+	#Annex everything
+	option = {
+		name = germany.55.c
+		add_political_power = -50
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 0
+				AND = {
+					SLO = { exists = no }	#If Slovakia exists, the first option is disabled, which leaves us with this one
+					OR = {
+						has_global_flag = HUN_GER_agreement_hungary_gets_carpathian_ruthenia
+						has_global_flag = HUN_GER_agreement_hungary_gets_slovakia
+						AND = {
+							NOT = { has_global_flag = HUN_GER_agreement_hungary_gets_carpathian_ruthenia }
+							NOT = { has_global_flag = HUN_GER_agreement_hungary_gets_nothing }
+							NOT = { has_global_flag = HUN_GER_agreement_hungary_gets_slovakia }
+							is_historical_focus_on = yes
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = HUN_GER_agreement_hungary_gets_carpathian_ruthenia
+					has_global_flag = HUN_GER_agreement_hungary_gets_slovakia
+				}
+			}
+			HUN = { add_opinion_modifier = { target = ROOT modifier = HUN_betrayed_promises } }
+		}
+		if = {
+			limit = { country_exists = CZE }
+			if = {
+				limit = {
+					RUT = {
+						exists = yes
+						is_subject_of = CZE
+					}
+				}
+				annex_country = { target = RUT }
+			}
+			annex_country = { target = CZE }
+		}
+		hidden_effect = {
+			country_event = { hours = 6 id = news.62 }
+		}
+	}
+}
+
+
+# The Hungarian SS
+country_event = {
+	id = hungary_flavor_ger.16
+	title = hungary_flavor_ger.16.t
+	desc = hungary_flavor_ger.16.d
+	picture = GFX_report_event_german_inspect_troops
+	
+	is_triggered_only = yes
+	
+	#A welcome addition to our forces
+	option = {
+		name = hungary_flavor_ger.16.a
+		hidden_effect = { load_oob = HUN_hunyadi_ss }
+		custom_effect_tooltip = HUN_hungarian_ss_divisions_will_be_created
+	}
+}
+
+
+# Access to Poland through Hungary
+country_event = {
+	id = hungary_flavor_ger.17
+	title = hungary_flavor_ger.17.t
+	desc = hungary_flavor_ger.17.d
+	picture = GFX_report_event_german_troops
+	
+	trigger = {
+		tag = GER
+		is_neighbor_of = HUN
+		NOT = { has_war_with = HUN }
+		POL = {
+			has_war_with = GER
+			NOT = { has_war_with = HUN }
+			NOT = { is_in_faction_with = HUN }
+			is_neighbor_of = HUN
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 21
+	}
+	
+	fire_only_once = yes
+	
+	#We will request military access from them.
+	option = {
+		name = hungary_flavor_ger.17.a
+		ai_chance = { 
+			factor = 70
+		}
+		HUN = { country_event = { id = hungary_flavor.137 } }
+	}
+	
+	#We don't need another front.
+	option = {
+		name = hungary_flavor_ger.17.b
+		ai_chance = { 
+			factor = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+
+# Access through Hungary granted
+country_event = {
+	id = hungary_flavor_ger.18
+	title = hungary_flavor_ger.18.t
+	desc = hungary_flavor_ger.18.d
+	picture = GFX_report_event_german_troops
+	
+	is_triggered_only = yes
+	
+	#Excellent
+	option = {
+		name = hungary_flavor_ger.18.a
+		custom_effect_tooltip = HUN_will_gain_access_through_hungary
+		hidden_effect = { diplomatic_relation = { country = HUN relation = military_access } }
+	}
+}
+
+
+# Access through Hungary not granted
+country_event = {
+	id = hungary_flavor_ger.19
+	title = hungary_flavor_ger.19.t
+	desc = hungary_flavor_ger.19.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#They dare defy [Root.GetName]?
+	option = {
+		name = hungary_flavor_ger.19.a
+		effect_tooltip = { add_opinion_modifier = { target = HUN modifier = HUN_forbids_military_access } }
+	}
+}
+
+# Wilhelm Hohenzollern to succeed to the Hungarian throne
+country_event = {
+	id = hungary_flavor_ger.20
+	title = hungary_flavor_ger.20.t
+	desc = hungary_flavor_ger.20.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We accept the proposal.
+	option = {
+		name = hungary_flavor_ger.20.a
+		ai_chance = {
+			factor = 0.4		
+			modifier = {
+				factor = 1.5
+				is_in_faction_with = HUN
+			}	
+		}
+		HUN = { country_event = { id = horthy_inheritance.120 } }
+	}
+	
+	# This goes against our interests.
+	option = {
+		name = hungary_flavor_ger.20.b
+		ai_chance = {
+			factor = 0.6
+			modifier = {
+				factor = 10
+				has_government = fascism
+			}
+			modifier = {
+				factor = 0.1
+				HUN = { has_country_flag = HUN_realism }
+			}
+		}
+		HUN = { country_event = { id = horthy_inheritance.121 } }
+	}
+}
+
+# Hungary offers recruitable manpower for Burgenland
+country_event = {
+	id = hungary_flavor_ger.21
+	title = hungary_flavor_ger.21.t
+	desc = hungary_flavor_ger.21.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# They can have that small strip of land. We need their men.
+	option = {
+		name = hungary_flavor_ger.21.a
+		ai_chance = {
+			factor = 0.4	
+		}
+		add_manpower = 50000
+		effect_tooltip = {
+			HUN = {
+				transfer_state = 909	#Burgenland
+				add_manpower = -50000
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.140 } }
+	}
+	
+	# [Root.GetName] does not rely on foreign help!
+	option = {
+		name = hungary_flavor_ger.21.b
+		ai_chance = {
+			factor = 0.6
+			modifier = {
+				factor = 0.1
+				HUN = { has_country_flag = HUN_realism }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.141 } }
+	}
+}
+
+# The Kaiser's Coup
+country_event = {
+	id = hungary_flavor_ger.22
+	title = hungary_flavor_ger.22.t
+	desc = hungary_flavor_ger.22.d
+	picture = GFX_report_event_yugoslavian_cavalry
+	
+	is_triggered_only = yes
+	
+	# The country will stand fast against this insurgence.
+	option = {
+		name = hungary_flavor_ger.22.a
+		
+		custom_effect_tooltip = HUN_royalist_supporters_will_start_a_civil_war
+		set_global_flag = HUN_kaisers_coup_started
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { neutrality > 0.1 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.1
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.1
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.1
+					NOT = { neutrality > 0.2 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.2
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.2
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.2
+					NOT = { neutrality > 0.3 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.3
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.3
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.3
+					NOT = { neutrality > 0.4 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.4
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.4
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.4
+					NOT = { neutrality > 0.5 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.5
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.5
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.5
+					NOT = { neutrality > 0.6 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.6
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.6
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.6
+					NOT = { neutrality > 0.7 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.7
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.7
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.7
+					NOT = { neutrality > 0.8 }
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.8
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.8
+				}
+			}
+			if = {
+				limit = {
+					neutrality > 0.8
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.9
+				}
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					set_equipment_fraction = 0.9
+				}
+			}			
+			random_other_country = {
+				limit = {
+					original_tag = GER
+					has_government = neutrality
+				}
+				set_cosmetic_tag = GER_IMP
+			}
+			if = {
+				limit = { HUN = { has_country_flag = HUN_promised_some_equipment_to_royalist_germany } }
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					if = {
+						limit = { HUN = { has_tech = advanced_infantry_weapons } }
+						add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 10000 producer = HUN }
+						else = {
+							if = {
+								limit = { HUN = { has_tech = improved_infantry_weapons } }
+								add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 10000 producer = HUN }
+								else = {
+									add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 10000 producer = HUN }
+								}
+							}
+						}
+					}
+					if = {
+						limit = { HUN = { has_tech = artillery4 } }
+						add_equipment_to_stockpile = { type = artillery_equipment_3 amount = 1000 producer = HUN }
+						else = {
+							if = {
+								limit = { HUN = { has_tech = artillery1 } }
+								add_equipment_to_stockpile = { type = artillery_equipment_2 amount = 1000 producer = HUN }
+								else = {
+									add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 1000 producer = HUN }
+								}
+							}
+						}
+					}
+					add_equipment_to_stockpile = { type = support_equipment_1 amount = 2000 producer = HUN }
+					add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 3000 producer = HUN }
+				}
+			}
+			if = {
+				limit = { HUN = { has_country_flag = HUN_promised_lots_of_equipment_to_royalist_germany } }
+				random_other_country = {
+					limit = {
+						original_tag = GER
+						has_government = neutrality
+					}
+					if = {
+						limit = { HUN = { has_tech = advanced_infantry_weapons } }
+						add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 20000 producer = HUN }
+						else = {
+							if = {
+								limit = { HUN = { has_tech = improved_infantry_weapons } }
+								add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 20000 producer = HUN }
+								else = {
+									add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 20000 producer = HUN }
+								}
+							}
+						}
+					}
+					if = {
+						limit = { HUN = { has_tech = artillery4 } }
+						add_equipment_to_stockpile = { type = artillery_equipment_3 amount = 2000 producer = HUN }
+						else = {
+							if = {
+								limit = { HUN = { has_tech = artillery1 } }
+								add_equipment_to_stockpile = { type = artillery_equipment_2 amount = 2000 producer = HUN }
+								else = {
+									add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 2000 producer = HUN }
+								}
+							}
+						}
+					}
+					add_equipment_to_stockpile = { type = support_equipment_1 amount = 4000 producer = HUN }
+					add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 6000 producer = HUN }
+				}
+			}
+			if = {
+				limit = { HUN = { has_country_flag = HUN_promised_to_fight_for_royalist_germany } }
+				HUN = { country_event = { id = hungary_flavor.160 } }
+			}
+			HUN = {
+				if = {
+					limit = { has_idea = stockpiling_equipment_25 }
+					remove_ideas = stockpiling_equipment_25
+				}
+				if = {
+					limit = { has_idea = stockpiling_equipment_50 }
+					remove_ideas = stockpiling_equipment_50
+				}
+			}
+		}
+	}
+}
+
+# The Kaiser's Coup succeeds
+country_event = {
+	id = hungary_flavor_ger.23
+	title = hungary_flavor_ger.23.t
+	desc = hungary_flavor_ger.23.d
+	picture = GFX_report_event_royal_parade
+	
+	trigger = {
+		original_tag = GER
+		has_global_flag = HUN_kaisers_coup_started
+		has_government = neutrality
+		all_country = {
+			OR = {
+				tag = ROOT
+				NOT = { original_tag = GER }
+			}
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	fire_only_once = yes
+	
+	# Long live the new German Empire!
+	option = {
+		name = hungary_flavor_ger.23.a
+		hidden_effect = {
+			HUN = {
+				if = {
+					limit = { has_idea = secret_agents_occupied }
+					remove_ideas = secret_agents_occupied
+				}
+			}
+			news_event = { id = hun_news.13 }
+		}
+		add_ideas = german_empire_reborn
+	}
+}
+
+# The Kaiser's Coup fails
+country_event = {
+	id = hungary_flavor_ger.24
+	title = hungary_flavor_ger.24.t
+	desc = hungary_flavor_ger.24.d
+	picture = GFX_report_event_german_reichstag_gathering
+	
+	trigger = {
+		tag = GER
+		has_global_flag = HUN_kaisers_coup_started
+		NOT = { has_government = neutrality }
+		all_country = {
+			OR = {
+				tag = ROOT
+				NOT = { original_tag = GER }
+			}
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	fire_only_once = yes
+	
+	# They never stood a chance
+	option = {
+		name = hungary_flavor_ger.24.a
+		hidden_effect = {
+			HUN = {
+				if = {
+					limit = { has_idea = secret_agents_occupied }
+					remove_ideas = secret_agents_occupied
+				}
+			}
+			news_event = { id = hun_news.14 }
+		}
+	}
+}
+
+# Hungary proposes Polish Axis membership
+country_event = {
+	id = hungary_flavor_ger.25
+	title = hungary_flavor_ger.25.t
+	desc = hungary_flavor_ger.25.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# Good idea. Extend the invitation.
+	option = {
+		name = hungary_flavor_ger.25.a
+		ai_chance = {
+			factor = 70	
+		}
+		POL = { country_event = { id = hungary_flavor_pol.9 hours = 6 } }
+	}
+	
+	# The Poles aren't our friends.
+	option = {
+		name = hungary_flavor_ger.25.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}	
+		}
+		HUN = { country_event = { id = hungary_flavor.179 hours = 6 } }
+	}
+}
+
+# Poland declines invitation
+country_event = {
+	id = hungary_flavor_ger.26
+	title = hungary_flavor_ger.26.t
+	desc = hungary_flavor_ger.26.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# So we DO have to conquer them after all.
+	option = {
+		name = hungary_flavor_ger.26.a
+	}
+}
+
+# Poland cedes Danzig and Posen
+country_event = {
+	id = hungary_flavor_ger.27
+	title = hungary_flavor_ger.27.t
+	desc = hungary_flavor_ger.27.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# They have proven that they are loyal to us.
+	option = {
+		name = hungary_flavor_ger.27.a
+		transfer_state = 85	#Danzig
+		add_state_core = 85	#Danzig
+		transfer_state = 86	#Poznan
+		add_state_core = 86	#Poznan
+		if = {
+			limit = { POL = { owns_state = 762 } }	#Katowice
+			transfer_state = 762	#Katowice
+			add_state_core = 762	#Katowice
+		}
+		add_opinion_modifier = { target = POL modifier = HUN_handed_over_danzig_and_posen }
+	}
+}
+
+# Poland refuses to cede Danzig and Posen
+country_event = {
+	id = hungary_flavor_ger.28
+	title = hungary_flavor_ger.28.t
+	desc = hungary_flavor_ger.28.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# Was this alliance a mistake?
+	option = {
+		name = hungary_flavor_ger.28.a
+	}
+}
+
+# Support from Austria-Hungary
+country_event = {
+	id = hungary_flavor_ger.29
+	title = hungary_flavor_ger.29.t
+	desc = hungary_flavor_ger.29.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		original_tag = GER
+		has_government = neutrality
+		has_global_flag = HUN_helping_monarchist_germany
+	}
+	
+	# We welcome the support.
+	option = {
+		name = hungary_flavor_ger.29.a
+		add_stability = 0.05
+		add_war_support = 0.05
+		add_political_power = 25
+		if = {
+			limit = { HUN = { is_faction_leader = yes } }
+			HUN = { add_to_faction = ROOT }
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = "HUN"
+			value = 200
+		}
+	}
+}
+
+# Hungarian state visit
+country_event = {
+	id = hungary_flavor_ger.30
+	title = hungary_flavor_ger.30.t
+	desc = hungary_flavor_ger.30.d
+	picture = GFX_report_event_HUN_hitler_szalasi_meeting
+	
+	is_triggered_only = yes
+	
+	# Their obedience is most welcome.
+	option = {
+		name = hungary_flavor_ger.30.a
+		add_political_power = 50
+		add_ai_strategy = {
+			type = befriend
+			id = "HUN"
+			value = 100
+		}
+		effect_tooltip = {
+			reverse_add_opinion_modifier = { target = FROM modifier = HUN_concessions_to_germany }
+			add_opinion_modifier = { target = FROM modifier = HUN_concessions_to_germany_trade }
+		}
+	}
+}
+
+# Hungarian state visit
+country_event = {
+	id = hungary_flavor_ger.31
+	title = hungary_flavor_ger.31.t
+	desc = hungary_flavor_ger.31.d
+	picture = GFX_report_event_HUN_hitler_szalasi_meeting
+	
+	is_triggered_only = yes
+	
+	# Sure. Military cooperation benefits both of us.
+	option = {
+		name = hungary_flavor_ger.31.a
+		ai_chance = {
+			factor = 45	
+		}
+		add_political_power = 50
+		HUN = {
+			country_event = { id = hungary_flavor.192 }
+			effect_tooltip = { 
+				add_timed_idea = {
+					idea = military_cooperation_with_germany
+					days = 720
+				}
+			}
+		}
+	}
+	
+	# Those Hungarians know nothing about running a military.
+	option = {
+		name = hungary_flavor_ger.31.b
+		ai_chance = {
+			factor = 55	
+			modifier = {
+				factor = 0.2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.193 } }
+	}
+}
+
+# Hungarian state visit
+country_event = {
+	id = hungary_flavor_ger.32
+	title = hungary_flavor_ger.32.t
+	desc = hungary_flavor_ger.32.d
+	picture = GFX_report_event_HUN_hitler_szalasi_meeting
+	
+	is_triggered_only = yes
+	
+	# Hungarism you say?
+	option = {
+		name = hungary_flavor_ger.32.a
+		ai_chance = {
+			factor = 45	
+		}
+		add_political_power = 25
+		add_popularity = { ideology = fascism popularity = 0.02 }
+		add_ai_strategy = {
+			type = befriend
+			id = "HUN"
+			value = 200
+		}
+		HUN = {
+			country_event = { id = hungary_flavor.194 }
+			effect_tooltip = {
+				add_political_power = 100
+				add_popularity = { ideology = fascism popularity = 0.02 }
+				add_opinion_modifier = { target = ROOT modifier = HUN_ideological_differences_smoothed }
+				reverse_add_opinion_modifier = { target = ROOT modifier = HUN_ideological_differences_smoothed }
+			}
+		}
+	}
+	
+	# We are nothing alike.
+	option = {
+		name = hungary_flavor_ger.32.b
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}		
+		}
+		HUN = {
+			country_event = { id = hungary_flavor.195 }
+			effect_tooltip = {
+				add_opinion_modifier = { target = ROOT modifier = HUN_ideological_contention }
+				reverse_add_opinion_modifier = { target = ROOT modifier = HUN_ideological_contention }
+			}
+		}
+	}
+}
+
+# Operation Margaretha
+country_event = {
+	id = hungary_flavor_ger.33
+	title = hungary_flavor_ger.33.t
+	desc = hungary_flavor_ger.33.d
+	picture = GFX_report_event_HUN_arrow_cross_coup
+	
+	trigger = {
+		any_country = {
+			original_tag = HUN
+			has_government = fascism
+		}
+		has_country_flag = HUN_operation_margaretha
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	fire_only_once = yes
+	
+	# Hungary will soon be under our control again.
+	option = {
+		name = hungary_flavor_ger.33.a
+		add_ai_strategy = {
+			type = antagonize
+			id = "HUN"
+			value = 200
+		}
+		random_country = {
+			limit = {
+				original_tag = HUN
+				has_government = fascism
+			}
+			ROOT = {
+				add_to_faction = PREV
+				add_ai_strategy = {
+					type = befriend
+					id = PREV
+					value = 200
+				}
+			}
+		}
+	}
+}
+
+# The Crown of Hungary
+country_event = {
+	id = hungary_flavor_ger.34
+	title = hungary_flavor_ger.34.t
+	desc = hungary_flavor_ger.34.d
+	picture = GFX_report_event_HUN_trianon
+	
+	is_triggered_only = yes
+	
+	# We accept of course.
+	option = {
+		name = hungary_flavor_ger.34.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = FROM value > 24 }
+			}
+			modifier = {
+				factor = 1.2
+				has_opinion = { target = FROM value > 49 }
+			}	
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 74 }
+			}	
+		}
+		effect_tooltip = {
+			if = {
+				limit = { has_dlc = "Together for Victory" }
+				set_autonomy = {
+					target = HUN
+					autonomous_state = autonomy_dominion
+					freedom_level = 0.5
+				}
+				else = { puppet = HUN }
+			}
+		}
+		hidden_effect = {
+			HUN = { country_event = { id = hungary_flavor.260 hours = 4 } }
+		}
+	}
+	
+	# It isn't worth the effort.
+	option = {
+		name = hungary_flavor_ger.34.b
+		ai_chance = {
+			factor = 30	
+			modifier = {
+				factor = 1.5
+				NOT = { has_opinion = { target = FROM value > -1 } }
+			}	
+		}
+		HUN = { country_event = { id = hungary_flavor.250 hours = 4 } }
+	}
+}
+
+# Italy refuses to transfer Balkan occupations
+country_event = {
+	id = hungary_flavor_ger.35
+	title = hungary_flavor_ger.35.t
+	desc = hungary_flavor_ger.35.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# An unwelcome sign of mistrust.
+	option = {
+		name = hungary_flavor_ger.35.a
+		add_opinion_modifier = { target = ITA modifier = HUN_not_cooperating_balkan_occupations }
+	}
+}
+
+# Returning Hungarian Lands
+country_event = {
+	id = hungary_flavor_ger.36
+	title = hungary_flavor_ger.36.t
+	desc = hungary_flavor_ger.36.d
+	picture = GFX_report_event_HUN_trianon
+	
+	trigger = {
+		tag = GER
+		HUN = {
+			is_subject_of = ROOT
+			has_completed_focus = HUN_submit_to_the_kaiser
+		}
+		any_owned_state = {
+			OR = {
+				has_state_flag = HUN_is_claimed_by_HUN
+				is_core_of = HUN
+			}
+			NOT = { is_core_of = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 14
+	}
+	
+	# Let them have their lands back.
+	option = {
+		name = hungary_flavor_ger.36.a
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						has_state_flag = HUN_is_claimed_by_HUN
+						is_core_of = HUN
+					}
+					NOT = { is_core_of = ROOT }
+				}
+				HUN = {
+					transfer_state = PREV
+					if = {
+						limit = { has_dlc = "Together for Victory" }
+						custom_effect_tooltip = HUN_will_lose_autonomy_for_territories
+						
+						else = {
+							custom_effect_tooltip = HUN_will_lose_political_power_for_territories
+						}
+					}
+				}
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.261 hours = 6 } }
+	}
+}
+
+# Meeting with Imrédy
+country_event = {
+	id = hungary_flavor_ger.37
+	title = hungary_flavor_ger.37.t
+	desc = {
+		text = hungary_flavor_ger.37.d_nothing
+		trigger = { has_global_flag = HUN_GER_agreement_hungary_wants_nothing }
+	}
+	desc = {
+		text = hungary_flavor_ger.37.d_carpathian_ruthenia
+		trigger = { has_global_flag = HUN_GER_agreement_hungary_wants_carpathian_ruthenia }
+	}
+	desc = {
+		text = hungary_flavor_ger.37.d_slovakia
+		trigger = { has_global_flag = HUN_GER_agreement_hungary_wants_slovakia }
+	}
+	picture = GFX_report_event_HUN_hitler_imredy_meeting
+	
+	is_triggered_only = yes
+	
+	#We can agree to these requests.
+	option = {
+		name = hungary_flavor_ger.37.a
+		trigger = {
+			NOT = { has_global_flag = HUN_GER_agreement_hungary_wants_nothing }
+		}
+		ai_chance = {
+			factor = 80	
+		}
+		HUN = { country_event = { id = hungary_flavor.273 } }
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = HUN_GER_agreement_hungary_wants_carpathian_ruthenia }
+				set_global_flag = HUN_GER_agreement_hungary_gets_carpathian_ruthenia
+			}
+			if = {
+				limit = { has_global_flag = HUN_GER_agreement_hungary_wants_slovakia }
+				set_global_flag = HUN_GER_agreement_hungary_gets_slovakia
+			}
+		}
+	}
+	
+	#We can make no promises.
+	option = {
+		name = hungary_flavor_ger.37.b
+		trigger = {
+			NOT = { has_global_flag = HUN_GER_agreement_hungary_wants_nothing }
+		}
+		ai_chance = {
+			factor = 20
+		}
+		HUN = { country_event = { id = hungary_flavor.274 } }
+	}
+	
+	#We will be carving up Czechoslovakia on our own terms then.
+	option = {
+		name = hungary_flavor_ger.37.c
+		trigger = {
+			has_global_flag = HUN_GER_agreement_hungary_wants_nothing
+		}
+		hidden_effect = { set_global_flag = HUN_GER_agreement_hungary_gets_nothing }
+	}
+}
+	
+# Hungary offers customs union for Burgenland
+country_event = {
+	id = hungary_flavor_ger.38
+	title = hungary_flavor_ger.38.t
+	desc = hungary_flavor_ger.38.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# They can have that small strip of land. 
+	option = {
+		name = hungary_flavor_ger.38.a
+		ai_chance = {
+			factor = 0.8	
+		}
+		effect_tooltip = {
+		add_stability = 0.05		
+		add_political_power = 100		
+			HUN = {
+				transfer_state = 909	#Burgenland
+			}
+			HUN = {
+				if = {
+					limit = { NOT = { has_war_with = ROOT } }
+					add_opinion_modifier = { target = ROOT modifier = HUN_renegotiated_trade_agreements }
+					add_opinion_modifier = { target = ROOT modifier = HUN_renegotiated_trade_agreements_trade }
+				}
+			}			
+		}
+		HUN = { country_event = { id = hungary_flavor.276 } }
+	}
+	
+	# This goes against our interests!
+	option = {
+		name = hungary_flavor_ger.38.b
+		ai_chance = {
+			factor = 0.2
+			modifier = {
+				factor = 0.1
+				HUN = { has_country_flag = HUN_realism }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.277 } }
+	}
+}	
+
+# Hitler Assassination
+country_event = {
+	id = hungary_flavor_ger.39
+	title = hungary_flavor_ger.39.t
+	desc = hungary_flavor_ger.39.d
+	picture = GFX_report_event_assassinate_against_hitler
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	# National disaster.
+	option = {
+		name = hungary_flavor_ger.39.a
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_political_power = -25
+        retire_character = GER_adolf_hitler
+		retire_character = GER_hermann_goring
+		retire_character = GER_joseph_goebbels
+		retire_character = GER_heinrich_himmler
+		country_event = { id = hungary_flavor_ger.40 hours = 1 }
+		hidden_effect = { news_event = { id = hun_news.62 hours = 2 } }
+	}
+}
+
+# Hitler Assassination Recovery
+country_event = {
+	id = hungary_flavor_ger.40
+	title = hungary_flavor_ger.40.t
+	desc = hungary_flavor_ger.40.d
+	picture = GFX_report_event_august_wilhelm
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	# The new leader.
+	option = {
+		name = hungary_flavor_ger.40.a
+		create_country_leader = {
+			name = "August Wilhelm von Preussen"
+			desc = "POLITICS_AUGUST_WILHELM_VON_PREUSSEN_DESC"
+			picture = "Portrait_Germany_August_Wilhelm.dds"
+			expire = "1980.1.1"
+			ideology = nazism
+			traits = {
+				fascist_sympathies great_survivor
+			}
+		}
+		if = {
+			limit = { HUN = { is_faction_leader = yes } }
+			HUN = { add_to_faction = ROOT }
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = "HUN"
+			value = 200
+		}
+		hidden_effect = { news_event = { id = hun_news.63 hours = 6 } }
+	}
+}

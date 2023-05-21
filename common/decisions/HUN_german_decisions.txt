@@ -1,0 +1,256 @@
+HUN_territory_exchange_category = {
+	
+	GER_give_ljubljana_to_italy = {
+
+		icon = border_war
+
+		available = {
+			owns_state = 853	#Ljubjana
+			ITA = {
+				is_in_faction_with = ROOT
+				has_completed_focus = ITA_balkan_ambition
+				OR = {
+					owns_state = 852	#Istria
+					owns_state = 736	#Gorizia
+				}
+			}
+		}
+
+		cost = 0
+	
+		allowed = {
+			original_tag = GER
+		}
+		
+		fire_only_once = yes
+
+		visible = {
+			owns_state = 853	#Ljubjana
+			ITA = {
+				is_in_faction_with = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			effect_tooltip = {
+				ITA = { transfer_state = 853 }	#Ljubjana
+			}
+			ITA = { country_event = { id = hungary_flavor_ita.7 } }
+		}
+	}
+	
+	GER_return_vojvodina_to_hungary = {
+
+		icon = border_war
+
+		available = {
+			910 = {	#Torontal
+				OWNER = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+				}
+			}
+			911 = {	#Srem
+				OWNER = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+				}
+			}
+			HUN = {
+				owns_state = 45		#Backa
+			}
+		}
+
+		cost = 0
+	
+		allowed = {
+			original_tag = GER
+		}
+		
+		fire_only_once = yes
+
+		visible = {
+			910 = {	#Torontal
+				OWNER = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+				}
+			}
+			911 = {	#Srem
+				OWNER = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+				}
+			}
+			HUN = {
+				exists = yes
+				is_in_faction_with = ROOT
+				owns_state = 45		#Backa
+				OR = {
+					NOT = { owns_state = 910 }	# Torontal
+					NOT = { owns_state = 911 }	# Srem
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			HUN = { country_event = { id = hungary_flavor.114 } }
+			effect_tooltip = {
+				HUN = { 
+					transfer_state = 910	#Torontal 
+					transfer_state = 911	#Srem 
+					add_opinion_modifier = { target = ROOT modifier = HUN_given_territory2 }
+					custom_effect_tooltip = needs_approval
+				}
+			}
+		}
+	}
+	
+	GER_transfer_balkan_occupations_to_hungary = {
+
+		icon = border_war
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+	
+		allowed = {
+			original_tag = GER
+		}
+		
+		fire_only_once = yes
+
+		visible = {
+			HUN = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+			}
+			912 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }	#Prekmurje
+			915 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }	#Croatia
+			921 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }	#Lika
+			923 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }	#Pag
+			109 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }	#Slavonia
+			45 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }		#Backa
+			911 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }	#Srem
+			910 = { is_owned_by_HUN_or_GER_or_ITA_or_subject = yes }	#Torontal
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					ITA = {
+						OR = {
+							owns_state = 912	#Prekmurje
+							owns_state = 915	#Croatia
+							owns_state = 921	#Lika
+							owns_state = 923	#Pag
+							owns_state = 912	#Prekmurje
+							owns_state = 109	#Slavonia
+							owns_state = 45		#Backa
+							owns_state = 911	#Srem
+							owns_state = 910	#Torontal
+						}
+					}
+				}
+				ITA = { country_event = { id = hungary_flavor_ita.17 hours = 4 } }
+				else = {
+					HUN = { country_event = { id = hungary_flavor.259 hours = 4 } }
+					custom_effect_tooltip = HUN_will_get_balkans_occupations
+				}
+			}
+		}
+	}
+	
+}
+
+foreign_politics = {
+
+	GER_access_to_poland_through_hungary = {
+
+		icon = infiltrate_state
+
+		available = {
+			is_neighbor_of = HUN
+			POL = { is_neighbor_of = HUN }
+		}
+
+		cost = 10
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = GER
+		}
+
+		visible = {
+			is_neighbor_of = HUN
+			NOT = { has_war_with = HUN }
+			POL = {
+				has_war_with = GER
+				NOT = { has_war_with = HUN }
+				NOT = { is_in_faction_with = HUN }
+				is_neighbor_of = HUN
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			HUN = { country_event = { id = hungary_flavor.137 } }
+		}
+	}
+
+	GER_request_danzig_and_posen = {
+
+		icon = generic_nationalism
+
+		available = {
+			POL = { 
+				is_in_faction_with = ROOT
+				owns_state = 85	#Danzig
+				owns_state = 86	#Poznan
+			}
+			is_faction_leader = yes
+		}
+
+		cost = 10
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = GER
+		}
+
+		visible = {
+			POL = {
+				is_in_faction_with = ROOT
+			}
+			NOT = {
+				owns_state = 85	#Danzig
+				owns_state = 86	#Poznan
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			POL = { country_event = { id = hungary_flavor_pol.10 } }
+			set_country_flag = HUN_asked_nicely_for_danzig_and_posen
+		}
+	}
+}

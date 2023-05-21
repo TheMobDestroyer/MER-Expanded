@@ -1,0 +1,61 @@
+ideas = {
+	country = {		
+		communist_revolution = {
+				
+			allowed = {
+				original_tag = GER
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+			
+			modifier = {
+				communism_drift = 0.1
+			}
+		}
+		imperial_nostalgia = {
+				
+			allowed = {
+				original_tag = GER
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = triumphant_will
+			
+			modifier = {
+				neutrality_drift = 0.1
+			}
+		}
+
+		german_empire_reborn = {
+				
+			allowed = {
+				original_tag = GER
+				always = no
+			}
+
+			picture = triumphant_will
+			
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+			
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+	}
+}

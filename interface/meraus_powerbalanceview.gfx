@@ -1,0 +1,11 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_bop_SWI_centralization_council_side"
+		texturefile = "gfx/interface/bop/bop_SWI_centralization_council_side.dds"
+	}
+
+	spriteType = {
+		name = "GFX_bop_AUS_german_side"
+		texturefile = "gfx/interface/bop/bop_AUS_german_side.dds"
+	}
+}

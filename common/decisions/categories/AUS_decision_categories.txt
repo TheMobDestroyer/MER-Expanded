@@ -1,0 +1,86 @@
+################
+##### ETH ######
+################
+
+AUS_puppet_decisions = {
+
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	
+	allowed = {
+		tag = AUS
+	}
+
+	priority = {
+		base = 10
+	}
+
+	visible = {
+		
+	}
+}
+AUS_core_decisions = {
+
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	
+	allowed = {
+		tag = AUS
+	}
+
+	priority = {
+		base = 10
+	}
+
+	visible = {
+		
+	}
+}
+AUS_ausgleich_mission = {
+
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	
+	allowed = {
+		tag = AUS
+	}
+
+	priority = {
+		base = 10
+	}
+
+	visible = {
+		
+	}
+}
+AUS_austrian_rearmament_category = {
+
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	
+	allowed = {
+		tag = AUS
+	}
+
+	priority = {
+		base = 10
+	}
+
+	visible = {
+		#has_completed_focus = AUS_negotiate_austrian_rearmament
+	}
+}
+AUS_anschluss_imminent_category = {
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	
+	allowed = {
+		OR = {
+			tag = AUS
+			tag = GER
+		}
+	}
+
+	priority = {
+		base = 10
+	}
+
+	visible = {
+		
+	}
+}

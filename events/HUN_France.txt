@@ -1,0 +1,70 @@
+﻿
+add_namespace = hungary_flavor_fra
+
+
+########
+#FRANCE#
+########
+
+# [HUN.GetNameDef] buys the SMS Novara
+country_event = {
+	id = hungary_flavor_fra.1
+	title = hungary_flavor_fra.1.t
+	desc = hungary_flavor_fra.1.d
+	picture = GFX_report_event_destroyers
+	
+	is_triggered_only = yes
+	
+	#Let them have that old piece of junk.
+	option = {
+		name = hungary_flavor_fra.1.a
+		add_political_power = 20
+	}
+}
+
+# [HUN.GetNameDef] offers alliance
+country_event = {
+	id = hungary_flavor_fra.2
+	title = hungary_flavor_fra.2.t
+	desc = hungary_flavor_fra.2.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Accept.
+	option = {
+		name = hungary_flavor_fra.2.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 1.5
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}		
+			modifier = {
+				factor = 5
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		add_opinion_modifier = { target = FROM modifier = HUN_invited_to_faction }
+		FROM = {
+			effect_tooltip = {
+				add_to_faction = ROOT
+			}
+			country_event = { hours = 8 id = hungary_flavor.204 }
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = "HUN"
+			value = 200
+		}
+	}
+	
+	#Decline.
+	option = {
+		name = hungary_flavor_fra.2.b
+		ai_chance = {
+			factor = 40
+		}
+		country_event = { hours = 8 id = hungary_flavor.205 }
+	}
+}

@@ -1,0 +1,75 @@
+AUS_alternate_monarchist_aus_hun = {
+	name = "Restore the Old Empire"
+	desc = ""
+
+	allowed = {
+		original_tag = AUS
+	}
+	enable = {
+		always = yes
+		#OR = {
+		#	has_country_flag = AUS_AI_RANDOM_MONARCHIST_AUS_HUN
+		#	has_game_rule = {
+		#		rule = AST_ai_behavior
+		#		option = MONARCHIST_AUS_HUN
+		#	}
+		#}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		AUS_pro-austrian_propaganda #35
+		AUS_regal_sentiment #35
+		AUS_repeal_habsburgergesetz #70
+		AUS_modern_machinery #35
+		AUS_negotiate_austrian_rearmament #70
+		AUS_rearm_the_bundesheer #35
+		AUS_expand_steyr_works #35
+		AUS_reinstate_habsburg_lorraine #70
+		AUS_old_empire #70
+		AUS_demand_referendum #70
+		AUS_proclaim_empire #70
+		AUS_cze_royalist_sentiment #35
+		AUS_trans-danubian_railway #35
+		AUS_demand_slovenia #70 
+		AUS_demand_transylvania #70
+		AUS_cze_coup #70
+		AUS_fate_of_monarchy #35
+		AUS_second_ausgleich #35
+		AUS_dual_monarchy #70
+		AUS_march_south #70
+		AUS_form_pact #70
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		dd_tech = 5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}

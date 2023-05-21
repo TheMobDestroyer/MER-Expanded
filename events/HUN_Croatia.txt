@@ -1,0 +1,22 @@
+﻿
+add_namespace = hungary_flavor_cro
+
+
+#########
+#CROATIA#
+#########
+
+# Hungary renounces claims towards us.
+country_event = {
+	id = hungary_flavor_cro.1
+	title = hungary_flavor_cro.1.t
+	desc = hungary_flavor_cro.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#That's a relief.
+	option = {
+		name = hungary_flavor_cro.1.a
+	}
+}

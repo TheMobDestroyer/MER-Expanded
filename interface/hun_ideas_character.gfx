@@ -1,0 +1,351 @@
+spriteTypes = {
+
+	### HUN
+
+	SpriteType = {
+		name = "GFX_idea_horthy"
+		texturefile = "gfx/interface/ideas/idea_horthy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_magdolna_purgly"
+		texturefile = "gfx/interface/ideas/idea_magdolna_purgly.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_bela_imredy"
+		texturefile = "gfx/interface/ideas/idea_bela_imredy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_dome_sztojay"
+		texturefile = "gfx/interface/ideas/idea_dome_sztojay.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_ferenc_feketehalmy_czeyndner"
+		texturefile = "gfx/interface/ideas/idea_ferenc_czeydner.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_ferenc_keresztes_fischer"
+		texturefile = "gfx/interface/ideas/idea_ferenc_fischer.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_ferenc_szombathelyi"
+		texturefile = "gfx/interface/ideas/idea_ferenc_szombathelyi.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_janos_kadar"
+		texturefile = "gfx/interface/ideas/idea_janos_kadar.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_matyas_rakosi"
+		texturefile = "gfx/interface/ideas/idea_matyas_rakosi.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_fidel_pallfy"
+		texturefile = "gfx/interface/ideas/idea_fidel_pallfy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_jozsef_szell"
+		texturefile = "gfx/interface/ideas/idea_jozsef_szell.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_kalman_kanya"
+		texturefile = "gfx/interface/ideas/idea_kalman_kanya.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_miklos_kallay"
+		texturefile = "gfx/interface/ideas/idea_miklos_kallay.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_tihamer_fabinyi"
+		texturefile = "gfx/interface/ideas/idea_tihamer_fabinyi.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_vilmos_roder"
+		texturefile = "gfx/interface/ideas/idea_vilmos_roder.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_zoltan_tildy"
+		texturefile = "gfx/interface/ideas/idea_zoltan_tildy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_karoly_rassay"
+		texturefile = "gfx/interface/ideas/idea_karoly_rassay.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_anna_kethly"
+		texturefile = "gfx/interface/ideas/idea_anna_kethly.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_teofil_harosy"
+		texturefile = "gfx/interface/ideas/idea_teofil_harosy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_endre_rajk"
+		texturefile = "gfx/interface/ideas/idea_endre_rajk.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_laszlo_rajk"
+		texturefile = "gfx/interface/ideas/idea_laszlo_rajk.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_marton_nemerey"
+		texturefile = "gfx/interface/ideas/idea_marton_nemerey.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_gabor_peter"
+		texturefile = "gfx/interface/ideas/idea_gabor_peter.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_hermann_pokorny"
+		texturefile = "gfx/interface/ideas/idea_hermann_pokorny.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_istvan_ujszaszy"
+		texturefile = "gfx/interface/ideas/idea_istvan_ujszaszy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_henrik_werth"
+		texturefile = "gfx/interface/ideas/idea_henrik_werth.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_jozsef_mindszenty"
+		texturefile = "gfx/interface/ideas/idea_jozsef_mindszenty.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_ferenc_bardoczy"
+		texturefile = "gfx/interface/ideas/idea_ferenc_bardoczy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_janos_voros"
+		texturefile = "gfx/interface/ideas/idea_janos_voros.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_ferenc_vitez_szentnemedy"
+		texturefile = "gfx/interface/ideas/idea_ferenc_vitez_szentnemedy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_lajos_keresztes_fischer"
+		texturefile = "gfx/interface/ideas/idea_lajos_keresztes_fischer.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_sandor_magyarossy"
+		texturefile = "gfx/interface/ideas/idea_sandor_magyarossy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_bela_rakosi"
+		texturefile = "gfx/interface/ideas/idea_bela_rakosi.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_jeno_ratz"
+		texturefile = "gfx/interface/ideas/idea_jeno_ratz.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_jozsef_somkuthy"
+		texturefile = "gfx/interface/ideas/idea_jozsef_somkuthy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_karoly_lucich"
+		texturefile = "gfx/interface/ideas/idea_karoly_lucich.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_kalman_hardy"
+		texturefile = "gfx/interface/ideas/idea_hardy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_pal_pronay"
+		texturefile = "gfx/interface/ideas/idea_pal_pronay.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_oszkar_jaszy"
+		texturefile = "gfx/interface/ideas/idea_oszkar_jaszi.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_gyorgy_lukacs"
+		texturefile = "gfx/interface/ideas/idea_gyorgy_lukacs.dds"
+	}	
+
+	SpriteType = {
+		name = "GFX_idea_HUN_laszlo_hary"
+		texturefile = "gfx/interface/ideas/idea_laszlo_hary.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_istvan_roszner"
+		texturefile = "gfx/interface/ideas/idea_istvan_roszner.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_beldi_bela"
+		texturefile = "gfx/interface/ideas/idea_beldi_bela.dds"
+	}	
+
+	SpriteType = {
+		name = "GFX_idea_HUN_emil_maczky_borbely"
+		texturefile = "gfx/interface/ideas/idea_Borbély_Maczky_Emil.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_antal_sigray"
+		texturefile = "gfx/interface/ideas/idea_sigray_antal.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_janos_zichy"
+		texturefile = "gfx/interface/ideas/idea_Zichy_János.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_pal_hegedus"
+		texturefile = "gfx/interface/ideas/idea_pal_hegedus.dds"
+	}	
+
+	SpriteType = {
+		name = "GFX_idea_HUN_ludvik_svoboda"
+		texturefile = "gfx/interface/ideas/idea_Ludvík_Svoboda.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_carl_heinz_birnbacher"
+		texturefile = "gfx/interface/ideas/idea_Carl_Heinz_Birnbacher.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_jan_golian"
+		texturefile = "gfx/interface/ideas/idea_jan_golian.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_peter_veres"
+		texturefile = "gfx/interface/ideas/idea_veres_péter.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_gyorgy_marosan"
+		texturefile = "gfx/interface/ideas/idea_Marosán_György.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_antal_ban"
+		texturefile = "gfx/interface/ideas/idea_bán_antal.dds"
+	}	
+
+	SpriteType = {
+		name = "GFX_idea_HUN_ferenc_nagy"
+		texturefile = "gfx/interface/ideas/idea_nagy_ferenc.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_endre_miseth"
+		texturefile = "gfx/interface/ideas/idea_Mistéth_Endre.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_jozsef_darvas"
+		texturefile = "gfx/interface/ideas/idea_darvas_józsef.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_revai_jozsef"
+		texturefile = "gfx/interface/ideas/idea_révai_józsef.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_idea_HUN_aczel_gyorgy"
+		texturefile = "gfx/interface/ideas/idea_Aczél_György.dds"
+	}
+	
+	#Ruthenia
+	
+	SpriteType = {
+		name = "GFX_idea_istvan_gungl"
+		texturefile = "gfx/interface/ideas/idea_generic_fascist_europe.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_konstantin_ivannikov"
+		texturefile = "gfx/interface/ideas/idea_generic_democratic_europe.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_andrej_denikin"
+		texturefile = "gfx/interface/ideas/idea_generic_communist_europe.dds"
+	}
+	
+	#Transylvania
+	
+	SpriteType = {
+		name = "GFX_idea_tibor_kaufmann"
+		texturefile = "gfx/interface/ideas/idea_generic_fascist_europe.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_peter_egressy"
+		texturefile = "gfx/interface/ideas/idea_generic_democratic_europe.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_valeriu_radu"
+		texturefile = "gfx/interface/ideas/idea_generic_communist_europe.dds"
+	}
+	
+	#Szeklerland
+	
+	SpriteType = {
+		name = "GFX_idea_jozsef_fogarassi"
+		texturefile = "gfx/interface/ideas/idea_generic_fascist_europe.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_tamas_erdo"
+		texturefile = "gfx/interface/ideas/idea_generic_democratic_europe.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_idea_andras_apponyi"
+		texturefile = "gfx/interface/ideas/idea_generic_communist_europe.dds"
+	}	
+
+	SpriteType = {
+		name = "GFX_idea_HUN_vilmos_nagy"
+		texturefile = "gfx/interface/ideas/idea_HUN_vilmos_nagy.dds"
+	}	
+	
+}

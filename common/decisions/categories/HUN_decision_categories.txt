@@ -1,0 +1,554 @@
+#sample_category = {
+#	icon = generic_crisis
+#	
+#	picture = GFX_decision_cat_picture_ger_case_anton
+#	
+#	priority = 100
+#	
+#	allowed = {
+#		has_dlc = "Waking the Tiger"
+#	}
+#	
+#	visible = {
+#		has_war = no
+#	}
+#}
+
+HUN_self_government_category = {
+	icon = generic_independence
+	
+	picture = GFX_decision_cat_picture_chi_political_support
+
+	visible = {
+		is_government_in_exile = no
+	}
+	
+	priority = 100
+}
+
+HUN_territory_exchange_category = {
+	icon = generic_political_actions
+
+	visible = {
+		is_government_in_exile = no
+	}
+	
+	priority = 100
+}
+
+HUN_gyori_program_category = {
+	icon = army_reform
+	
+	priority = 100
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+
+	visible = {
+		is_government_in_exile = no
+	}
+}
+
+HUN_industrial_development_category = {
+	icon = generic_industry
+}
+
+HUN_danube_federation_category = {
+	icon = generic_communism
+	
+	priority = 100
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+}
+
+HUN_border_issues_category = {
+	icon = border_war
+
+	visible = {
+		is_government_in_exile = no
+	}
+	
+	priority = 10
+}
+
+HUN_defensive_preparations_category = {
+	icon = generic_industry
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+
+	visible = {
+		tag = HUN
+		OR = {
+			has_completed_focus = HUN_secret_rearmament_focus
+			has_completed_focus = HUN_bled_agreement_focus
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+		}
+		is_government_in_exile = no
+	}
+	
+	priority = 10
+}
+
+HUN_foreign_investment_category = {
+	icon = gre_investment_decisions
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+
+	visible = {
+		is_government_in_exile = no
+	}
+}
+
+HUN_equipment_purchase_category = {
+	icon = generic_economy
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+}
+
+HUN_army_organization_category = {
+	icon = military_operation
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+}
+
+HUN_naval_projects_category = {
+	icon = GFX_decision_category_MTG_naval_treaties
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+	
+	visible = {
+		any_owned_state = { is_coastal = yes }
+		is_government_in_exile = no
+	}
+}
+
+HUN_trianon_treaty_enforcement_category = {
+	icon = GFX_decision_category_eng_move_to_secure_the_dominions
+	
+	allowed = {
+		original_tag = HUN		#less checks for better performance
+	}
+	
+	priority = {
+		base = 200
+	}
+	
+	picture = GFX_decision_cat_picture_government_in_exile
+	
+	custom_icon = {
+		tag = ENG
+		desc = HUN_trianon_responsible
+
+		visible = {
+			ENG = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = FRA
+		desc = HUN_trianon_responsible
+
+		visible = {
+			FRA = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = USA
+		desc = HUN_trianon_responsible
+
+		visible = {
+			USA = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = ITA
+		desc = HUN_trianon_responsible
+
+		visible = {
+			ITA = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = JAP
+		desc = HUN_trianon_responsible
+
+		visible = {
+			JAP = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = BEL
+		desc = HUN_trianon_responsible
+
+		visible = {
+			BEL = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = CHI
+		desc = HUN_trianon_responsible
+
+		visible = {
+			CHI = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = CUB
+		desc = HUN_trianon_responsible
+
+		visible = {
+			CUB = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = GRE
+		desc = HUN_trianon_responsible
+
+		visible = {
+			GRE = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = NIC
+		desc = HUN_trianon_responsible
+
+		visible = {
+			NIC = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = PAN
+		desc = HUN_trianon_responsible
+
+		visible = {
+			PAN = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = POL
+		desc = HUN_trianon_responsible
+
+		visible = {
+			POL = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = POR
+		desc = HUN_trianon_responsible
+
+		visible = {
+			POR = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = ROM
+		desc = HUN_trianon_responsible
+
+		visible = {
+			ROM = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = YUG
+		desc = HUN_trianon_responsible
+
+		visible = {
+			YUG = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = SIA
+		desc = HUN_trianon_responsible
+
+		visible = {
+			SIA = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	custom_icon = {
+		tag = CZE
+		desc = HUN_trianon_responsible
+
+		visible = {
+			CZE = {
+				exists = yes
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+	}
+	
+	visible_when_empty = yes
+	
+	visible = {
+		has_completed_focus = HUN_revisionism
+		any_country = {
+			has_country_flag = HUN_policing_expansion_of_hungary
+		}
+	}
+}
+
+HUN_federation_category = {
+	icon = generic_formable_nations
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		is_ahu = yes
+		has_completed_focus = HUN_wilsons_10th_point
+		is_government_in_exile = no
+	}
+}
+
+HUN_united_lands_hungaria_category = {
+	icon = hun_revision
+	
+	priority = 10
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		has_completed_focus = HUN_united_lands_hungaria
+		is_government_in_exile = no
+	}
+}
+
+HUN_allied_support_for_revision_category = {
+	icon = hun_revision
+	
+	priority = 20
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	custom_icon = {
+		tag = SOV
+		desc = HUN_is_supporting_revision
+
+		visible = {
+			has_country_flag = HUN_revision_backed_by_SOV
+		}
+	}
+	
+	custom_icon = {
+		tag = ENG
+		desc = HUN_is_supporting_revision
+
+		visible = {
+			has_country_flag = HUN_revision_backed_by_ENG
+		}
+	}
+	
+	custom_icon = {
+		tag = USA
+		desc = HUN_is_supporting_revision
+
+		visible = {
+			has_country_flag = HUN_revision_backed_by_USA
+		}
+	}
+	
+	visible_when_empty = yes
+	
+	visible = {
+		has_country_flag = HUN_seeking_allied_support
+		NOT = { has_country_flag = HUN_revision_happened_with_allied_help }	# TODO: Set this flag in the appropriate finisher event for this mechanic
+	}
+}
+
+HUN_church_support_category = {
+	icon = hun_church_relations
+	
+	priority = 10
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		OR = {
+			has_completed_focus = HUN_the_rakosi_administration
+			has_completed_focus = HUN_the_kadar_administration
+			AND = {
+				has_completed_focus = HUN_rescue_bela_kun
+				has_government = communism
+			}
+			has_completed_focus = HUN_align_with_the_victors
+			has_completed_focus = HUN_the_great_coalition
+			has_completed_focus = HUN_restore_the_austro_hungarian_monarchy
+			has_completed_focus = HUN_maintain_conservative_government
+			has_completed_focus = HUN_the_rise_of_fascism
+		}
+	}
+}
+
+HUN_allied_investment_category = {
+	icon = generic_economy
+	
+	priority = 10
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		has_completed_focus = HUN_allied_investment
+		is_government_in_exile = no
+	}
+}
+
+HUN_integration_category = {
+	icon = generic
+	
+	priority = 0
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		has_country_flag = HUN_can_integrate
+		is_government_in_exile = no
+	}
+}
+
+HUN_pan_europa_category = {
+	icon = generic_political_actions
+	
+	priority = 10
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		has_completed_focus = HUN_otto_dream
+		is_government_in_exile = no
+	}
+}
+
+HUN_Referendum_on_areas_inhabited_by_Hungarians_category = {
+	icon = GFX_decision_category_generic_political_actions
+	
+	picture = GFX_decision_cat_referendum
+	
+	priority = 100
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		has_completed_focus = HUN_socialism_with_a_human_face
+		is_government_in_exile = no
+	}
+}
+
+HUN_air_force_modernization_category = {
+	icon = army_reform
+	
+	priority = 10
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		has_completed_focus = HUN_aviation_effort
+		is_government_in_exile = no
+	}
+}
+
+HUN_army_modernization_category = {
+	icon = army_reform
+	
+	priority = 10
+	
+	allowed = {
+		original_tag = HUN
+	}
+	
+	visible = {
+		has_completed_focus = HUN_army_modernization
+		is_government_in_exile = no
+	}
+}

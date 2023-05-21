@@ -1,0 +1,71 @@
+special_projects = {
+	
+	ROM_charles_line = {
+
+		icon = generic_construction
+
+		available = {
+			owns_state = 82		#Banat
+			owns_state = 83		#Southern Partium
+			owns_state = 918	#Northern Partium
+			num_of_civilian_factories_available_for_projects > 2
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 70
+	
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			HUN = { has_completed_focus = HUN_reassert_old_claims }
+		}
+		ai_will_do = {
+			factor = 10
+		}
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		
+		remove_effect = {
+			82 = { # Banat
+				set_building_level = {
+					type = bunker
+					province = {
+						id = 11608
+					}
+					level = 4
+					instant_build = yes
+				}
+			}
+			83 = { # Southern Partium
+				set_building_level = {
+					type = bunker
+					province = {
+						id = 6682
+						id = 6697
+					}
+					level = 5
+					instant_build = yes
+				}
+			}
+			918 = { # Northern Partium
+				set_building_level = {
+					type = bunker
+					province = {
+						id = 3709
+						id = 746
+					}
+					level = 4
+					instant_build = yes
+				}
+			}
+			news_event = { id = hun_news.21 }
+			HUN = { news_event = { id = hun_news.34 } }
+		}
+	}
+	
+}

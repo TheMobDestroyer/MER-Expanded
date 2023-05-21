@@ -1,0 +1,100 @@
+CZE_historical_strategy_plan = {
+	name = "AUS historical plan"
+	desc = "Let's die to Germany! Yaaaaaaaaaay!"
+
+	allowed = {
+		original_tag = AUS
+	}
+	enable = {
+		always = no 
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				#has_game_rule = {
+				#	rule = AUS_ai_behavior
+				#	option = DEFAULT
+				#}
+			}
+			
+			has_country_flag = AUS_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = AUS_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		always = yes
+		#GER = {
+		#	not = {
+		#		has_government = fascism
+		#	}
+		#}
+		#
+		#has_game_rule = {
+		#	rule = AUS_ai_behavior
+		#	option = DEFAULT
+		#}
+	}
+
+	ai_national_focuses = {
+		AUS_bundesheer_sponsored_flying_clubs #35
+		AUS_pro-austrian_propaganda #35
+		AUS_strengthen_fatherland_front #70
+		AUS_promote_catholicism #70
+		AUS_austro-fascism #70
+		AUS_promote_corporatism #35
+		AUS_release_nazi_collaborators #70
+		AUS_modern_machinery #35
+		AUS_rearm_the_bundesheer #35
+		AUS_negotiate_austrian_rearmament #35
+		AUS_expand_the_fatherland_front #35
+		AUS_regional_connections #70
+		AUS_expand_steyr_works #70
+		AUS_hydroelectric_energy #70
+		AUS_referendum_of_independence #70 - GAME OVER
+		
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 5.0
+		armor = 25.0
+		artillery = 18.0
+		support_tech = 0
+	}
+
+	ideas = {
+		
+	}
+	
+
+	traits = {
+		captain_of_industry = 5
+		minister_of_the_interior = 5
+		prince_of_terror = 5
+		foreign_minister_of_austria = 5
+		popular_figurehead = 0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		AUS_germans_against_germany = 0
+		AUS_support_sudetens = 0
+		AUS_on_our_own = 0
+		AUS_reaffirm_rome_protocols = 0
+		AUS_regal_sentiment = 0
+		AUS_deradicalise_regime = 0
+		
+	}
+
+}
+

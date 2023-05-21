@@ -1,0 +1,23 @@
+﻿
+
+units = {
+
+	##### NAVAL UNITS #####
+	###### Királyi haditengerészet ######
+	fleet = {				
+		name = "Királyi haditengerészet"			
+		naval_base = 591 # Jablanac
+		task_force = {
+			name = "Királyi haditengerészet"
+			location = 591 # Jablanac
+			ship = { name = "KH Budapest" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HUN version_name = "Novara Class" } } }
+			ship = { name = "KH Tátra" definition = destroyer equipment = { ship_hull_light_1  = { amount = 1 owner = HUN version_name = "2000ton Destroyer Class" } } }
+			ship = { name = "KH Balaton" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HUN version_name = "2000ton Destroyer Class" } } }
+			# Tengeralattjárók
+			ship = { name = "KH Bátor" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }				
+			ship = { name = "KH Farkas" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }				
+			ship = { name = "KH Csendes" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }				
+			ship = { name = "KH Bosszúálló" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }		
+		}
+	}
+}

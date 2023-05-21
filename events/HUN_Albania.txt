@@ -1,0 +1,106 @@
+﻿
+add_namespace = hungary_flavor_alb
+
+
+#########
+#ALBANIA#
+#########
+
+# [From.GetAdjective] generosity
+country_event = {
+	id = hungary_flavor_alb.1
+	title = hungary_flavor_alb.1.t
+	desc = hungary_flavor_alb.1.d
+	picture = GFX_report_event_HUN_albania
+	
+	is_triggered_only = yes
+	
+	# Their cause is just, we will join them.
+	option = {
+		name = hungary_flavor_alb.1.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}	
+			modifier = {
+				factor = 2
+				has_government = fascism
+			}	
+		}
+		FROM = {
+			effect_tooltip = { add_to_faction = ROOT }
+			country_event = { days = 1 id = hungary_flavor.103 }
+		}	
+		add_ai_strategy = {
+			type = alliance
+			id = "HUN"
+			value = 200
+		}
+	}
+	
+	# Quietly accept the land, but don't align ourselves with them.
+	option = {
+		name = hungary_flavor_alb.1.b
+		ai_chance = {
+			factor = 40
+		}
+	}
+}
+
+# [From.GetName] offers protection 
+country_event = {
+	id = hungary_flavor_alb.2
+	title = hungary_flavor_alb.2.t
+	desc = hungary_flavor_alb.2.d
+	picture = GFX_report_event_HUN_albania
+	
+	is_triggered_only = yes
+	
+	# This is an offer we can not refuse.
+	option = {
+		name = hungary_flavor_alb.2.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}	
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}	
+		}
+		transfer_state = 920	#Tetovo
+		transfer_state = 802	#Kosovo
+		transfer_state = 922	#Ulcinj
+		effect_tooltip = {
+			FROM = {
+				if = {
+					limit = { has_dlc = "Together for Victory" }
+					set_autonomy = {
+						target = ROOT
+						autonomous_state = autonomy_colony
+						freedom_level = 0.5
+					}
+					else = { puppet = ROOT }
+				}
+			}
+		}
+		FROM = { country_event = { id = hungary_flavor.253 hours = 4 } }
+	}
+	
+	# We would rather die on our feet, than live on our knees.
+	option = {
+		name = hungary_flavor_alb.2.b
+		ai_chance = {
+			factor = 30
+		}
+		effect_tooltip = {
+			44 = { add_claim_by = FROM }	#Albania
+			805 = { add_claim_by = FROM }	#Northern Epirus
+		}
+		FROM = { country_event = { id = hungary_flavor.254 hours = 4 } }
+	}
+}

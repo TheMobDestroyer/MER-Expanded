@@ -1,0 +1,225 @@
+HUN_integration_category = {
+
+	HUN_start_the_integration_of_x = {
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			FROM = {
+				has_state_flag = HUN_can_be_integrated
+				NOT = { has_state_flag = HUN_is_being_integrated }
+				is_owned_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+			ROOT = {
+				has_country_flag = HUN_can_integrate
+			}
+		}
+		
+		state_target = yes
+
+		on_map_mode = map_only
+		
+		days_remove = 7
+
+		remove_effect = {
+			FROM = {
+				set_state_flag = HUN_is_being_integrated
+				apply_hungarian_integration_modifier = yes
+				#add_dynamic_modifier = { modifier = hungarian_integration_neutral }
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	HUN_subvert_resistance_in_x = {
+		icon = generic_police_action
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		available = {
+			FROM = {
+				resistance > 24
+			}
+		}
+
+		visible = {
+			FROM = {
+				has_state_flag = HUN_is_being_integrated
+				is_owned_by = ROOT
+				is_controlled_by = ROOT				
+				NOT = { is_core_of = ROOT }
+			}
+			ROOT = {
+				has_country_flag = HUN_can_integrate
+			}
+		}
+		
+		state_target = yes
+
+		on_map_mode = map_only
+
+		cost = 15
+		
+		days_remove = 7
+
+		remove_effect = {
+			FROM = {
+				add_resistance = -25
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	HUN_accelerate_integration_in_x = {
+		icon = eng_propaganda_campaigns
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		available = {
+			FROM = {
+				resistance < 50
+			}
+		}
+
+		visible = {
+			FROM = {
+				has_state_flag = HUN_is_being_integrated
+				NOT = { has_state_flag = HUN_integration_accelerated }
+				is_owned_by = ROOT							
+				NOT = { is_core_of = ROOT }
+			}
+			ROOT = {
+				has_country_flag = HUN_can_integrate
+			}
+		}
+		
+		state_target = yes
+
+		on_map_mode = map_only
+
+		cost = 20
+
+		complete_effect = {
+			FROM = {
+				add_resistance = 10
+				add_dynamic_modifier = {
+					modifier = hungarian_integration_accelerated
+					days = 365
+				}
+				set_state_flag = { flag = HUN_integration_accelerated value = 1 days = 365 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	HUN_guaranteed_rights_in_x = {
+		icon = eng_propaganda_campaigns
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		available = {
+			has_completed_focus = HUN_imperial_compromise
+		}
+
+		visible = {
+			FROM = {
+				has_state_flag = HUN_is_being_integrated
+				is_owned_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+			ROOT = {
+				has_country_flag = HUN_can_integrate
+			}
+		}
+		
+		days_re_enable = 300
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		cost = 30
+
+		complete_effect = {
+			FROM = {
+				add_compliance = 10
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	HUN_integrate_x = {
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		available = {
+			FROM = {
+				compliance > 90
+				resistance < 50
+			}
+		}
+
+		visible = {
+			FROM = {
+				compliance > 74
+				has_state_flag = HUN_is_being_integrated
+				is_owned_by = ROOT			
+				NOT = { is_core_of = ROOT }
+			}
+			ROOT = {
+				has_country_flag = HUN_can_integrate
+			}
+		}
+		
+		state_target = yes
+
+		on_map_mode = map_only
+
+		cost = 35
+		
+		days_remove = 30
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+				hidden_effect = {
+					clr_state_flag = HUN_can_be_integrated
+					clr_state_flag = HUN_is_being_integrated
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}

@@ -1,0 +1,23 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_intelligence_agency_logo_hun_avo"
+		texturefile = "gfx/interface/operatives/agencies/agency_logo_hun_avo.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_intelligence_agency_logo_hun_vkf"
+		texturefile = "gfx/interface/operatives/agencies/agency_logo_hun_vkf.dds"
+		noOfFrames = 2
+	}   
+    spriteType = {
+	name = "GFX_intelligence_agency_logo_hun_evidenzbureau"
+	texturefile = "gfx/interface/operatives/agencies/agency_logo_hun_evidenzbureau.dds"
+	noOfFrames = 2
+	}  
+	spriteType = {
+	name = "GFX_intelligence_agency_logo_hun_MNVK2"
+	texturefile = "gfx/interface/operatives/agencies/agency_logo_hun_MNVK2.dds"
+	noOfFrames = 2
+    }
+}
+	

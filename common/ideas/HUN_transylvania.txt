@@ -1,0 +1,24 @@
+ideas = {
+	country = {		
+		cooperative_romanian_population = {
+				
+			allowed = {
+				original_tag = TRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_morale_bonus
+			
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = 0.2
+			}
+		}
+	}
+}

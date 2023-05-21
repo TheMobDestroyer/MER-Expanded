@@ -1,0 +1,1522 @@
+HUN_hun_flavor_historical = {
+	name = "Hungarian historical path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_HISTORICAL_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = HISTORICAL_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		HUN_agricultural_modernisation
+		HUN_revisionism
+		HUN_revision_by_force
+		HUN_found_maort
+        HUN_improve_railway_network
+		HUN_secret_rearmament_focus
+		HUN_expand_the_wm_steel_plant
+		HUN_expand_the_wm_aluminium_plant
+		HUN_expand_the_agrarian_industry
+		HUN_draw_closer_to_germany
+		HUN_maintain_conservative_government
+		HUN_italian_pilot_training
+		HUN_state_ammunition_factory
+		HUN_swing_politics
+		HUN_expand_the_levente_associations
+		HUN_industrial_effort
+		HUN_the_gyori_program
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_army_effort
+		HUN_aviation_effort
+		HUN_reinforce_the_gendarmerie
+		HUN_advanced_infantry_divisions
+		HUN_motorization_effort
+		HUN_project_toldi
+		HUN_military_land_survey
+		HUN_rapid_corps
+		HUN_advanced_doctrines
+		HUN_organize_military_research_branch
+		HUN_enact_home_defense_law
+		HUN_countryside_development
+		HUN_yugoslavian_pact_of_eternal_friendship 
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		popular_figurehead = 5
+		compassionate_gentleman = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_enthrone_horthy = 0		#Horthy? A king? Never...
+		HUN_hungary_first = 0
+		HUN_extensive_conscription = 5
+		HUN_revive_the_navy = 20	#Horthy loves them ships
+		HUN_reinstate_horthy = 10
+		HUN_elite_cavalry_division = 10
+	}
+
+}
+
+HUN_hun_flavor_revisionist = {
+	name = "Hungarian revisionist path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_REVISIONIST_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = REVISIONIST_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_force 						
+		HUN_agricultural_modernisation			
+		HUN_found_maort							
+		HUN_improve_railway_network
+		HUN_revisionist_education				
+		HUN_hungary_first						
+		HUN_polish_hungarian_intelligence_exchange 
+		HUN_expand_the_wm_steel_plant					
+		HUN_the_gyori_program					
+		HUN_expand_the_levente_associations		
+		HUN_reassert_old_claims					
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_expand_the_wm_aluminium_plant				
+		HUN_expand_the_agrarian_industry			
+		HUN_army_effort							
+		HUN_aviation_effort						
+		HUN_advanced_infantry_divisions			
+		HUN_motorization_effort					
+		HUN_project_toldi						
+		HUN_military_land_survey				
+		HUN_maintain_conservative_government				
+		HUN_enact_home_defense_law
+		HUN_reinforce_the_gendarmerie
+		HUN_advanced_doctrines					
+		HUN_organize_military_research_branch	
+		HUN_air_superiority_focus				
+		HUN_budapest_ferihegy_airport			
+		HUN_fighter_production_innovations			
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "AUS"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "POL"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "BUL"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "GRE"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "TUR"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "FIN"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		prince_of_terror = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_swing_politics = 0
+		HUN_bled_agreement_focus = 0
+		HUN_restore_the_austro_hungarian_monarchy = 0
+		HUN_yugoslavian_pact_of_eternal_friendship = 0
+		HUN_promote_hungarism = 0
+		HUN_elite_cavalry_division = 0
+		HUN_extensive_conscription = 5
+		HUN_the_rongyos_garda = 5
+		HUN_invite_poland = 10
+		HUN_invite_bulgaria = 10
+		HUN_befriend_austria = 10
+		HUN_greek_alliance = 10
+		HUN_turkish_alliance = 10
+		HUN_help_finland = 10
+		HUN_celebrate_the_successful_revision = 10
+		HUN_demand_slovakia = 20
+		HUN_demand_transylvania_focus = 20
+		HUN_threaten_war_for_banat = 20
+		HUN_partition_yugoslavia = 20
+	}
+
+}
+
+HUN_hun_flavor_revisionist_germany = {
+	name = "Hungarian (German leaning) revisionist path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_REVISIONIST_GERMANY_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = REVISIONIST_GERMANY_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_force 						
+		HUN_agricultural_modernisation			
+		HUN_found_maort							
+		HUN_improve_railway_network
+		HUN_revisionist_education				
+		HUN_draw_closer_to_germany				
+		HUN_military_science_division			
+		HUN_expand_the_wm_steel_plant					
+		HUN_the_gyori_program					
+		HUN_reassert_old_claims					
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_axis_membership						
+		HUN_expand_the_wm_aluminium_plant				
+		HUN_expand_the_agrarian_industry			
+		HUN_army_effort							
+		HUN_assistance_from_the_general_staff	
+		HUN_aviation_effort						
+		HUN_motorization_effort					
+		HUN_project_toldi						
+		HUN_military_land_survey				
+		HUN_synthetic_oil_effort				
+		HUN_advanced_doctrines					
+		HUN_organize_military_research_branch	
+		HUN_budapest_ferihegy_airport			
+		HUN_hungarian_german_research_effort		
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		armor = 10.0
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "ITA"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		prince_of_terror = 5
+		ideological_crusader = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_swing_politics = 0
+		HUN_bled_agreement_focus = 0
+		HUN_yugoslavian_pact_of_eternal_friendship = 0
+		HUN_elite_cavalry_division = 0
+		HUN_extensive_conscription = 5
+		HUN_the_rongyos_garda = 5
+		HUN_hungarian_ss = 10
+		HUN_men_for_burgenland = 10
+		HUN_men_for_burgenland_non_fascist = 10
+		HUN_celebrate_the_successful_revision = 10
+		HUN_demand_slovakia = 5
+		HUN_demand_transylvania_focus = 5
+		HUN_threaten_war_for_banat = 5
+		HUN_partition_yugoslavia = 5
+	}
+
+}
+
+HUN_hun_flavor_austria_hungary = {
+	name = "Austro-Hungarian path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_AUSTRIA_HUNGARY_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = AUSTRIA_HUNGARY_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_force 						
+		HUN_hungary_first						
+		HUN_befriend_austria					
+		HUN_restore_the_austro_hungarian_monarchy 
+		HUN_agricultural_modernisation			
+		HUN_imperialist_coup_in_czechoslovakia
+		HUN_expand_the_wm_steel_plant					
+		HUN_merge_with_czechoslovakia
+		HUN_reassert_old_claims					
+		HUN_the_gyori_program					
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_expand_the_wm_aluminium_plant		
+		HUN_renew_the_hindenburg_plan			
+		HUN_army_effort							
+		HUN_aviation_effort						
+		HUN_motorization_effort					
+		HUN_project_toldi						
+		HUN_advanced_doctrines					
+		HUN_organize_military_research_branch	
+		HUN_expand_the_agrarian_industry	
+		HUN_budapest_ferihegy_airport			
+		HUN_found_maort							
+		HUN_improve_railway_network
+		HUN_industrial_effort			
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		armor = 5.0
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "AUS"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "BUL"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "TUR"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		staunch_monarchist = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_settle_the_matter_of_the_monarchy = 0
+		HUN_dismantle_the_monarchy = 0
+		HUN_bled_agreement_focus = 0
+		HUN_invite_poland = 0
+		#HUN_elite_cavalry_division = 0
+		HUN_extensive_conscription = 5
+		HUN_war_with_austria = 50			#in case Austria rejects the alliance, the AI should strive for union regardless
+		HUN_revive_the_navy = 5
+		HUN_celebrate_the_successful_revision = 5
+		HUN_demand_slovakia = 10
+		HUN_demand_transylvania_focus = 10
+		HUN_threaten_war_for_banat = 10
+		HUN_partition_yugoslavia = 10
+		HUN_galicia_for_guarantees = 20
+		HUN_demand_italian_provinces = 20
+		HUN_imperialist_coup_in_czechoslovakia = 20
+		HUN_merge_with_czechoslovakia = 50
+		HUN_the_bucovina_question = 20
+		HUN_remind_the_germans_of_the_glory_days = 10
+		HUN_the_kaisers_coup = 10
+	}
+
+}
+
+HUN_hun_flavor_fascist_austria_hungary = {
+	name = "Fascist Austro-Hungarian path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_FASCIST_AUSTRIA_HUNGARY_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = FASCIST_AUSTRIA_HUNGARY_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_force 						
+		HUN_hungary_first						
+		HUN_befriend_austria
+        HUN_the_rise_of_fascism		
+		HUN_gentleman_fascism
+        HUN_agreement_with_the_royalists		
+		HUN_restore_the_austro_hungarian_monarchy
+        HUN_the_gyori_program
+		HUN_huba_order_of_battle
+		HUN_border_guards
+        HUN_reassert_old_claims			
+		HUN_imperialist_coup_in_czechoslovakia
+		HUN_agricultural_modernisation			
+		HUN_merge_with_czechoslovakia
+		HUN_expand_the_wm_steel_plant								
+		HUN_expand_the_wm_aluminium_plant		
+        HUN_merging_small_parties		
+        HUN_expand_the_levente_associations		
+		HUN_army_effort							
+		HUN_aviation_effort	
+        HUN_crush_the_arrow_party
+        HUN_national_development_plan
+        HUN_the_new_king 		
+		HUN_motorization_effort					
+		HUN_project_toldi
+        HUN_Klebelsberg_Kuno_Plan	
+		HUN_found_maort	
+        HUN_improve_railway_network		
+		HUN_industrial_effort		
+        HUN_agrarian_modernization		
+		HUN_advanced_doctrines					
+		HUN_organize_military_research_branch	
+		HUN_expand_the_agrarian_industry	
+		HUN_budapest_ferihegy_airport			
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		armor = 5.0
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "AUS"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "BUL"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "TUR"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		fascist_demagogue = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_settle_the_matter_of_the_monarchy = 0
+		HUN_dismantle_the_monarchy = 0
+		HUN_bled_agreement_focus = 0
+		HUN_invite_poland = 0
+		HUN_extensive_conscription = 5
+		HUN_war_with_austria = 50			#in case Austria rejects the alliance, the AI should strive for union regardless
+		HUN_revive_the_navy = 5
+		HUN_celebrate_the_successful_revision = 5
+		HUN_demand_slovakia = 10
+		HUN_demand_transylvania_focus = 10
+		HUN_threaten_war_for_banat = 10
+		HUN_partition_yugoslavia = 10
+		HUN_galicia_for_guarantees = 20
+		HUN_demand_italian_provinces = 20
+		HUN_imperialist_coup_in_czechoslovakia = 20
+		HUN_merge_with_czechoslovakia = 50
+		HUN_the_bucovina_question = 20
+	}
+
+}
+
+HUN_hun_flavor_communist_kadar = {
+	name = "Kádár's Communist path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_COMMUNIST_KADAR_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = COMMUNIST_KADAR_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		HUN_embrace_communism							
+		HUN_agricultural_modernisation				
+		HUN_expand_the_wm_steel_plant 						
+		HUN_the_gyori_program						
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_expand_the_wm_aluminium_plant			
+		HUN_conscription_reforms					
+		HUN_the_kadar_administration				
+		HUN_communist_international					
+		HUN_goulash_communism						
+		HUN_modernize_the_railway_network			
+		HUN_facilitate_full_employment				
+		HUN_the_country_of_iron_and_steel			
+		HUN_worker_spirit							
+		HUN_one_nation_one_party					
+		HUN_army_effort								
+		HUN_hungarian_research_cities				
+		HUN_found_maort	
+        HUN_improve_railway_network	
+		HUN_aviation_effort							
+		HUN_soviet_officer_training					
+		HUN_advanced_infantry_divisions				
+		HUN_specialised_training					
+		HUN_advanced_doctrines						
+		HUN_western_relations						
+		HUN_expand_the_agrarian_industry		
+		HUN_a_bastion_against_fascism					
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		communist_revolutionary = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_settle_the_matter_of_the_monarchy = 0
+		HUN_dismantle_the_monarchy = 0
+		HUN_spreading_the_revolution = 0
+		HUN_the_rakosi_administration = 0
+		HUN_rescue_bela_kun = 0
+		HUN_war_on_fascism = 0
+	}
+
+}
+
+HUN_hun_flavor_communist_rakosi = {
+	name = "Rákosi's Communist path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_COMMUNIST_RAKOSI_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = COMMUNIST_RAKOSI_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		HUN_embrace_communism							
+		HUN_agricultural_modernisation				
+		HUN_expand_the_wm_steel_plant 						
+		HUN_the_gyori_program						
+		HUN_expand_the_wm_aluminium_plant			
+		HUN_conscription_reforms					
+		HUN_the_rakosi_administration				
+		HUN_one_nation_one_party					
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_communist_international					
+		HUN_connections_in_moscow					
+		HUN_found_maort	
+        HUN_improve_railway_network	
+		HUN_create_the_avo							
+		HUN_the_country_of_iron_and_steel			
+		HUN_worker_spirit							
+		HUN_the_yugoslavian_wall					
+		HUN_army_effort								
+		HUN_hungarian_research_cities				
+		HUN_collectivization						
+		HUN_soviet_officer_training					
+		HUN_five_year_plan							
+		HUN_specialised_training					
+		HUN_advanced_doctrines						
+		HUN_the_iron_curtain						
+		HUN_spreading_the_revolution				
+		HUN_a_bastion_against_fascism					
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		communist_revolutionary = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_settle_the_matter_of_the_monarchy = 0
+		HUN_dismantle_the_monarchy = 0
+		HUN_the_kadar_administration = 0
+		HUN_rescue_bela_kun = 0
+	}
+
+}
+
+HUN_hun_flavor_communist_kun = {
+	name = "Kun's Communist path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_COMMUNIST_KUN_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = COMMUNIST_KUN_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		HUN_embrace_communism							
+		HUN_agricultural_modernisation				
+		HUN_expand_the_wm_steel_plant 						
+		HUN_rescue_bela_kun							
+		HUN_expand_the_wm_aluminium_plant			
+		HUN_conscription_reforms					
+		HUN_revolutionary_court						
+		HUN_red_guard								
+		HUN_the_council_of_nations					
+		HUN_collectivization						
+		HUN_five_year_plan							
+		HUN_the_iron_curtain						
+		HUN_found_maort	
+        HUN_improve_railway_network	
+		HUN_the_gyori_program						
+		HUN_aviation_effort							
+		HUN_expand_the_agrarian_industry					
+		HUN_budapest_ferihegy_airport				
+		HUN_army_effort								
+		HUN_advanced_infantry_divisions				
+		HUN_industrial_effort				
+		HUN_huba_order_of_battle
+		HUN_border_guards
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "CZE"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "AUS"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "YUG"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "ROM"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		communist_revolutionary = 5
+		ideological_crusader = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_settle_the_matter_of_the_monarchy = 0
+		HUN_dismantle_the_monarchy = 0
+		HUN_the_kadar_administration = 0
+		HUN_the_rakosi_administration = 0
+		HUN_the_yugoslavian_wall = 0
+		HUN_the_danube_federation = 20
+		HUN_comittee_for_federal_security = 10
+		HUN_concentrated_construction_effort = 10
+		HUN_federal_reserve_guard = 10
+		HUN_danube_scientific_institute = 10
+	}
+
+}
+
+HUN_hun_flavor_communist_nagy = {
+	name = "Nagy's Communist path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_COMMUNIST_NAGY_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = COMMUNIST_NAGY_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		HUN_embrace_communism	
+        HUN_red_army
+        HUN_disz		
+		HUN_agricultural_modernisation				
+		HUN_expand_the_wm_steel_plant 						
+		HUN_the_gyori_program						
+        HUN_socialism_with_a_human_face	
+		HUN_expand_the_wm_aluminium_plant						
+		HUN_reformcommunism				
+		HUN_fundamental_rights					
+		HUN_market_economy						
+		HUN_gateway_between_east_and_west
+        HUN_secure_church_support			
+		HUN_agrarian_university
+		HUN_a_bastion_against_fascism
+		HUN_home_defense_focus
+		HUN_conscription_reforms		
+        HUN_found_maort
+        HUN_improve_railway_network	
+		HUN_huba_order_of_battle
+		HUN_border_guards
+        HUN_expand_the_wm_steel_plant
+		HUN_expand_the_wm_aluminium_plant
+        HUN_expand_the_agrarian_industry
+        HUN_industrial_effort
+        HUN_army_effort
+        HUN_motorization_effort
+        HUN_project_toldi
+        HUN_the_patriotic_peoples_front
+        HUN_democratic_compromise
+        HUN_preparations_for_the_war		
+		HUN_unite_the_nations	
+		HUN_aviation_effort
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		communist_revolutionary = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_settle_the_matter_of_the_monarchy = 0
+		HUN_dismantle_the_monarchy = 0
+		HUN_spreading_the_revolution = 0
+		HUN_the_rakosi_administration = 0
+		HUN_rescue_bela_kun = 0
+		HUN_the_kadar_administration = 0 
+	}
+
+}
+
+HUN_hun_flavor_democratic = {
+	name = "Hungarian democratic path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_DEMOCRATIC_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = DEMOCRATIC_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_diplomacy 						
+		HUN_align_with_the_victors							
+		HUN_agricultural_modernisation				
+		HUN_expand_the_wm_steel_plant 					
+		HUN_the_gyori_program						
+		HUN_secure_the_new_government
+        HUN_little_entente		
+		HUN_peace_with_our_neighbors				
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_leaning_westward						
+		HUN_joining_the_right_cause					
+		HUN_strengthen_the_move						
+		HUN_land_reform								
+		HUN_expand_the_wm_aluminium_plant			
+		HUN_budapest_ferihegy_airport				
+		HUN_dismantle_the_monarchy					
+		HUN_scientific_spirit						
+		HUN_democratic_trade_focus					
+		HUN_ask_for_szekler_autonomy				
+		HUN_army_effort								
+		HUN_found_maort								
+		HUN_improve_railway_network	
+		HUN_expand_the_agrarian_industry		
+		HUN_a_bastion_against_fascism				
+		HUN_british_scientific_exchange				
+		HUN_motorization_effort						
+		HUN_project_toldi							
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "FRA"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		democratic_reformer = 5
+		silent_workhorse = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_the_great_coalition = 0
+		HUN_secret_rearmament_focus = 0
+		HUN_convertible_factories = 10
+		HUN_emergency_measures = 10
+	}
+
+}
+
+HUN_hun_flavor_democratic_visegrad = {
+	name = "Hungarian Visegrád Group path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_DEMOCRATIC_VISEGRAD_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = DEMOCRATIC_VISEGRAD_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_diplomacy 						
+		HUN_align_with_the_victors							
+		HUN_agricultural_modernisation				
+		HUN_expand_the_wm_steel_plant					
+		HUN_the_gyori_program						
+		HUN_little_entente
+		HUN_peace_with_our_neighbors				
+		HUN_the_visegrad_group						
+		HUN_secure_the_new_government				
+		HUN_conscription_reforms					
+		HUN_espirit_de_corps						
+		HUN_invite_yugoslavia						
+		HUN_economic_cooperation					
+		HUN_joint_military_council					
+		HUN_a_bastion_against_fascism				
+		HUN_baltic_expansion						
+		HUN_visegrad_technology_circle				
+		HUN_expand_the_wm_aluminium_plant			
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_army_effort								
+		HUN_found_maort								
+		HUN_improve_railway_network	
+		HUN_expand_the_agrarian_industry		
+		HUN_budapest_ferihegy_airport				
+		HUN_hungarian_lloyd_aircraft_factory		
+		HUN_aviation_effort							
+		HUN_the_aerotechnics_institute					
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "POL"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "CZE"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "AUS"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "YUG"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		democratic_reformer = 5
+		compassionate_gentleman = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_dismantle_the_monarchy = 0
+		HUN_settle_the_matter_of_the_monarchy = 0
+		HUN_the_great_coalition = 0
+		HUN_secret_rearmament_focus = 0
+		HUN_convertible_factories = 10
+		HUN_emergency_measures = 10
+	}
+
+}
+
+HUN_hun_flavor_democratic_coalition = {
+	name = "Hungarian Great Coalition path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_DEMOCRATIC_COALITION_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = DEMOCRATIC_COALITION_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_diplomacy 						
+		HUN_the_great_coalition						
+		HUN_social_reconciliation					
+		HUN_education_reform 						
+		HUN_land_reform								
+		HUN_tax_reform								
+		HUN_the_gyori_program						
+		HUN_agricultural_modernisation				
+		HUN_found_maort								
+		HUN_improve_railway_network	
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_expand_the_wm_steel_plant					
+		HUN_espirit_de_corps						
+		HUN_womens_suffrage							
+		HUN_women_in_the_army						
+		HUN_army_effort								
+		HUN_a_bastion_against_fascism				
+		HUN_motorization_effort						
+		HUN_armed_neutrality						
+		HUN_project_toldi							
+		HUN_advanced_doctrines						
+		HUN_organize_military_research_branch		
+		HUN_preparations_for_the_war				
+		HUN_budapest_ferihegy_airport				
+		HUN_aviation_effort							
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		fortification_engineer = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_align_with_the_victors = 0
+		HUN_convertible_factories = 10
+		HUN_emergency_measures = 10
+	}
+
+}
+
+HUN_hun_flavor_szocialdemocrats = {
+	name = "Hungarian szocialdemocrats path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_SZOCIALDEMOCRATS_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = SZOCIALDEMOCRATS_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_diplomacy 						
+		HUN_the_szocialdemocrats
+		HUN_agricultural_modernisation				
+		HUN_expand_the_wm_steel_plant 					
+		HUN_the_gyori_program						
+		HUN_election_reform
+		HUN_found_maort								
+		HUN_improve_railway_network	
+		HUN_huba_order_of_battle
+		HUN_border_guards
+        HUN_little_entente		
+		HUN_peace_with_our_neighbors				
+		HUN_leaning_westward						
+		HUN_joining_the_right_cause					
+		HUN_expand_the_wm_aluminium_plant			
+		HUN_budapest_ferihegy_airport				
+		HUN_dismantle_the_monarchy					
+		HUN_army_effort								
+		HUN_expand_the_agrarian_industry		
+		HUN_a_bastion_against_fascism				
+		HUN_motorization_effort						
+		HUN_project_toldi							
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "FRA"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "YUG"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		democratic_reformer = 5
+		silent_workhorse = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_the_great_coalition = 0
+		HUN_secret_rearmament_focus = 0
+		HUN_convertible_factories = 10
+		HUN_emergency_measures = 10
+	}
+
+}
+
+HUN_hun_flavor_hungarist = {
+	name = "Hungarist path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_HUNGARIST_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = HUNGARIST_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_force
+        HUN_the_rise_of_fascism		
+		HUN_promote_hungarism
+        HUN_nyilas_terror		
+		HUN_draw_closer_to_germany					
+		HUN_military_science_division 				
+		HUN_agricultural_modernisation								
+		HUN_expand_the_wm_steel_plant						
+		HUN_the_gyori_program						
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_declare_state_of_emergency				
+		HUN_social_reforms							
+		HUN_axis_membership							
+		HUN_reassert_old_claims							
+		HUN_national_socialist_industry				
+		HUN_industrial_and_work_reforms				
+		HUN_the_industrialized_agrarian_state		
+		HUN_the_order_of_the_working_nation			
+		HUN_domestic_focus							
+		HUN_assistance_from_the_general_staff		
+		HUN_synthetic_oil_effort					
+		HUN_expand_the_levente_associations	
+        HUN_reinforce_the_gendarmerie		
+		HUN_army_effort								
+		HUN_motorization_effort						
+		HUN_project_toldi							
+		HUN_aviation_effort							
+		HUN_advanced_doctrines						
+		HUN_organize_military_research_branch		
+		HUN_found_maort								
+		HUN_improve_railway_network	
+
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		armor = 5.0
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		fascist_demagogue = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_bled_agreement_focus = 0
+		HUN_secret_rearmament_focus = 0
+		HUN_hungarian_ss = 20
+		HUN_men_for_burgenland = 10
+	}
+
+}
+
+HUN_hun_flavor_fascist_alternative = {
+	name = "Gentleman fascism path"
+	desc = ""
+
+	enable = {
+		original_tag = HUN
+		OR = {
+			has_country_flag = HUN_AI_RANDOM_FASCIST_ALTERNATIVE_HUN_FLAVOR
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = FASCIST_ALTERNATIVE_HUN_FLAVOR
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	    HUN_revisionism
+		HUN_revision_by_force
+        HUN_the_rise_of_fascism		
+		HUN_gentleman_fascism
+        HUN_agreement_with_the_royalists		
+		HUN_draw_closer_to_germany									
+		HUN_agricultural_modernisation								
+		HUN_expand_the_wm_steel_plant						
+		HUN_merging_small_parties				
+		HUN_crush_the_arrow_party
+        HUN_national_development_plan
+        HUN_military_science_division		
+		HUN_axis_membership	
+        HUN_reassert_old_claims			
+		HUN_assistance_from_the_general_staff		
+		HUN_the_gyori_program						
+		HUN_huba_order_of_battle
+		HUN_border_guards
+		HUN_synthetic_oil_effort					
+		HUN_expand_the_levente_associations	
+        HUN_reinforce_the_gendarmerie
+		HUN_found_maort								
+		HUN_improve_railway_network	
+        HUN_entailment
+        HUN_youth_education
+        HUN_national_industry
+        HUN_cooperative_state		
+		HUN_army_effort								
+		HUN_motorization_effort						
+		HUN_project_toldi							
+		HUN_aviation_effort							
+		HUN_advanced_doctrines						
+		HUN_organize_military_research_branch					
+	}
+
+	research = {
+		infantry_weapons = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		armor = 5.0
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 200
+	}
+
+	ideas = {
+		
+	}
+	traits = {
+		fascist_demagogue = 5
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		HUN_bled_agreement_focus = 0
+		HUN_secret_rearmament_focus = 0
+		HUN_hungarian_ss = 20
+		HUN_men_for_burgenland = 10
+	}
+	
+}

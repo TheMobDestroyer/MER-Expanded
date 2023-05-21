@@ -1,0 +1,93 @@
+﻿HUN = {
+	male = {
+		names = { 
+			Alajos Albert Aladár Álmos Anasztáz András Arisztid Aurél Béla Benedek Béni
+			Bertalan Dániel Dávid Dezső Edvárd Éliás Ernő Ferenc Gábor Gábriel Gáspár Gusztáv
+			György Gyula Hermann Henrik Ignác Imre István Izidor János Jenő József Kálmán
+			Károly Kelemen Krisztián Kornél Lajos László Nándor Márton Mihály Mór Miklós
+			Ödön Ottó Oszkár Péter Rafael Sándor Simon Tivadar Vilmos Zoltán Zsigmond Zsolt
+		}
+	}
+	female = {
+		names = {  		   
+ 		    Ágnes Anna Adelaide Agáta Amelia Angyalka Aranka 
+			Csilla Csillag Czenzi Dorottya Dóra Edit Edith Emese Erika 
+			Eszter Éva Etel Gizella Györgyi Hajnalka Ibolya Irén Julianna Judit 
+			Kamilla Kinga Klára Illona Krisztina Kunigunda Luca Mária Márta 
+			Magdolna Magdalena Margaréta Margit Matild Natália Orsolya 
+			Panni Piroska Rózsa Sarolta Zsuzsa Zsanett  
+		}
+	}
+	surnames = { 
+		Andrássy Apponyi Almásy Aulich Bacher Baross Batthyány Beöthy Bothmer Damjanich Dessewffy 
+		Cseh Csizmadia Egressy Farkas Goldziher Hauszmann Héjjas Heller Horthy Horváth Izsó Joseffy
+		Katona Kiss Kónya Kaufman Kéler Keresztes Knezich Lahner Lázár Lakatos Liszt Mikszáth Molnár
+		Nagy Nagy-Sándor Ottinger Oszlányi Perczel Poeltenberg Rátz Reményi Rohr Ruszkay Schweidel 
+		Szabó Széchenyi Szemere Szlávic Szűts Tabódy Tapody Tóth Tersztyansky Török Ungár Varga Vajlok 
+		Vécsey Zichy Zentai Zsoldos
+	}
+	callsigns = { }
+}
+
+HUN_AHU = {
+	male = {
+		names = { 
+			Alajos Albert Aladár Álmos Adolf Anasztáz András Antal Anton Arisztid Aurél Béla Benedek Béni
+			Bertalan Dániel Dávid Dezső Edvárd Emil Éliás Ernő Ezekiel Erich Ferenc Felix Fritz Gábor Gábriel 
+			Gáspár Gerhard Gunther Gusztáv György Gyula Hans Hermann Henrik Henry Heinz Hermann Heinrich Ignác 
+			Imre István Izidor János Jenő Joachim József Kálmán Karl Károly Kelemen Krisztián Kornél Lajos László 
+			Nándor Marco Max Maximilian Márton Mihály Mór Miklós Ödön Ottó Oszkár Péter Peter Rafael Sándor Simon 
+			Staffan Tivadar Theodor Tobias Vilmos Zoltán Walter Wilhelm Zsigmond Zsolt	
+		}
+	}
+	female = {
+		names = {	
+ 		    Ágnes Adelaida Adelaide Anna Adelaide Agáta Amelia Angyalka Aranka Camilla Clara Catherine 
+			Constance Christina Csilla Csillag Czenzi Dorottya Dóra Edit Edith Emese Erika Eszter Éva Etel 
+			Elisabeth Euphemia Gizella Gisela Györgyi Georgia Hedwig Hajnalka Ibolya Irén Irene Illona Julianna Judit 
+			Kamilla Kinga Klára Krisztina Kunigunda Konstancia Luca Mária Márta Magdolna Magdalena Margaréta Margaret 
+			Margit Matild Natália Orsolya Panni Piroska Rózsa Sarolta Sophia Skolasztika Terezia Teresa Viola Zsuzsa Zsanett  
+		}
+	}
+	surnames = { 
+		Andrássy Apponyi Almásy Aulich Bacher Baross Batthyány Beöthy Bothmer Barkhorn Becker Brendel Beisswenger 
+		Berglen Behrmann Cseh Csizmadia Damjanich Dessewffy Duttmann Egressy Erhler Farkas Fischer Goldziher Graf 
+		Hafner Hauszmann Hartmann Héjjas Heller Horthy Horváth Hoffmann Izsó Joseffy Katona Kiss Kónya Kaufman Kéler
+		Keresztes Kirschner Knezich Lahner Lang Lázár Lakatos Liszt Lipfert Lugmair Mikszáth Molnár Nagy Nagy-Sándor 
+		Neudinger Ottinger Meyer Müller Oszlányi Perczel Poeltenberg Rátz Rall Reményi Rohr Ruszkay Schweidel Stotz 
+		Sturm Schmidt Schneider Schulz Szabó Széchenyi Szemere Szlávic Szűts Tabódy Tapody Tóth Tersztyansky Török 
+		Ungár Varga Vajlok Vécsey Wagner Weber Wilbs Zichy Zentai Zsoldos
+	}
+	callsigns = { }
+}
+HUN_DNF = {
+	male = {
+		names = { 
+			Alajos Albert Aladár Álmos Adolf Anasztáz András Antal Anton Arisztid Aurél Béla Benedek Béni
+			Bertalan Dániel Dávid Dezső Edvárd Emil Éliás Ernő Ezekiel Erich Ferenc Felix Fritz Gábor Gábriel 
+			Gáspár Gerhard Gunther Gusztáv György Gyula Hans Hermann Henrik Henry Heinz Hermann Heinrich Ignác 
+			Imre István Izidor János Jenő Joachim József Kálmán Karl Károly Kelemen Krisztián Kornél Lajos László 
+			Nándor Marco Max Maximilian Márton Mihály Mór Miklós Ödön Ottó Oszkár Péter Peter Rafael Sándor Simon 
+			Staffan Tivadar Theodor Tobias Vilmos Zoltán Walter Wilhelm Zsigmond Zsolt
+		}
+	}
+	female = {
+		names = { 		   
+ 		    Ágnes Adelaida Adelaide Anna Adelaide Agáta Amelia Angyalka Aranka Camilla Clara Catherine 
+			Constance Christina Csilla Csillag Czenzi Dorottya Dóra Edit Edith Emese Erika Eszter Éva Etel 
+			Elisabeth Euphemia Gizella Gisela Györgyi Georgia Hedwig Hajnalka Ibolya Irén Irene Illona Julianna Judit 
+			Kamilla Kinga Klára Krisztina Kunigunda Konstancia Luca Mária Márta Magdolna Magdalena Margaréta Margaret 
+			Margit Matild Natália Orsolya Panni Piroska Rózsa Sarolta Sophia Skolasztika Terezia Teresa Viola Zsuzsa Zsanett    
+		}
+	}
+	surnames = { 
+		Andrássy Apponyi Almásy Aulich Bacher Baross Batthyány Beöthy Bothmer Barkhorn Becker Brendel Beisswenger 
+		Berglen Behrmann Cseh Csizmadia Damjanich Dessewffy Duttmann Egressy Erhler Farkas Fischer Goldziher Graf 
+		Hafner Hauszmann Hartmann Héjjas Heller Horthy Horváth Hoffmann Izsó Joseffy Katona Kiss Kónya Kaufman Kéler
+		Keresztes Kirschner Knezich Lahner Lang Lázár Lakatos Liszt Lipfert Lugmair Mikszáth Molnár Nagy Nagy-Sándor 
+		Neudinger Ottinger Meyer Müller Oszlányi Perczel Poeltenberg Rátz Rall Reményi Rohr Ruszkay Schweidel Stotz 
+		Sturm Schmidt Schneider Schulz Szabó Széchenyi Szemere Szlávic Szűts Tabódy Tapody Tóth Tersztyansky Török 
+		Ungár Varga Vajlok Vécsey Wagner Weber Wilbs Zichy Zentai Zsoldos
+	}
+	callsigns = { }
+}

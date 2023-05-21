@@ -1,0 +1,41 @@
+
+
+###### Medals #######
+
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_HUN_medal_1"
+		texturefile = "gfx/interface/medals/HUN_medal_1.dds"
+	}
+	
+    spriteType = {
+		name = "GFX_HUN_medal_2"
+		texturefile = "gfx/interface/medals/HUN_medal_2.dds"
+	}
+    	
+    spriteType = {
+		name = "GFX_HUN_medal_3"
+		texturefile = "gfx/interface/medals/HUN_medal_3.dds"
+	}
+    	
+    spriteType = {
+		name = "GFX_HUN_medal_4"
+		texturefile = "gfx/interface/medals/HUN_medal_4.dds"
+	}
+
+	###Frames
+	
+	spriteType = {
+		name = "GFX_medal_icon_hun"
+		texturefile = "gfx/interface/medals/hun_medal_strip.dds"
+		noOfFrames = 4
+    }
+	
+	spriteType = {
+		name = "GFX_medal_icon_hun_large"
+		texturefile = "gfx/interface/medals/hun_medal_strip_large.dds"
+		noOfFrames = 4
+    }
+    
+}

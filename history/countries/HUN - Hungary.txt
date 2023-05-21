@@ -1,0 +1,457 @@
+﻿capital = 927
+
+oob = "HUN_1936"
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "HUN_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			early_bombs = 1
+			photo_reconnaisance = 1
+			aircraft_construction = 1
+			iw_small_airframe = 1
+			engines_1 = 1
+		}
+	else = {
+		set_air_oob = "HUN_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			CAS1 = 1
+		}
+	}
+}
+
+set_research_slots = 3
+set_stability = 0.7
+set_war_support = 0.6
+
+set_technology = {
+	support_weapons = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_mountaineers = 1
+	
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	
+	gw_artillery = 1
+	interwar_antiair = 1
+	
+	fuel_silos = 1	
+	basic_train = 1	
+}
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+		set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		transport = 1
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
+		basic_battery = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		coastal_defense_ships = 1
+		mtg_transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	set_technology = {
+		armored_car1 = 1
+	}
+}	
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "WM-16"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = small_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = recon_camera
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+	    icon = "GFX_HUN_CAS1_medium"
+	}
+	create_equipment_variant = {
+		name = "AVIS"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_HUN_early_fighter_medium"
+	}
+}
+
+if = {
+	limit = {
+		#has_dlc = Battle for the Bosporus
+	}
+	add_opinion_modifier = { 
+		target = CZE
+		modifier = BFTB_incongruous_neighbors
+	}
+	add_opinion_modifier = { 
+		target = ROM
+		modifier = BFTB_incongruous_neighbors
+	}
+	add_opinion_modifier = { 
+		target = YUG
+		modifier = BFTB_incongruous_neighbors
+	}
+}
+
+set_party_name = { ideology = neutrality long_name = HUN_nemzeti_egyseg_part_long name = HUN_nemzeti_egyseg_part }
+set_party_name = { ideology = fascism long_name = HUN_arrow_cross_party_long name = HUN_arrow_cross_party }
+set_country_flag = HUN_rakosi_leader_of_com
+set_country_flag = HUN_realism
+set_country_flag = HUN_showing_self_government_decisions
+add_ideas = { trianon_restrictions }
+add_ideas = { kingdom_without_a_king }
+add_ideas = { press_lawsuits_neutrality }
+add_ideas = { turul_movement_start }
+add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 200 producer = HUN }
+
+if = { limit = { is_ahu = yes } drop_cosmetic_tag = yes }
+
+# Initializing variables
+set_variable = { global.HUN_gyori_program_phase_duration = 150 }
+set_variable = { global.HUN_gyori_program_phase_timeout = 150 }
+set_variable = { global.HUN_conscription_resistance_overflow = 0 }
+set_variable = { global.HUN_badboy_rating = 0 }
+
+set_popularities = {
+	democratic = 42
+	fascism = 4
+	communism = 7
+	neutrality = 47
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1935.3.31"
+	election_frequency = 48
+	elections_allowed = yes
+}
+recruit_character = HUN_miklos_horthy
+recruit_character = HUN_ferenc_szalasi
+recruit_character = HUN_matyas_rakosi
+recruit_character = HUN_eckhardt_tibor
+recruit_character = HUN_lajos_veress
+recruit_character = HUN_ferenc_feketehalmy_czeydner
+recruit_character = HUN_geza_lakatos
+recruit_character = HUN_ivan_hindy
+recruit_character = HUN_bela_miklos
+recruit_character = HUN_gabor_faragho
+recruit_character = HUN_laszlo_dezso
+recruit_character = HUN_gusztav_jany
+recruit_character = HUN_karoly_beregfy
+recruit_character = HUN_lajos_csatay
+recruit_character = HUN_laszlo_hollosy_kuthy
+recruit_character = HUN_gorondy_novak_elemer
+recruit_character = HUN_littay_andras
+recruit_character = HUN_henney_gusztav
+recruit_character = HUN_odon_trunkwalter
+recruit_character = HUN_kalman_hardy
+recruit_character = HUN_shvoy_kalman
+recruit_character = HUN_teofil_harosy
+recruit_character = HUN_ferenc_vitez_szentnemedy
+recruit_character = HUN_henrik_werth
+recruit_character = HUN_ferenc_bardoczy
+recruit_character = HUN_hugo_sonyi
+recruit_character = HUN_bela_rakosi
+recruit_character = HUN_sandor_magyarossy
+recruit_character = HUN_jozsef_somkuthy
+recruit_character = HUN_jeno_ratz
+recruit_character = HUN_lajos_keresztes_fischer
+recruit_character = HUN_janos_voros
+recruit_character = HUN_karoly_lucich
+recruit_character = HUN_kalman_kanya
+recruit_character = HUN_dome_sztojay
+recruit_character = HUN_tihamer_fabinyi
+recruit_character = HUN_zoltan_tildy
+recruit_character = HUN_ferenc_szombathelyi
+recruit_character = HUN_vilmos_roder
+recruit_character = HUN_ferenc_keresztes_fischer
+recruit_character = HUN_marton_nemerey
+recruit_character = HUN_gabor_peter
+recruit_character = HUN_laszlo_rajk
+recruit_character = HUN_endre_rajk
+recruit_character = HUN_magdolna_purgly
+recruit_character = HUN_anna_kethly
+recruit_character = HUN_gusztav_gratz
+recruit_character = HUN_karoly_rassay
+recruit_character = HUN_fidel_pallfy
+recruit_character = HUN_istvan_ujszaszy
+recruit_character = HUN_hermann_pokorny
+recruit_character = HUN_jozsef_mindszenty
+recruit_character = HUN_pal_pronay
+recruit_character = HUN_oszkar_jaszy
+recruit_character = HUN_gyorgy_lukacs
+recruit_character = HUN_istvan_roszner
+recruit_character = HUN_laszlo_hary
+recruit_character = HUN_beldi_bela 
+recruit_character = HUN_emil_maczky_borbely
+recruit_character = HUN_antal_sigray
+recruit_character = HUN_janos_zichy
+recruit_character = HUN_georg_von_trapp
+recruit_character = HUN_pal_hegedus
+recruit_character = HUN_ludvik_svoboda
+recruit_character = HUN_carl_heinz_birnbacher
+recruit_character = HUN_jan_golian
+recruit_character = HUN_peter_veres
+recruit_character = HUN_gyorgy_marosan
+recruit_character = HUN_antal_ban
+recruit_character = HUN_ferenc_nagy
+recruit_character = HUN_endre_miseth
+recruit_character = HUN_jozsef_darvas
+recruit_character = HUN_revai_jozsef
+recruit_character = HUN_aczel_gyorgy
+recruit_character = HUN_rafael_boban
+recruit_character = HUN_vladimir_laxa
+recruit_character = HUN_Mihajlo_Lukic
+recruit_character = HUN_Algya_Pap_Zoltan
+recruit_character = HUN_zoltan_szugyi
+recruit_character = HUN_Maximilian_Ronge
+recruit_character = HUN_erno_billnitzer
+recruit_character = HUN_vilmos_nagy
+recruit_character = HUN_Narwalli_Konek_Emil
+
+
+### VARIANTS ###
+# 1936 Start #
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	### Ship Variants ###
+	create_equipment_variant = {
+		name = "2000ton Destroyer Class"
+		type = destroyer_1
+		upgrades = {
+			ship_torpedo_upgrade = 2
+			destroyer_engine_upgrade = 2
+			ship_ASW_upgrade = 1
+			ship_anti_air_upgrade = 1
+		}
+	}
+
+	create_equipment_variant = {
+		name = "Ersatz Zenta Class"
+		type = light_cruiser_1
+		upgrades = {
+			ship_reliability_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_gun_upgrade = 1
+			ship_anti_air_upgrade = 1
+		}
+	}
+
+	create_equipment_variant = {
+		name = "Project VII Class"
+		type = heavy_cruiser_1
+		upgrades = {
+			ship_reliability_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_armor_upgrade = 1
+			ship_gun_upgrade = 1
+		}
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns"}
+	### Battleship Variants	
+	create_equipment_variant = {			
+		name = "Tegetthoff Class"
+		type = ship_hull_heavy_1
+		name_group = HUN_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = empty
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+	}
+	### Heavy Cruiser Variants	
+	create_equipment_variant = {
+		name = "Budapest Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = HUN_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			front_1_custom_slot = empty
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_medium_battery_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Sankt Georg Class"
+		type = ship_hull_cruiser_1
+		name_group = HUN_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Projekt VII Class"
+		type = ship_hull_cruiser_1
+		name_group = HUN_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_medium_battery_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_medium_battery_1
+		}
+	}
+	### Light Cruiser Variants	
+	create_equipment_variant = {
+		name = "Novara Class"
+		type = ship_hull_cruiser_1
+		name_group = HUN_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = empty
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Ersatz Zenta Class"
+		type = ship_hull_cruiser_1
+		name_group = HUN_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_light_medium_battery_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = empty
+		}
+	}
+	### Destroyer Variants
+	create_equipment_variant = {
+		name = "Tatra Class" 		
+		type = ship_hull_light_1
+		name_group = HUN_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Improved Tatra Class"			
+		type = ship_hull_light_1
+		name_group = HUN_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = empty
+		}
+	}	
+	create_equipment_variant = {
+		name = "2000ton Destroyer Class" 			
+		type = ship_hull_light_1
+		name_group = HUN_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	### Submarine Variants	
+	create_equipment_variant = {
+		name = "Balin Class"
+		type = ship_hull_submarine_1
+		name_group = HUN_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+	}
+}

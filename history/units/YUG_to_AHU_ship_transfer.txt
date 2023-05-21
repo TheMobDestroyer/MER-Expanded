@@ -1,0 +1,23 @@
+﻿
+
+units = {
+
+	##### NAVAL UNITS #####
+	###### k.u.k Kriegsmarine ######
+	fleet = {				
+		name = "k.u.k Kriegsmarine"				
+		naval_base = 591 # Jablanac
+		task_force = {
+			name = "k.u.k Kriegsmarine"
+			location = 591 # Jablanac
+			ship = { name = "KH Budapest" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HUN version_name = "Novara Class" } } }
+			ship = { name = "KH Tátra" definition = destroyer equipment = { ship_hull_light_1  = { amount = 1 owner = HUN version_name = "2000ton Destroyer Class" } } }
+			ship = { name = "KH Balaton" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HUN version_name = "2000ton Destroyer Class" } } }
+			# Tengeralattjárók
+			ship = { name = "SM U-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }				
+			ship = { name = "SM U-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }				
+			ship = { name = "SM U-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }				
+			ship = { name = "SM U-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HUN version_name = "Balin Class" } } }	
+		}
+	}
+}

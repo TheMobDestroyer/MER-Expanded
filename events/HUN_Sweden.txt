@@ -1,0 +1,76 @@
+﻿
+add_namespace = hungary_flavor_swe
+
+########
+#SWEDEN#
+########
+
+# Alliance offer from Hungary
+country_event = {
+	id = hungary_flavor_swe.1
+	title = hungary_flavor_swe.1.t
+	desc = hungary_flavor_swe.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#A commendable initiative. We accept.
+	option = {
+		name = hungary_flavor_swe.1.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 74 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 99 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 49 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 74 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 99 }
+			}
+			modifier = {
+				factor = 1.5
+				HUN = { has_country_flag = HUN_swedish_license_trade_on }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.229 hours = 4 } }
+		POL = {
+			country_event = { id = hungary_flavor_pol.13 hours = 4 }
+			effect_tooltip = {
+				add_to_faction = ROOT
+			}
+		}
+	}
+	
+	#We will not compromise our neutrality.
+	option = {
+		name = hungary_flavor_swe.1.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				HUN = { has_completed_focus = HUN_carl_wilhelm_of_sweden }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.230 hours = 4 } }
+	}
+}

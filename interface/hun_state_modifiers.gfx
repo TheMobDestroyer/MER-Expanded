@@ -1,0 +1,14 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_modifiers_hungarian_integration"
+		textureFile = "gfx/interface/state_modifiers/hungarian_integration.dds"
+	}
+	spriteType = {
+		name = "GFX_modifiers_integration_propaganda"
+		textureFile = "gfx/interface/state_modifiers/integration_propaganda.dds"
+	}
+	spriteType = {
+		name = "GFX_modifiers_federal_state"
+		textureFile = "gfx/interface/state_modifiers/federal_state.dds"
+	}
+}

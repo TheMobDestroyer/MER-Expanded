@@ -1,0 +1,5 @@
+#scripted triggers for Division Medals feature
+
+should_have_hungarian_medals_trigger = {
+	original_tag = HUN
+}

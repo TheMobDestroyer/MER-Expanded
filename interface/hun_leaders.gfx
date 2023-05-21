@@ -1,0 +1,12 @@
+spriteTypes = {
+
+	SpriteType = {
+		name = "GFX_portrait_hun_andras_tompe"
+		texturefile = "gfx/leaders/HUN/portrait_hun_andras_tompe.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_portrait_hun_bela_korondi"
+		texturefile = "gfx/leaders/HUN/portrait_hun_bela_korondi.dds"
+	}
+}

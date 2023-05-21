@@ -1,0 +1,975 @@
+AUS_puppet_decisions = {
+	AUS_puppet_CZE = {
+		allowed = { 
+			tag = AUS 
+		}
+		available = { 
+			CZE = {
+				exists = yes
+				has_civil_war = no
+				has_government = monarchist
+			}
+		}
+		visible = {
+			has_completed_focus = AUS_cze_coup
+			CZE = {
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		complete_effect = {
+			puppet = CZE
+		}
+	}
+	AUS_annex_BUC = {
+		allowed = { 
+			tag = AUS
+		}
+		available = { 
+			BUC = {
+				exists = yes
+				is_puppet_of = AUS
+			}
+			owns_state = 737
+			owns_state = 2680
+		}
+		visible = {
+			has_completed_focus = AUS_demand_transylvania
+			NOT = { owns_state = 1597 }
+		}
+		complete_effect = {
+			annex_country = {
+				target = BUC
+				transfer_troops = yes
+			}
+		}
+	}
+	
+}
+AUS_core_decisions = {
+	AUS_core_germany = {
+
+		icon = GFX_decision_generic_nationalism
+
+		ai_will_do = {
+			base = 100
+		}
+		
+		on_map_mode = map_and_decisions_view
+
+		state_target = yes
+
+		target_array = controlled_states
+
+		target_trigger = { 
+			FROM = {
+				is_fully_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				is_core_of = GER
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		available = {
+			FROM = {
+				compliance > 25
+			}
+			has_equipment = {
+			    infantry_equipment > 249
+			}
+			has_manpower > 749
+			command_power > 9
+		}
+
+		visible = {
+			has_completed_focus = AUS_erase_prussian_hegemony
+			FROM = {
+				is_fully_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+			tag = AUS
+		}
+  
+		cost = 35
+
+		days_remove = 70
+		
+		complete_effect = {
+			add_manpower = -750
+			add_equipment_to_stockpile = {
+			    type = infantry_equipment
+			    amount = -250
+			}
+			add_command_power = -10
+		}
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+	AUS_core_christian_germany = {
+
+		icon = GFX_decision_generic_nationalism
+
+		ai_will_do = {
+			base = 100
+		}
+		
+		on_map_mode = map_and_decisions_view
+
+		state_target = yes
+
+		target_array = controlled_states
+
+		target_trigger = { 
+			FROM = {
+				is_fully_controlled_by = ROOT
+				NOT = { 
+					is_core_of = ROOT
+					
+				}
+				is_core_of = GER
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		available = {
+			FROM = {
+				compliance > 25
+			}
+			has_equipment = {
+			    infantry_equipment > 249
+			}
+			has_manpower > 1249
+			command_power > 9
+		}
+
+		visible = {
+			has_completed_focus = AUS_integrate_catholics
+			FROM = {
+				has_state_flag = GER_INITIAL_STATE
+				is_fully_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				NOT = {
+					region = 69
+					region = 68
+					region = 11
+					region = 40
+					region = 95
+					region = 9
+					is_core_of = SHL
+					is_core_of = MKW
+					state = 1759
+					state = 1704
+					state = 1755
+				}
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+			tag = AUS
+		}
+  
+		cost = 35
+
+		days_remove = 70
+		
+		complete_effect = {
+			add_manpower = -1250
+			add_equipment_to_stockpile = {
+			    type = infantry_equipment
+			    amount = -250
+			}
+			add_command_power = -10
+		}
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+	AUS_integrate_illyria = {
+		allowed = { 
+			tag = AUS
+		}
+		available = { 
+			BUC = {
+				exists = yes
+				is_puppet_of = AUS
+			}
+			owns_state = 737
+			owns_state = 2680
+		}
+		cost = 40
+		days_remove = 30
+		visible = {
+			has_completed_focus = AUS_demand_transylvania
+			1464 = { NOT = { is_core_of = AUS } } 
+		}
+		complete_effect = {
+			add_ideas = croatian_resistance
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = YUG_INITIAL_STATE
+					OR = {
+						region = 24
+						region = 23
+					}
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+}
+AUS_ausgleich_mission = {
+	AUS_ausgleich_timeout = {
+		activation = {
+			has_completed_focus = AUS_proclaim_empire
+		}
+		available = {
+			OR = {
+				has_completed_focus = AUS_maintain_austrian_superiority
+				has_completed_focus = AUS_dual_monarchy
+				has_completed_focus = AUS_tri_monarchy
+			}
+		}
+		days_mission_timeout = 460
+		timeout_effect = {
+			add_stability = -0.15
+			add_war_support = -0.15
+			country_event = {
+				id = austria.35
+			}
+		}
+		is_good = no
+	}
+}
+AUS_austrian_rearmament_category = {
+	AUS_refuse_restrictions = {
+		allowed = { 
+			tag = AUS 
+		}
+		available = { 
+			OR = {
+				has_war = yes
+				AND = {
+					is_in_faction = yes
+					NOT = { is_in_faction_with = ENG }
+				}
+			}
+		}
+		visible = {
+			has_idea = saint_germain
+		}
+		days_remove = 0
+		cost = 50
+		fire_only_once = yes
+		remove_effect = {
+			remove_ideas = saint_germain
+			ENG = {
+				country_event = {
+					id = austria.36
+					days = 2
+				}
+			}
+			if = {
+				limit = {
+					has_war = no
+				}
+				add_threat = 3
+			}
+		}
+	}
+	AUS_negotiate_restrictions = {
+		allowed = { 
+			tag = AUS 
+		}
+		available = { 
+			has_war = no
+		}
+		visible = {
+			has_idea = saint_germain
+			has_completed_focus = AUS_negotiate_austrian_rearmament
+		}
+		days_remove = 30
+		cost = 25
+		fire_only_once = yes
+		remove_effect = {
+			ENG = {
+				country_event = {
+					id = austria.37
+					days = 2
+				}
+			}
+		}
+	}
+	
+}
+AUS_anschluss_imminent_category = {
+	### DECISIONS AVAILABLE FOR AUSTRIA ###
+	AUS_expose_german_operations = {
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = { 
+			tag = AUS 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_expose_german_operations
+					has_decision = AUS_promote_austrofascism
+					has_decision = AUS_arrest_german_collaborators
+					has_decision = AUS_monarchist_sedition_GER
+				}
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+		}
+		days_remove = 30
+		days_re_enable = 360
+		custom_cost_text = decision_cost_CP_15
+		custom_cost_trigger = {
+            command_power > 14
+        }
+		icon = GFX_decision_generic_operation
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -15
+				GER = { activate_mission = AUS_expose_german_operations_mission }
+			}
+		}
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = AUS_anschluss_imminent_decision
+				days = 70
+			}
+			hidden_effect = {
+				GER = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = 70
+					}
+				}
+			}
+		}
+	}
+	AUS_promote_austrofascism = {
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = { 
+			tag = AUS 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_expose_german_operations
+					has_decision = AUS_promote_austrofascism
+					has_decision = AUS_arrest_german_collaborators
+					has_decision = AUS_monarchist_sedition_GER
+				}
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+			has_completed_focus = AUS_austro-fascism
+		}
+		days_remove = 30
+		days_re_enable = 180
+		cost = 40
+		icon = GFX_decision_eng_propaganda_campaigns
+		complete_effect = {
+			hidden_effect = {
+				GER = { activate_mission = AUS_promote_austrofascism_mission }
+			}
+		}
+		remove_effect = {
+			add_stability = 0.05
+			add_days_mission_timeout = {
+				mission = AUS_anschluss_imminent_decision
+				days = 35
+			}
+			hidden_effect = {
+				GER = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = 35
+					}
+				}
+			}
+		}
+	}
+	AUS_arrest_german_collaborators = {
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = {
+			tag = AUS 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_expose_german_operations
+					has_decision = AUS_promote_austrofascism
+					has_decision = AUS_arrest_german_collaborators
+					has_decision = AUS_monarchist_sedition_GER
+				}
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+			NOT = { has_completed_focus = AUS_release_nazi_collaborators }
+		}
+		
+		days_remove = 20
+		days_re_enable = 360
+		cost = 40
+		icon = GFX_decision_generic_arrest
+		complete_effect = {
+			hidden_effect = {
+				GER = { activate_mission = AUS_arrest_german_collaborators_mission }
+			}
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.05
+			}
+			add_days_mission_timeout = {
+				mission = AUS_anschluss_imminent_decision
+				days = 70
+			}
+			hidden_effect = {
+				GER = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = 70
+					}
+				}
+			}
+		}
+	}
+	AUS_monarchist_sedition_GER = { 
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = {
+			tag = AUS 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_expose_german_operations
+					has_decision = AUS_promote_austrofascism
+					has_decision = AUS_arrest_german_collaborators
+					has_decision = AUS_monarchist_sedition_GER
+				}
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+			has_completed_focus = AUS_reinstate_habsburg_lorraine
+		}
+		
+		days_remove = 60
+		days_re_enable = 360
+		custom_cost_text = decision_cost_ie_500_MP_500_CP_15
+		custom_cost_trigger = {
+            command_power > 14
+			has_equipment = {
+				infantry_equipment > 499
+			}
+			has_manpower > 999
+        }
+		icon = GFX_decision_generic_civil_support
+		complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -500
+					producer = AUS
+				}
+				add_manpower = -1000
+				add_command_power = -15
+				GER = { activate_mission = AUS_monarchist_sedition_GER_mission }
+			}
+		}
+		remove_effect = {
+			GER = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+			}
+			add_days_mission_timeout = {
+				mission = AUS_anschluss_imminent_decision
+				days = 90
+			}
+			hidden_effect = {
+				GER = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = 90
+					}
+				}
+			}
+		}
+	}
+	### AUSTRIAN DECISION MISSIONS FOR GERMANY ###
+	AUS_expose_german_operations_mission = {
+		allowed = { 
+			tag = GER 
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 30
+		timeout_effect = {
+			effect_tooltip = {
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = 70
+				}
+			}
+		}
+	}
+	AUS_promote_austrofascism_mission = {
+		allowed = { 
+			tag = GER 
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 30
+		timeout_effect = {
+			effect_tooltip = {
+				AUS = { add_stability = 0.05 }
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = 35
+				}
+			}
+		}
+	}
+	AUS_arrest_german_collaborators_mission = {
+		allowed = { 
+			tag = GER 
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 20
+		timeout_effect = {
+			effect_tooltip = {
+				AUS = {
+					add_popularity = {
+						ideology = fascism
+						popularity = -0.05
+					}
+				}
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = 70
+				}
+			}
+		}
+	}
+	AUS_monarchist_sedition_GER_mission = {
+		allowed = { 
+			tag = GER
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 60
+		timeout_effect = {
+			effect_tooltip = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = 90
+				}
+			}
+		}
+	}
+	### DECISIONS AVAILABLE FOR GERMANY ###
+	AUS_GER_war_games = {
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = { 
+			tag = GER 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_GER_war_games
+					has_decision = AUS_GER_plan_invasion
+					has_decision = AUS_GER_encourage_sedition_in_austria
+					has_decision = AUS_GER_reveal_austrian_plans
+				}
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+		}
+		days_remove = 20
+		days_re_enable = 180
+		custom_cost_text = decision_cost_CP_15
+		custom_cost_trigger = {
+            command_power > 14
+        }
+		icon = GFX_decision_hol_draw_up_staff_plans
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -16
+				AUS = { activate_mission = AUS_GER_war_games_mission }
+			}
+		}
+		remove_effect = {
+			army_experience = 15
+			add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = 30
+				}
+			hidden_effect = {
+				AUS = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = -30
+					}
+				}
+			}
+		}
+	}
+	AUS_GER_plan_invasion = {
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = { 
+			tag = GER 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_GER_war_games
+					has_decision = AUS_GER_plan_invasion
+					has_decision = AUS_GER_encourage_sedition_in_austria
+					has_decision = AUS_GER_reveal_austrian_plans
+				}
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+		}
+		days_remove = 30
+		days_re_enable = 200
+		custom_cost_text = decision_cost_CP_25
+		custom_cost_trigger = {
+            command_power > 14
+        }
+		icon = GFX_decision_generic_army_support
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -15
+				AUS = { activate_mission = AUS_GER_plan_invasion_mission }
+			}
+		}
+		remove_effect = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_days_mission_timeout = {
+				mission = AUS_anschluss_imminent_decision
+				days = 40
+			}
+			hidden_effect = {
+				AUS = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = -40
+					}
+				}
+			}
+		}
+	}
+	AUS_GER_encourage_sedition_in_austria = {
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = { 
+			tag = GER 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_GER_war_games
+					has_decision = AUS_GER_plan_invasion
+					has_decision = AUS_GER_encourage_sedition_in_austria
+					has_decision = AUS_GER_reveal_austrian_plans
+				}
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+		}
+		days_remove = 40
+		days_re_enable = 220
+		custom_cost_text = decision_cost_CP_15_pp_25
+		custom_cost_trigger = {
+            command_power > 14
+			has_political_power > 24
+        }
+		icon = GFX_decision_generic_civil_support
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -15
+				add_political_power = -25
+				AUS = { activate_mission = AUS_GER_encourage_sedition_in_austria_mission }
+			}
+		}
+		remove_effect = {
+			AUS = { add_stability = -0.05 }
+			add_days_mission_timeout = {
+				mission = AUS_anschluss_imminent_decision
+				days = 50
+			}
+			hidden_effect = {
+				AUS = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = -50
+					}
+				}
+			}
+		}
+	}
+	AUS_GER_reveal_austrian_plans = {
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = { 
+			tag = GER 
+		}
+		available = { 
+			has_active_mission = AUS_anschluss_imminent_decision
+			custom_trigger_tooltip = {
+				tooltip = has_decision = AUS_no_other_decisions_selected_tt
+				NOT = {
+					has_decision = AUS_GER_war_games
+					has_decision = AUS_GER_plan_invasion
+					has_decision = AUS_GER_encourage_sedition_in_austria
+					has_decision = AUS_GER_reveal_austrian_plans
+				}
+			}
+			network_strength = {
+				state = 1817
+				value > 70
+			}
+		}
+		visible = {
+			has_active_mission = AUS_anschluss_imminent_decision
+		}
+		days_remove = 50
+		days_re_enable = 360
+		custom_cost_text = decision_cost_int_70
+		custom_cost_trigger = {
+			always = yes
+        }
+		icon = GFX_decision_generic_intelligence_operation
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -15
+				add_political_power = -25
+				AUS = { activate_mission = AUS_GER_reveal_austrian_plans_mission }
+			}
+		}
+		remove_effect = {
+			AUS = { 
+				add_stability = -0.05 
+				add_command_power = -10
+				add_political_power = -25
+			}
+			add_days_mission_timeout = {
+				mission = AUS_anschluss_imminent_decision
+				days = 90
+			}
+			hidden_effect = {
+				AUS = {
+					add_days_mission_timeout = {
+						mission = AUS_anschluss_imminent_decision
+						days = -90
+					}
+				}
+			}
+		}
+	}
+	### GERMAN DECISION MISSIONS FOR AUSTRIA ###
+	AUS_GER_war_games_mission = {
+		allowed = { 
+			tag = AUS 
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 20
+		timeout_effect = {
+			effect_tooltip = {
+				GER = { army_experience = 15 }
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = -30
+				}
+			}
+		}
+	}
+	AUS_GER_plan_invasion_mission = {
+		allowed = { 
+			tag = AUS 
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 30
+		timeout_effect = {
+			effect_tooltip = {
+				GER = {
+					add_doctrine_cost_reduction = {
+						name = land_doc_bonus
+						cost_reduction = 0.5
+						uses = 1
+						category = land_doctrine
+					}
+				}
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = -40
+				}
+			}
+		}
+	}
+	AUS_GER_encourage_sedition_in_austria_mission = {
+		allowed = { 
+			tag = AUS 
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 40
+		timeout_effect = {
+			effect_tooltip = {
+				AUS = { add_stability = -0.05 }
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = -50
+				}
+			}
+		}
+	}
+	AUS_GER_reveal_austrian_plans_mission = {
+		allowed = { 
+			tag = AUS 
+		}
+		activation = { 
+			always = no
+		}
+		available = { 
+			always = no
+		}
+		days_mission_timeout = 50
+		timeout_effect = {
+			effect_tooltip = {
+				AUS = { 
+					add_stability = -0.05 
+					add_command_power = -10
+					add_political_power = -25
+				}
+				add_days_mission_timeout = {
+					mission = AUS_anschluss_imminent_decision
+					days = -90
+				}
+			}
+		}
+	}
+	### MAIN ###
+	AUS_anschluss_imminent_decision = {
+		activation = {
+			has_global_flag = GER_AUS_SQUEEZE
+		}
+		days_mission_timeout = 360
+		icon = GFX_decision_revolt
+		available = {
+			OR = {
+				AUS = {	exists = no }
+				AND = {
+					NOT = { AUS = { is_in_faction_with = GER } }
+					any_country = {
+						NOT = { tag = AUS }
+						is_in_faction_with = AUS
+					}
+				}`
+			}	
+		}
+		is_good = yes
+		timeout_effect = {
+			GER = {
+				country_event = {
+					id = germany.4
+					days = 2
+				}
+			}
+		}
+	}
+}

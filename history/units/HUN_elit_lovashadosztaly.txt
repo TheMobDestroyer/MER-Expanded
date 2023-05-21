@@ -1,0 +1,34 @@
+﻿division_template = {
+	name = "Cavalry Divisions"
+	division_names_group = HUN_CAV_02
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		medium_armor = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		medium_armor = { x = 1 y = 3 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 2 y = 2 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+	    engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	##### 1. Lovashadosztály #####
+	division= {	
+		name = "1. Lovashadosztály"
+		location = 9660		# Budapest
+		division_template = "Cavalry Divisions"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+}

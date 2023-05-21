@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_portrait_Arthur_Seyss_Inquart"
+		texturefile = "gfx/leaders/AUS/Portrait_Austria_Arthur_Seyss-Inquart.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_austria_alfred_klahr"
+		texturefile = "gfx/leaders/AUS/Portrait_Austria_Alfred_Klahr.dds"
+	}
+}

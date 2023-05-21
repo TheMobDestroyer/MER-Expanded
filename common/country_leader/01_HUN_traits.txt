@@ -1,0 +1,171 @@
+leader_traits = {
+
+	#Political leader traits
+	
+	centrist_monarch = {
+		random = no
+		drift_defence_factor = 0.4
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	anti_fascist = {
+		random = no
+		fascism_acceptance = -50
+		fascism_drift = -0.01
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	national_leader = {
+		random = no
+		stability_factor = 0.10
+		war_support_factor = 0.10
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	foreign_leader = {
+		random = no
+		stability_factor = -0.10
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	former_ace_pilot = {
+		random = no
+		experience_gain_air = 0.05
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	italian_royalty = {
+		random = no
+		stability_factor = 0.02
+		experience_gain_navy_factor = 0.05
+		ai_strategy = {
+			type = befriend
+			id = "ITA"
+			value = 200
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	german_royalty = {
+		random = no
+		stability_factor = 0.02
+		political_power_factor = 0.1
+		ai_strategy = {
+			type = befriend
+			id = "GER"		
+			value = 200
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	reformcommunist = {
+		random = no
+		political_advisor_cost_factor = -0.10
+		trade_laws_cost_factor = -0.10
+		economy_cost_factor = -0.10
+		compliance_growth = 0.05
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	multi_national = {
+		random = no
+		stability_factor = 0.05
+		compliance_growth = 0.10
+
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+	hungarizmus = {
+		random = no
+		compliance_growth = 0.05
+
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+	governor = {
+		random = no
+		political_advisor_cost_factor = -0.10
+		stability_factor = 0.05
+
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+	
+	jet_scientist = {
+		random = no
+		sprite = 14
+		experience_gain_air = 0.05	
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	minister_of_nationalities = {
+		random = no
+		sprite = 13
+		compliance_growth = 0.05
+		stability_weekly = 0.001
+
+		ai_will_do = {
+			factor = 1
+		}
+	}	     
+    
+	head_of_the_evidenzbureau = {
+	    random = no
+	    sprite = 15
+	    stability_factor = -0.1
+	    enemy_operative_detection_chance = 5
+	    enemy_operative_capture_chance_factor = 0.1
+	    civilian_intel_to_others = -10
+	    agency_upgrade_time = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+	
+	army_assault_pope = {
+		random = no
+		sprite = 8
+		army_armor_attack_factor = 0.1
+	    army_armor_defence_factor = 0.1
+		army_artillery_attack_factor = 0.1
+		army_artillery_defence_factor = 0.1
+		army_morale_factor = 0.04
+		#experience_gain_army = @experience_gain_medium
+
+		ai_will_do = {
+			factor = 1
+		}
+	}

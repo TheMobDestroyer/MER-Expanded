@@ -1,0 +1,3845 @@
+# Categories:
+# HUN_federation_category
+# political_actions
+# economy_decisions
+# foreign_politics
+
+
+HUN_federation_category = {
+	HUN_grant_statehood_to_bohemia_moravia = {
+
+		icon = generic_form_nation
+
+		available = {
+			OR = {
+				owns_state = 9	#Bohemia
+				owns_state = 69	#Sudetenland
+				owns_state = 74	#Eastern Sudetenland
+				owns_state = 75	#Moravia				
+			}
+		}
+
+		visible = {
+			NOT = { has_country_flag = HUN_bohemia_moravia_is_state }
+			OR = {
+				owns_state = 9	#Bohemia
+				owns_state = 69	#Sudetenland
+				owns_state = 74	#Eastern Sudetenland
+				owns_state = 75	#Moravia				
+			}
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_states_in_bohemia_moravia_will_provide_more_manpower
+			set_country_flag = HUN_bohemia_moravia_is_state
+			add_to_variable = { var = HUN_total_states value = 1 }
+			9 = {
+				#Bohemia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			69 = {
+				#Sudetenland
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			74 = {
+				#Eastern Sudetenland
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			75 = {
+				#Moravia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_bohemia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 9	#Bohemia
+		}
+		
+		visible = {
+			has_country_flag = HUN_bohemia_moravia_is_state
+			9 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 9	#Bohemia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 9	#Bohemia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			9 = {
+				#Bohemia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_sudetenland = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 69	#Sudetenland
+		}
+		
+		visible = {
+			has_country_flag = HUN_bohemia_moravia_is_state
+			69 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 69	#Sudetenland
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 69	#Sudetenland
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			69 = {
+				#Sudetenland
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_eastern_sudetenland = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 74	#Eastern Sudetenland
+		}
+		
+		visible = {
+			has_country_flag = HUN_bohemia_moravia_is_state
+			74 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 74	#Eastern Sudetenland
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 74	#Eastern Sudetenland
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			74 = {
+				#Eastern Sudetenland
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_moravia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 75	#Moravia
+		}
+		
+		visible = {
+			has_country_flag = HUN_bohemia_moravia_is_state
+			75 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 75	#Moravia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 75	#Moravia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			75 = {
+				#Moravia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_grant_statehood_to_slovakia = {
+
+		icon = generic_form_nation
+
+		available = {
+			OR = {
+				owns_state = 70		#Western Slovakia
+				owns_state = 71		#Eastern Slovakia
+				owns_state = 928	#Sobrance
+				owns_state = 73		#Carpathian Ruthenia				
+			}
+		}
+
+		visible = {
+			NOT = { has_country_flag = HUN_slovakia_is_state } 
+			OR = {
+				owns_state = 70		#Western Slovakia
+				owns_state = 71		#Eastern Slovakia
+				owns_state = 928	#Sobrance
+				owns_state = 73		#Carpathian Ruthenia				
+			}
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_states_in_slovakia_will_provide_more_manpower
+			set_country_flag = HUN_slovakia_is_state
+			add_to_variable = { var = HUN_total_states value = 1 }
+			70 = {
+				#Western Slovakia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			71 = {
+				#Eastern Slovakia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			928 = {
+				#Sobrance
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			73 = {
+				#Carpathian Ruthenia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_western_slovakia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 70	#Western Slovakia
+		}
+		
+		visible = {
+			has_country_flag = HUN_slovakia_is_state
+			70 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 70	#Western Slovakia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 70	#Western Slovakia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			70 = {
+				#Western Slovakia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_eastern_slovakia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 71	#Eastern Slovakia
+		}
+		
+		visible = {
+			has_country_flag = HUN_slovakia_is_state
+			71 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 71	#Eastern Slovakia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 71	#Eastern Slovakia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			71 = {
+				#Eastern Slovakia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_sobrance = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 928	#Sobrance
+		}
+		
+		visible = {
+			has_country_flag = HUN_slovakia_is_state
+			928 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 928	#Sobrance
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 928	#Sobrance
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			928 = {
+				#Sobrance
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_carpathian_ruthenia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 73	#Carpathian Ruthenia
+		}
+		
+		visible = {
+			has_country_flag = HUN_slovakia_is_state
+			73 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 73	#Carpathian Ruthenia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 73	#Carpathian Ruthenia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			73 = {
+				#Carpathian Ruthenia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_grant_statehood_to_galicia_lodomeria = {
+
+		icon = generic_form_nation
+
+		available = {
+			OR = {
+				owns_state = 72		#Zaolzie
+				owns_state = 88		#Krakow
+				owns_state = 91		#Lwow
+				owns_state = 89		#Stanislawow			
+			}
+		}
+
+		visible = {
+			NOT = { has_country_flag = HUN_galicia_lodomeria_is_state } 
+			OR = {
+				owns_state = 72		#Zaolzie
+				owns_state = 88		#Krakow
+				owns_state = 91		#Lwow
+				owns_state = 89		#Stanislawow			
+			}
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_states_in_galicia_lodomeria_will_provide_more_manpower
+			set_country_flag = HUN_galicia_lodomeria_is_state
+			add_to_variable = { var = HUN_total_states value = 1 }
+			72 = {
+				#Zaolzie
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			88 = {
+				#Krakow
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			91 = {
+				#Lwow
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			89 = {
+				#Stanislawow
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			80 = {
+				#North Bucovina
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			926 = {
+				#South Bucovina
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_zaolzie = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 72	#Zaolzie
+		}
+		
+		visible = {
+			has_country_flag = HUN_galicia_lodomeria_is_state
+			72 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 72	#Zaolzie
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 72	#Zaolzie
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			72 = {
+				#Zaolzie
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_krakow = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 88	#Krakow
+		}
+		
+		visible = {
+			has_country_flag = HUN_galicia_lodomeria_is_state
+			88 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 88	#Krakow
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 88	#Krakow
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			88 = {
+				#Krakow
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_lwow = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 91	#Lwow
+		}
+		
+		visible = {
+			has_country_flag = HUN_galicia_lodomeria_is_state
+			91 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 91	#Lwow
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 91	#Lwow
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			91 = {
+				#Lwow
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_stanislawow = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 89	#Stanislawow
+		}
+		
+		visible = {
+			has_country_flag = HUN_galicia_lodomeria_is_state
+			89 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 89	#Stanislawow
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 89	#Stanislawow
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			89 = {
+				#Stanislawow
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_north_bucovina = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 80	#North Bucovina
+		}
+		
+		visible = {
+			has_country_flag = HUN_galicia_lodomeria_is_state
+			80 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 80	#North Bucovina
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 80	#North Bucovina
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			80 = {
+				#North Bucovina
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_south_bucovina = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 926	#South Bucovina
+		}
+		
+		visible = {
+			has_country_flag = HUN_galicia_lodomeria_is_state
+			926 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 926	#South Bucovina
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 926	#South Bucovina
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			926 = {
+				#South Bucovina
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_grant_statehood_to_transylvania = {
+
+		icon = generic_form_nation
+
+		available = {
+			OR = {
+				owns_state = 918	#Northern Partium
+				owns_state = 917	#Maramures
+				owns_state = 76		#North Transylvania
+				owns_state = 83		#Southern Partium			
+				owns_state = 84		#South Transylvania			
+				owns_state = 82		#Banat		
+			}
+		}
+
+		visible = {
+			NOT = { has_country_flag = HUN_transylvania_is_state }
+			OR = {
+				owns_state = 918	#Northern Partium
+				owns_state = 917	#Maramures
+				owns_state = 76		#North Transylvania
+				owns_state = 83		#Southern Partium			
+				owns_state = 84		#South Transylvania			
+				owns_state = 82		#Banat		
+			}
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_states_in_transylvania_will_provide_more_manpower
+			set_country_flag = HUN_transylvania_is_state
+			add_to_variable = { var = HUN_total_states value = 1 }
+			918 = {
+				#Northern Partium
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			917 = {
+				#Maramures
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			76 = {
+				#North Transylvania
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			83 = {
+				#Southern Partium
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			84 = {
+				#South Transylvania
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			82 = {
+				#Banat
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_northern_partium = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 918	#Northern Partium
+		}
+		
+		visible = {
+			has_country_flag = HUN_transylvania_is_state
+			918 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 918	#Northern Partium
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 918	#Northern Partium
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			918 = {
+				#Northern Partium
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_southern_partium = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 83	#Southern Partium
+		}
+		
+		visible = {
+			has_country_flag = HUN_transylvania_is_state
+			83 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 83	#Southern Partium
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 83	#Southern Partium
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			83 = {
+				#Southern Partium
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_maramures = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 914	#Maramures
+		}
+		
+		visible = {
+			has_country_flag = HUN_transylvania_is_state
+			914 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 914	#Maramures
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 914	#Maramures
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			914 = {
+				#Maramures
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_north_transylvania = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 76	#North Transylvania
+		}
+		
+		visible = {
+			has_country_flag = HUN_transylvania_is_state
+			76 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 76	#North Transylvania
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 76	#North Transylvania
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			76 = {
+				#North Transylvania
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_south_transylvania = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 84	#South Transylvania
+		}
+		
+		visible = {
+			has_country_flag = HUN_transylvania_is_state
+			84 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 84	#South Transylvania
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 84	#South Transylvania
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			84 = {
+				#South Transylvania
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_banat = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 82	#Banat
+		}
+		
+		visible = {
+			has_country_flag = HUN_transylvania_is_state
+			82 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 82	#Banat
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 82	#Banat
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			82 = {
+				#Banat
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_grant_statehood_to_croatia_bosnia = {
+
+		icon = generic_form_nation
+
+		available = {
+			OR = {	
+				owns_state = 910		#Torontal
+				owns_state = 45			#Backa
+				owns_state = 911		#Srem
+				owns_state = 764		#Belgrade			
+				owns_state = 109		#Slavonia		
+				owns_state = 915		#Croatia		
+				owns_state = 921		#Lika		
+				owns_state = 104		#Bosnia		
+				owns_state = 804		#Herzegovina		
+				owns_state = 103		#Dalmatia		
+				owns_state = 163		#Zara		
+				owns_state = 923		#Pag		
+				owns_state = 913		#Fiume		
+				owns_state = 919		#Kotor		
+			}
+		}
+
+		visible = {
+			NOT = { has_country_flag = HUN_croatia_bosnia_is_state }
+			OR = {	
+				owns_state = 910		#Torontal
+				owns_state = 45			#Backa
+				owns_state = 911		#Srem
+				owns_state = 764		#Belgrade			
+				owns_state = 109		#Slavonia		
+				owns_state = 915		#Croatia		
+				owns_state = 921		#Lika		
+				owns_state = 104		#Bosnia		
+				owns_state = 804		#Herzegovina		
+				owns_state = 103		#Dalmatia		
+				owns_state = 163		#Zara		
+				owns_state = 923		#Pag		
+				owns_state = 913		#Fiume		
+				owns_state = 919		#Kotor		
+			}
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_states_in_croatia_bosnia_will_provide_more_manpower
+			set_country_flag = HUN_croatia_bosnia_is_state
+			add_to_variable = { var = HUN_total_states value = 1 }
+			910 = {
+				#Torontal
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			45 = {
+				#Backa
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			911 = {
+				#Srem
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			764 = {
+				#Belgrade
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			109 = {
+				#Slavonia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			915 = {
+				#Croatia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			921 = {
+				#Lika
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			104 = {
+				#Bosnia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			804 = {
+				#Herzegovina
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			103 = {
+				#Dalmatia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			163 = {
+				#Zara
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			923 = {
+				#Pag
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			913 = {
+				#Fiume
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			919 = {
+				#Kotor
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_torontal = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 910	#Torontal
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			910 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 910	#Torontal
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 910	#Torontal
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			910 = {
+				#Torontal
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_backa = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 45	#Backa
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			45 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 45	#Backa
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 45	#Backa
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			45 = {
+				#Backa
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_srem = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 911	#Srem
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			911 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 911	#Srem
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 911	#Srem
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			911 = {
+				#Srem
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_belgrade = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 764	#Belgrade
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			764 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 764	#Belgrade
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 764	#Belgrade
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			764 = {
+				#Belgrade
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_slavonia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 109	#Slavonia
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			109 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 109	#Slavonia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 109	#Slavonia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			109 = {
+				#Slavonia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_croatia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 915	#Croatia
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			915 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 915	#Croatia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 915	#Croatia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			915 = {
+				#Croatia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_lika = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 921	#Lika
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			921 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 921	#Lika
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 921	#Lika
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			921 = {
+				#Lika
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_bosnia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 104	#Bosnia
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			104 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 104	#Bosnia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 104	#Bosnia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			104 = {
+				#Bosnia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_herzegovina = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 804	#Herzegovina
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			804 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 804	#Herzegovina
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 804	#Herzegovina
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			804 = {
+				#Herzegovina
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_kotor = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 919	#Kotor
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			919 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 919	#Kotor
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 919	#Kotor
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			919 = {
+				#Kotor
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_dalmatia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 103	#Dalmatia
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			103 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 103	#Dalmatia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 103	#Dalmatia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			103 = {
+				#Dalmatia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_zara = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 163	#Zara
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			163 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 163	#Zara
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 163	#Zara
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			163 = {
+				#Zara
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_pag = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 923	#Pag
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			923 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 923	#Pag
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 923	#Pag
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			923 = {
+				#Pag
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_fiume = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 913	#Fiume
+		}
+		
+		visible = {
+			has_country_flag = HUN_croatia_bosnia_is_state
+			913 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 913	#Fiume
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 913	#Fiume
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			913 = {
+				#Fiume
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_grant_statehood_to_carinthia_venetia = {
+
+		icon = generic_form_nation
+
+		available = {
+			OR = {
+				owns_state = 102	#Slovenia
+				owns_state = 853	#Ljubljana
+				owns_state = 736	#Primorska
+				owns_state = 852	#Istria			
+				owns_state = 925	#Trieste			
+				owns_state = 160	#Veneto		
+				owns_state = 39		#South Tyrol		
+			}
+		}
+
+		visible = {
+			NOT = { has_country_flag = HUN_carinthia_venetia_is_state }
+			OR = {
+				owns_state = 102	#Slovenia
+				owns_state = 853	#Ljubljana
+				owns_state = 736	#Primorska
+				owns_state = 852	#Istria			
+				owns_state = 925	#Trieste			
+				owns_state = 160	#Veneto		
+				owns_state = 39		#South Tyrol		
+			}
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_states_in_carinthia_venetia_will_provide_more_manpower
+			set_country_flag = HUN_carinthia_venetia_is_state
+			add_to_variable = { var = HUN_total_states value = 1 }
+			102 = {
+				#Slovenia
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			853 = {
+				#Ljubljana
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			736 = {
+				#Primorska
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			852 = {
+				#Istria
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			925 = {
+				#Trieste
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			160 = {
+				#Veneto
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+			39 = {
+				#South Tyrol
+				if = {
+					limit = { is_owned_by = ROOT }
+					set_state_flag = HUN_is_state
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_slovenia = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 102	#Slovenia
+		}
+		
+		visible = {
+			has_country_flag = HUN_carinthia_venetia_is_state
+			102 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 102	#Slovenia
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 102	#Slovenia
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			102 = {
+				#Slovenia
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_ljubljana = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 853	#Ljubljana
+		}
+		
+		visible = {
+			has_country_flag = HUN_carinthia_venetia_is_state
+			853 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 853	#Ljubljana
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 853	#Ljubljana
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			853 = {
+				#Ljubljana
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_primorska = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 736	#Primorska
+		}
+		
+		visible = {
+			has_country_flag = HUN_carinthia_venetia_is_state
+			736 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 736	#Primorska
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 736	#Primorska
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			736 = {
+				#Primorska
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_trieste = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 925	#Trieste
+		}
+		
+		visible = {
+			has_country_flag = HUN_carinthia_venetia_is_state
+			925 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 925	#Trieste
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 925	#Trieste
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			925 = {
+				#Trieste
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_istria = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 852	#Istria
+		}
+		
+		visible = {
+			has_country_flag = HUN_carinthia_venetia_is_state
+			852 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 852	#Istria
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 852	#Istria
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			852 = {
+				#Istria
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_veneto = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 160	#Veneto
+		}
+		
+		visible = {
+			has_country_flag = HUN_carinthia_venetia_is_state
+			160 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 160	#Veneto
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 160	#Veneto
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			160 = {
+				#Veneto
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+	
+	HUN_extend_statehood_to_south_tyrol = {
+
+		icon = generic_form_nation
+
+		available = {
+			owns_state = 39	#South Tyrol
+		}
+		
+		visible = {
+			has_country_flag = HUN_carinthia_venetia_is_state
+			39 = { NOT = { has_state_flag = HUN_is_state } }
+			owns_state = 39	#South Tyrol
+		}
+
+		cost = 0
+		fire_only_once = yes
+		days_remove = 7
+
+		on_map_mode = map_and_decisions_view
+		
+		highlight_states = {
+			state = 39	#South Tyrol
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			39 = {
+				#South Tyrol
+				if = {
+					limit = { is_owned_by = ROOT }
+					add_dynamic_modifier = { modifier = ahu_federal_state }
+				}
+			}
+		}
+	}
+}
+
+political_actions = {
+
+	HUN_move_capital_to_vienna = {
+
+		icon = generic_political_discourse
+
+		available = {
+			owns_state = 927		#Budapest
+			owns_state = 4		#Vienna
+		}
+
+		cost = 10
+		fire_only_once = yes
+		days_remove = 7
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			owns_state = 927		#Budapest
+			owns_state = 4		#Vienna
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {	
+			set_capital = { state = 4 }
+		}
+	}
+
+}
+
+economy_decisions = {
+
+	HUN_reestablish_the_ostend_company = {
+
+		icon = generic_decision
+
+		available = {
+		}
+
+		cost = 30
+		fire_only_once = yes
+		days_remove = 21
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			any_owned_state = { is_coastal = yes }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_state_claim = 733	#Andaman (Nicobar Islands)
+			add_state_claim = 333	#North Borneo
+			add_state_claim = 544	#Mozambique
+		}
+	}
+
+	HUN_integrate_czech_artillery_industry = {
+
+		icon = ger_military_buildup
+
+		available = {
+			always = yes
+		}
+
+		cost = 35
+		fire_only_once = yes
+		days_remove = 70
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			OR = {
+				owns_state = 9		#Bohemia
+				owns_state = 75		#Moravia
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				name = czech_artillery_industry_bonus
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	HUN_integrate_czech_tank_industry = {
+
+		icon = generic_tank
+
+		available = {
+			always = yes
+		}
+
+		cost = 35
+		fire_only_once = yes
+		days_remove = 70
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			OR = {
+				owns_state = 9		#Bohemia
+				owns_state = 75		#Moravia
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				name = czech_tank_industry_bonus
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+			if = {
+				limit = { 
+					has_dlc = "No Step Back"
+				}
+				set_technology = { improved_light_tank_chassis = 1 }
+		        create_equipment_variant = {
+			        name = "T-38"
+			        type = light_tank_chassis_2
+			        parent_version = 0
+			        modules = {
+				        main_armament_slot = tank_high_velocity_cannon
+				        turret_type_slot = tank_light_two_man_tank_turret
+				        suspension_type_slot = tank_bogie_suspension
+				        armor_type_slot = tank_riveted_armor
+				        engine_type_slot = tank_gasoline_engine
+						special_type_slot_1 = tank_radio_1
+			        }
+			        upgrades = {
+				        tank_nsb_engine_upgrade = 3
+				        tank_nsb_armor_upgrade = 3
+					}
+					icon = "gfx/interface/technologies/cze_basic_main_tank.dds"
+				}	
+			}		
+		}
+	}
+
+	HUN_integrate_czech_small_arms_industry = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			always = yes
+		}
+
+		cost = 35
+		fire_only_once = yes
+		days_remove = 70
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			OR = {
+				owns_state = 9		#Bohemia
+				owns_state = 75		#Moravia
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				name = czech_small_arms_industry_bonus
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	HUN_integrate_czech_air_industry = {
+
+		icon = generic_air
+
+		available = {
+			always = yes
+		}
+
+		cost = 35
+		fire_only_once = yes
+		days_remove = 70
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			OR = {
+				owns_state = 9		#Bohemia
+				owns_state = 75		#Moravia
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				name = czech_air_industry_bonus
+				bonus = 1
+				uses = 1
+				category = light_fighter
+				category = cas_bomber
+				category = tactical_bomber
+			}
+		}
+	}
+
+	HUN_finish_the_T-21_prototype = {
+
+		icon = generic_tank
+
+		available = {
+			has_dlc = "No Step Back" 
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			NOT = { has_tech = basic_medium_tank_chassis }
+			OR = {
+				owns_state = 9		#Bohemia
+				owns_state = 75		#Moravia
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+            set_technology = { basic_medium_tank_chassis = 1 }		
+		    create_equipment_variant = {
+			    name = "Skoda T-21"
+			    type = medium_tank_chassis_1
+			    parent_version = 0
+			    modules = {
+				    main_armament_slot = tank_high_velocity_cannon
+				    turret_type_slot = tank_medium_three_man_tank_turret
+				    suspension_type_slot = tank_torsion_bar_suspension
+				    armor_type_slot = tank_riveted_armor
+				    engine_type_slot = tank_gasoline_engine
+				    special_type_slot_1 = tank_radio_1
+				    special_type_slot_2 = smoke_launchers
+				    special_type_slot_3 = empty
+				    special_type_slot_4 = empty
+			    }
+			    upgrades = {
+				    tank_nsb_engine_upgrade = 6
+				    tank_nsb_armor_upgrade = 4
+			    }
+			    icon = "GFX_HUN_basic_medium_tank_medium"
+			}
+		}
+	}	
+	
+	HUN_improve_croatian_mining_industry = {
+
+		icon = aluminium
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 915		#Croatia
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 915	#Croatia
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 915		#Croatia
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_resource = {
+				type = steel
+				amount = 8
+				state = 915		#Croatia
+			}
+			915 = {		#Croatia
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	HUN_improve_transylvanian_mining_industry = {
+
+		icon = steel
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 84		#South Transylvania
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 84	#South Transylvania
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 84		#South Transylvania
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_resource = {
+				type = steel
+				amount = 8
+				state = 84		#South Transylvania
+			}
+			84 = {		#South Transylvania
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	HUN_improve_slovakian_mining_industry = {
+
+		icon = steel
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 70		#Western Slovakia
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 70	#Western Slovakia
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 70		#Western Slovakia
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			add_resource = {
+				type = steel
+				amount = 8
+				state = 70		#Western Slovakia
+			}
+			70 = {		#Western Slovakia
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	HUN_skoda_naval_artilery_plant = {
+
+		icon = generic_construction
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 915		#Croatia
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 915	#Croatia
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 915		#Croatia
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			915 = {		#Croatia
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	HUN_dockyard_expansion_trieste = {
+
+		icon = generic_construction
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 925		#Trieste
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 925	#Trieste
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 925		#Trieste
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			925 = {		#Trieste
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	HUN_dockyard_expansion_fiume = {
+
+		icon = generic_construction
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 913		#Fiume
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 913	#Fiume
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 913		#Fiume
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			913 = {		#Fiume
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	HUN_expand_the_steyr_factory = {
+		
+		icon = generic_construction
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+		}
+
+		cost = 70
+		fire_only_once = yes
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_ideas = { the_steyr_factory }
+		}
+	}
+
+}
+
+foreign_politics = {
+
+	HUN_renounce_claims_towards_poland = {
+
+		icon = generic_break_treaty
+
+		available = {
+			POL = { exists = yes }
+		}
+
+		#cost = 0
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+			OR = {
+				72 = { has_state_flag = HUN_is_claimed_by_HUN }	#Zaolzie
+				88 = { has_state_flag = HUN_is_claimed_by_HUN }	#Krakow
+				89 = { has_state_flag = HUN_is_claimed_by_HUN }	#Stanislawow
+				91 = { has_state_flag = HUN_is_claimed_by_HUN }	#Lwow
+			}
+			POL = {
+				exists = yes
+				OR = {
+					owns_state = 72	#Zaolzie
+					owns_state = 88	#Krakow
+					owns_state = 89	#Stanislawow
+					owns_state = 91	#Lwow
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_in_faction_with = POL }
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = HUN_will_renounce_claims_on_all_polish_lands
+			custom_effect_tooltip = HUN_will_renounce_claims_on_bucovina
+			add_political_power = 25
+			POL = {
+				add_opinion_modifier = { target = ROOT modifier = HUN_revoked_territorial_claims }
+				country_event = { hours = 4 id = hungary_flavor_pol.11 }
+			}
+			hidden_effect = {
+				set_country_flag = HUN_renounced_claims_towards_poland
+				#Zaolzie
+				if = {
+					limit = { 72 = { is_owned_by = ROOT } }
+					POL = { transfer_state = 72 }
+				}
+				remove_state_claim = 72
+				remove_state_core = 72
+				72 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }
+				#Krakow
+				if = {
+					limit = { 88 = { is_owned_by = ROOT } }
+					POL = { transfer_state = 88 }
+				}
+				remove_state_claim = 88
+				remove_state_core = 88
+				88 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }
+				#Stanislawow
+				if = {
+					limit = { 89 = { is_owned_by = ROOT } }
+					POL = { transfer_state = 89 }
+				}
+				remove_state_claim = 89
+				remove_state_core = 89
+				89 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }
+				#Lwow
+				if = {
+					limit = { 91 = { is_owned_by = ROOT } }
+					POL = { transfer_state = 91 }
+				}
+				remove_state_claim = 91
+				remove_state_core = 91
+				91 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }
+				
+				#Removing claims towards Bucovina as well, since it doesn't make sense to hold on to it, if Galicia is returned
+				#North Bucovina
+				if = {
+					limit = { 80 = { is_owned_by = ROOT } }
+					ROM = { transfer_state = 80 }
+				}
+				remove_state_claim = 80
+				remove_state_core = 80
+				80 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }
+				#South Bucovina
+				if = {
+					limit = { 926 = { is_owned_by = ROOT } }
+					ROM = { transfer_state = 926 }
+				}
+				remove_state_claim = 926
+				remove_state_core = 926
+				926 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }
+			}
+		}
+	}
+}
+
+HUN_defensive_preparations_category = {
+
+	HUN_expand_the_kotor_harbor = {
+
+		icon = generic_naval
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 919		#Kotor
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 919	#Kotor
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 919		#Kotor
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			919 = {		#Kotor
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					province = 13236	#Kotor
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 13236	#Kotor
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					province = 13236	#Kotor
+					instant_build = yes
+				}
+				set_state_flag = HUN_kotor_harbor_expanded
+			}
+		}
+	}
+
+	HUN_kotor_naval_air_base = {
+
+		icon = generic_air
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 919		#Kotor
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+	
+		allowed = {
+			original_tag = HUN
+		}
+		
+		highlight_states = {
+			state = 919	#Kotor
+		}
+
+		visible = {
+			is_ahu = yes
+			has_completed_focus = HUN_renew_the_hindenburg_plan
+			owns_state = 919		#Kotor
+			919 = { has_state_flag = HUN_kotor_harbor_expanded }	#Kotor
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		remove_effect = {
+			919 = {		#Kotor
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}	
+
+HUN_pan_europa_category = {
+	
+	HUN_strike_the_ussr = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = SOV }
+			NOT = { is_in_faction_with = SOV }
+			SOV = { exists = yes }
+			SOV = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+				expire = 0
+			}
+		}
+	}
+	
+	HUN_strike_the_GER = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = GER }
+			NOT = { is_in_faction_with = GER }
+			GER = { exists = yes }
+			GER = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = GER
+				expire = 0
+			}
+		}
+	}
+	
+	HUN_strike_the_ITA = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = ITA }
+			NOT = { is_in_faction_with = ITA }
+			ITA = { exists = yes }
+			ITA = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = ITA
+				expire = 0
+			}
+		}
+	}	
+	
+	HUN_strike_the_FRA = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = FRA }
+			NOT = { is_in_faction_with = FRA }
+			FRA = { exists = yes }
+			FRA = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = FRA
+				expire = 0
+			}
+		}
+	}	
+
+	HUN_strike_the_HOL = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = HOL }
+			NOT = { is_in_faction_with = HOL }
+			HOL = { exists = yes }
+			HOL = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = HOL
+				expire = 0
+			}
+		}
+	}		
+	
+	HUN_strike_the_BEL = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = BEL }
+			NOT = { is_in_faction_with = BEL }
+			BEL = { exists = yes }
+			BEL = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = BEL
+				expire = 0
+			}
+		}
+	}	
+
+	HUN_strike_the_BUL = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = BUL }
+			NOT = { is_in_faction_with = BUL }
+			BUL = { exists = yes }
+			BUL = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = BUL
+				expire = 0
+			}
+		}
+	}		
+	
+	HUN_strike_the_ROM = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = ROM }
+			NOT = { is_in_faction_with = ROM }
+			ROM = { exists = yes }
+			ROM = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROM
+				expire = 0
+			}
+		}
+	}		
+
+	HUN_strike_the_GRE = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = GRE }
+			NOT = { is_in_faction_with = GRE }
+			GRE = { exists = yes }
+			GRE = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = GRE
+				expire = 0
+			}
+		}
+	}		
+
+	HUN_strike_the_POL = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = POL }
+			NOT = { is_in_faction_with = POL }
+			POL = { exists = yes }
+			POL = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = POL
+				expire = 0
+			}
+		}
+	}	
+
+	HUN_strike_the_SPR = {
+
+		icon = generic_break_treaty
+
+		available = {
+			any_country = {
+				original_tag = SPR
+				has_government = communism
+				NOT = { has_war_with = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}				
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = SPR
+					has_government = communism
+				}
+				HUN = {
+					create_wargoal = {
+						type = annex_everything
+						target = PREV
+						expire = 0
+					}
+				}
+			}
+		}
+	}
+	
+	HUN_strike_the_SPA = {
+
+		icon = generic_break_treaty
+
+		available = {
+			any_country = {
+				original_tag = SPA
+				has_government = fascism
+				NOT = { has_war_with = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}				
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = SPA
+					has_government = fascism
+				}
+				HUN = {
+					create_wargoal = {
+						type = annex_everything
+						target = PREV
+						expire = 0
+					}
+				}
+			}
+		}
+	}	
+	
+	HUN_strike_the_POR = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = POR }
+			NOT = { is_in_faction_with = POR }
+			POR = { exists = yes }
+			POR = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = POR
+				expire = 0
+			}
+		}
+	}	
+
+	HUN_strike_the_DEN = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = DEN }
+			NOT = { is_in_faction_with = DEN }
+			DEN = { exists = yes }
+			DEN = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = DEN
+				expire = 0
+			}
+		}
+	}
+	
+	HUN_strike_the_NOR = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = NOR }
+			NOT = { is_in_faction_with = NOR }
+			NOR = { exists = yes }
+			NOR = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = NOR
+				expire = 0
+			}
+		}
+	}	
+	
+	HUN_strike_the_SWE = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = SWE }
+			NOT = { is_in_faction_with = SWE }
+			SWE = { exists = yes }
+			SWE = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = SWE
+				expire = 0
+			}
+		}
+	}		
+	
+	HUN_strike_the_FIN = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = FIN }
+			NOT = { is_in_faction_with = FIN }
+			FIN = { exists = yes }
+			FIN = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = FIN
+				expire = 0
+			}
+		}
+	}		
+
+	HUN_strike_the_EST = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = EST }
+			NOT = { is_in_faction_with = EST }
+			EST = { exists = yes }
+			EST = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = EST
+				expire = 0
+			}
+		}
+	}		
+
+	HUN_strike_the_LIT = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = LIT }
+			NOT = { is_in_faction_with = LIT }
+			LIT = { exists = yes }
+			LIT = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = LIT
+				expire = 0
+			}
+		}
+	}	
+
+	HUN_strike_the_LAT = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = LAT }
+			NOT = { is_in_faction_with = LAT }
+			LAT = { exists = yes }
+			LAT = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = LAT
+				expire = 0
+			}
+		}
+	}		
+	
+	HUN_strike_the_ENG = {
+
+		icon = generic_break_treaty
+
+		available = {
+		    NOT = { has_war_with = ENG }
+			NOT = { is_in_faction_with = ENG }
+			ENG = { exists = yes }
+			ENG = {
+			    OR = {
+				    has_government = fascism
+				    has_government = communism
+				}	
+			}			
+		}
+
+		cost = 50
+		fire_only_once = yes
+        days_remove = 50
+		
+		allowed = {
+			original_tag = HUN
+		}
+
+		visible = {
+			is_ahu = yes
+		    has_completed_focus = HUN_otto_dream
+		    is_government_in_exile = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			create_wargoal = {
+				type = annex_everything
+				target = ENG
+				expire = 0
+			}
+		}
+	}			
+}

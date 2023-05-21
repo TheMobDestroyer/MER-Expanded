@@ -1,0 +1,517 @@
+﻿###############################################
+# Hungarian Flavor Federation Election Events #
+###############################################
+
+add_namespace = hungary_flavor_fed_elections
+
+# Regional elections of [ROOT.GetNameDef]
+country_event = {
+	id = hungary_flavor_fed_elections.1
+	title = hungary_flavor_fed_elections.1.t
+	desc = hungary_flavor_fed_elections.1.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			clear_regional_election_flags = yes
+			random_list = { 
+				60 = { set_country_flag = HUN_election_HUN_conservatives }
+				25 = { set_country_flag = HUN_election_HUN_socialists }
+				0 = { set_country_flag = HUN_election_HUN_independence }
+				15 = { set_country_flag = HUN_election_HUN_liberals }
+			}
+			random_list = { 
+				45 = { set_country_flag = HUN_election_AUS_conservatives }
+				35 = { set_country_flag = HUN_election_AUS_socialists }
+				0 = { set_country_flag = HUN_election_AUS_independence }
+				20 = { set_country_flag = HUN_election_AUS_liberals }
+			}
+			if = {
+				limit = { has_country_flag = HUN_slovakia_is_state }
+				random_list = { 
+					35 = { set_country_flag = HUN_election_SLO_conservatives }
+					30 = { set_country_flag = HUN_election_SLO_socialists }
+					15 = { set_country_flag = HUN_election_SLO_independence }
+					20 = { set_country_flag = HUN_election_SLO_liberals }
+				}
+			}
+			if = {
+				limit = { has_country_flag = HUN_bohemia_moravia_is_state }
+				random_list = { 
+					30 = { set_country_flag = HUN_election_BOH_conservatives }
+					25 = { set_country_flag = HUN_election_BOH_socialists }
+					20 = { set_country_flag = HUN_election_BOH_independence }
+					25 = { set_country_flag = HUN_election_BOH_liberals }
+				}
+			}
+			if = {
+				limit = { has_country_flag = HUN_galicia_lodomeria_is_state }
+				random_list = { 
+					30 = { set_country_flag = HUN_election_GAL_conservatives }
+					25 = { set_country_flag = HUN_election_GAL_socialists }
+					35 = { set_country_flag = HUN_election_GAL_independence }
+					10 = { set_country_flag = HUN_election_GAL_liberals }
+				}
+			}
+			if = {
+				limit = { has_country_flag = HUN_transylvania_is_state }
+				random_list = { 
+					55 = { set_country_flag = HUN_election_TRA_conservatives }
+					30 = { set_country_flag = HUN_election_TRA_socialists }
+					5 = { set_country_flag = HUN_election_TRA_independence }
+					10 = { set_country_flag = HUN_election_TRA_liberals }
+				}
+			}
+			if = {
+				limit = { has_country_flag = HUN_croatia_bosnia_is_state }
+				random_list = { 
+					20 = { set_country_flag = HUN_election_CRO_conservatives }
+					30 = { set_country_flag = HUN_election_CRO_socialists }
+					30 = { set_country_flag = HUN_election_CRO_independence }
+					20 = { set_country_flag = HUN_election_CRO_liberals }
+				}
+			}
+			if = {
+				limit = { has_country_flag = HUN_carinthia_venetia_is_state }
+				random_list = { 
+					30 = { set_country_flag = HUN_election_CAR_conservatives }
+					30 = { set_country_flag = HUN_election_CAR_socialists }
+					20 = { set_country_flag = HUN_election_CAR_independence }
+					20 = { set_country_flag = HUN_election_CAR_liberals }
+				}
+			}
+		}
+	}
+	
+	# Let us open the ballots!
+	option = {
+		name = hungary_flavor_fed_elections.1.a
+		hidden_effect = { country_event = { id = hungary_flavor_fed_elections.2 days = 7 } }
+	}
+	
+	# We can not afford an election at a time like this
+	option = {
+		name = hungary_flavor_fed_elections.1.b
+		trigger = {
+			surrender_progress > 0.2
+		}
+		hidden_effect = { country_event = { id = hungary_flavor_fed_elections.1 days = 1460 } }		#Elections again in 4 years 
+	}
+}
+
+# Results of the regional elections
+country_event = {
+	id = hungary_flavor_fed_elections.2
+	title = hungary_flavor_fed_elections.2.t
+	desc = hungary_flavor_fed_elections.2.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		print_regional_election_results = yes
+	}
+	
+	# The people have spoken.
+	option = {
+		name = hungary_flavor_fed_elections.2.a
+		resolve_regional_election_results = yes
+		hidden_effect = {
+			country_event = { id = hungary_flavor_fed_elections.1 days = 1460 }		#Elections again in 4 years
+			if = {
+				if = {
+					limit = { has_country_flag = HUN_election_SLO_independence }
+					random_list = {
+						40 = { set_country_flag = HUN_election_SLO_wants_to_break_free }
+						60 = { }
+					}
+				}
+				if = {
+					limit = { has_country_flag = HUN_election_BOH_independence }
+					random_list = {
+						40 = { set_country_flag = HUN_election_BOH_wants_to_break_free }
+						60 = { }
+					}
+				}
+				if = {
+					limit = { has_country_flag = HUN_election_GAL_independence }
+					random_list = {
+						40 = { set_country_flag = HUN_election_UKR_wants_to_break_free }
+						60 = { }
+					}
+				}
+				if = {
+					limit = { has_country_flag = HUN_election_TRA_independence }
+					random_list = {
+						40 = { set_country_flag = HUN_election_TRA_wants_to_break_free }
+						60 = { }
+					}
+				}
+				if = {
+					limit = { has_country_flag = HUN_election_CRO_independence }
+					random_list = {
+						40 = { set_country_flag = HUN_election_YUG_wants_to_break_free }
+						60 = { }
+					}
+				}
+				if = {
+					limit = { has_country_flag = HUN_election_CAR_independence }
+					random_list = {
+						40 = { set_country_flag = HUN_election_ITA_wants_to_break_free }
+						60 = { }
+					}
+				}
+			}
+			
+		}
+	}
+}
+
+# Socialist majority in federal parliament
+country_event = {
+	id = hungary_flavor_fed_elections.3
+	title = hungary_flavor_fed_elections.3.t
+	desc = hungary_flavor_fed_elections.3.d
+	picture = GFX_report_event_generic_parliament
+	
+	trigger = {
+		check_variable = { var = HUN_representation_socialist 		value = HUN_dominance_threshold 	compare = greater_than }
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	fire_only_once = yes
+	
+	# Pass the proposed social reforms.
+	option = {
+		name = hungary_flavor_fed_elections.3.a
+		step_back_economy = yes
+		add_stability = 0.05
+		add_political_power = -10
+	}
+	
+	# Veto the reforms.
+	option = {
+		name = hungary_flavor_fed_elections.3.b
+		add_stability = -0.10
+		add_political_power = -100
+		add_popularity = { ideology = communism popularity = 0.10 }
+	}
+}
+
+# Liberal majority in federal parliament
+country_event = {
+	id = hungary_flavor_fed_elections.4
+	title = hungary_flavor_fed_elections.4.t
+	desc = hungary_flavor_fed_elections.4.d
+	picture = GFX_report_event_generic_parliament
+	
+	trigger = {
+		check_variable = { var = HUN_representation_liberal 		value = HUN_dominance_threshold 	compare = greater_than }
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	fire_only_once = yes
+	
+	# Pass the proposed liberal reforms.
+	option = {
+		name = hungary_flavor_fed_elections.4.a
+		step_back_conscription = yes
+		add_stability = 0.05
+		add_war_support = -0.10
+	}
+	
+	# Veto the reforms.
+	option = {
+		name = hungary_flavor_fed_elections.4.b
+		add_stability = -0.10
+		add_political_power = -100
+		add_popularity = { ideology = democratic popularity = 0.10 }
+	}
+}
+
+# Independence parties dominate federal parliament
+country_event = {
+	id = hungary_flavor_fed_elections.5
+	title = hungary_flavor_fed_elections.5.t
+	desc = hungary_flavor_fed_elections.5.d
+	picture = GFX_report_event_generic_parliament
+	
+	trigger = {
+		check_variable = { var = HUN_representation_independence 	value = HUN_dominance_threshold 	compare = greater_than }
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	fire_only_once = yes
+	
+	#Grant autonomy to the regions in question.
+	option = {
+		name = hungary_flavor_fed_elections.5.a		
+		#Slovakian independence/autonomy
+		if = {
+			limit = { has_country_flag = HUN_election_HUN_independence }
+			release_autonomous_slovakia = yes
+		}
+		
+		#Bohemian independence/autonomy
+		if = {
+			limit = { has_country_flag = HUN_election_BOH_independence }
+			release_autonomous_bohemia = yes
+		}
+		
+		#Ukrainian independence/autonomy
+		if = {
+			limit = { has_country_flag = HUN_election_GAL_independence }
+			release_autonomous_ukraine = yes
+		}
+		
+		#Transylvanian independence/autonomy
+		if = {
+			limit = { has_country_flag = HUN_election_TRA_independence }
+			release_autonomous_transylvania = yes
+		}
+		
+		#Yugoslav independence/autonomy
+		if = {
+			limit = { has_country_flag = HUN_election_CRO_independence }
+			release_autonomous_yugoslavia = yes
+		}
+		
+		#Venetian and Carinthian independence/autonomy
+		if = {
+			limit = { has_country_flag = HUN_election_CAR_independence }
+			release_autonomous_italy = yes
+			release_autonomous_slovenia = yes
+		}
+	}
+	
+	#Dissolve the independence parties.
+	option = {
+		name = hungary_flavor_fed_elections.5.b
+		add_stability = -0.20
+		add_political_power = -300
+	}
+}
+
+# Independence referendum in Slovakia pulls through
+country_event = {
+	id = hungary_flavor_fed_elections.7
+	title = hungary_flavor_fed_elections.7.t
+	desc = hungary_flavor_fed_elections.7.d
+	picture = GFX_report_event_election_vote
+	
+	trigger = {
+		has_country_flag = HUN_election_SLO_wants_to_break_free
+	}
+	
+	mean_time_to_happen = {
+		days = 365
+	}
+	
+	fire_only_once = yes
+	
+	# Grant them autonomy.
+	option = {
+		name = hungary_flavor_fed_elections.7.a
+		release_autonomous_slovakia = yes
+	}
+	
+	# Ignore the referendum results.
+	option = {
+		name = hungary_flavor_fed_elections.7.b
+		add_stability = -0.05
+		add_political_power = -100
+	}
+}
+
+# Independence referendum in Bohemia pulls through
+country_event = {
+	id = hungary_flavor_fed_elections.8
+	title = hungary_flavor_fed_elections.8.t
+	desc = hungary_flavor_fed_elections.8.d
+	picture = GFX_report_event_election_vote
+	
+	trigger = {
+		has_country_flag = HUN_election_BOH_wants_to_break_free
+	}
+	
+	mean_time_to_happen = {
+		days = 365
+	}
+	
+	fire_only_once = yes
+	
+	# Grant them autonomy.
+	option = {
+		name = hungary_flavor_fed_elections.8.a
+		release_autonomous_bohemia = yes
+	}
+	
+	# Ignore the referendum results.
+	option = {
+		name = hungary_flavor_fed_elections.8.b
+		add_stability = -0.05
+		add_political_power = -100
+	}
+}
+
+# Independence referendum in Galicia pulls through
+country_event = {
+	id = hungary_flavor_fed_elections.9
+	title = hungary_flavor_fed_elections.9.t
+	desc = hungary_flavor_fed_elections.9.d
+	picture = GFX_report_event_election_vote
+	
+	trigger = {
+		has_country_flag = HUN_election_UKR_wants_to_break_free
+	}
+	
+	mean_time_to_happen = {
+		days = 365
+	}
+	
+	fire_only_once = yes
+	
+	# Grant them autonomy.
+	option = {
+		name = hungary_flavor_fed_elections.9.a
+		release_autonomous_ukraine = yes
+	}
+	
+	# Ignore the referendum results.
+	option = {
+		name = hungary_flavor_fed_elections.9.b
+		add_stability = -0.05
+		add_political_power = -100
+	}
+}
+
+# Independence referendum in Transylvania pulls through
+country_event = {
+	id = hungary_flavor_fed_elections.10
+	title = hungary_flavor_fed_elections.10.t
+	desc = hungary_flavor_fed_elections.10.d
+	picture = GFX_report_event_election_vote
+	
+	trigger = {
+		has_country_flag = HUN_election_TRA_wants_to_break_free
+	}
+	
+	mean_time_to_happen = {
+		days = 365
+	}
+	
+	fire_only_once = yes
+	
+	# Grant them autonomy.
+	option = {
+		name = hungary_flavor_fed_elections.10.a
+		release_autonomous_transylvania = yes
+	}
+	
+	# Ignore the referendum results.
+	option = {
+		name = hungary_flavor_fed_elections.10.b
+		add_stability = -0.05
+		add_political_power = -100
+	}
+}
+
+# Independence referendum in Croatia pulls through
+country_event = {
+	id = hungary_flavor_fed_elections.11
+	title = hungary_flavor_fed_elections.11.t
+	desc = hungary_flavor_fed_elections.11.d
+	picture = GFX_report_event_election_vote
+	
+	trigger = {
+		has_country_flag = HUN_election_YUG_wants_to_break_free
+	}
+	
+	mean_time_to_happen = {
+		days = 365
+	}
+	
+	fire_only_once = yes
+	
+	# Grant them autonomy.
+	option = {
+		name = hungary_flavor_fed_elections.11.a
+		release_autonomous_yugoslavia = yes
+	}
+	
+	# Ignore the referendum results.
+	option = {
+		name = hungary_flavor_fed_elections.11.b
+		add_stability = -0.05
+		add_political_power = -100
+	}
+}
+
+# Independence referendum in Carinthia-Venetia pulls through
+country_event = {
+	id = hungary_flavor_fed_elections.13
+	title = hungary_flavor_fed_elections.13.t
+	desc = hungary_flavor_fed_elections.13.d
+	picture = GFX_report_event_election_vote
+	
+	trigger = {
+		has_country_flag = HUN_election_ITA_wants_to_break_free
+	}
+	
+	mean_time_to_happen = {
+		days = 365
+	}
+	
+	fire_only_once = yes
+	
+	# Grant them autonomy.
+	option = {
+		name = hungary_flavor_fed_elections.13.a
+		release_autonomous_italy = yes
+		release_autonomous_slovenia = yes
+	}
+	
+	# Ignore the referendum results.
+	option = {
+		name = hungary_flavor_fed_elections.13.b
+		add_stability = -0.05
+		add_political_power = -100
+	}
+}
+
+# Free of the federation (event that drops the substate cosmetic tag, if a country becomes independent after being an autonomous substate of the federation)
+country_event = {
+	id = hungary_flavor_fed_elections.12
+	title = hungary_flavor_fed_elections.12.t
+	desc = hungary_flavor_fed_elections.12.d
+	picture = GFX_report_event_generic_parliament
+	
+	hidden = yes
+	
+	trigger = {
+		has_country_flag = HUN_is_substate_of_federation
+		is_subject = no
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	# We can breathe once again
+	option = {
+		name = hungary_flavor_fed_elections.12.a
+		clr_country_flag = HUN_is_substate_of_federation
+		drop_cosmetic_tag = yes
+	}
+}

@@ -1,0 +1,71 @@
+foreign_politics = {
+	
+	HUN_back_out_from_enforcing_the_treaty_of_trianon = {
+
+		icon = generic_break_treaty
+		
+		cost = 10		
+
+		available = {
+		}
+
+		visible = {
+			has_country_flag = HUN_policing_expansion_of_hungary
+			HUN = { has_completed_focus = HUN_revisionism }
+		}
+		
+		days_remove = 1
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				OR = {
+					is_in_faction_with = HUN
+					AND = {
+						has_opinion = { target = HUN value > 74 }
+						HUN = { has_same_government_as_root = yes }
+					}
+					has_opinion = { target = HUN value > 99 }
+					AND = {
+						tag = USA
+						has_completed_focus = USA_neutrality_act
+					}
+				}
+				
+				add = 51
+			}
+			modifier = {
+				HUN = { has_country_flag = HUN_seeking_allied_support }
+				OR = {
+					tag = ENG
+					tag = SOV
+					tag = USA
+				}
+				
+				add = 80
+			}		
+			modifier = {
+				HUN = { NOT = { has_idea = trianon_restrictions } }
+				
+				add = 10
+			}
+			modifier = {
+				is_in_faction_with = HUN
+				
+				add = 1000
+			}		
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = HUN_will_no_longer_be_responsible_for_curbing_hungarian_expansion
+			clr_country_flag = HUN_policing_expansion_of_hungary
+			set_country_flag = HUN_backed_out_from_treaty_of_trianon
+			clear_aggression_opinion = yes
+			hidden_effect = {
+				HUN = { news_event = { id = hun_news.42 } }
+			}
+			ask_new_trianon_police_candidate = yes
+		}
+	}
+	
+}

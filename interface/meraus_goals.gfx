@@ -1,0 +1,246 @@
+spriteTypes = {	
+	SpriteType = { 
+		name = "GFX_SIA_AST_handshake"
+		texturefile = "gfx/interface/goals/GFX_SIA_AST_handshake.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_HUN_CRO"
+		texturefile = "gfx/interface/goals/GFX_AUS_HUN_CRO.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_empire_coat_of_arms"
+		texturefile = "gfx/interface/goals/GFX_AUS_empire_coat_of_arms.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_HUN_alliance"
+		texturefile = "gfx/interface/goals/GFX_AUS_HUN_alliance.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_empire"
+		texturefile = "gfx/interface/goals/GFX_AUS_empire.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ballot"
+		texturefile = "gfx/interface/goals/GFX_AUS_ballot.png"
+	}
+	SpriteType = { 
+		name = "GFX_generic_ballot"
+		texturefile = "gfx/interface/goals/GFX_generic_ballot.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_fatherland_crushed"
+		texturefile = "gfx/interface/goals/GFX_AUS_fatherland_crushed.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_kill_kurt"
+		texturefile = "gfx/interface/goals/GFX_AUS_kill_kurt.dds"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_flag"
+		texturefile = "gfx/interface/goals/GFX_AUS_flag.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_fatherland"
+		texturefile = "gfx/interface/goals/GFX_AUS_fatherland.png"
+	}
+	SpriteType = { 
+		name = "GFX_SWI_deal"
+		texturefile = "gfx/interface/goals/GFX_SWI_deal.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_soviets"
+		texturefile = "gfx/interface/goals/GFX_AUS_soviets.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_GER_break_treaty"
+		texturefile = "gfx/interface/goals/GFX_AUS_GER_break_treaty.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ENG_handshake"
+		texturefile = "gfx/interface/goals/GFX_AUS_ENG_handshake.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ENG_FRA_flags"
+		texturefile = "gfx/interface/goals/GFX_AUS_ENG_FRA_flags.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_alpine"
+		texturefile = "gfx/interface/goals/GFX_AUS_alpine.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_SWI_deal"
+		texturefile = "gfx/interface/goals/GFX_AUS_SWI_deal.png"
+	}
+	SpriteType = {
+		name = "GFX_CZE_highway"
+		texturefile = "gfx/interface/goals/GFX_CZE_highway.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_submit_germany"
+		texturefile = "gfx/interface/goals/GFX_AUS_submit_germany.png"
+	}
+	SpriteType = {
+		name = "GFX_demand_transylvania"
+		texturefile = "gfx/interface/goals/GFX_demand_transylvania.png"
+	}
+	SpriteType = {
+		name = "GFX_YUG_wargoal"
+		texturefile = "gfx/interface/goals/GFX_YUG_wargoal.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_HUN_handshake"
+		texturefile = "gfx/interface/goals/GFX_AUS_HUN_handshake.png"
+	}
+	SpriteType = {
+		name = "GFX_YUG_invade"
+		texturefile = "gfx/interface/goals/GFX_YUG_invade.png"
+	}
+	SpriteType = {
+		name = "GFX_attack_bosnia"
+		texturefile = "gfx/interface/goals/GFX_attack_bosnia.png"
+	}
+	SpriteType = {
+		name = "GFX_democratic_monarchism"
+		texturefile = "gfx/interface/goals/GFX_democratic_monarchism.png"
+	}
+	SpriteType = {
+		name = "GFX_generic_documents"
+		texturefile = "gfx/interface/goals/GFX_generic_documents.png"
+	}
+	SpriteType = {
+		name = "GFX_generic_communist_revolt"
+		texturefile = "gfx/interface/goals/GFX_generic_communist_revolt.png"
+	}
+	SpriteType = {
+		name = "GFX_generic_anti_communism"
+		texturefile = "gfx/interface/goals/GFX_generic_anti_communism.png"
+	}
+	SpriteType = {
+		name = "GFX_VF_slovenia"
+		texturefile = "gfx/interface/goals/GFX_VF_slovenia.png"
+	}
+	SpriteType = {
+		name = "GFX_VF_hold_flag"
+		texturefile = "gfx/interface/goals/GFX_VF_hold_flag.png"
+	}
+	SpriteType = {
+		name = "GFX_ITA_VF_friendship"
+		texturefile = "gfx/interface/goals/GFX_ITA_VF_friendship.png"
+	}
+	SpriteType = {
+		name = "GFX_aircraft_production"
+		texturefile = "gfx/interface/goals/GFX_aircraft_production.png"
+	}
+	SpriteType = {
+		name = "GFX_cool_production"
+		texturefile = "gfx/interface/goals/GFX_cool_production.png"
+	}
+	SpriteType = {
+		name = "GFX_communist_production"
+		texturefile = "gfx/interface/goals/GFX_communist_production.png"
+	}
+	SpriteType = {
+		name = "GFX_backstab_hungary"
+		texturefile = "gfx/interface/goals/GFX_backstab_hungary.png"
+	}
+	SpriteType = {
+		name = "GFX_skoda_works"
+		texturefile = "gfx/interface/goals/GFX_skoda_works.png"
+	}
+	SpriteType = {
+		name = "GFX_take_serenissima"
+		texturefile = "gfx/interface/goals/GFX_take_serenissima.png"
+	}
+	SpriteType = {
+		name = "GFX_take_galicia"
+		texturefile = "gfx/interface/goals/GFX_take_galicia.png"
+	}
+	SpriteType = {
+		name = "GFX_take_transylvania"
+		texturefile = "gfx/interface/goals/GFX_take_transylvania.png"
+	}
+	SpriteType = {
+		name = "GFX_march_south"
+		texturefile = "gfx/interface/goals/GFX_march_south.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_CZE_monarchist_deal"
+		texturefile = "gfx/interface/goals/GFX_AUS_CZE_monarchist_deal.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_HUN_dual_monarchy"
+		texturefile = "gfx/interface/goals/GFX_AUS_HUN_dual_monarchy.png"
+	}
+	SpriteType = {
+		name = "GFX_hun_referendum"
+		texturefile = "gfx/interface/goals/GFX_hun_referendum.png"
+	}
+	SpriteType = {
+		name = "GFX_VF_CZE"
+		texturefile = "gfx/interface/goals/GFX_VF_CZE.png"
+	}
+	SpriteType = {
+		name = "GFX_YUG_cool_deal"
+		texturefile = "gfx/interface/goals/GFX_YUG_cool_deal.png"
+	}
+	SpriteType = {
+		name = "GFX_VF_loyalty"
+		texturefile = "gfx/interface/goals/GFX_VF_loyalty.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_austrian_empire"
+		texturefile = "gfx/interface/goals/GFX_AUS_austrian_empire.png"
+	}
+	SpriteType = {
+		name = "GFX_generic_research_education"
+		texturefile = "gfx/interface/goals/GFX_generic_research_education.png"
+	}
+	SpriteType = {
+		name = "GFX_VF_split_CZE"
+		texturefile = "gfx/interface/goals/GFX_VF_split_CZE.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_manpower"
+		texturefile = "gfx/interface/goals/GFX_AUS_manpower.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_HUN_serenissima"
+		texturefile = "gfx/interface/goals/GFX_AUS_HUN_serenissima.png"
+	}
+	SpriteType = {
+		name = "GFX_tanks_cool"
+		texturefile = "gfx/interface/goals/GFX_tanks_cool.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_fate_of_empire"
+		texturefile = "gfx/interface/goals/GFX_AUS_fate_of_empire.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_army_economy"
+		texturefile = "gfx/interface/goals/GFX_AUS_army_economy.png"
+	}
+	SpriteType = {
+		name = "GFX_VF_veneto_territories"
+		texturefile = "gfx/interface/goals/GFX_VF_veneto_territories.png"
+	}
+	SpriteType = {
+		name = "GFX_GER_espionage"
+		texturefile = "gfx/interface/goals/GFX_GER_espionage.png"
+	}
+	SpriteType = {
+		name = "GFX_sudetenland_territory"
+		texturefile = "gfx/interface/goals/GFX_sudetenland_territory.png"
+	}
+	SpriteType = {
+		name = "GFX_SLO_alliance"
+		texturefile = "gfx/interface/goals/GFX_SLO_alliance.png"
+	}
+	SpriteType = {
+		name = "GFX_SLO_wargoal"
+		texturefile = "gfx/interface/goals/GFX_SLO_wargoal.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_SLO_little_brother"
+		texturefile = "gfx/interface/goals/GFX_AUS_SLO_little_brother.png"
+	}
+}

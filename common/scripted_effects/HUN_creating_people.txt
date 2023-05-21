@@ -1,0 +1,1044 @@
+#POLITICIANS
+
+create_politician_miklos_horthy = {
+	create_country_leader = {
+		name = "Miklós Horthy"
+		desc = "POLITICS_MIKLOS_HORTHY_DESC"
+		picture = "Portrait_Hungary_Miklos_Horthy.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = {
+			anti_communist
+			governor
+		}
+	}
+}
+
+create_politician_king_horthy = {
+	create_country_leader = {
+		name = "Miklós I Horthy"
+		desc = "POLITICS_MIKLOS_HORTHY_KING_DESC"
+		picture = "Portrait_Hungary_Miklos_Horthy.dds"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = {
+			anti_communist
+			retired_officer
+		}
+	}
+}
+
+create_politician_matyas_rakosi = {
+	create_country_leader = {
+		name = "Mátyás Rákosi"
+		desc = "POLITICS_MATYAS_RAKOSKI_DESC"
+		picture = "Portrait_Hungary_Matyas_Rakoski.dds"
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = {
+			stalins_puppet
+			staunch_stalinist
+		}
+	}
+}
+
+create_politician_endre_bajcsy_zsilinszky = {
+	create_country_leader = {
+		name = "Endre Bajcsy-Zsilinszky"
+		desc = "POLITICS_ENDRE_BAJCSY_ZSILINSZKY_DESC"
+		picture = "Portrait_Hungary_Endre_Zsilinszky.dds"
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = {
+			anti_communist
+			anti_fascist
+			dislikes_germany
+		}
+	}
+}
+
+create_politician_otto_von_habsburg_ahu = {
+	create_country_leader = {
+		name = "Otto I von Habsburg"
+		desc = "POLITICS_OTTO_I_AHU_DESC"
+		picture = "Portrait_Hungary_Otto_von_Habsburg_neu.dds"
+		expire = "2011.5.4"
+		ideology = despotism
+		traits = {
+			centrist_monarch
+			multi_national
+		}
+	}
+}
+
+create_politician_otto_von_habsburg_hun = {
+	create_country_leader = {
+		name = "Otto I von Habsburg"
+		desc = "POLITICS_OTTO_I_HUN_DESC"
+		picture = "Portrait_Hungary_Otto_von_Habsburg.dds"
+		expire = "2011.5.4"
+		ideology = despotism
+		traits = {
+			centrist_monarch
+			multi_national
+		}
+	}
+}
+
+create_politician_carl_ludwig_von_habsburg = {
+	create_country_leader = {
+		name = "Carl Ludwig von Habsburg"
+		picture = "Portrait_Europe_Generic_3.dds"
+		expire = "2007.12.11"
+		ideology = despotism
+		traits = { appeaser }
+	}
+}
+
+create_politician_ferenc_szalasi = {
+	create_country_leader = {
+		name = "Ferenc Szálasi"
+		desc = "POLITICS_FERENC_SZALASI_DESC"
+		picture = "Portrait_Hungary_Ferenc_Szalasi.dds"
+		expire = "1965.1.1"
+		ideology = hungarism
+		traits = { 
+		    hungarizmus
+			fascist_sympathies
+		}	
+	}
+}
+
+create_politician_janos_kadar = {
+	create_country_leader = {
+		name = "János Kádár"
+		desc = "POLITICS_JANOS_KADAR_DESC"
+		picture = "Portrait_Hungary_Janos_Kadar.dds"
+		expire = "1989.7.6"
+		ideology = leninism
+		traits = { veteran_communist }
+	}	
+}
+
+create_politician_imre_nagy = {
+	create_country_leader = {
+		name = "Imre Nagy"
+		desc = "POLITICS_IMRE_NAGY_DESC"
+		picture = "portrait_hun_imre_nagy.dds"
+		expire = "1989.7.6"
+		ideology = leninism
+		traits = { popular_figurehead2 }
+	}	
+}
+
+create_politician_imre_nagy_reformcommunist = {
+	create_country_leader = {
+		name = "Imre Nagy"
+		desc = "POLITICS_IMRE_NAGY_DESC"
+		picture = "portrait_hun_imre_nagy.dds"
+		expire = "1989.7.6"
+		ideology = leninism
+		traits = { popular_figurehead2 reformcommunist }
+	}	
+}
+
+create_politician_kalman_daranyi = {
+	create_country_leader = {
+		name = "Kálmán Darányi"
+		desc = "POLITICS_KALMAN_DARANYI_DESC"
+		picture = "Portrait_Hungary_Kalman_Daranyi.dds"
+		expire = "1939.11.1"
+		ideology = moderatism
+		traits = { political_dancer }
+	}	
+}
+
+create_politician_bela_imredy = {
+	create_country_leader = {
+		name = "Béla Imrédy"
+		desc = "POLITICS_BELA_IMREDY_DESC"
+		picture = "Portrait_Hungary_Bela_Imredy.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { rearmer conservative_nationalist }
+	}	
+}
+
+create_politician_pal_teleki_neutrality = {
+	create_country_leader = {
+		name = "Pál Teleki"
+		desc = "POLITICS_PAL_TELEKI_DESC"
+		picture = "Portrait_Hungary_Pal_Teleki.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { the_gentleman_president }
+	}	
+}
+
+create_politician_pal_teleki_democratic = {
+	create_country_leader = {
+		name = "Pál Teleki"
+		desc = "POLITICS_PAL_TELEKI_DESC"
+		picture = "Portrait_Hungary_Pal_Teleki.dds"
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = { the_gentleman_president }
+	}	
+}
+
+create_politician_istvan_bethlen = {
+	create_country_leader = {
+		name = "István Bethlen"
+		desc = "POLITICS_ISTVAN_BETHLEN_DESC"
+		picture = "Portrait_Hungary_Istvan_Bethlen.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { political_dancer }
+	}	
+}
+
+create_politician_laszlo_bardossy = {
+	create_country_leader = {
+		name = "László Bárdossy"
+		desc = "POLITICS_LASZLO_BARDOSSY_DESC"
+		picture = "Portrait_Europe_Generic_3.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { conservative_grandee }
+	}	
+}
+
+create_politician_miklos_kallay = {
+	create_country_leader = {
+		name = "Miklós Kállay"
+		desc = "POLITICS_MIKLOS_KALLAY_DESC"
+		picture = "Portrait_Hungary_Miklos_Kallay.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { the_gentleman_president }
+	}	
+}
+
+create_politician_istvan_horthy = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = HUN_had_war
+				has_war = yes
+			}
+		}
+		create_country_leader = {
+			name = "István Horthy"
+			desc = "POLITICS_ISTVAN_HORTHY_DESC"
+			picture = "Portrait_Hungary_Istvan_Horthy.dds"
+			expire = "1965.1.1"
+			ideology = moderatism
+			traits = { popular_figurehead2 former_ace_pilot railroad_enthusiast }
+		}
+		else = {
+			create_country_leader = {
+				name = "István Horthy"
+				desc = "POLITICS_ISTVAN_HORTHY_DESC"
+				picture = "Portrait_Hungary_Istvan_Horthy.dds"
+				expire = "1965.1.1"
+				ideology = moderatism
+				traits = { popular_figurehead2 railroad_enthusiast }
+			}
+		}
+	}	
+}
+
+create_politician_king_istvan_horthy = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = HUN_had_war
+				has_war = yes
+			}
+		}
+		create_country_leader = {
+			name = "István I Horthy"
+			desc = "POLITICS_ISTVAN_HORTHY_DESC"
+			picture = "Portrait_Hungary_Istvan_Horthy.dds"
+			expire = "1965.1.1"
+			ideology = moderatism
+			traits = { popular_figurehead2 former_ace_pilot railroad_enthusiast }
+		}
+		else = {
+			create_country_leader = {
+				name = "István I Horthy"
+				desc = "POLITICS_ISTVAN_HORTHY_DESC"
+				picture = "Portrait_Hungary_Istvan_Horthy.dds"
+				expire = "1965.1.1"
+				ideology = moderatism
+				traits = { popular_figurehead2 railroad_enthusiast }
+			}
+		}
+	}		
+}
+
+create_politician_istvan_horthy_jr = {
+	create_country_leader = {
+		name = "István Horthy"
+		desc = "POLITICS_ISTVAN_HORTHY_JR_DESC"
+		picture = "Portrait_Hungary_ifjabb_Istvan_Horthy.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { elected_regency_council }
+	}	
+}
+
+create_politician_king_istvan_horthy_jr = {
+	create_country_leader = {
+		name = "István I Horthy"
+		desc = "POLITICS_KING_ISTVAN_HORTHY_JR_DESC"
+		picture = "Portrait_Hungary_ifjabb_Istvan_Horthy.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { elected_regency_council }
+	}	
+}
+
+create_politician_victor_emmanuel = {
+	create_country_leader = {
+		name = "Victor Emmanuel I"
+		desc = "POLITICS_VICTOR_EMMANUEL_DESC"
+		picture = "Portrait_Hungary_Victor_Emmanuel.dds"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = { italian_royalty }
+	}	
+}
+
+create_politician_wilhelm_hohenzollern_hun = {
+	create_country_leader = {
+		name = "Wilhelm I von Hohenzollern"
+		desc = "POLITICS_WILHELM_HOHENZOLLERN_HUN_DESC"
+		picture = "Portrait_Hungary_Wilhelm_von_Hohenzollern.dds"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = { german_royalty }
+	}	
+}
+
+create_politician_bela_kun = {
+	create_country_leader = {
+		name = "Béla Kun"
+		desc = "POLITICS_BELA_KUN_DESC"
+		picture = "Portrait_Hungary_Bela_Kun.dds"
+		expire = "1965.1.1"
+		ideology = anarchist_communism
+		traits = { exiled_revolutionary }
+	}	
+}
+
+create_politician_mihaly_karolyi = {
+	create_country_leader = {
+		name = "Mihály Károlyi"
+		desc = "POLITICS_MIHALY_KAROLYI_DESC"
+		picture = "Portrait_Hungary_Mihaly_Karolyi.dds"
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = { exiled incompetent_leader }
+	}	
+}
+
+
+#ARMY
+
+
+create_military_geza_lakatos = {
+	create_corps_commander = {
+		name = "Géza Lakatos"
+		id = 200
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Geza_Lakatos.dds"
+		traits = { infantry_officer career_officer }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 2
+	}
+}
+
+create_military_ivan_hindy = {
+	create_corps_commander = {
+		name = "Iván Hindy"
+		id = 201
+		gfx = GFX_Portrait_hungary_ivan_hindy
+		traits = { }
+		skill = 2
+		attack_skill = 1
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_bela_miklos = {
+	create_corps_commander = {
+		name = "Béla Miklós"
+		id = 202
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Bela_Miklos.dds"
+		traits = { politically_connected cavalry_officer }
+		skill = 4
+		attack_skill = 4
+		defense_skill = 4
+		planning_skill = 3
+		logistics_skill = 2
+	}
+}
+
+create_military_gabor_faragho = {
+	create_corps_commander = {
+		name = "Gábor Faragho"
+		id = 203
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Gabor_Faragho.dds"
+		traits = { bearer_of_artillery politically_connected }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 3
+	}
+}
+
+create_military_laszlo_dezso = {
+	create_corps_commander = {
+		name = "Dezsö László"
+		id = 204
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Dezso_Laszlo.dds"
+		traits = { hill_fighter }
+		skill = 4
+		attack_skill = 4
+		defense_skill = 4
+		planning_skill = 4
+		logistics_skill = 3
+	}
+}
+
+create_military_gusztav_jany = {
+	create_corps_commander = {
+		name = "Gusztáv Jány"
+		id = 205
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Gusztav_Jany.dds"
+		traits = { war_hero old_guard infantry_officer }
+		skill = 3
+		attack_skill = 4
+		defense_skill = 4
+		planning_skill = 3
+		logistics_skill = 3
+	}
+}
+
+create_military_zoltan_szugyi = {
+	create_corps_commander = {
+		name = "Zoltán Szügyi"
+		id = 206
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Zoltan_Szugyi.dds"
+		traits = { war_hero paratrooper }
+		skill = 3
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 3
+	}
+}
+
+create_military_ferenc_farkas = {
+	create_corps_commander = {
+		name = "Ferenc Farkas"
+		id = 207
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Ferenc_Farkas.dds"
+		traits = { }
+		skill = 2
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_marcell_stomm = {
+	create_corps_commander = {
+		name = "Marcel Stomm"
+		id = 208
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Marcell_Stomm.dds"
+		traits = { war_hero brilliant_strategist infantry_officer trait_engineer }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 4
+		planning_skill = 4
+		logistics_skill = 4
+	}
+}
+
+create_military_karoly_beregfy = {
+	create_corps_commander = {
+		name = "Károly Beregfy"
+		id = 210
+		gfx = GFX_Portrait_hungary_karoly_beregfy
+		traits = { politically_connected }
+		skill = 1
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 1
+		logistics_skill = 1
+	}
+}
+
+create_military_lajos_veress = {
+	create_corps_commander = {
+		name = "Lajos Veress"
+		id = 211
+		gfx = GFX_Portrait_hungary_lajos_veress
+		traits = { armor_officer }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_istvan_bata = {
+	create_field_marshal = {
+		name = "István Bata"
+		id = 212
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Istvan_Bata.dds"
+		traits = { politically_connected brilliant_strategist }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_joseph_von_habsburg = {
+	create_field_marshal = {
+		name = "Joseph von Habsburg"
+		id = 213
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Joseph_von_Habsburg.dds"
+		traits = { war_hero inflexible_strategist defensive_doctrine trait_cautious inspirational_leader }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 1
+		logistics_skill = 2
+	}
+}
+
+create_military_lajos_csatay = {
+	create_field_marshal = {
+		name = "Lajos Csatay"
+		id = 213
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Lajos_Csatay2.dds"
+		traits = { organisational_leader }
+		skill = 2
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_ferenc_feketehalmy_czeydner = {
+	create_field_marshal = {
+		name = "Ferenc Feketehalmy-Czeydner"
+		gfx = GFX_Portrait_hungary_ferenc_feketehalmy_czeydner
+		traits = { old_guard harsh_leader }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_erwin_von_witzleben = {
+	create_corps_commander = {
+		name = "Erwin von Witzleben"
+		picture = "Portrait_Germany_Erwin_von_Witzleben.dds"
+		traits = { infantry_officer career_officer }
+		skill = 4
+		id = 17
+		attack_skill = 4
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 4
+	}
+}
+
+create_military_wilhelm_ritter_von_leeb = {
+	create_corps_commander = {
+		name = "Wilhelm Ritter von Leeb"
+		picture = "Portrait_Germany_Wilhelm_Ritter_von_Leeb.dds"
+		traits = { old_guard infantry_officer }
+		skill = 3
+		id = 13
+		attack_skill = 4
+		defense_skill = 3
+		planning_skill = 1
+		logistics_skill = 2
+	}
+}
+
+create_military_mihajlo_lukic = {
+	create_corps_commander = {
+		name = "Mihajlo Lukić"
+		picture = "Portrait_Europe_Generic_land_1.dds"
+		traits = { trait_cautious }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 1
+		logistics_skill = 2
+	}
+}
+
+create_military_rafael_boban = {
+	create_corps_commander = {
+		name = "Rafael Boban"
+		picture = "Portrait_Europe_Generic_land_2.dds"
+		traits = { politically_connected harsh_leader infantry_officer }
+		skill = 3
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 3
+	}
+}
+
+create_military_vladimir_laxa = {
+	create_corps_commander = {
+		name = "Vladimir Laxa"
+		picture = "Portrait_Europe_Generic_land_4.dds"
+		traits = { war_hero trait_mountaineer trait_cautious }
+		skill = 3
+		attack_skill = 2
+		defense_skill = 4
+		planning_skill = 2
+		logistics_skill = 4
+	}
+}
+
+create_military_janos_legeza = {
+	create_corps_commander = {
+		name = "János Legeza"
+		picture = "portrait_janos_legeza.dds"
+		traits = { old_guard war_hero infantry_leader naval_liason }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 4
+		planning_skill = 3
+		logistics_skill = 3
+	}
+}
+
+create_military_laszlo_hollosy_kuthy = {
+	create_corps_commander = {
+		name = "László Hollósy-Kuthy"
+		picture = "portrait_laszlo_hollosy_kuthy.dds"
+		traits = { old_guard war_hero infantry_leader }
+		skill = 4
+		attack_skill = 4
+		defense_skill = 4
+		planning_skill = 4
+		logistics_skill = 3
+	}
+}
+
+create_military_antal_vattay = {
+	create_corps_commander = {
+		name = "Antal Vattay"
+		picture = "portrait_antal_vattay.dds"
+		traits = { cavalry_officer }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 1
+	}
+}
+
+create_military_istvan_kozma = {
+	create_corps_commander = {
+		name = "István Kozma"
+		picture = "portrait_istvan_kozma.dds"
+		traits = { trait_mountaineer }
+		skill = 3
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 3
+	}
+}
+
+create_military_gorondy_novak_elemer = {
+	create_field_marshal = {
+		name = "Gorondy-Novák Elemér"
+		picture = "Portrait_Gorondy_Novak_Elemer.dds"
+		traits = { organizer cavalry_officer }
+		skill = 2
+		attack_skill = 3
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_littay_andras = {
+	create_corps_commander = {
+		name = "Littay András"
+		picture = "Portrait_Littay_Andras.dds"
+		traits = { infantry_leader camouflage_expert }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+	}
+}
+
+create_military_henney_gusztav = {
+	create_corps_commander = {
+		name = "Hennyey Gusztáv"
+		picture = "Portrait_Heney_Gusztav.dds"
+		traits = { infantry_leader trickster }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_oszlanyi_kornel = {
+	create_corps_commander = {
+		name = "Oszlányi Kornél"
+		picture = "Portrait_Oszlanyi_Kornel.dds"
+		traits = { inflexible_strategist }
+		skill = 3
+		attack_skill = 1
+		defense_skill = 4
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_lengyel_bela = {
+	create_corps_commander = {
+		name = "Lengyel Béla"
+		picture = "Portrait_Lengyel_Bela.dds"
+		traits = { }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 2
+	}
+}
+
+create_military_mate_zalka = {
+	create_corps_commander = {
+		name = "Maté Zalka"
+		picture = "Portrait_Hungary_Mate_Zalka.dds"
+		traits = { }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+create_military_janos_galicz = {
+	create_corps_commander = {
+		name = "János Galicz"
+		picture = "Portrait_Hungary_Janos_Galicz.dds"
+		traits = { }
+		skill = 2
+		attack_skill = 1
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 1
+	}
+}
+
+create_military_jeno_major = {
+	create_corps_commander = {
+		name = "Jenő Major"
+		picture = "Portrait_Hungary_Jeno_Major.dds"
+		traits = { cavalry_officer armor_officer }
+		skill = 3
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 4
+		logistics_skill = 3
+	}
+}
+
+
+
+#NAVY
+
+create_navy_kalman_hardy = {
+	create_navy_leader = {
+		name = "Kálmán Hardy"
+		id = 111
+		picture = "portrait_kalman_hardy.dds"
+		traits = { spotter blockade_runner navy_career_officer }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		maneuvering_skill = 3
+		coordination_skill = 3
+	}
+}
+
+create_navy_wulf_olaf_richard = {
+	create_navy_leader = {
+		name = "Olaf Richárd Wulf"
+		id = 112
+		picture = "portrait_wulf_olaf_richard.dds"
+		traits = { green_water_expert cuts_corners }
+		skill = 3
+		attack_skill = 2
+		defense_skill = 3
+		maneuvering_skill = 4
+		coordination_skill = 2
+	}
+}
+
+create_navy_marijan_polic = {
+	create_navy_leader = {
+		name = "Marijan Polić"
+		gfx = GFX_Portrait_yugoslavia_marijan_polic
+		traits = { old_guard_navy navy_career_officer }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		maneuvering_skill = 1
+		coordination_skill = 2
+	}
+}
+
+create_navy_georg_von_trapp = {
+	create_navy_leader = {
+		name = "Georg von Trapp"
+		picture = "portrait_george_von_trapp.dds"
+		traits = { seawolf }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 1
+		maneuvering_skill = 1
+		coordination_skill = 2
+	}
+}
+
+create_navy_odon_trunkwalter = {
+	create_navy_leader = {
+		name = "Trunkwalter Ödön"
+		picture = "portrait_odon_trunkwalter.dds"
+		traits = { spotter fleet_protector }
+		skill = 2
+		attack_skill = 2
+		defense_skill = 1
+		maneuvering_skill = 3
+		coordination_skill = 2
+	}
+}
+
+###########
+# GERMANY #
+###########
+
+#POLITICIANS
+
+
+create_politician_wilhelm_hohenzollern_ger = {
+	create_country_leader = {
+		name = "Wilhelm III von Hohenzollern"
+		desc = "POLITICS_WILHELM_HOHENZOLLERN_GER_DESC"
+		picture = "Portrait_Hungary_Wilhelm_von_Hohenzollern.dds"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = { }
+	}	
+}
+
+############
+# SLOVAKIA #
+############
+
+#POLITICIANS
+
+
+create_politician_milan_hodza_dem = {
+	create_country_leader = {
+		name = "Milan Hodza"
+		desc = "POLITICS_MILAN_HODZA_DESC"
+		picture = "Portrait_Slovakia_Milan_Hodza.dds"
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = { national_leader }
+	}	
+}
+
+create_politician_milan_hodza_neu = {
+	create_country_leader = {
+		name = "Milan Hodza"
+		desc = "POLITICS_MILAN_HODZA_DESC"
+		picture = "Portrait_Slovakia_Milan_Hodza.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { national_leader }
+	}	
+}
+
+create_politician_jozef_tiso = {
+	create_country_leader = {
+		name = "Jozef Tiso"
+		desc = "POLITICS_JOZEF_TISO_DESC"
+		picture = "Portrait_Slovakia_Jozef_Tiso.dds"
+		expire = "1965.1.1"
+		ideology = fascism_ideology
+		traits = { national_leader }
+	}	
+}
+
+create_politician_janos_esterhazy_dem = {
+	create_country_leader = {
+		name = "János Esterházy"
+		desc = "POLITICS_JANOS_ESTERHAZY_DESC"
+		picture = "Portrait_Slovakia_Janos_Esterhazy.dds"
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = { foreign_leader }
+	}	
+}
+
+create_politician_janos_esterhazy_neu = {
+	create_country_leader = {
+		name = "János Esterházy"
+		desc = "POLITICS_JANOS_ESTERHAZY_DESC"
+		picture = "Portrait_Slovakia_Janos_Esterhazy.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { foreign_leader }
+	}	
+}
+
+create_politician_janos_esterhazy_fas = {
+	create_country_leader = {
+		name = "János Esterházy"
+		desc = "POLITICS_JANOS_ESTERHAZY_DESC"
+		picture = "Portrait_Slovakia_Janos_Esterhazy.dds"
+		expire = "1965.1.1"
+		ideology = nazism
+		traits = { foreign_leader }
+	}	
+}
+
+################
+# TRANSYLVANIA #
+################
+
+#POLITICIANS
+
+
+create_politician_elemer_jakabbfy = {
+	create_country_leader = {
+		name = "Elemér Jakabbfy"
+		desc = "POLITICS_ELEMER_JAKABFY_DESC"
+		picture = "portrait_transylvania_elemer_jakabbfy.dds"
+		ideology = moderatism
+		traits = {
+			#
+		}
+	}
+}
+
+create_politician_iuliu_maniu_dem = {
+	create_country_leader = {
+		name = "Iuliu Maniu"
+		desc = "POLITICS_IULIU_MAINU_DESC"
+		picture = "Portrait_Transylvania_Iuliu_Maniu.dds"
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = { }
+	}	
+}
+
+create_politician_iuliu_maniu_neu = {
+	create_country_leader = {
+		name = "Iuliu Maniu"
+		desc = "POLITICS_IULIU_MAINU_DESC"
+		picture = "Portrait_Transylvania_Iuliu_Maniu.dds"
+		expire = "1965.1.1"
+		ideology = moderatism
+		traits = { }
+	}	
+}
+
+create_politician_iuliu_maniu_fas = {
+	create_country_leader = {
+		name = "Iuliu Maniu"
+		desc = "POLITICS_IULIU_MAINU_DESC"
+		picture = "Portrait_Transylvania_Iuliu_Maniu.dds"
+		expire = "1965.1.1"
+		ideology = fascism_ideology
+		traits = { }
+	}	
+}
+
+create_politician_albert_wass = {
+	create_country_leader = {
+		name = "Albert Wass"
+		desc = "POLITICS_ALBERT_WASS_DESC"
+		picture = "Portrait_Transylvania_Albert_Wass.dds"
+		expire = "1965.1.1"
+		ideology = fascism_ideology
+		traits = { }
+	}	
+}
+
+create_politician_iosif_ranghet = {
+	create_country_leader = {
+		name = "Iosif Ranghet"
+		desc = "POLITICS_IOSIF_RANGHET_DESC"
+		picture = "Portrait_Transylvania_Iosif_Ranghet.dds"
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = { }
+	}	
+}
+
+###########
+# UKRAINE #
+###########
+
+#POLITICIANS
+
+create_politician_wilhelm_franz_neutrality = {
+	create_country_leader = {
+		name = "Wilhelm Franz von Habsburg"
+		desc = "POLITICS_WILHELM_FRANZ"
+		picture = "Portrait_Ukraine_Franz_Wilhelm_von_Habsburg.dds"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = { fascist_sympathies popular_figurehead2 }
+	}	
+}
+
+create_politician_wilhelm_franz_fascism = {
+	create_country_leader = {
+		name = "Wilhelm Franz von Habsburg"
+		desc = "POLITICS_WILHELM_FRANZ"
+		picture = "Portrait_Ukraine_Franz_Wilhelm_von_Habsburg.dds"
+		expire = "1965.1.1"
+		ideology = fascism_ideology
+		traits = { fascist_sympathies popular_figurehead2 }
+	}	
+}

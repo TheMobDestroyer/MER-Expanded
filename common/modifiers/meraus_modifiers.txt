@@ -1,0 +1,12 @@
+
+AUS_nazi_sympathiser_modifier = {
+	power_balance_weekly = 0.002
+}
+AUS_french_compliance = {
+	valid_relation_trigger = {
+		ROOT = {
+			has_government = neutrality
+		}
+	}
+	compliance_gain = 0.15
+}

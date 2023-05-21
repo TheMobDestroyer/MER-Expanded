@@ -1,0 +1,191 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+hungarian_integration_neutral = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_hungarian_integration
+	
+	compliance_growth = 0.05
+}
+
+hungarian_integration_lenient = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_hungarian_integration
+	
+	compliance_growth = 0.10
+}
+
+hungarian_integration_more_lenient = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_hungarian_integration
+	
+	compliance_growth = 0.15
+}
+
+hungarian_integration_harsh = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_hungarian_integration
+	
+	compliance_growth = 0.10
+	resistance_target = 0.05
+}
+
+hungarian_integration_more_harsh = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_hungarian_integration
+	
+	compliance_growth = 0.20
+	resistance_target = 0.10
+}
+
+hungarian_integration_accelerated = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_integration_propaganda
+	
+	compliance_growth = 0.20
+}
+
+hungarian_integration_sabotage_contained = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_sabotaged_resource
+	
+	local_building_slots_factor = -0.25
+	state_resources_factor = -0.25
+	state_production_speed_buildings_factor = -0.25
+}
+
+hungarian_integration_sabotage = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_sabotaged_resource
+	
+	local_building_slots_factor = -0.75
+	state_resources_factor = -0.75
+	state_production_speed_buildings_factor = -0.75
+}
+
+hungarian_integration_fighting_rebellion = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_bul_macedonian_revolutionaries
+	
+	state_resources_factor = -0.50
+	state_production_speed_buildings_factor = -0.50
+	army_speed_factor_for_controller = -0.25
+	attrition_for_controller = 1
+	local_org_regain = -0.75
+	required_garrison_factor = 1.0
+}
+
+ahu_federal_state = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = {
+			OWNER = { NOT = { tag = HUN } }
+			is_core_of = OWNER
+		}
+	}
+	
+	icon = GFX_modifiers_federal_state
+	
+	recruitable_population_factor = 0.6
+	compliance_growth = 0.1
+	resistance_target = -0.2
+	local_building_slots_factor = 0.50
+	local_resources = 0.25
+	local_factories = 0.25
+}

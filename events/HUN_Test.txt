@@ -1,0 +1,41 @@
+﻿################################
+# Hungarian Flavor Test Events #
+################################
+
+add_namespace = hungary_flavor_test
+
+# These events should not occur during normal gameplay
+
+# Test event
+country_event = {
+	id = hungary_flavor_test.1
+	title = hungary_flavor_test.1.t
+	desc = hungary_flavor_test.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Option 1
+	option = {
+		name = hungary_flavor_test.1.a
+		every_country = {
+			add_ideas = leaning_towards_germany_fascism
+		}
+	}
+	
+	#Option 2
+	option = {
+		name = hungary_flavor_test.1.b
+		start_civil_war = {
+			ideology = neutrality
+			size = 0.9
+		}
+		random_other_country = {
+			limit = {
+				original_tag = GER
+				has_government = neutrality
+			}
+			set_cosmetic_tag = GER_IMP
+		}
+	}
+}

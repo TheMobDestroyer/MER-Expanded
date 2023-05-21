@@ -1,0 +1,583 @@
+﻿
+add_namespace = hungary_flavor_pol
+
+
+########
+#POLAND#
+########
+
+# Hungarian Alliance (event for Poland upon faction invite)
+country_event = {
+	id = hungary_flavor_pol.1
+	title = hungary_flavor_pol.1.t
+	desc = hungary_flavor_pol.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = hungary_flavor_pol.1.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}			
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}	
+		}
+		add_opinion_modifier = { target = FROM modifier = HUN_invited_to_faction }
+		FROM = {
+			add_to_faction = ROOT
+			country_event = { hours = 8 id = hungary_flavor.7 hours = 6  }
+		}		
+		add_ai_strategy = {
+			type = alliance
+			id = "HUN"
+			value = 200
+		}
+	}
+	
+	option = {
+		name = hungary_flavor_pol.1.b
+		ai_chance = {
+			factor = 40
+		}
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.8 hours = 6  }
+		}
+	}
+}
+
+# Austria-Hungary offers Guarantees for Krakow and Galicia (event for POL)
+country_event = {
+	id = hungary_flavor_pol.2
+	title = hungary_flavor_pol.2.t
+	desc = hungary_flavor_pol.2.d
+	picture = GFX_report_event_ahu_old
+	
+	is_triggered_only = yes
+	
+	#Cede the territories in question
+	option = {
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}	
+			modifier = {
+				factor = 1.5
+				FROM = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 0.8
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 1.5
+					}
+				}
+			}		
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					has_country_flag = HUN_realism
+					NOT = { has_army_manpower = { size > 399999 } }
+				}
+			}
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 499999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 599999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 699999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 798999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 899999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 999999 } } }
+		}
+		name = hungary_flavor_pol.2.a
+		FROM = { country_event = { hours = 4 id = hungary_flavor.39 hours = 6  } }
+		news_event = { hours = 6 id = hun_news.30 }
+		effect_tooltip = {
+			HUN = {
+				transfer_state = 88 	#Krakow
+				transfer_state = 89		#Stanislawow
+				transfer_state = 91		#Lwow
+				give_guarantee = POL
+			}
+		}
+	}
+	
+	#Refuse the demand
+	option = {
+		ai_chance = {
+			factor = 60
+		}
+		name = hungary_flavor_pol.2.b
+		FROM = { country_event = { hours = 4 id = hungary_flavor.40 hours = 6  } }
+	}
+}
+
+# Polish-Hungarian intelligence exchange
+country_event = {
+	id = hungary_flavor_pol.3
+	title = hungary_flavor_pol.3.t
+	desc = hungary_flavor_pol.3.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Cede the territories in question
+	option = {
+		name = hungary_flavor_pol.3.a
+		add_political_power = 50
+		if = {
+			limit = {
+				NOT = { has_dlc = "La Resistance" }
+			}
+			add_tech_bonus = {
+				name = HUN_POL_intelligence_exchange_bonus
+				bonus = 1
+				uses = 1
+				category = decryption_tech
+			}
+		}
+		else = {
+			hidden_effect = {
+				set_technology = { lar_decryption_bonus_tech = 1 }
+			}
+			custom_effect_tooltip = lar_decryption_bonus_tt
+		}
+		add_opinion_modifier = { target = FROM modifier = HUN_polish_hungarian_intelligence_exchange_opinion }
+		reverse_add_opinion_modifier = { target = FROM modifier = HUN_polish_hungarian_intelligence_exchange_opinion }
+	}
+}
+
+# Hungary supports our northern claims
+country_event = {
+	id = hungary_flavor_pol.4
+	title = hungary_flavor_pol.4.t
+	desc = hungary_flavor_pol.4.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#[Root.GetFactionName] is our salvation.
+	option = {
+		name = hungary_flavor_pol.4.a
+		add_political_power = 25
+		add_opinion_modifier = { target = FROM modifier = HUN_supported_claims }
+	}
+}
+
+# The Warsaw Pact
+country_event = {
+	id = hungary_flavor_pol.5
+	title = hungary_flavor_pol.5.t
+	desc = hungary_flavor_pol.5.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# Reach out to the Soviet leadership to make arrangements.
+	option = {
+		name = hungary_flavor_pol.5.a
+		ai_chance = {
+			factor = 90
+		}
+		SOV = { country_event = { id = hungary_flavor_sov.3 hours = 6  } }
+	}
+	
+	# We won't be having any of that.
+	option = {
+		name = hungary_flavor_pol.5.b
+		ai_chance = {
+			factor = 10
+		}
+		HUN = { country_event = { id = hungary_flavor.152 hours = 6  } }
+	}
+}
+
+# Soviets refuse to sign the Warsaw Pact
+country_event = {
+	id = hungary_flavor_pol.6
+	title = hungary_flavor_pol.6.t
+	desc = hungary_flavor_pol.6.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# The father of the revolution abandons us?
+	option = {
+		name = hungary_flavor_pol.6.a
+	}
+}
+
+# Hungary wants to join Miedzymorze
+country_event = {
+	id = hungary_flavor_pol.7
+	title = hungary_flavor_pol.7.t
+	desc = hungary_flavor_pol.7.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# They are more than welcome.
+	option = {
+		name = hungary_flavor_pol.7.a
+		ai_chance = {
+			factor = 95
+		}
+		add_to_faction = HUN
+		HUN = { country_event = { id = hungary_flavor.172 hours = 6  } }
+	}
+	
+	# They aren't welcome at all.
+	option = {
+		name = hungary_flavor_pol.7.b
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				FROM = {
+					OR = {
+						has_completed_focus = HUN_align_with_poland
+						NOT = { has_country_flag = HUN_realism }
+					}
+				}
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.173 hours = 6  } }
+	}
+}
+
+# Hungary offers a union
+country_event = {
+	id = hungary_flavor_pol.8
+	title = hungary_flavor_pol.8.t
+	desc = hungary_flavor_pol.8.d
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+	
+	# We have no other choice left.
+	option = {
+		name = hungary_flavor_pol.8.a
+		ai_chance = {
+			factor = 60	
+			modifier = {
+				factor = 5
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		HUN = {
+			country_event = { id = hungary_flavor.176 hours = 6  }
+			effect_tooltip = {
+				annex_country = { target = POL transfer_troops = yes }
+			}
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+	
+	# We can still win this war.
+	option = {
+		name = hungary_flavor_pol.8.b
+		ai_chance = {
+			factor = 40
+		}
+		HUN = { country_event = { id = hungary_flavor.177 hours = 6  } }
+	}
+}
+
+# Axis membership (for fascist Poland)
+country_event = {
+	id = hungary_flavor_pol.9
+	title = hungary_flavor_pol.9.t
+	desc = hungary_flavor_pol.9.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We'll accept naturally.
+	option = {
+		name = hungary_flavor_pol.9.a
+		ai_chance = {
+			factor = 90	
+		}
+		hidden_effect = { HUN = { country_event = { id = hungary_flavor.181 hours = 6  } } }
+		GER = { add_to_faction = ROOT }
+	}
+	
+	# No alliance with the Germans.
+	option = {
+		name = hungary_flavor_pol.9.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		hidden_effect = { HUN = { country_event = { id = hungary_flavor.180 hours = 6  } } }
+		GER = { country_event = { id = hungary_flavor_ger.26 hours = 6  } }
+	}
+}
+
+# Germany asks for Danzig and Poznan
+country_event = {
+	id = hungary_flavor_pol.10
+	title = hungary_flavor_pol.10.t
+	desc = hungary_flavor_pol.10.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We are on their side now. We won't stand in their way.
+	option = {
+		name = hungary_flavor_pol.10.a
+		ai_chance = {
+			factor = 55	
+		}
+		effect_tooltip = {
+			GER = {
+				transfer_state = 85	#Danzig
+				add_state_core = 85	#Danzig
+				transfer_state = 86	#Poznan
+				add_state_core = 86	#Poznan
+			}
+			if = {
+				limit = { owns_state = 762 }	#Katowice
+				GER = {
+					transfer_state = 762	#Katowice
+					add_state_core = 762	#Katowice
+				}
+			}
+		}
+		hidden_effect = { GER = { country_event = { id = hungary_flavor_ger.27 hours = 6  } } }
+	}
+	
+	# No. This is not why we sought their friendship.
+	option = {
+		name = hungary_flavor_pol.10.b
+		ai_chance = {
+			factor = 45
+		}
+		hidden_effect = { GER = { country_event = { id = hungary_flavor_ger.28 hours = 6  } } }
+	}
+}
+
+# Austria-Hungary renounces their claims towards us
+country_event = {
+	id = hungary_flavor_pol.11
+	title = hungary_flavor_pol.11.t
+	desc = hungary_flavor_pol.11.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# That's a relief.
+	option = {
+		name = hungary_flavor_pol.11.a
+	}
+}
+
+# Hungary and Romania mend relations
+country_event = {
+	id = hungary_flavor_pol.12
+	title = hungary_flavor_pol.12.t
+	desc = hungary_flavor_pol.12.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# Let's hope that this peace between them will last.
+	option = {
+		name = hungary_flavor_pol.12.a
+	}
+}
+
+# Hungary negotiates Swedish faction membership
+country_event = {
+	id = hungary_flavor_pol.13
+	title = hungary_flavor_pol.13.t
+	desc = hungary_flavor_pol.13.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	
+	# They are more than welcome in the alliance.
+	option = {
+		name = hungary_flavor_pol.13.a
+		add_to_faction = SWE
+	}
+}
+
+# Hungary negotiates Norwegian faction membership
+country_event = {
+	id = hungary_flavor_pol.14
+	title = hungary_flavor_pol.14.t
+	desc = hungary_flavor_pol.14.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	
+	# They are more than welcome in the alliance.
+	option = {
+		name = hungary_flavor_pol.14.a
+		add_to_faction = NOR
+	}
+}
+
+# Hungary negotiates Finnish faction membership
+country_event = {
+	id = hungary_flavor_pol.15
+	title = hungary_flavor_pol.15.t
+	desc = hungary_flavor_pol.15.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	
+	# They are more than welcome in the alliance.
+	option = {
+		name = hungary_flavor_pol.15.a
+		add_to_faction = FIN
+	}
+}
+
+# Operation Crowbar (proposal)
+country_event = {
+	id = hungary_flavor_pol.16
+	title = hungary_flavor_pol.16.t
+	desc = hungary_flavor_pol.16.d
+	picture = GFX_report_event_military_planning
+	
+	is_triggered_only = yes
+	
+	# Yes, we need to secure our southern flank.
+	option = {
+		name = hungary_flavor_pol.16.a
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		add_state_claim = 72	#Zaolzie
+		set_country_flag = HUN_operation_crowbar_accepted
+		HUN = { country_event = { id = hungary_flavor.255 hours = 4 } }
+	}
+	
+	# We can not take part in such offensives.
+	option = {
+		name = hungary_flavor_pol.16.b
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				NOT = { has_opinion = { target = CZE value > 0 } }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.256 hours = 4 } }
+	}
+}
+
+# Operation Crowbar (declaration)
+country_event = {
+	id = hungary_flavor_pol.17
+	title = hungary_flavor_pol.17.t
+	desc = hungary_flavor_pol.17.d
+	picture = GFX_hun_slo_small_war
+	
+	trigger = {
+		tag = POL
+		has_country_flag = HUN_operation_crowbar_accepted
+		NOT = { has_war_with = CZE }
+		HUN = { has_war_with = CZE }
+		is_in_faction_with = HUN
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	fire_only_once = yes
+	
+	# Charge!
+	option = {
+		name = hungary_flavor_pol.17.a
+		declare_war_on = {
+			target = CZE
+			type = take_state_focus
+			generator = { 72 } 	#Zaolzie
+		}
+	}
+}
+
+# Operation Crowbar is a success
+country_event = {
+	id = hungary_flavor_pol.18
+	title = hungary_flavor_pol.18.t
+	desc = hungary_flavor_pol.18.d
+	picture = GFX_report_event_military_planning
+	
+	is_triggered_only = yes
+	
+	# The new borders look pretty.
+	option = {
+		name = hungary_flavor_pol.18.a
+		effect_tooltip = {
+			if = {
+				# Southern Slovakia
+				limit = { owns_state = 664 }
+				HUN = { transfer_state = 664 }
+			}
+			if = {
+				# Berehovo
+				limit = { owns_state = 812 }
+				HUN = { transfer_state = 812 }
+			}
+			if = {
+				# Carpathian Ruthenia
+				limit = { owns_state = 73 }
+				HUN = { transfer_state = 73 }
+			}
+			if = {
+				# Sobrance
+				limit = { owns_state = 828 }
+				HUN = { transfer_state = 828 }
+			}
+			if = {
+				# Western Slovakia
+				limit = { owns_state = 70 }
+				HUN = { transfer_state = 70 }
+			}
+			if = {
+				# Eastern Slovakia
+				limit = { owns_state = 71 }
+				HUN = { transfer_state = 71 }
+			}
+			if = {
+				# Zaolzie
+				limit = { HUN = { owns_state = 72 } }
+				transfer_state = 72
+			}
+		}
+	}
+}

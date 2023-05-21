@@ -1,0 +1,18 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_idea_AUS-HUN_legacy_broken"
+		textureFile = "gfx/interface/ideas/AUS-HUN_legacy_broken.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_AUS-HUN_legacy_restored"
+		textureFile = "gfx/interface/ideas/AUS-HUN_legacy_restored.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_arthur_seyss-inquart"
+		textureFile = "gfx/interface/ideas/idea_arthur_seyss-inquart.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_AUS_strabag"
+		textureFile = "gfx/interface/ideas/idea_AUS_strabag.png"
+	}
+}

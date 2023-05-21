@@ -1,0 +1,320 @@
+﻿
+add_namespace = hungary_flavor_aus
+
+#########
+#AUSTRIA#
+#########
+
+# Hungarian Alliance (event for Austria upon faction invite)
+country_event = {
+	id = hungary_flavor_aus.1
+	title = hungary_flavor_aus.1.t
+	desc = hungary_flavor_aus.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Accept
+	option = {
+		name = hungary_flavor_aus.1.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 1.5
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}			
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}			
+		}
+		FROM = {
+			add_to_faction = ROOT
+			country_event = { hours = 8 id = hungary_flavor.4 }
+		}		
+		add_ai_strategy = {
+			type = alliance
+			id = "HUN"
+			value = 200
+		}
+	}
+	
+	#Decline
+	option = {
+		name = hungary_flavor_aus.1.b
+		ai_chance = {
+			factor = 40
+		}
+		FROM = {
+			country_event = { hours = 6 id = hungary_flavor.5 }
+		}
+	}
+}
+
+# Hungary presses for Burgenland Referendum
+country_event = {
+	id = hungary_flavor_aus.2
+	title = hungary_flavor_aus.2.t
+	desc = hungary_flavor_aus.2.d
+	picture = GFX_report_event_HUN_burgenland
+	
+	is_triggered_only = yes
+	
+	#Allow the referendum.
+	option = {
+		name = hungary_flavor_aus.2.a
+		ai_chance = {
+			factor = 70		
+		}
+		HUN = { country_event = { hours = 8 id = hungary_flavor.45 } }
+		effect_tooltip = {
+			HUN = {
+				if = {
+					limit = { has_country_flag = HUN_realism }
+					random_list = { 
+						50 = { 
+							transfer_state = 909 #Burgenland 
+							add_state_core = 909 #Burgenland
+							add_war_support = -0.02
+						} 
+						50 = { }
+					}
+					else = {
+						transfer_state = 909 #Burgenland 
+						add_state_core = 909 #Burgenland
+						add_war_support = -0.02
+					}
+				}
+			}
+		}
+	}
+	
+	#Never
+	option = {
+		name = hungary_flavor_aus.2.b
+		ai_chance = {
+			factor = 30		
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		FROM = { country_event = { hours = 6 id = hungary_flavor.46 } }
+	}
+}
+
+# Hungary offers Slovenia for Burgenland
+country_event = {
+	id = hungary_flavor_aus.3
+	title = hungary_flavor_aus.3.t
+	desc = {
+		text = hungary_flavor_aus.3.d_slovenia
+		trigger = { 
+			HUN = { 
+				has_country_flag = HUN_offering_slovenia_to_austria
+				NOT = { has_country_flag = HUN_offering_ljubljana_to_austria }
+			}
+		}
+	}
+	desc = {
+		text = hungary_flavor_aus.3.d_both
+		trigger = { 
+			HUN = { 
+				has_country_flag = HUN_offering_slovenia_to_austria
+				has_country_flag = HUN_offering_ljubljana_to_austria
+			}
+		}
+	}
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Accept
+	option = {
+		name = hungary_flavor_aus.3.a
+		ai_chance = {
+			factor = 90		
+		}
+		FROM = { country_event = { hours = 8 id = hungary_flavor.48 } }
+		if = {
+			limit = { HUN = { has_country_flag = HUN_offering_ljubljana_to_austria } }
+			transfer_state = 853	#Ljubljana
+		}
+		transfer_state = 102	#Slovenia
+	}
+	
+	#Decline
+	option = {
+		name = hungary_flavor_aus.3.b
+		ai_chance = {
+			factor = 10		
+			modifier = {
+				factor = 4
+				FROM = { has_country_flag = HUN_realism }
+			}
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_offering_ljubljana_to_austria } }
+			}
+		}
+		FROM = { country_event = { hours = 6 id = hungary_flavor.49 } }
+		hidden_effect = { set_country_flag = refused_slovenia_for_burgenland }
+	}
+}
+
+# The Visegrád Group (triggered by Hungarian focus)
+country_event = {
+	id = hungary_flavor_aus.4
+	title = hungary_flavor_aus.4.t
+	desc = hungary_flavor_aus.4.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Sounds like a deal.
+	option = {
+		name = hungary_flavor_aus.4.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				CZE = { has_country_flag = HUN_visegrad_group_member } 
+			}
+			modifier = {
+				factor = 1.25
+				POL = { has_country_flag = HUN_visegrad_group_member } 
+			}
+			modifier = {
+				factor = 1.2
+				has_government = neutrality
+			}
+			modifier = {
+				factor = 1.5
+				has_government = democratic
+			}		
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		custom_effect_tooltip = HUN_will_be_invited_into_visegrad_group
+		set_country_flag = HUN_visegrad_group_member
+		hidden_effect = { FROM = { country_event = { hours = 8 id = hungary_flavor.129 } } }
+	}
+	
+	#We will take no part in this.
+	option = {
+		name = hungary_flavor_aus.4.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				is_in_faction = yes
+			}
+		}
+		FROM = { country_event = { hours = 8 id = hungary_flavor.130 } }
+	}
+}
+
+# Backing Austria against Germany (event for the faction leader of Austria upon Anschluss)
+country_event = {
+	id = hungary_flavor_aus.5
+	title = hungary_flavor_aus.5.t
+	desc = hungary_flavor_aus.5.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We stand with our allies.
+	option = {
+		name = hungary_flavor_aus.5.a
+		ai_chance = {
+			factor = 70
+		}
+		AUS = { country_event = { hours = 2 id = hungary_flavor_aus.6 } }
+	}
+	
+	# Sadly, we can not help them
+	option = {
+		name = hungary_flavor_aus.5.b
+		ai_chance = {
+			factor = 30
+		}
+		remove_from_faction = AUS
+		add_political_power = -100
+		AUS = {
+			country_event = { hours = 2 id = hungary_flavor_aus.7 }
+		}
+	}
+}
+
+# Our allies protect us (event for Austria, if faction leader refuses Anschluss)
+country_event = {
+	id = hungary_flavor_aus.6
+	title = hungary_flavor_aus.6.t
+	desc = hungary_flavor_aus.6.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We still have to prepare to defend ourselves.
+	option = {
+		name = hungary_flavor_aus.6.a
+		GER = { country_event = { hours = 2 id = germany.29 } }
+	}
+}
+
+# Our allies abandon us (event for Austria, if faction leader ignores Anschluss)
+country_event = {
+	id = hungary_flavor_aus.7
+	title = hungary_flavor_aus.7.t
+	desc = hungary_flavor_aus.7.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { add_opinion_modifier = { target = FROM modifier = HUN_abandoned } }
+	}
+	
+	# We have no other choice, than to submit
+	option = {
+		name = hungary_flavor_aus.7.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0.75
+				GER = { has_army_size = { size < 40 } }
+			}
+			modifier = {
+				factor = 10
+				GER = { has_army_size = { size > 39 } }
+			}
+		}
+		GER = {
+			country_event = { hours = 2 id = germany.4 }
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+	# We will stand and fight, even if alone!
+	option = {
+		name = hungary_flavor_aus.7.b
+		ai_chance = {
+			base = 10 
+
+			modifier = {
+				factor = 0
+				GER = { has_army_size = { size > 39 } }
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 20
+				GER = { has_army_size = { size < 30 } }
+			}
+		}
+		GER = {
+			add_opinion_modifier = { target = ROOT modifier = GER_anschluss_rejected }
+			country_event = { hours = 2 id = germany.29 }
+		}
+	}
+}

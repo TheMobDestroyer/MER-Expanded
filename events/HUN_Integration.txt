@@ -1,0 +1,157 @@
+﻿
+add_namespace = hungary_flavor_integration
+
+####################
+#INTEGRATION EVENTS#
+####################
+
+# Protests against integration in [FROM.GetName]
+state_event = {
+	id = hungary_flavor_integration.1
+	title = hungary_flavor_integration.1.t
+	desc = hungary_flavor_integration.1.d
+	picture = GFX_report_event_generic_riot
+	
+	trigger = {
+		OWNER = { tag = HUN }
+		has_state_flag = HUN_is_being_integrated
+		NOT = { has_state_flag = HUN_integration_event_happened }
+		compliance < 20
+	}
+	
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	immediate = {
+		set_state_flag = { flag = HUN_integration_event_happened value = 1 days = 365 }
+	}
+	
+	#Disperse the protesters.
+	option = {
+		name = hungary_flavor_integration.1.a
+		add_resistance = 15
+		add_compliance = 10
+		OWNER = { add_political_power = -10 }
+	}
+	
+	#Ignore the rabble.
+	option = {
+		name = hungary_flavor_integration.1.b
+		add_resistance = 5
+	}
+	
+	#Attempt to calm things down and negotiate.
+	option = {
+		name = hungary_flavor_integration.1.c
+		add_compliance = 5
+		OWNER = { add_political_power = -25 }
+		add_dynamic_modifier = {
+			modifier = semi_autonomous_state
+			days = 720
+		}
+	}
+}
+
+# Targeted sabotage in [FROM.GetName]
+state_event = {
+	id = hungary_flavor_integration.2
+	title = hungary_flavor_integration.2.t
+	desc = hungary_flavor_integration.2.d
+	picture = GFX_report_event_generic_ruins
+	
+	trigger = {
+		OWNER = { tag = HUN }
+		has_state_flag = HUN_is_being_integrated
+		NOT = { has_state_flag = HUN_integration_event_happened }
+		compliance < 35
+	}
+	
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	immediate = {
+		set_state_flag = { flag = HUN_integration_event_happened value = 1 days = 365 }
+	}
+	
+	#Hunt down the saboteurs.
+	option = {
+		name = hungary_flavor_integration.2.a
+		add_resistance = 15
+		add_compliance = 5
+		OWNER = {
+			add_political_power = -10
+			add_manpower = -100
+		}
+	}
+	
+	#Ignore it.
+	option = {
+		name = hungary_flavor_integration.2.b
+		add_resistance = 5
+		add_dynamic_modifier = {
+			modifier = hungarian_integration_sabotage
+			days = 360
+		}
+	}
+	
+	#Protect key locations.
+	option = {
+		name = hungary_flavor_integration.2.c
+		add_dynamic_modifier = {
+			modifier = hungarian_integration_sabotage_contained
+			days = 360
+		}
+		OWNER = {
+			add_political_power = -5
+			add_manpower = -50
+		}
+	}
+}
+
+# Rebellion in [FROM.GetName]
+state_event = {
+	id = hungary_flavor_integration.3
+	title = hungary_flavor_integration.3.t
+	desc = hungary_flavor_integration.3.d
+	picture = GFX_report_event_ger_civil_war
+	
+	trigger = {
+		OWNER = { tag = HUN }
+		has_state_flag = HUN_is_being_integrated
+		NOT = { has_state_flag = HUN_integration_event_happened }
+		resistance > 74
+	}
+	
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	immediate = {
+		set_state_flag = { flag = HUN_integration_event_happened value = 1 days = 365 }
+	}
+	
+	#Crack down on the rebels.
+	option = {
+		name = hungary_flavor_integration.3.a
+		add_dynamic_modifier = {
+			modifier = hungarian_integration_fighting_rebellion
+			days = 45
+		}
+		add_resistance = 10
+		add_compliance = 5
+		OWNER = { add_political_power = -25 }
+	}
+		
+	#Appease the rebels with autonomy.
+	option = {
+		name = hungary_flavor_integration.3.b
+		add_dynamic_modifier = {
+			modifier = autonomous_state
+			days = 720
+		}
+		add_compliance = 5
+		OWNER = { add_political_power = -50 }
+	}
+}

@@ -1,0 +1,14 @@
+﻿
+
+units = {
+	###### SMS Novara ######
+	fleet = {				
+		name = "SMS Novara"			
+		naval_base = 911	# Toulon
+		task_force = {
+			name = "SMS Novara"	
+			location = 911	# Toulon
+			ship = { name = "SMS Novara" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HUN version_name = "Novara Class" } } }					
+		}
+	}			
+}

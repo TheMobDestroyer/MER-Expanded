@@ -1,0 +1,408 @@
+﻿#############################################
+# Hidden events of the Hungarian Flavor mod #
+#############################################
+
+add_namespace = hungary_flavor_hidden
+
+# These events are hidden, so they do not need to be localised, they don't need titles, descriptions, or pictures
+
+# Removing "Receiving Supplies from Slovakia", if Slovakia doesn't exist anymore, or isn't a Hungarian subject
+country_event = {
+	id = hungary_flavor_hidden.1
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_idea = receiving_supplies_from_slovakia
+		SLO = {
+			OR = {
+				exists = no
+				NOT = { is_subject_of = HUN }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.1.a
+		remove_ideas = receiving_supplies_from_slovakia
+	}
+}
+
+# Removing "Sending Supplies to Hungary" from Slovakia, if Slovakia isn't a Hungarian subject
+country_event = {
+	id = hungary_flavor_hidden.2
+
+	hidden = yes
+	
+	trigger = {
+		tag = SLO
+		has_idea = sending_supplies_to_hungary
+		NOT = { is_subject_of = HUN }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.2.a
+		remove_ideas = sending_supplies_to_hungary
+	}
+}
+
+# Removing "Danubian Saboteurs" from any country that isn't at war with Hungary anymore
+country_event = {
+	id = hungary_flavor_hidden.3
+
+	hidden = yes
+	
+	trigger = {
+		has_idea = danubian_saboteurs
+		NOT = { has_war_with = HUN }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.3.a
+		remove_ideas = danubian_saboteurs
+	}
+}
+
+# Removing "Italian-Hungarian Naval Academy" from both countries, if the initiative is broken
+country_event = {
+	id = hungary_flavor_hidden.4
+
+	hidden = yes
+	
+	trigger = {
+		has_idea = italian_hungarian_naval_academy
+		HUN = { NOT = { has_country_flag = HUN_adriatic_initiative_enabled } }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.4.a
+		remove_ideas = italian_hungarian_naval_academy
+	}
+}
+
+# Merging the Hungarian central powers faction with the German one
+country_event = {
+	id = hungary_flavor_hidden.5
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_government = neutrality
+		is_faction_leader = yes
+		has_completed_focus = HUN_the_kaisers_coup
+		GER = { has_completed_focus = GER_the_central_powers }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.5.a
+		every_country = {
+			limit = { is_in_faction_with = GER }
+			country_event = { id = hungary_flavor_gen.28 }
+		}
+	}
+}
+
+# Reassigning Trianon backer status, in case the previous one got annexed
+country_event = {
+	id = hungary_flavor_hidden.6
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		all_country = {
+			NOT = { has_country_flag = HUN_policing_expansion_of_hungary }
+		}
+		any_country = {
+			NOT = { has_country_flag = HUN_backed_out_from_treaty_of_trianon }
+			is_major = yes
+			OR = {
+				tag = ENG
+				tag = FRA
+				tag = USA
+				tag = ENG
+				tag = ITA
+				tag = JAP
+				tag = BEL
+				tag = CHI
+				tag = CUB
+				tag = GRE
+				tag = NIC
+				tag = PAN
+				tag = POL
+				tag = POR
+				tag = ROM
+				tag = YUG
+				tag = SIA
+				tag = CZE
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.6.a
+		if = {
+			limit = {
+				ENG = {
+					exists = yes
+					NOT = { has_country_flag = HUN_backed_out_from_treaty_of_trianon }
+				}
+			}
+			ENG = { country_event = { id = hungary_flavor_gen.34 days = 1 } }
+			else = {
+				if = {
+					limit = {
+						FRA = {
+							exists = yes
+							NOT = { has_country_flag = HUN_backed_out_from_treaty_of_trianon }
+						}
+					}
+					FRA = { country_event = { id = hungary_flavor_gen.34 days = 1 } }
+					else = {
+						if = {
+							limit = {
+								USA = {
+									exists = yes
+									NOT = { has_country_flag = HUN_backed_out_from_treaty_of_trianon }
+								}
+							}
+							USA = { country_event = { id = hungary_flavor_gen.34 days = 1 } }
+							else = {
+								random_country = {
+									limit = {
+										is_major = yes
+										NOT = { has_country_flag = HUN_backed_out_from_treaty_of_trianon }
+										OR = {
+											# These are the rest of the countries who signed the treaty in 1920
+											tag = ITA
+											tag = JAP
+											tag = BEL
+											tag = CHI
+											tag = CUB
+											tag = GRE
+											tag = NIC
+											tag = PAN
+											tag = POL
+											tag = POR
+											tag = ROM
+											tag = YUG
+											tag = SIA
+											tag = CZE
+										}
+									}
+									country_event = { id = hungary_flavor_gen.34 days = 1 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Removing "Military Cooperation With Germany", if no longer in the same faction as Germany
+country_event = {
+	id = hungary_flavor_hidden.7
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_idea = military_cooperation_with_germany
+		NOT = { is_in_faction_with = GER }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.7.a
+		remove_ideas = military_cooperation_with_germany
+	}
+}
+
+# Removing "Polonia Armor Production", if no longer in the same faction as Poland
+country_event = {
+	id = hungary_flavor_hidden.8
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_idea = polonia_armor_production_hun
+		NOT = { is_in_faction_with = POL }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.8.a
+		remove_ideas = polonia_armor_production_hun
+		POL = { country_event = { id = hungary_flavor_hidden.9 } }
+	}
+}
+
+# Removing "Polonia Armor Production" from Poland, if no longer in a faction with Hungary
+country_event = {
+	id = hungary_flavor_hidden.9
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = POL
+		has_idea = polonia_armor_production_pol
+		NOT = { is_in_faction_with = HUN }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.9.a
+		remove_ideas = polonia_armor_production_pol
+		HUN = { country_event = { id = hungary_flavor_hidden.8 } }
+	}
+}
+
+# Adding neutrality press lawsuits for non-aligned government
+country_event = {
+	id = hungary_flavor_hidden.10
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_government = neutrality
+		HUN_has_press_lawsuits = yes
+		NOT = { has_idea = press_lawsuits_neutrality }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.10.a
+		HUN_remove_press_lawsuits = yes
+		add_ideas = { press_lawsuits_neutrality }
+	}
+}
+
+# Adding communist press lawsuits for communist government
+country_event = {
+	id = hungary_flavor_hidden.11
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_government = communism
+		HUN_has_press_lawsuits = yes
+		NOT = { has_idea = press_lawsuits_communism }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.11.a
+		HUN_remove_press_lawsuits = yes
+		add_ideas = { press_lawsuits_communism }
+	}
+}
+
+# Adding fascist press lawsuits for fascist government
+country_event = {
+	id = hungary_flavor_hidden.12
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_government = fascism
+		HUN_has_press_lawsuits = yes
+		NOT = { has_idea = press_lawsuits_fascism }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.12.a
+		HUN_remove_press_lawsuits = yes
+		add_ideas = { press_lawsuits_fascism }
+	}
+}
+
+# Adding democratic press lawsuits for democratic government
+country_event = {
+	id = hungary_flavor_hidden.13
+
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		has_government = democratic
+		HUN_has_press_lawsuits = yes
+		NOT = { has_idea = press_lawsuits_democratic }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = hungary_flavor_hidden.13.a
+		HUN_remove_press_lawsuits = yes
+		add_ideas = { press_lawsuits_democratic }
+	}
+}

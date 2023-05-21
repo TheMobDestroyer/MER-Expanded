@@ -1,0 +1,11 @@
+﻿l_english:
+ AUS_german_total_control_range:0 "Total Nazi Sympathiser Dominance"
+ AUS_german_high_control_range:0 "High Nazi Sympathiser Control"
+ AUS_german_medium_control_range:0 "Moderate Nazi Sympathiser Control"
+ AUS_german_low_control_range:0 "Light Nazi Sympathiser Control"
+ AUS_balance_range:0 "Balanced Control"
+ AUS_austrofascist_low_control_range:0 "Light Austrofascist Control"
+ AUS_austrofascist_medium_control_range:0 "Moderate Austrofascist Control"
+ AUS_austrofascist_high_control_range:0 "Significant Austrofascist Control"
+ AUS_austrofascist_total_control_range:0 "Total Austro-Fascist Dominance"
+ AUS_power_balance:0 "Austrian National Balance Of Power"

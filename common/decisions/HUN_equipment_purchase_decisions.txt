@@ -1,0 +1,2553 @@
+HUN_equipment_purchase_category = {
+
+	HUN_uk_license_trade = {
+
+		icon = hol_exchange_intelligence_data
+
+		available = {
+			always = yes
+		}
+		
+		visible = {
+			tag = HUN
+			is_in_faction_with = ENG
+		}
+
+		fire_only_once = yes
+		cost = 70
+		days_remove = 70
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			ENG = {
+				add_political_power = 30
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade_opinion }
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade }
+			}
+			if = {
+				limit = { has_dlc = "Death or Dishonor" }
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = ROOT }
+						OR = {
+							is_in_faction_with = ENG
+							tag = ENG
+						}
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_uk_license_trade
+					}
+				}
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = ENG }
+						NOT = { tag = ROOT }
+						NOT = { is_in_faction_with = ENG }
+						NOT = { is_in_faction_with = HUN }
+						is_in_faction = yes
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_enemy_license_trade
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = fighter_bonus
+						bonus = 1
+						uses = 1
+						category = light_fighter
+						category = cas_bomber
+					}
+					add_tech_bonus = {
+						name = electronics_bonus
+						bonus = 1
+						uses = 2
+						category = electronics
+					}
+				}
+			}
+			custom_effect_tooltip = HUN_will_unlock_uk_equipment_purchases
+			set_country_flag = HUN_uk_license_trade_on
+		}
+	}
+
+	HUN_french_license_trade = {
+
+		icon = hol_exchange_intelligence_data
+
+		available = {
+			always = yes
+		}
+		
+		visible = {
+			tag = HUN
+			is_in_faction_with = FRA
+		}
+
+		fire_only_once = yes
+		cost = 70
+		days_remove = 70
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			FRA = {
+				add_political_power = 30
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade_opinion }
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade }
+			}
+			if = {
+				limit = { has_dlc = "Death or Dishonor" }
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = ROOT }
+						OR = {
+							is_in_faction_with = FRA
+							tag = FRA
+						}
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_french_license_trade
+					}
+				}
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = FRA }
+						NOT = { tag = ROOT }
+						NOT = { is_in_faction_with = FRA }
+						NOT = { is_in_faction_with = HUN }
+						is_in_faction = yes
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_enemy_license_trade
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = fighter_bonus
+						bonus = 1
+						uses = 1
+						category = cas_bomber
+					}
+					add_tech_bonus = {
+						name = armor_bonus
+						bonus = 1
+						uses = 1
+						category = armor
+					}
+				}
+			}
+			custom_effect_tooltip = HUN_will_unlock_french_equipment_purchases
+			set_country_flag = HUN_french_license_trade_on
+		}
+	}
+
+	HUN_usa_license_trade = {
+
+		icon = hol_exchange_intelligence_data
+
+		available = {
+			always = yes
+		}
+		
+		visible = {
+			tag = HUN
+			is_in_faction_with = USA
+		}
+
+		fire_only_once = yes
+		cost = 70
+		days_remove = 70
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			USA = {
+				add_political_power = 30
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade_opinion }
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade }
+			}
+			if = {
+				limit = { has_dlc = "Death or Dishonor" }
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = ROOT }
+						OR = {
+							is_in_faction_with = USA
+							tag = USA
+						}
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_usa_license_trade
+					}
+				}
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = USA }
+						NOT = { tag = ROOT }
+						NOT = { is_in_faction_with = USA }
+						NOT = { is_in_faction_with = HUN }
+						is_in_faction = yes
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_enemy_license_trade
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = fighter_bonus
+						bonus = 1
+						uses = 1
+						category = light_fighter
+					}
+					add_tech_bonus = {
+						name = armor_bonus
+						bonus = 1
+						uses = 1
+						category = armor
+					}
+				}
+			}
+			custom_effect_tooltip = HUN_will_unlock_usa_equipment_purchases
+			set_country_flag = HUN_usa_license_trade_on
+		}
+	}
+
+	HUN_soviet_license_trade = {
+
+		icon = hol_exchange_intelligence_data
+
+		available = {
+			always = yes
+		}
+		
+		visible = {
+			tag = HUN
+			is_in_faction_with = SOV
+		}
+
+		fire_only_once = yes
+		cost = 70
+		days_remove = 70
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			SOV = {
+				add_political_power = 30
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade_opinion }
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade }
+			}
+			if = {
+				limit = { has_dlc = "Death or Dishonor" }
+				add_relation_modifier = {
+					target = SOV
+					modifier = HUN_soviet_license_trade
+				}
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = SOV }
+						NOT = { tag = ROOT }
+						NOT = { is_in_faction_with = SOV }
+						NOT = { is_in_faction_with = HUN }
+						is_in_faction = yes
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_enemy_license_trade
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = bomber_bonus
+						bonus = 1
+						uses = 1
+						category = tactical_bomber
+						category = cat_strategic_bomber
+					}	
+					add_tech_bonus = {
+						name = armor_bonus
+						bonus = 1
+						uses = 1
+						category = armor
+					}
+				}
+			}
+			custom_effect_tooltip = HUN_will_unlock_soviet_equipment_purchases
+			set_country_flag = HUN_soviet_license_trade_on
+		}
+	}
+
+	HUN_german_license_trade = {
+
+		icon = hol_exchange_intelligence_data
+
+		available = {
+			always = yes
+		}
+		
+		visible = {
+			tag = HUN
+			is_in_faction_with = GER
+		}
+
+		fire_only_once = yes
+		cost = 70
+		days_remove = 70
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			GER = {
+				add_political_power = 30
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade_opinion }
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade }
+			}
+			if = {
+				limit = { has_dlc = "Death or Dishonor" }
+				add_relation_modifier = {
+					target = GER
+					modifier = HUN_german_license_trade
+				}
+				every_country = {
+					limit = {
+						is_major = yes
+						NOT = { tag = GER }
+						NOT = { tag = ROOT }
+						NOT = { is_in_faction_with = GER }
+						NOT = { is_in_faction_with = HUN }
+						is_in_faction = yes
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = HUN_enemy_license_trade
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = german_license_bonus
+						bonus = 0.8
+						uses = 2
+						category = light_fighter
+						category = cas_bomber
+					}	
+				}
+			}
+			custom_effect_tooltip = HUN_will_unlock_german_equipment_purchases
+			set_country_flag = HUN_german_license_trade_on
+		}
+	}
+
+	HUN_swedish_license_trade = {
+
+		icon = hol_exchange_intelligence_data
+
+		available = {
+			always = yes
+		}
+		
+		visible = {
+			tag = HUN
+			SWE = { has_opinion = { target = ROOT value > -1 } }
+		}
+
+		fire_only_once = yes
+		cost = 70
+		days_remove = 70
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			SWE = {
+				add_political_power = 30
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade_opinion }
+				add_opinion_modifier = { target = ROOT modifier = HUN_license_trade }
+			}
+			if = {
+				limit = { has_dlc = "Death or Dishonor" }
+				add_relation_modifier = {
+					target = SWE
+					modifier = HUN_swedish_license_trade
+				}
+				else = {
+					add_tech_bonus = {
+						name = swedish_license_bonus
+						bonus = 0.8
+						uses = 2
+						category = armor
+						category = artillery
+					}
+				}
+			}	
+			custom_effect_tooltip = HUN_will_unlock_swedish_equipment_purchases	
+			set_country_flag = HUN_swedish_license_trade_on
+		}
+	}
+
+	HUN_buy_back_the_sms_novara = {
+
+		icon = generic_naval
+
+		available = {
+			FRA = {
+				exists = yes
+				owns_state = 21		#Provence (Toulon)
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+			}
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = FRA }
+			date < 1941.1.1
+			any_owned_state = { is_coastal = yes }
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 90
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			FRA = { country_event = { id = hungary_flavor_fra.1 days = 1 } }
+			custom_effect_tooltip = HUN_sms_novara_will_be_rearmed_in_toulon
+			hidden_effect = {
+				if = {
+					limit = { has_dlc = "Man the Guns" }
+					load_oob = HUN_sms_novara_purchase
+					else = {					
+						load_oob = HUN_sms_novara_purchase_legacy
+					}
+				}
+				news_event = { id = hun_news.36 }
+			}
+		}
+	}
+
+	#Italian equipment purchases
+	
+	HUN_l3_tanks_from_italy = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }
+			ITA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = basic_light_tank	
+			}
+			has_tech = basic_light_tank	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = ITA }
+			OR = {
+				has_completed_focus = HUN_secret_rearmament_focus
+				has_completed_focus = HUN_bled_agreement_focus
+			}
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
+				amount = 150
+				producer = ITA
+			}
+		}
+	}
+	
+	HUN_cr42_planes_from_italy = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			ITA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = fighter1	
+			}
+			has_tech = fighter1	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = ITA }
+			OR = {
+				has_completed_focus = HUN_secret_rearmament_focus
+				has_completed_focus = HUN_bled_agreement_focus
+			}
+		}
+
+		fire_only_once = yes
+		cost = 30
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 72
+				producer = HUN
+			}
+		}
+	}
+	
+	HUN_re2000_planes_from_italy = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			ITA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = fighter2	
+			}
+			has_tech = fighter2	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = ITA }
+			OR = {
+				has_completed_focus = HUN_secret_rearmament_focus
+				has_completed_focus = HUN_bled_agreement_focus
+			}
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_2
+				amount = 70
+				producer = HUN
+			}
+		}
+	}
+	
+	HUN_ca135_planes_from_italy = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			ITA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = tactical_bomber1	
+			}
+			has_tech = tactical_bomber1	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = ITA }
+			OR = {
+				has_completed_focus = HUN_secret_rearmament_focus
+				has_completed_focus = HUN_bled_agreement_focus
+			}
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_1
+				amount = 72
+				producer = HUN
+			}
+		}
+	}
+	
+	HUN_fiat626_trucks_from_italy = {
+
+		icon = rubber
+
+		available = {
+			ITA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = motorised_infantry
+			}
+			has_tech = motorised_infantry	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = ITA }
+			OR = {
+				has_completed_focus = HUN_secret_rearmament_focus
+				has_completed_focus = HUN_bled_agreement_focus
+			}
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 200
+				producer = ITA
+			}
+		}
+	}
+	
+	#Swedish equipment purchases
+	
+	HUN_35m_artillery_from_sweden = {
+
+		icon = generic_industry
+
+		available = {
+			SWE = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = artillery1
+			}
+			has_tech = artillery1	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SWE }
+			has_country_flag = HUN_swedish_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_2
+				amount = 200
+				producer = HUN
+			}
+		}
+	}
+	
+	HUN_Lago_tanks_from_sweden = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }
+			SWE = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = basic_medium_tank
+			}
+			has_tech = basic_medium_tank
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SWE }
+			has_country_flag = HUN_swedish_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 30
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment_1
+				amount = 40
+				producer = SWE
+			}
+		}
+	}
+
+	HUN_L-60_tanks_from_sweden = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			SWE = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_light_tank
+			}
+			has_tech = improved_light_tank
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SWE }
+			has_country_flag = HUN_swedish_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 30
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = light_tank_equipment_2
+				amount = 80
+				producer = SWE
+			}
+		}
+	}	
+	
+	HUN_Bofors_guns_from_sweden = {
+
+		icon = generic_industry
+
+		available = {
+			SWE = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = interwar_antitank	
+				has_tech = interwar_antiair	
+			}
+			has_tech = interwar_antitank	
+			has_tech = interwar_antiair	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SWE }
+			has_country_flag = HUN_swedish_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 30
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment_1
+				amount = 200
+				producer = HUN
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1
+				amount = 100
+				producer = HUN
+			}
+		}
+	}	
+	
+	#German equipment purchases
+	
+	HUN_ju86_planes_from_germany = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = early_bomber	
+			}
+			has_tech = early_bomber	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_0
+				amount = 72
+				producer = HUN
+			}
+		}
+	}
+	
+	HUN_hansa_loyd_trucks_from_germany = {
+
+		icon = rubber
+
+		available = {
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = mechanised_infantry	
+			}
+			has_tech = mechanised_infantry	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = mechanized_equipment_1
+				amount = 72
+				producer = HUN
+			}
+		}
+	}
+	
+	HUN_opel_blitz_trucks_from_germany = {
+
+		icon = rubber
+
+		available = {
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = motorised_infantry	
+			}
+			has_tech = motorised_infantry	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 150
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_lefh18_artillery_from_germany = {
+
+		icon = generic_industry
+
+		available = {
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = gw_artillery
+			}
+			has_tech = gw_artillery	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 250
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_bf109_planes_from_germany = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}	
+				has_tech = fighter1	
+			}
+			has_tech = fighter1	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 25
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_infantry_equipment_from_germany = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_infantry_weapons	
+				has_tech = interwar_antiair	
+			}
+			has_tech = improved_infantry_weapons	
+			has_tech = interwar_antiair	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 2000
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1
+				amount = 150
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_panzer_iv_tanks_from_germany = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_medium_tank	
+			}
+			has_tech = improved_medium_tank	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment_2
+				amount = 110
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_stug_tank_destroyers_from_germany = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = basic_medium_td	
+			}
+			has_tech = basic_medium_td	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_destroyer_equipment_1
+				amount = 60
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_hetzer_tank_destroyers_from_germany = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				owns_state = 9	#Bohemia
+				has_tech = basic_medium_td	
+			}
+			CZE = { exists = no }
+			has_tech = basic_medium_td	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 35
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_destroyer_equipment_1
+				amount = 150
+				producer = CZE
+			}
+		}
+	}
+	
+	HUN_tiger_tanks_from_germany = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_heavy_tank	
+			}
+			has_tech = improved_heavy_tank	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = heavy_tank_equipment_2
+				amount = 15
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_panther_tanks_from_germany = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = advanced_medium_tank
+			}
+			has_tech = advanced_medium_tank	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment_3
+				amount = 10
+				producer = GER
+			}
+		}
+	}
+	
+	HUN_pak75_artillery_from_germany = {
+
+		icon = generic_industry
+
+		available = {
+			GER = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = antitank2
+			}
+			has_tech = antitank2	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment_2
+				amount = 150
+				producer = GER
+			}
+		}
+	}	
+	
+	#Soviet equipment purchases
+	
+	HUN_pps43_rifles_from_the_ussr = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = advanced_infantry_weapons
+			}
+			has_tech = advanced_infantry_weapons	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 60
+		days_remove = 35
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 5000
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_il2_sturmovik_planes_from_the_ussr = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = CAS2
+			}
+			has_tech = CAS2	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_2
+				amount = 30
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_il10_planes_from_the_ussr = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}	
+				has_tech = CAS3	
+			}
+			has_tech = CAS3	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_3
+				amount = 30
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_tu2_planes_from_the_ussr = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = tactical_bomber2	
+			}
+			has_tech = tactical_bomber2	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 35
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_2
+				amount = 40
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_t34_tanks_from_the_ussr = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_medium_tank
+			}
+			has_tech = improved_medium_tank	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 60
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment_2
+				amount = 200
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_is_tanks_from_the_ussr = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}	
+				has_tech = advanced_heavy_tank
+			}
+			has_tech = advanced_heavy_tank	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = heavy_tank_equipment_3
+				amount = 25
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_su85_tank_destroyers_from_the_ussr = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_medium_td
+			}
+			has_tech = improved_medium_td	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_destroyer_equipment_2
+				amount = 175
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_yak3_planes_from_the_ussr = {
+
+		icon = generic_air
+
+		available = {
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = fighter3
+			}
+			has_tech = fighter3	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_3
+				amount = 150
+				producer = SOV
+			}
+		}
+	}
+	
+	HUN_isu122_tank_destroyers_from_the_ussr = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			SOV = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = advanced_heavy_td
+			}
+			has_tech = advanced_heavy_td	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = heavy_tank_destroyer_equipment_3
+				amount = 32
+				producer = SOV
+			}
+		}
+	}
+	
+	#Allied equipment purchases
+	
+	HUN_fokker_dxvii_planes_from_the_netherlands = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			HOL = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = early_fighter
+			}
+			has_tech = early_fighter	
+		}
+		
+		visible = {
+			tag = HUN
+			is_in_faction_with = HOL
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_0
+				amount = 30
+				producer = HOL
+			}
+		}
+	}
+	
+	HUN_fokker_tv_planes_from_the_netherlands = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			HOL = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = tactical_bomber1	
+			}
+			has_tech = tactical_bomber1	
+		}
+		
+		visible = {
+			tag = HUN
+			is_in_faction_with = HOL
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_1
+				amount = 45
+				producer = HOL
+			}
+		}
+	}
+	
+	HUN_plane_components_from_france = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			FRA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = tactical_bomber1	
+			}
+			has_tech = tactical_bomber1	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = FRA }
+			has_country_flag = HUN_french_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_timed_idea = { idea = french_plane_components days = 365 }
+		}
+	}
+	
+	HUN_trucks_and_artillery_from_france = {
+
+		icon = generic_industry
+
+		available = {
+			FRA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = motorised_infantry
+				has_tech = artillery1
+			}
+			has_tech = motorised_infantry
+			has_tech = artillery1	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = FRA }
+			has_country_flag = HUN_french_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 75
+		days_remove = 35
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 200
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_2
+				amount = 125
+				producer = FRA
+			}
+		}
+	}
+	
+	HUN_fcm36_tanks_from_france = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			FRA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_light_tank
+			}
+			has_tech = improved_light_tank
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = FRA }
+			has_country_flag = HUN_french_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 30
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = light_tank_equipment_2
+				amount = 90
+				producer = FRA
+			}
+		}
+	}
+	
+	HUN_fighters_and_bombers_from_france = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			FRA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = fighter1
+				has_tech = tactical_bomber1
+			}
+			has_tech = fighter1
+			has_tech = tactical_bomber1
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = FRA }
+			has_country_flag = HUN_french_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 80
+		days_remove = 15
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 75
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_1
+				amount = 55
+				producer = FRA
+			}
+		}
+	}
+	
+	HUN_austin_k5_trucks_from_britain = {
+
+		icon = rubber
+
+		available = {
+			ENG = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = motorised_infantry
+			}
+			has_tech = motorised_infantry
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = ENG }
+			has_country_flag = HUN_uk_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 150
+				producer = ENG
+			}
+		}
+	}
+	
+	HUN_light_tanks_and_artillery_from_britain = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			ENG = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_light_tank
+				has_tech = artillery1
+			}
+			has_tech = improved_light_tank
+			has_tech = artillery1
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = ENG }
+			has_country_flag = HUN_uk_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 80
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = light_tank_equipment_2
+				amount = 100
+				producer = ENG
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_2
+				amount = 125
+				producer = ENG
+			}
+		}
+	}
+	
+	HUN_infantry_equipment_from_the_usa = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			USA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_infantry_weapons
+				has_tech = motorised_infantry
+			}
+			has_tech = improved_infantry_weapons
+			has_tech = motorised_infantry
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = USA }
+			has_country_flag = HUN_usa_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 100
+		days_remove = 40
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 5000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 400
+				producer = USA
+			}
+		}
+	}
+	
+	HUN_m1817_artillery_from_the_usa = {
+
+		icon = generic_industry
+
+		available = {
+			USA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = gw_artillery
+			}
+			has_tech = gw_artillery
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = USA }
+			has_country_flag = HUN_usa_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 40
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 240
+				producer = USA
+			}
+		}
+	}
+	
+	HUN_a17_planes_from_the_usa = {
+
+		icon = generic_air
+
+		available = {
+			not = { has_dlc = "By Blood Alone" }
+			USA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = CAS1
+			}
+			has_tech = CAS1
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = USA }
+			has_country_flag = HUN_usa_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_1
+				amount = 110
+				producer = USA
+			}
+		}
+	}
+	
+	HUN_sherman_tanks_from_the_usa = {
+
+		icon = generic_tank
+
+		available = {
+		    not = { has_dlc = "No Step Back" }		
+			USA = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+				has_tech = improved_medium_tank
+			}
+			has_tech = improved_medium_tank	
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = USA }
+			has_country_flag = HUN_usa_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 100
+		days_remove = 20
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment_2
+				amount = 300
+				producer = USA
+			}
+		}
+	}
+
+	#Tank license purchases
+
+	
+	HUN_Lago_tanks_license_from_sweden = {
+
+		icon = generic_tank
+
+		available = {
+		    has_dlc = "No Step Back" 
+			SWE = {
+				exists = yes
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+			}
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SWE }
+			NOT = { has_tech = basic_medium_tank_chassis }
+			has_country_flag = HUN_swedish_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+            set_technology = { basic_medium_tank_chassis = 1 }		
+		    create_equipment_variant = {
+			    name = "Lago"
+			    type = medium_tank_chassis_1
+			    parent_version = 0
+			    modules = {
+				    main_armament_slot = tank_small_cannon
+				    turret_type_slot = tank_medium_three_man_tank_turret
+				    suspension_type_slot = tank_torsion_bar_suspension
+				    armor_type_slot = tank_welded_armor
+				    engine_type_slot = tank_gasoline_engine
+				    special_type_slot_1 = tank_radio_1
+				    special_type_slot_2 = smoke_launchers
+				    special_type_slot_3 = empty
+				    special_type_slot_4 = empty
+			    }
+			    upgrades = {
+				    tank_nsb_engine_upgrade = 6
+				    tank_nsb_armor_upgrade = 4
+			    }
+			    icon = "GFX_HUN_lago"
+			}
+		}
+	}	
+
+	HUN_Turan_tanks_license_from_germany = {
+
+		icon = generic_tank
+
+		available = {
+		    has_dlc = "No Step Back" 
+			GER = {
+				exists = yes
+                owns_state = 9	#Bohemia				
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+			}
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = GER }
+			NOT = { has_tech = basic_medium_tank_chassis }
+			has_country_flag = HUN_german_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+            set_technology = { basic_medium_tank_chassis = 1 }		
+		    create_equipment_variant = {
+			    name = "40M Turán"
+			    type = medium_tank_chassis_1
+			    parent_version = 0
+			    modules = {
+				    main_armament_slot = tank_small_cannon
+				    turret_type_slot = tank_medium_three_man_tank_turret
+				    suspension_type_slot = tank_torsion_bar_suspension
+				    armor_type_slot = tank_riveted_armor
+				    engine_type_slot = tank_gasoline_engine
+				    special_type_slot_1 = tank_radio_1
+				    special_type_slot_2 = smoke_launchers
+				    special_type_slot_3 = empty
+				    special_type_slot_4 = empty
+			    }
+			    upgrades = {
+				    tank_nsb_engine_upgrade = 6
+				    tank_nsb_armor_upgrade = 4
+			    }
+			    icon = "GFX_HUN_basic_medium_tank_medium"
+			}
+		}
+	}	
+
+	HUN_Renault_DAC1_tanks_license_from_france = {
+
+		icon = generic_tank
+
+		available = {
+		    has_dlc = "No Step Back" 
+			FRA = {
+				exists = yes			
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+			}
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = FRA }
+			NOT = { has_tech = basic_medium_tank_chassis }
+			has_country_flag = HUN_french_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+            set_technology = { basic_medium_tank_chassis = 1 }		
+		    create_equipment_variant = {
+			    name = "Renault DAC2"
+			    type = medium_tank_chassis_1
+			    parent_version = 0
+			    modules = {
+				    main_armament_slot = tank_medium_cannon
+				    turret_type_slot = tank_medium_two_man_tank_turret
+				    suspension_type_slot = tank_torsion_bar_suspension
+				    armor_type_slot = tank_welded_armor
+				    engine_type_slot = tank_gasoline_engine
+				    special_type_slot_1 = tank_radio_1
+				    special_type_slot_2 = empty
+				    special_type_slot_3 = empty
+				    special_type_slot_4 = empty
+			    }
+			    upgrades = {
+				    tank_nsb_engine_upgrade = 8
+				    tank_nsb_armor_upgrade = 5
+			    }
+			    icon = "GFX_HUN_renault"
+			}
+		}
+	}	
+
+	HUN_T34_tanks_license_from_the_ussr = {
+
+		icon = generic_tank
+
+		available = {
+		    has_dlc = "No Step Back" 
+			SOV= {
+				exists = yes			
+				if = {
+					limit = { HUN = { has_country_flag = HUN_realism } }
+					has_opinion = { target = HUN value > 24 }
+					else = {
+						has_opinion = { target = HUN value > -1 }
+					}
+				}
+			}
+		}
+		
+		visible = {
+			tag = HUN
+			NOT = { has_war_with = SOV }
+			NOT = { has_tech = basic_medium_tank_chassis }
+			has_country_flag = HUN_soviet_license_trade_on
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 30
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		remove_effect = {
+            set_technology = { basic_medium_tank_chassis = 1 }		
+			create_equipment_variant = {
+				name = "T-34"
+				type = medium_tank_chassis_1
+				parent_version = 0
+				modules = {
+					main_armament_slot = tank_medium_cannon
+					turret_type_slot = tank_medium_two_man_tank_turret
+					suspension_type_slot = tank_christie_suspension
+					armor_type_slot = tank_welded_armor
+					engine_type_slot = tank_diesel_engine
+					special_type_slot_1 = sloped_armor
+				}
+				upgrades = {
+					tank_nsb_engine_upgrade = 10
+					tank_nsb_armor_upgrade = 7
+				}
+				icon = "GFX_HUN_t34"
+			}
+		}
+	}		
+}

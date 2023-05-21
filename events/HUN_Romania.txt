@@ -1,0 +1,975 @@
+﻿
+add_namespace = hungary_flavor_rom
+
+
+#########
+#ROMANIA#
+#########
+
+# Hungary demands Translyvania (event for ROM)
+country_event = {
+	id = hungary_flavor_rom.1
+	title = hungary_flavor_rom.1.t
+	desc = hungary_flavor_rom.1.d
+	picture = GFX_report_event_HUN_transylvania
+	
+	is_triggered_only = yes
+	
+	#Cede Transylvania
+	option = {
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 1.5
+					}
+				}
+			}		
+			modifier = {
+				factor = 20
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					has_country_flag = HUN_realism
+					NOT = { has_army_manpower = { size > 499999 } }
+				}
+			}	
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 599999 } } }
+			modifier = { factor = 1.2 FROM = { has_army_manpower = { size > 699999 } } }
+			modifier = { factor = 1.3 FROM = { has_army_manpower = { size > 799999 } } }
+			modifier = { factor = 1.4 FROM = { has_army_manpower = { size > 899999 } } }
+			modifier = { factor = 1.5 FROM = { has_army_manpower = { size > 999999 } } }	
+		}
+		name = hungary_flavor_rom.1.a
+		FROM = { country_event = { hours = 4 id = hungary_flavor.21 } }
+		news_event = { hours = 6 id = hun_news.28 }
+	}
+	
+	#Refuse
+	option = {
+		name = hungary_flavor_rom.1.b
+		ai_chance = {
+			factor = 70
+		}
+		FROM = {
+			country_event = { hours = 4 id = hungary_flavor.22 }
+			effect_tooltip = {
+				transfer_state = 83		#Grisana
+				transfer_state = 84		#Transylvania
+				transfer_state = 76		#North Transylvania
+				transfer_state = 929	#Szeklerland
+				transfer_state = 917	#Maramaros
+				transfer_state = 918	#Northern Partium	
+			}
+		}
+	}
+	
+	#We will issue a counterdemand!
+	option = {
+		name = hungary_flavor_rom.1.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 20
+				has_government = fascism
+			}	
+		}
+		add_political_power = -50
+		add_state_claim = 154	#Alföld
+		if = {
+			limit = { FROM = { owns_state = 910 } } #Torontal
+			add_state_claim = 910	#Torontal
+		}
+		FROM = { 
+			add_opinion_modifier = { target = ROOT modifier = HUN_demanded_territory }
+			country_event = { hours = 4 id = hungary_flavor.20 } 
+		}
+	}
+	
+	#They can have the northern parts.
+	option = {
+		name = hungary_flavor_rom.1.e
+		trigger = {
+			owns_state = 76		#North Transylvania
+			owns_state = 929	#Szeklerland	
+			owns_state = 917	#Maramaros
+			owns_state = 918	#Northern Partium
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		FROM = { 
+			effect_tooltip = {
+				transfer_state = 76		#North Transylvania
+				transfer_state = 929	#Szeklerland
+				transfer_state = 917	#Maramaros
+				transfer_state = 918	#Northern Partium	
+			}
+			country_event = { hours = 4 id = hungary_flavor.19 } 
+		}
+	}
+}
+
+# Austria-Hungary demands Bucovina (event for ROM)
+country_event = {
+	id = hungary_flavor_rom.2
+	title = hungary_flavor_rom.2.t
+	desc = hungary_flavor_rom.2.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Cede Bucovina
+	option = {
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 1.5
+					}
+				}
+			}		
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 299999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 399999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 499999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 599999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 699999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 799999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 899999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 999999 } } }
+		}
+		name = hungary_flavor_rom.2.a
+		FROM = { country_event = { hours = 4 id = hungary_flavor.41 } }
+		effect_tooltip = {
+			FROM = {
+				transfer_state = 80 	#North Bucovina
+				transfer_state = 926 	#South Bucovina
+			}
+		}
+	}
+	
+	#Refuse
+	option = {
+		ai_chance = {
+			factor = 40
+		}
+		name = hungary_flavor_rom.2.b
+		FROM = { country_event = { hours = 4 id = hungary_flavor.42 } }
+	}
+}
+
+
+# [From.GetName] threatens war for Banat
+country_event = {
+	id = hungary_flavor_rom.3
+	title = hungary_flavor_rom.3.t
+	desc = hungary_flavor_rom.3.d
+	picture = GFX_report_event_banat
+	
+	is_triggered_only = yes
+	
+	#Withdraw the troops from Banat
+	option = {
+		name = hungary_flavor_rom.3.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 1.5
+					}
+				}
+			}		
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 499999 } } }
+			modifier = { factor = 1.2 FROM = { has_army_manpower = { size > 599999 } } }
+			modifier = { factor = 1.3 FROM = { has_army_manpower = { size > 699999 } } }
+			modifier = { factor = 1.4 FROM = { has_army_manpower = { size > 799999 } } }
+			modifier = { factor = 1.5 FROM = { has_army_manpower = { size > 899999 } } }
+			modifier = { factor = 1.6 FROM = { has_army_manpower = { size > 999999 } } }
+		}
+		effect_tooltip = { 
+			FROM = { transfer_state = 82 }	#Banat
+		}
+		FROM = { country_event = { hours = 4 id = hungary_flavor.86 } }
+	}
+	
+	#We'll defend it if we have to
+	option = {
+		name = hungary_flavor_rom.3.b
+		ai_chance = {
+			factor = 70
+		}
+		FROM = { country_event = { hours = 4 id = hungary_flavor.87 } }
+	}
+}
+
+
+
+# [From.GetName] backs down
+country_event = {
+	id = hungary_flavor_rom.4
+	title = hungary_flavor_rom.4.t
+	desc = hungary_flavor_rom.4.d
+	picture = GFX_report_event_banat
+	
+	is_triggered_only = yes
+	
+	#It was an empty threat, as expected
+	option = {
+		name = hungary_flavor_rom.4.a
+		effect_tooltip = { HUN = { add_named_threat = { threat = -1 name = HUN_backed_down_from_banat } } }
+	}
+}
+
+# Reawakening the Little Entente
+country_event = {
+	id = hungary_flavor_rom.5
+	title = hungary_flavor_rom.5.t
+	desc = {
+		text = hungary_flavor_rom.5.d
+		trigger = { 
+			HUN = { is_ahu = yes }
+		}
+	}
+	desc = {
+		text = hungary_flavor_rom.5.d_2
+		trigger = { 
+			HUN = { is_not_ahu = yes }
+		}
+	}
+	picture = GFX_report_event_little_entente
+	
+	is_triggered_only = yes
+	
+	#We will stand against this outrage together
+	option = {
+		trigger = {
+			is_puppet = no
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = CZE value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = CZE value > 24 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					AND = { 
+						has_government = neutrality
+						CZE = { has_government = neutrality }
+					}
+					AND = { 
+						has_government = democratic
+						CZE = { has_government = democratic }
+					}
+					AND = { 
+						has_government = fascism
+						CZE = { has_government = fascism }
+					}
+					AND = { 
+						has_government = communism
+						CZE = { has_government = communism }
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				AND = {
+					has_government = neutrality
+					CZE = { NOT = { has_government = neutrality } }
+				}
+			}		
+		}
+		name = hungary_flavor_rom.5.a
+		custom_effect_tooltip = hungary_flavor_rom.5.tt
+		hidden_effect = { 
+			CZE = { set_country_flag = little_entente_ROM_plus } 
+			if = { 
+				limit = { CZE = { OR = { has_country_flag = little_entente_CZE_plus has_country_flag = little_entente_CZE_minus } } }
+				CZE = { country_event = { hours = 4 id = hungary_flavor_cze.6 } }
+			}
+		}
+	}
+	
+	#Tell them to leave us out of their petty alliance
+	option = {
+		ai_chance = {
+			factor = 60	
+		}
+		name = hungary_flavor_rom.5.b
+		hidden_effect = { 
+			CZE = { set_country_flag = little_entente_ROM_minus } 
+			if = { 
+				limit = { CZE = { OR = { has_country_flag = little_entente_CZE_plus has_country_flag = little_entente_CZE_minus } } }
+				CZE = { country_event = { hours = 4 id = hungary_flavor_cze.6 } }
+			}
+		}
+	}
+}
+
+# [From.GetName] refuses demands
+country_event = {
+	id = hungary_flavor_rom.6
+	title = hungary_flavor_rom.6.t
+	desc = hungary_flavor_rom.6.d
+	picture = GFX_report_event_HUN_alfold_to_romania
+	
+	is_triggered_only = yes
+	
+	#We will wash that land clean with their soldiers' blood.
+	option = {
+		name = hungary_flavor_rom.6.a
+		create_wargoal = {
+			type = take_state_focus
+			target = HUN
+			generator = { 154 }
+			expire = 0
+		}
+	}
+}
+
+# [From.GetName] yields
+country_event = {
+	id = hungary_flavor_rom.7
+	title = hungary_flavor_rom.7.t
+	desc = hungary_flavor_rom.7.d
+	picture = GFX_report_event_HUN_alfold_to_romania
+	
+	is_triggered_only = yes
+	
+	#Glory to Romania!
+	option = {
+		name = hungary_flavor_rom.7.a
+		transfer_state = 154 #Alföld
+		if = {
+			limit = { HUN = { owns_state = 910 } }	#Torontal
+			transfer_state = 910 #Torontal
+		}
+	}
+}
+
+# [From.GetName] presses Bulgarian claims on Dobrudja
+country_event = {
+	id = hungary_flavor_rom.8
+	title = hungary_flavor_rom.8.t
+	desc = hungary_flavor_rom.8.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#They can have Southern Dobrudja.
+	option = {
+		name = hungary_flavor_rom.8.a
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 1.5
+					}
+				}
+			}		
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					has_country_flag = HUN_realism
+					NOT = { has_army_manpower = { size > 499999 } }
+				}
+			}	
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 599999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 699999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 799999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 899999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 999999 } } }	
+		}
+		HUN = { country_event = { hours = 4 id = hungary_flavor.131 } }
+		BUL = {
+			country_event = { hours = 4 id = hungary_flavor_bul.4 }
+			effect_tooltip = { transfer_state = 77 }		#Southern Dobrudja
+		}
+	}
+	
+	#We better back down.
+	option = {
+		name = hungary_flavor_rom.8.b
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 1.5
+					}
+				}
+			}		
+			modifier = {
+				factor = 20
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					has_country_flag = HUN_realism
+					NOT = { has_army_manpower = { size > 499999 } }
+				}
+			}	
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 599999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 699999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 799999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 899999 } } }
+			modifier = { factor = 1.1 FROM = { has_army_manpower = { size > 999999 } } }	
+		}
+		HUN = { country_event = { hours = 4 id = hungary_flavor.132 } }
+		BUL = {
+			country_event = { hours = 4 id = hungary_flavor_bul.5 }
+			effect_tooltip = {
+				transfer_state = 77		#Southern Dobrudja
+				transfer_state = 924	#Northern Dobrudja
+			}		
+		}
+	}
+	
+	#We won't give an inch.
+	option = {
+		name = hungary_flavor_rom.8.c
+		ai_chance = {
+			factor = 75	
+		}
+		HUN = {
+			country_event = { hours = 4 id = hungary_flavor.133 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = ROM
+					generator = { 77 924 }
+					expire = 0
+				}
+			}
+		}
+		BUL = { country_event = { hours = 4 id = hungary_flavor_bul.6 } }
+
+	}
+}
+
+# Hungary asks for Szekler Autonomy
+country_event = {
+	id = hungary_flavor_rom.9
+	title = hungary_flavor_rom.9.t
+	desc = hungary_flavor_rom.9.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#They can have their autonomy. But the land is still ours!
+	option = {
+		name = hungary_flavor_rom.9.a
+		ai_chance = {
+			factor = 30	
+			modifier = {
+				factor = 20
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 74 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 99 }
+			}
+			modifier = {
+				factor = 5
+				is_in_faction_with = FROM
+			}	
+		}
+		add_political_power = 100
+		HUN = { country_event = { hours = 4 id = hungary_flavor.167 } }
+		SZE = { transfer_state = 929 }	#Szeklerland
+		if = { limit = { 929 = { is_core_of = ROOT } } remove_state_core = 929 }  				#Szeklerland
+		if = {
+			limit = { has_dlc = "Together for Victory" }
+			set_autonomy = {
+				target = SZE
+				autonomous_state = autonomy_integrated_puppet
+				freedom_level = 0.5
+			}
+			else = { puppet = SZE }
+		}
+	}
+	
+	#What next? The whole of Transylvania? I think not.
+	option = {
+		name = hungary_flavor_rom.9.b
+		ai_chance = {
+			factor = 70	
+		}
+		HUN = { country_event = { hours = 4 id = hungary_flavor.168 } }
+	}
+}
+
+# Szeklers switch sides
+country_event = {
+	id = hungary_flavor_rom.10
+	title = hungary_flavor_rom.10.t
+	desc = hungary_flavor_rom.10.d
+	picture = GFX_report_event_hungary_gains_transylvania
+	
+	is_triggered_only = yes
+	
+	#We will crush them both!
+	option = {
+		name = hungary_flavor_rom.10.a
+	}
+}
+
+# Diplomatic outreach from Hungary
+country_event = {
+	id = hungary_flavor_rom.11
+	title = hungary_flavor_rom.11.t
+	desc = hungary_flavor_rom.11.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We are interested in this alliance
+	option = {
+		name = hungary_flavor_rom.11.a
+		ai_chance = {
+			factor = 70	
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 74 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 99 }
+			}
+		}
+		HUN = { country_event = { hours = 4 id = hungary_flavor.235 } }
+	}
+	
+	# This deal stinks.
+	option = {
+		name = hungary_flavor_rom.11.b
+		ai_chance = {
+			factor = 30	
+		}
+		HUN = { country_event = { hours = 4 id = hungary_flavor.225 } }
+	}
+}
+
+# Hungary requests territorial settlement
+country_event = {
+	id = hungary_flavor_rom.12
+	title = hungary_flavor_rom.12.t
+	desc = hungary_flavor_rom.12.d
+	picture = GFX_report_event_HUN_transylvania
+	
+	is_triggered_only = yes
+	
+	# Those lands in the east look promising.
+	option = {
+		name = hungary_flavor_rom.12.a
+		ai_chance = {
+			factor = 20	
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 74 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 99 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 49 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 74 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 99 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_completed_focus = liberty_ethos
+					has_completed_focus = nationalism_focus
+					has_completed_focus = ROM_appoint_german_friendly_government
+					has_completed_focus = ROM_appoint_allied_friendly_government
+				}
+			}
+			modifier = {
+				factor = 0.0
+				OR = {
+					has_completed_focus = internationalism_focus
+					has_completed_focus = ROM_appoint_soviet_friendly_government
+					has_completed_focus = ROM_a_deal_with_the_devil
+				}
+			}
+		}
+		HUN = {
+			country_event = { hours = 4 id = hungary_flavor.226 }
+			effect_tooltip = {
+				transfer_state = 917	#Maramures
+				transfer_state = 918	#Northern Partium
+				transfer_state = 76		#North Translyvania
+				transfer_state = 929	#Szeklerland
+				transfer_state = 83		#Southern Partium
+				transfer_state = 84		#South Transylvania
+				transfer_state = 82		#Banat
+			}
+		}
+		add_state_claim = 192	#Odessa
+		add_state_claim = 198	#Vinnytsia
+		add_state_claim = 199	#Khmelnytskyi
+		add_state_claim = 201	#Zhytomyr
+		add_state_claim = 202	#Kiev
+		add_state_claim = 197	#Mykolaiv
+		news_event = { id = hun_news.46 hours = 8 }
+	}
+	
+	# We can give them the areas with Hungarian majority.
+	option = {
+		name = hungary_flavor_rom.12.b
+		ai_chance = {
+			factor = 40	
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 74 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 99 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 49 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 74 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 99 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_completed_focus = liberty_ethos
+					has_completed_focus = nationalism_focus
+					has_completed_focus = ROM_appoint_german_friendly_government
+					has_completed_focus = ROM_appoint_allied_friendly_government
+				}
+			}
+			modifier = {
+				factor = 0.0
+				OR = {
+					has_completed_focus = internationalism_focus
+					has_completed_focus = ROM_appoint_soviet_friendly_government
+					has_completed_focus = ROM_a_deal_with_the_devil
+				}
+			}
+		}
+		HUN = { 
+			country_event = { hours = 4 id = hungary_flavor.227 }
+			effect_tooltip = {
+				transfer_state = 917	#Maramures
+				transfer_state = 918	#Northern Partium
+				transfer_state = 76		#North Translyvania
+				transfer_state = 929	#Szeklerland
+			}
+		}
+		add_state_claim = 192	#Odessa
+		add_state_claim = 198	#Vinnytsia
+		add_state_claim = 199	#Khmelnytskyi
+		news_event = { id = hun_news.46 hours = 8 }
+	}
+	
+	# The borders are not negotiable.
+	option = {
+		name = hungary_flavor_rom.12.c
+		ai_chance = {
+			factor = 40	
+		}
+		HUN = {
+			country_event = { hours = 4 id = hungary_flavor.228 }
+			effect_tooltip = {
+				add_opinion_modifier = { target = ROM modifier = HUN_refused_territorial_settlement }
+			}
+		}
+	}
+}
+
+# Hungary presses for North-Transylvania Referendum
+country_event = {
+	id = hungary_flavor_rom.13
+	title = hungary_flavor_rom.13.t
+	desc = hungary_flavor_rom.13.d
+	picture = GFX_report_event_HUN_transylvania
+	
+	is_triggered_only = yes
+	
+	#Allow the referendum.
+	option = {
+		name = hungary_flavor_rom.13.a
+		ai_chance = {
+			factor = 60		
+		}
+		HUN = { country_event = { hours = 8 id = hungary_flavor.304 } }
+		effect_tooltip = {
+			HUN = {
+				if = {
+					limit = { has_country_flag = HUN_realism }
+					random_list = { 
+						50 = { 
+							transfer_state = 918 #northern partitium
+							add_state_core = 918 #northern partitium
+							transfer_state = 76 #north transylvania
+						    add_state_core = 76 #north transylvania
+							transfer_state = 929 #szekerland
+						    add_state_core = 929 #szekerland
+							transfer_state = 917 #maramures
+						    add_state_core = 917 #maramures
+							add_war_support = -0.02
+						} 
+						50 = { }
+					}
+					else = {
+						transfer_state = 918 #northern partitium
+						add_state_core = 918 #northern partitium
+						transfer_state = 76 #north transylvania
+						add_state_core = 76 #north transylvania
+					    transfer_state = 929 #szekerland
+						add_state_core = 929 #szekerland
+					    transfer_state = 917 #maramures
+						add_state_core = 917 #maramures
+						add_war_support = -0.02
+					}
+				}
+			}
+		}
+	}
+	
+	#Never
+	option = {
+		name = hungary_flavor_rom.13.b
+		ai_chance = {
+			factor = 40		
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		FROM = { country_event = { hours = 6 id = hungary_flavor.305 } }
+	}
+}
+
+# Soviet Union demands Bessarabia
+country_event = {
+	id = hungary_flavor_rom.13
+	title = hungary_flavor_rom.13.t
+	desc = hungary_flavor_rom.13.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	
+	option = { # Accept demands
+		name = hungary_flavor_rom.13.a
+		ai_chance = {
+			factor = 90
+			modifier = { # Don't accept if in a faction that can protect them
+				factor = 0
+				OR = {
+					any_other_country = {
+						is_major = yes
+						NOT = { tag = SOV }
+						OR = {
+							is_in_faction_with = ROM
+							has_guaranteed = ROM
+						}
+					}
+					has_idea = anti_soviet_pact
+				}
+				is_historical_focus_on = no #Romania will still cede on historical
+			}
+		}
+		SOV = {
+			country_event = { days = 1 id = soviet.4 }
+		}
+		set_country_flag = bessarabia_ceded
+	}
+	option = { # Refuse
+		name = hungary_flavor_rom.13.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				is_in_faction = yes
+				NOT = { is_in_faction_with = SOV }
+			}
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		SOV = {
+			country_event = { days = 1 id = hungary_flavor_sov.11 }
+			effect_tooltip = {
+				add_state_claim = 766
+			}
+		}
+	}
+}
+
+# Soviet Union demands Bessarabia
+country_event = {
+	id = hungary_flavor_rom.14
+	title = hungary_flavor_rom.14.t
+	desc = hungary_flavor_rom.14.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	
+	option = { # Accept demands
+		name = hungary_flavor_rom.14.a
+		ai_chance = {
+			factor = 90
+			modifier = { # Don't accept if in a faction that can protect them
+				factor = 0
+				OR = {
+					any_other_country = {
+						is_major = yes
+						NOT = { tag = SOV }
+						OR = {
+							is_in_faction_with = ROM
+							has_guaranteed = ROM
+						}
+					}
+					has_idea = anti_soviet_pact
+				}
+				is_historical_focus_on = no #Romania will still cede on historical
+			}
+		}
+		SOV = {
+			country_event = { days = 1 id = soviet.4 }
+		}
+		set_country_flag = bessarabia_ceded
+	}
+	option = { # Refuse
+		name = hungary_flavor_rom.14.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				is_in_faction = yes
+				NOT = { is_in_faction_with = SOV }
+			}
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		SOV = {
+			country_event = { days = 1 id = hungary_flavor_sov.12 }
+			effect_tooltip = {
+				add_state_claim = 80
+			}
+		}
+	}
+}
+

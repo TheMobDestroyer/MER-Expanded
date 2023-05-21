@@ -1,0 +1,133 @@
+
+ai_historical_focus_list_HUN = {
+	ai_national_focuses = {
+		HUN_agricultural_modernisation 			
+		HUN_revisionism
+		HUN_revision_by_force 						
+		HUN_secret_rearmament_focus				
+		HUN_expand_the_wm_steel_plant					
+		HUN_expand_the_wm_aluminium_plant		
+		HUN_expand_the_agrarian_industry	
+		HUN_draw_closer_to_germany				
+		HUN_maintain_conservative_government	
+		HUN_yugoslavian_pact_of_eternal_friendship 
+		HUN_industrial_effort		
+		HUN_the_gyori_program					
+		HUN_army_effort							
+		HUN_aviation_effort						
+		HUN_advanced_infantry_divisions			
+		HUN_motorization_effort					
+		HUN_project_toldi						
+		HUN_military_land_survey				
+		HUN_reinforce_the_gendarmerie			
+		HUN_swing_politics						
+		HUN_settle_the_matter_of_the_monarchy	
+		HUN_reinforce_the_regency				
+		HUN_advanced_doctrines					
+		HUN_organize_military_research_branch	
+		HUN_expand_the_levente_associations		
+		HUN_enact_home_defense_law				
+		HUN_countryside_development				
+		HUN_state_ammunition_factory				
+	}
+}
+
+ai_focus_defense_HUN = {
+	research = {
+		defensive = 5.0	
+		radar_tech = 1.0
+		construction_tech = 2.0
+		artillery = 2.0
+	}
+}
+
+ai_focus_aggressive_HUN = {
+	research = {
+		offensive = 5.0
+		synth_resources = 1.0
+		motorized_equipment = 2.0
+		armor = 2.0
+	}
+}
+
+ai_focus_war_production_HUN = {
+	research = {
+		industry = 10.0
+		construction_tech = 2.0
+		electronics = 2.0
+		computing_tech = 2.0	
+	}
+}
+
+ai_focus_military_equipment_HUN = {
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+}
+
+ai_focus_military_advancements_HUN = {
+	research = {
+		armor = 10.0
+		jet_technology = 5.0
+		land_doctrine = 100.0
+		rocketry = 7.5
+		radar_tech = 3.0
+		encryption_tech = 7.5
+		decryption_tech = 7.5
+		synth_resources = 3.0
+		motorized_equipment = 4.0
+		nuclear = 5.0
+		night_vision = 5.0
+	}
+}
+
+ai_focus_peaceful_HUN = {
+	research = {
+		industry = 15.0
+		construction_tech = 5.0
+		electronics = 10.0
+		computing_tech = 10.0
+	}
+}
+
+ai_focus_naval_HUN = {
+	research = {
+		naval_equipment = 5.0
+		naval_doctrine = 100.0
+		marine_tech = 10.0
+		dd_tech = 3.0
+		cl_tech = 3.0
+		ca_tech = 3.0
+		bc_tech = 3.0
+		bb_tech = 3.0
+		shbb_tech = 3.0
+		tp_tech = 3.0
+		cv_tech = 3.0
+		ss_tech = 3.0
+	}
+}
+
+ai_focus_naval_air_HUN = {
+	research = {
+		naval_air = 4.0
+		naval_bomber = 3.0
+	}
+}
+
+ai_focus_aviation_HUN = {
+	research = {
+		air_doctrine = 50.0
+		light_air = 4.0
+		light_fighter = 4.0
+		jet_technology = 1.0
+		cas_bomber = 2.0		
+		medium_air = 4.0
+		tactical_bomber = 5.0
+		heavy_air = 1.5
+		air_equipment = 5.0
+		para_tech = 10
+	}
+}

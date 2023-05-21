@@ -1,0 +1,68 @@
+﻿
+add_namespace = hungary_flavor_nor
+
+########
+#SWEDEN#
+########
+
+# Alliance offer from Hungary
+country_event = {
+	id = hungary_flavor_nor.1
+	title = hungary_flavor_nor.1.t
+	desc = hungary_flavor_nor.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#A commendable initiative. We accept.
+	option = {
+		name = hungary_flavor_nor.1.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 74 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 99 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 49 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 74 }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = POL value > 99 }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.231 hours = 4 } }
+		POL = {
+			country_event = { id = hungary_flavor_pol.14 hours = 4 }
+			effect_tooltip = {
+				add_to_faction = ROOT
+			}
+		}
+	}
+	
+	#We will not compromise our neutrality.
+	option = {
+		name = hungary_flavor_nor.1.b
+		ai_chance = {
+			factor = 50
+		}
+		HUN = { country_event = { id = hungary_flavor.232 hours = 4 } }
+	}
+}

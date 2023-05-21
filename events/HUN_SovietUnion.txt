@@ -1,0 +1,673 @@
+﻿
+add_namespace = hungary_flavor_sov
+
+
+##############
+#SOVIET UNION#
+##############
+
+# Hungary seeks entry into the Comintern
+country_event = {
+	id = hungary_flavor_sov.1
+	title = hungary_flavor_sov.1.t
+	desc = hungary_flavor_sov.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Accept.
+	option = {
+		name = hungary_flavor_sov.1.a
+		ai_chance = {
+			factor = 80
+		}
+		add_to_faction = FROM
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.32 }
+		}
+	}
+	
+	#Decline
+	option = {
+		name = hungary_flavor_sov.1.b
+		ai_chance = {
+			factor = 20		
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.33 }
+		}
+	}
+}
+
+
+# Hungary wants to switch sides
+country_event = {
+	id = hungary_flavor_sov.2
+	title = hungary_flavor_sov.2.t
+	desc = hungary_flavor_sov.2.d
+	picture = GFX_report_event_HUN_capitulation
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		HUN = { NOT = { has_country_flag = HUN_ferenc_szalasi_is_ruler } }
+	}
+	
+	#We'll support their attempts
+	option = {
+		name = hungary_flavor_sov.2.a
+		ai_chance = {
+			factor = 80
+		}
+		custom_effect_tooltip = hungary_flavor_sov.2.tt
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.79 }
+		}
+	}
+	
+	#They will be liberated by force
+	option = {
+		name = hungary_flavor_sov.2.b
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				FROM = { has_government = communism }
+			}	
+		}
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.81 }
+		}
+	}
+}
+
+
+# The Warsaw Pact
+country_event = {
+	id = hungary_flavor_sov.3
+	title = hungary_flavor_sov.3.t
+	desc = hungary_flavor_sov.3.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# This is the next step towards the world revolution.
+	option = {
+		name = hungary_flavor_sov.3.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 5
+				HUN = { NOT = { has_country_flag = HUN_realism } }
+			}		
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_in_faction_with = ROOT
+					tag = POL
+				}
+			}
+			country_event = { hours = 8 id = hungary_flavor_gen.13 }
+		}
+		news_event = { hours = 24 id = hun_news.10 }
+		dismantle_faction = yes
+		create_faction = warsaw_pact_faction
+		if = {
+			limit = { HUN = { has_completed_focus = HUN_hungarian_research_cities } }
+			HUN = { add_to_tech_sharing_group = comintern_research }
+			POL = { add_to_tech_sharing_group = comintern_research }
+			add_to_tech_sharing_group = comintern_research
+		}
+	}
+	
+	# The Comintern does not welcome this proposition.
+	option = {
+		name = hungary_flavor_sov.3.b
+		ai_chance = {
+			factor = 30
+		}
+		POL = {
+			country_event = { hours = 8 id = hungary_flavor_pol.6 }
+		}
+		HUN = {
+			country_event = { hours = 8 id = hungary_flavor.153 }
+		}
+	}
+}
+
+
+# Polish Communist State
+country_event = {
+	id = hungary_flavor_sov.4
+	title = hungary_flavor_sov.4.t
+	desc = hungary_flavor_sov.4.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# They can have their own little fake government.
+	option = {
+		name = hungary_flavor_sov.4.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 3
+				HUN = { NOT = { has_country_flag = HUN_realism } }
+			}		
+		}
+		if = {
+			limit = { owns_state = 5 }		# Ostpreussen
+			POL = { transfer_state = 5 }	# Ostpreussen
+		}
+		if = {
+			limit = { owns_state = 10 }		# Warszawa
+			POL = { transfer_state = 10 }	# Warszava
+		}
+		if = {
+			limit = { owns_state = 85 }		# Danzig
+			POL = { transfer_state = 85 }	# Danzig
+		}
+		if = {
+			limit = { owns_state = 86 }		# Poznan
+			POL = { transfer_state = 86 }	# Poznan
+		}
+		if = {
+			limit = { owns_state = 87 }		# Lodz
+			POL = { transfer_state = 87 }	# Lodz
+		}
+		if = {
+			limit = { owns_state = 88 }		# Krakow
+			POL = { transfer_state = 88 }	# Krakow
+		}
+		if = {
+			limit = { owns_state = 90 }		# Kielce
+			POL = { transfer_state = 90 }	# Kielce
+		}
+		if = {
+			limit = { owns_state = 92 }		# Lublin
+			POL = { transfer_state = 92 }	# Lublin
+		}
+		if = {
+			limit = { owns_state = 97 }		# Bialystok
+			POL = { transfer_state = 97 }	# Bialystok
+		}
+		if = {
+			limit = { owns_state = 98 }		# Plock
+			POL = { transfer_state = 98 }	# Bialystok
+		}
+		puppet = POL
+		HUN = { country_event = { hours = 8 id = hungary_flavor.154 } }
+	}
+	
+	# We will not decide the fate of Poland yet.
+	option = {
+		name = hungary_flavor_sov.4.b
+		ai_chance = {
+			factor = 40
+		}
+		HUN = { country_event = { hours = 8 id = hungary_flavor.155 } }
+	}
+}
+
+
+# [HUN.GetName] offers to partition Romania
+country_event = {
+	id = hungary_flavor_sov.5
+	title = hungary_flavor_sov.5.t
+	desc = hungary_flavor_sov.5.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# This proposal suits our needs
+	option = {
+		name = hungary_flavor_sov.5.a
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5
+				HUN = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 0.5
+				HUN = { is_ahu = yes }
+			}		
+		}
+		78 = {	#Bessarabia
+			set_state_flag = HUN_romanian_partition_to_SOV
+			add_claim_by = SOV
+		}
+		79 = {	#Moldova
+			set_state_flag = HUN_romanian_partition_to_SOV
+			add_claim_by = SOV
+		}
+		if = {
+			limit = { HUN = { is_not_ahu = yes } }
+			80 = {	#North Bucovina
+				set_state_flag = HUN_romanian_partition_to_SOV
+				add_claim_by = SOV
+			}
+			926 = {	#South Bucovina
+				set_state_flag = HUN_romanian_partition_to_SOV
+				add_claim_by = SOV
+			}
+		}
+		custom_effect_tooltip = HUN_territories_will_be_exchanged_after_war
+		HUN = { country_event = { hours = 8 id = hungary_flavor.162 } }
+		set_global_flag = HUN_SOV_romanian_partition_agreed
+	}
+	
+	# [FROM.GetAdjective] expansion is not in our interest.
+	option = {
+		name = hungary_flavor_sov.5.b
+		ai_chance = {
+			factor = 0
+		}
+		HUN = { country_event = { hours = 8 id = hungary_flavor.163 } }
+	}
+}
+
+
+# [HUN.GetName] attacks Romania
+country_event = {
+	id = hungary_flavor_sov.6
+	title = hungary_flavor_sov.6.t
+	desc = hungary_flavor_sov.6.d
+	picture = GFX_report_event_soldiers_marching
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+		NOT = { has_war_with = ROM }
+		HUN = { has_war_with = ROM }
+		has_global_flag = HUN_SOV_romanian_partition_agreed
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# Commence the attack. We will crush Romania from two sides.
+	option = {
+		name = hungary_flavor_sov.6.a
+		if = {
+			limit = { NOT = { has_war_with = ROM } }
+			if = {
+				limit = { HUN = { is_ahu = yes } }
+				declare_war_on = {
+					target = ROM
+					type = take_state_focus
+					generator = {
+						78		#Bessarabia
+						79		#Moldova
+					}
+				}
+				else = {
+					declare_war_on = {
+						target = ROM
+						type = take_state_focus
+						generator = {
+							78		#Bessarabia
+							79		#Moldova
+							80		#North Bucovina
+							926		#South Bucovina
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Honoring the partition agreement with [HUN.GetNameDef]
+country_event = {
+	id = hungary_flavor_sov.7
+	title = hungary_flavor_sov.7.t
+	desc = hungary_flavor_sov.7.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+		76 = {		#North Transylvania
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		929 = {		#Szeklerland
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		78 = {		#Bessarabia
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		79 = {		#Moldova
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		80 = {		#North Bucovina
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		82 = {		#Banat
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		83 = {		#Southern Partium
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		84 = {		#South Transylvania
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		917 = {		#Maramures
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		918 = {		#Northern Partium
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		926 = {		#South Bucovina
+			OWNER = {
+				OR = {
+					tag = HUN
+					tag = SOV
+					is_puppet_of = SOV
+					is_puppet_of = HUN
+				}			
+			}
+		}
+		any_country = {
+			OR = {
+				tag = SOV
+				is_puppet_of = SOV
+			}
+			any_owned_state = { has_state_flag = HUN_romanian_partition_to_HUN }
+		}
+		has_global_flag = HUN_SOV_romanian_partition_agreed
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# Of course, we will honor the agreement.
+	option = {
+		name = hungary_flavor_sov.7.a
+		ai_chance = {
+			factor = 95
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = SOV
+					is_puppet_of = SOV
+				}
+			}
+			every_owned_state = {
+				limit = { has_state_flag = HUN_romanian_partition_to_HUN }
+				HUN = { transfer_state = PREV }
+			}
+		}
+	}
+	
+	# On a second thought, we will keep what we have.
+	option = {
+		name = hungary_flavor_sov.7.b
+		ai_chance = {
+			factor = 5
+		}
+		HUN = {
+			add_opinion_modifier = { target = ROOT modifier = HUN_dishonored_partition_agreement }
+			country_event = { id = hungary_flavor.166 }
+		}
+	}
+}
+
+# [HUN.GetName] dishonors partition agreement.
+country_event = {
+	id = hungary_flavor_sov.8
+	title = hungary_flavor_sov.8.t
+	desc = hungary_flavor_sov.8.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# I should have known we couldn't trust them!
+	option = {
+		name = hungary_flavor_sov.8.a
+	}
+}
+
+# [HUN.GetName] seeks support for territorial revision
+country_event = {
+	id = hungary_flavor_sov.9
+	title = hungary_flavor_sov.9.t
+	desc = hungary_flavor_sov.9.d
+	picture = GFX_report_event_HUN_trianon
+	
+	is_triggered_only = yes
+	
+	# They have our support if they don't cross our interests.
+	option = {
+		name = hungary_flavor_sov.9.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				HUN = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.2
+				HUN = { check_variable = { var = HUN_SOV_support value = 1 compare = equals } }
+			}
+			modifier = {
+				factor = 1.4
+				HUN = { check_variable = { var = HUN_SOV_support value = 2 compare = equals } }
+			}
+			modifier = {
+				factor = 1.6
+				HUN = { check_variable = { var = HUN_SOV_support value = 3 compare = equals } }
+			}
+			modifier = {
+				factor = 1.8
+				HUN = { check_variable = { var = HUN_SOV_support value = 4 compare = equals } }
+			}
+			modifier = {
+				factor = 2
+				HUN = { check_variable = { var = HUN_SOV_support value = 5 compare = greater_than_or_equals } }
+			}
+			modifier = {
+				factor = 1.1
+				has_opinion = { target = HUN value > 24 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = HUN value > 49 }
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = HUN_policing_expansion_of_hungary
+			}
+		}
+		HUN = {
+			set_country_flag = HUN_revision_backed_by_SOV
+			country_event = { id = hungary_flavor.239 hours = 4 }
+		}
+	}
+	
+	# They need to be patient. We will liberate them in time.
+	option = {
+		name = hungary_flavor_sov.9.b
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				HUN = { check_variable = { var = HUN_SOV_support value = 0 compare = equals } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { has_opinion = { target = HUN value > -1 } }
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor.240 hours = 4 } }
+	}
+}
+
+# Accidental bombing of Kassa
+country_event = {
+	id = hungary_flavor_sov.10
+	title = hungary_flavor_sov.10.t
+	desc = hungary_flavor_sov.10.d
+	picture = GFX_report_event_ace_died
+	
+	is_triggered_only = yes
+	
+	# We will apologize of course.
+	option = {
+		name = hungary_flavor_sov.10.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				HUN = { NOT = { has_country_flag = HUN_realism } }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = HUN value > 24 }
+			}
+			modifier = {
+				factor = 2
+				has_opinion = { target = HUN value > 49 }
+			}
+		}
+		HUN = {
+			country_event = { id = hungary_flavor.264 hours = 4 }
+		}
+	}
+	
+	# Wars result in casualities. They have to accept that.
+	option = {
+		name = hungary_flavor_sov.10.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				NOT = { has_opinion = { target = HUN value > -1 } }
+			}
+		}
+		add_political_power = -25
+		HUN = {
+			country_event = { id = hungary_flavor.265 hours = 4 }
+		}
+	}
+}
+
+# Romania refuses to surrender Bessarabia
+country_event = {
+	id = hungary_flavor_sov.11
+	title = hungary_flavor_sov.11.t
+	desc = hungary_flavor_sov.11.d
+	picture = GFX_report_event_stalin_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = hungary_flavor_sov.11.a
+		add_state_claim = 766
+		hidden_effect = {
+			SOV = {
+				country_event = { days = 1 id = news.11 }
+			}
+		}
+	}
+}
+
+# Romania refuses to surrender Bessarabia
+country_event = {
+	id = hungary_flavor_sov.12
+	title = hungary_flavor_sov.12.t
+	desc = hungary_flavor_sov.12.d
+	picture = GFX_report_event_stalin_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = hungary_flavor_sov.12.a
+		add_state_claim = 80
+		hidden_effect = {
+			SOV = {
+				country_event = { days = 1 id = news.11 }
+			}
+		}
+	}
+}

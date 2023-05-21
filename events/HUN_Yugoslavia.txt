@@ -1,0 +1,816 @@
+﻿
+add_namespace = hungary_flavor_yug
+
+############
+#YUGOSLAVIA#
+############
+
+# Eternal Friendship with Hungary
+country_event = {
+	id = hungary_flavor_yug.1
+	title = hungary_flavor_yug.1.t
+	desc = hungary_flavor_yug.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Friendship it is.
+	option = {
+		name = hungary_flavor_yug.1.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}		
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}		
+		hidden_effect = { set_country_flag = HUN_YUG_eternal_friendship }
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.55 }
+		}		
+		add_ai_strategy = {
+			type = alliance
+			id = "HUN"
+			value = 200
+		}
+	}
+	
+	#Never.
+	option = {
+		name = hungary_flavor_yug.1.b
+		ai_chance = {
+			factor = 30
+		}
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.56 }
+		}
+	}
+}
+
+# Territorial negotiations with [From.GetName] (HUN/AHU)
+country_event = {
+	id = hungary_flavor_yug.2
+	title = hungary_flavor_yug.2.t
+	desc = hungary_flavor_yug.2.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#We will cede it, as a sign of friendship.
+	option = {
+		name = hungary_flavor_yug.2.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 89 }
+			}
+			modifier = {
+				factor = 1.5
+				is_in_faction_with = FROM
+			}		
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		add_political_power = 100
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.58 }
+			effect_tooltip = {
+				FROM = {
+					transfer_state = 45		#Novi Sad
+					if = { 
+						limit = { ROOT = { owns_state = 911 } }	#Muraköz
+						transfer_state = 911	#Muraköz
+					}
+					add_opinion_modifier = { target = ROOT modifier = HUN_territorial_settlement }
+					reverse_add_opinion_modifier = { target = ROOT modifier = HUN_territorial_settlement }
+				}
+			}
+		}
+	}
+	
+	#That is a line we cannot cross.
+	option = {
+		name = hungary_flavor_yug.2.b
+		ai_chance = {
+			factor = 60
+		}
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.59 }
+			effect_tooltip = {
+				FROM = {
+					add_opinion_modifier = { target = ROOT modifier = HUN_territorial_dispute }
+					reverse_add_opinion_modifier = { target = ROOT modifier = HUN_territorial_dispute }
+				}
+			}
+		}
+	}
+}
+
+# Alliance with [From.GetName] (HUN/AHU)
+country_event = {
+	id = hungary_flavor_yug.3
+	title = hungary_flavor_yug.3.t
+	desc = hungary_flavor_yug.3.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Tighter cooperation is our mutual interest.
+	option = {
+		name = hungary_flavor_yug.3.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				FROM = { is_powerful_or_has_strong_friends_in_europe = yes }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = FROM value > 89 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { has_war = yes }
+			}		
+			modifier = {
+				factor = 10
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.61 }
+			effect_tooltip = { FROM = { add_to_faction = ROOT } }
+		}
+	}
+	
+	#We will keep our distance.
+	option = {
+		name = hungary_flavor_yug.3.b
+		ai_chance = {
+			factor = 50
+		}
+		FROM = {
+			country_event = { hours = 8 id = hungary_flavor.62 }
+		}
+	}
+}
+
+
+
+# Reawakening the Little Entente
+country_event = {
+	id = hungary_flavor_yug.4
+	title = hungary_flavor_yug.4.t
+	desc = {
+		text = hungary_flavor_yug.4.d
+		trigger = { 
+			HUN = { is_ahu = yes }
+		}
+	}
+	desc = {
+		text = hungary_flavor_yug.4.d_2
+		trigger = { 
+			HUN = { is_not_ahu = yes }
+		}
+	}
+	picture = GFX_report_event_little_entente
+	
+	is_triggered_only = yes
+	
+	#We will stand against this outrage together
+	option = {
+		trigger = {
+			is_puppet = no
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = CZE value > 49 }
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = { target = CZE value > 24 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					AND = { 
+						has_government = neutrality
+						CZE = { has_government = neutrality }
+					}
+					AND = { 
+						has_government = democratic
+						CZE = { has_government = democratic }
+					}
+					AND = { 
+						has_government = fascism
+						CZE = { has_government = fascism }
+					}
+					AND = { 
+						has_government = communism
+						CZE = { has_government = communism }
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				AND = {
+					has_government = neutrality
+					CZE = { NOT = { has_government = neutrality } }
+				}
+			}		
+		}
+		name = hungary_flavor_yug.4.a
+		custom_effect_tooltip = hungary_flavor_yug.4.tt
+		hidden_effect = { 
+			CZE = { set_country_flag = little_entente_YUG_plus } 
+			if = { 
+				limit = { CZE = { OR = { has_country_flag = little_entente_ROM_plus has_country_flag = little_entente_ROM_minus } } }
+				CZE = { country_event = { hours = 4 id = hungary_flavor_cze.6 } }
+			}
+		}
+	}
+	
+	#Tell them to leave us out of their petty alliance
+	option = {
+		ai_chance = {
+			factor = 60	
+			modifier = {
+				factor = 2
+				has_country_flag = HUN_YUG_eternal_friendship
+			}	
+			modifier = {
+				factor = 2
+				is_in_faction = yes
+			}
+			modifier = {
+				factor = 10
+				is_in_faction_with = HUN
+			}		
+		}
+		name = hungary_flavor_yug.4.b
+		hidden_effect = { 
+			CZE = { set_country_flag = little_entente_YUG_minus } 
+			if = { 
+				limit = { CZE = { OR = { has_country_flag = little_entente_ROM_plus has_country_flag = little_entente_ROM_minus } } }
+				CZE = { country_event = { hours = 4 id = hungary_flavor_cze.6 } }
+			}
+		}
+	}
+}
+
+# The Visegrád Group (triggered by Hungarian focus)
+country_event = {
+	id = hungary_flavor_yug.5
+	title = hungary_flavor_yug.5.t
+	desc = hungary_flavor_yug.5.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Sounds like a deal.
+	option = {
+		name = hungary_flavor_yug.5.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				CZE = { has_country_flag = HUN_visegrad_group_member } 
+			}
+			modifier = {
+				factor = 1.25
+				POL = { has_country_flag = HUN_visegrad_group_member } 
+			}
+			modifier = {
+				factor = 1.2
+				has_government = neutrality
+			}
+			modifier = {
+				factor = 1.5
+				has_government = democratic
+			}		
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		custom_effect_tooltip = HUN_will_be_invited_into_visegrad_group
+		set_country_flag = HUN_visegrad_group_member
+		hidden_effect = { FROM = { country_event = { hours = 8 id = hungary_flavor.109 } } }
+	}
+	
+	#We will take no part in this.
+	option = {
+		name = hungary_flavor_yug.5.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				is_in_faction = yes
+			}
+		}
+		FROM = { country_event = { hours = 8 id = hungary_flavor.110 } }
+	}
+}
+
+# Hungary wants to settle border issue
+country_event = {
+	id = hungary_flavor_yug.6
+	title = hungary_flavor_yug.6.t
+	desc = hungary_flavor_yug.6.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#We can cut a deal with them.
+	option = {
+		name = hungary_flavor_yug.6.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				is_in_faction_with = FROM
+			}
+			modifier = {
+				factor = 2
+				has_country_flag = HUN_YUG_eternal_friendship
+			}		
+			modifier = {
+				factor = 2
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		add_political_power = 50
+		add_timed_idea = { idea = reparations_from_hungary days = 365 }
+		FROM = {
+			effect_tooltip = {
+				transfer_state = 45 	#Novi Sad
+				transfer_state = 912 	#Muraköz
+				add_opinion_modifier = { target = ROOT modifier = HUN_territorial_settlement }
+			}
+			country_event = { hours = 4 id = hungary_flavor.111 } 
+		}
+	}
+	
+	#We can give some concessions.
+	option = {
+		name = hungary_flavor_yug.6.b
+		ai_chance = {
+			factor = 25
+		}
+		add_political_power = 15
+		FROM = { 
+			effect_tooltip = { transfer_state = 912 }	#Muraköz
+			country_event = { hours = 4 id = hungary_flavor.112 } 
+		}
+	}
+	
+	#The borders are not up for debate.
+	option = {
+		name = hungary_flavor_yug.6.c
+		ai_chance = {
+			factor = 15
+		}
+		FROM = { country_event = { hours = 4 id = hungary_flavor.113 } }
+	}
+}
+
+# Backing Yugoslavia against Germany (event for faction leader, when Germany demands Slovenia)
+country_event = {
+	id = hungary_flavor_yug.7
+	title = hungary_flavor_yug.7.t
+	desc = hungary_flavor_yug.7.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We stand with our allies.
+	option = {
+		name = hungary_flavor_yug.7.a
+		ai_chance = {
+			factor = 70
+		}
+		YUG = { country_event = { hours = 2 id = hungary_flavor_yug.8 } }
+	}
+	
+	# Sadly, we can not help them
+	option = {
+		name = hungary_flavor_yug.7.b
+		ai_chance = {
+			factor = 30
+		}
+		remove_from_faction = YUG
+		add_political_power = -100
+		YUG = { country_event = { hours = 2 id = hungary_flavor_yug.9 } }
+	}
+}
+
+# [FROM.GetName] protects us (event for Yugoslavia, if faction leader refuses German demand for Slovenia)
+country_event = {
+	id = hungary_flavor_yug.8
+	title = hungary_flavor_yug.8.t
+	desc = hungary_flavor_yug.8.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	# We still have to prepare to defend ourselves.
+	option = {
+		name = hungary_flavor_yug.8.a
+		GER = {
+			country_event = germany.95 #Germany gains wargoal
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = YUG
+					generator = { 102 }
+					expire = 0
+				}
+			}
+		}
+	}
+}
+
+# [FROM.GetName] abandons us (event for Yugoslavia, if faction leader ignores German demand for Slovenia)
+country_event = {
+	id = hungary_flavor_yug.9
+	title = hungary_flavor_yug.9.t
+	desc = hungary_flavor_yug.9.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { add_opinion_modifier = { target = FROM modifier = HUN_abandoned } }
+	}
+	
+	# We have no other choice, than to submit
+	option = {
+		name = hungary_flavor_yug.9.a
+		ai_chance = {
+			factor = 90
+			modifier = { # Decrease chance YUG resists if AUS isn't taken first
+				AUS = { exists = yes }
+				factor = 0.5
+			}
+			modifier = { # If they stand a chance to hold the line they will fight
+				factor = 0.1
+				strength_ratio = {
+					tag = GER
+					ratio > 0.70
+				}
+			}
+			modifier = { #disable if in faction
+				factor = 0
+				is_in_faction = yes
+			}
+			modifier = { # Increase it again if other bordering nations are in Axis
+				any_neighbor_country = {
+					NOT = { tag = GER }
+					is_in_faction_with = GER
+				}
+				factor = 2.0
+			}
+		}
+		GER = { country_event = germany.94 } #Germany gets Slovenia
+	}
+	# We will stand and fight, even if alone!
+	option = {
+		name = hungary_flavor_yug.9.b
+		ai_chance = { factor = 10 }
+		GER = {
+			country_event = germany.95 #Germany gains wargoal
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = YUG
+					generator = { 102 }
+					expire = 0
+				}
+			}
+		}
+	}
+}
+
+# Hungarian demands
+country_event = {
+	id = hungary_flavor_yug.10
+	title = hungary_flavor_yug.10.t
+	desc = hungary_flavor_yug.10.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	# We must submit and hope for a peaceful outcome.
+	option = {
+		name = hungary_flavor_yug.10.a
+		ai_chance = {
+			factor = 80
+			modifier = { # If they stand a chance to hold the line they will fight
+				factor = 0.3
+				strength_ratio = {
+					tag = HUN
+					ratio > 0.70
+				}
+			}
+			modifier = { # Reduce chance of submitting if in faction
+				factor = 0.8
+				is_in_faction = yes
+			}
+			modifier = { # Increase it again if other bordering nations are in faction with Hungary
+				any_neighbor_country = {
+					NOT = { tag = HUN }
+					is_in_faction_with = HUN
+				}
+				factor = 2.0
+			}
+			modifier = { 
+				HUN = { NOT = { has_country_flag = HUN_realism } }
+				factor = 2.0
+			}
+		}
+		HUN = { country_event = { id = hungary_flavor_partition.10 } } #Partition starts
+	}
+	# We shall never back down!
+	option = {
+		name = hungary_flavor_yug.10.b
+		ai_chance = { factor = 20 }
+		HUN = {
+			country_event = { id = hungary_flavor.199 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = YUG
+					expire = 0
+				}
+			}
+		}
+	}
+}
+
+# Pressure from Hungary and Italy
+country_event = {
+	id = hungary_flavor_yug.11
+	title = hungary_flavor_yug.11.t
+	desc = hungary_flavor_yug.11.d
+	picture = GFX_report_event_yugoslavian_partition
+	
+	is_triggered_only = yes
+	
+	# Do we even have a choice here?
+	option = {
+		name = hungary_flavor_yug.11.a
+		ai_chance = {
+			factor = 60
+			modifier = { # If they stand a chance to hold the line they will fight
+				factor = 0.3
+				strength_ratio = {
+					tag = ITA
+					ratio > 0.80
+				}
+			}
+			modifier = { # Reduce chance of submitting if in faction
+				factor = 0.8
+				is_in_faction = yes
+			}
+			modifier = { # Increase it again if other bordering nations are in faction with Hungary
+				any_neighbor_country = {
+					NOT = { tag = HUN }
+					NOT = { tag = ITA }
+					OR = {
+						is_in_faction_with = HUN
+						is_in_faction_with = ITA
+					}
+				}
+				factor = 2.0
+			}
+			modifier = { 
+				HUN = { NOT = { has_country_flag = HUN_realism } }
+				factor = 2.0
+			}
+		}
+		HUN = {
+			country_event = { hours = 1 id = hungary_flavor.222 }
+			effect_tooltip = {
+				if = {
+					limit = { YUG = { owns_state = 109 } }
+					transfer_state = 109	#Slavonia
+				}
+				if = {
+					limit = { YUG = { owns_state = 910 } }
+					transfer_state = 910	#Torontal
+				}
+				if = {
+					limit = { YUG = { owns_state = 911 } }
+					transfer_state = 911	#Srem
+				}
+				if = {
+					limit = { YUG = { owns_state = 915 } }
+					transfer_state = 915	#Croatia
+				}
+				if = {
+					limit = { YUG = { owns_state = 921 } }
+					transfer_state = 921	#Lika
+				}
+				if = {
+					limit = { YUG = { owns_state = 103 } }
+					transfer_state = 103	#Dalmatia
+				}
+				if = {
+					limit = { YUG = { owns_state = 923 } }
+					transfer_state = 923	#Pag
+				}
+				if = {
+					limit = { YUG = { owns_state = 912 } }
+					transfer_state = 912	#Muraköz
+				}
+				if = {
+					limit = { YUG = { owns_state = 45 } }
+					transfer_state = 45	#Backa
+				}
+			}
+		}
+		ITA = {
+			country_event = { hours = 3 id = hungary_flavor_ita.15 }
+			effect_tooltip = {
+				if = {
+					limit = { YUG = { owns_state = 102 } }
+					transfer_state = 102	#Slovenia
+				}
+				if = {
+					limit = { YUG = { owns_state = 853 } }
+					transfer_state = 853	#Ljubljana
+				}
+				if = {
+					limit = { has_dlc = "Together for Victory" }
+					set_autonomy = {
+						target = YUG
+						autonomous_state = autonomy_dominion
+						freedom_level = 0.5
+					}
+					else = { puppet = YUG }
+				}
+			}
+		}
+		BUL = {
+			if = {
+				limit = { has_country_flag = HUN_participating_in_badoglio_plan }
+				country_event = { hours = 5 id = hungary_flavor_bul.8 }
+				effect_tooltip = {
+					if = {
+						limit = { YUG = { owns_state = 106 } }
+						transfer_state = 106	#Macedonia
+					}
+					if = {
+						limit = { YUG = { owns_state = 803 } }
+						transfer_state = 803	#Southern Serbia
+					}
+				}
+			}
+		}
+		news_event = { id = hun_news.45 }
+	}
+	# We will fight them if we have to.
+	option = {
+		name = hungary_flavor_yug.11.b
+		ai_chance = { factor = 40 }
+		HUN = {
+			country_event = { id = hungary_flavor.223 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = YUG
+					generator = { 45 109 910 911 915 621 }
+					expire = 0
+				}
+			}
+		}
+		ITA = {
+			country_event = { id = hungary_flavor_ita.16 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = YUG
+					generator = { 102 103 805 802 915 }
+					expire = 0
+				}
+			}
+		}
+		BUL = {
+			if = {
+				limit = { has_country_flag = HUN_participating_in_badoglio_plan }
+				country_event = { id = hungary_flavor_bul.9 }
+				effect_tooltip = {
+					create_wargoal = {
+						type = take_state_focus
+						target = YUG
+						generator = { 106 803 }
+						expire = 0
+					}
+				}
+			}
+		}
+	}
+}
+#non agression pact - Nagy Imre
+country_event = {
+	id = hungary_flavor_yug.12
+	title = hungary_flavor_yug.12.t
+	desc = hungary_flavor_yug.12.desc
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+	
+	option = {
+		name = hungary_flavor_yug.12.b
+		ai_chance = {
+			factor = 50
+		}
+		FROM = { country_event = { hours = 6 id =  hungary_flavor.300 } }
+	}
+
+	option = {
+		name = hungary_flavor_yug.12.a
+		ai_chance = {
+			factor = 50
+		}
+		FROM = { country_event = { hours = 6 id =  hungary_flavor.307 } }
+		diplomatic_relation = { 
+				country = HUN 
+				relation = non_aggression_pact
+				relation = guarantee
+			}
+		}
+	}
+
+#Nagy Imre take back south
+country_event = {
+	id = hungary_flavor_yug.13
+	title = hungary_flavor_yug.13.t
+	desc = hungary_flavor_yug.13.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	#Allow the referendum.
+	option = {
+		name = hungary_flavor_yug.13.a
+		ai_chance = {
+			factor = 65		
+		}
+		HUN = { country_event = { hours = 8 id = hungary_flavor.299 } }
+		effect_tooltip = {
+			HUN = {
+				if = {
+					limit = { has_country_flag = HUN_realism }
+					random_list = { 
+						50 = { 
+							transfer_state = 912		#prekmurje
+							add_state_core = 912		#prekmurje
+							transfer_state = 45		    #backa
+							add_state_core = 45		    #backa
+							transfer_state = 910		#torontal
+							add_state_core = 910		#torontal		
+							add_war_support = -0.02
+						} 
+						50 = { }
+					}
+					else = {
+						transfer_state = 912		#prekmurje
+						add_state_core = 912		#prekmurje
+						transfer_state = 45		    #backa
+						add_state_core = 45		    #backa
+						transfer_state = 910		#torontal
+						add_state_core = 910		#torontal
+						add_war_support = -0.02
+					}
+				}
+			}
+		}
+	}
+	
+	#Never
+	option = {
+		name = hungary_flavor_yug.13.b
+		ai_chance = {
+			factor = 35		
+			modifier = {
+				factor = 0
+				FROM = { NOT = { has_country_flag = HUN_realism } }
+			}
+		}
+		FROM = { country_event = { hours = 6 id = hungary_flavor.301 } }
+	}
+}

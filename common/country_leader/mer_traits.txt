@@ -1,0 +1,78 @@
+leader_traits = {
+
+	minister_of_the_interior = {
+		random = no
+		political_power_factor = 0.15
+		political_advisor_cost_factor = -0.25
+		add_power_balance_modifier = { AUS_nazi_sympathiser }
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	foreign_minister_of_austria = {
+		random = no
+		fascism_acceptance = 50
+		improve_relations_maintain_cost_factor = -0.5
+		opinion_gain_monthly_same_ideology = 5
+		add_power_balance_modifier = { AUS_nazi_sympathiser_modifier }
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	president_of_austria = {
+		random = no
+		stability_factor = 0.05
+		trade_laws_cost_factor = -0.20
+		mobilization_laws_cost_factor = -0.20
+		economy_cost_factor = -0.20
+		high_command_cost_factor = -0.20
+		air_chief_cost_factor = -0.20
+		army_chief_cost_factor = -0.20
+		navy_chief_cost_factor = -0.20
+	}
+	
+	stalinist_journalist = {
+		random = no
+		communism_drift = 0.05
+		political_power_factor = 0.05
+		stability_factor = 0.1
+
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	
+	communist_recruiter = {
+		random = no
+		communism_drift = 0.05
+		stability_factor = -0.1
+		war_support_factor = 0.1
+		conscription_factor = 0.1
+	}
+	
+	bildungsreferent = {
+		random = no
+		communism_drift = 0.02
+		research_speed_factor = 0.1
+	}
+	
+	social_economist = {
+		random = no
+		communism_drift = 0.03
+		production_factory_max_efficiency_factor = 0.05
+		consumer_goods_factor = -0.025
+		offensive_war_stability_factor = -0.15
+	}
+	
+	austrian_tenacity = {
+		random = no
+		political_power_gain = 0.1
+		#army_org_factor = 0.1
+		#army_org_regain = 0.05
+	}
+	
+}
