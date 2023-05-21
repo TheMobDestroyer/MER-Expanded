@@ -60,7 +60,6 @@ on_actions = {
 	#Not run on a specific country.
 	on_startup = {
 		effect = {
-			HUN = { country_event = { id = hungary_flavor.1 } }			#Welcome event (decide between realistic and non-realistic version)
 			HUN = { country_event = { id = hun_news.26 days = 280 } }	#Event for the death of Gyula Gömbös
 			HUN = { country_event = { id = hun_news.22 days = 4457 } }	#Event for the 100th anniversary of the 1848 revolution (event checks whether HUN is not AHU before actually firing)
 			

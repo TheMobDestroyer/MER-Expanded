@@ -2029,6 +2029,7 @@
 		cost = 10
 		prerequisite = { focus = AUS_reinstate_habsburg_lorraine }
 		allow_branch = { 
+			always = no
 			NOT = { 
 				has_completed_focus = AUS_strengthen_fatherland_front 
 				has_completed_focus = AUS_deradicalise_regime
