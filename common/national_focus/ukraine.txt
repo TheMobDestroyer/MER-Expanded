@@ -1,0 +1,472 @@
+
+focus_tree = {
+	id = ukraine_breakaway_focus
+	
+	country = {
+		factor = 0
+	}
+	
+	default = no
+
+    continuous_focus_position = { x = 0 y = 1250 }
+
+    shared_focus = BREAKAWAY_modernize_army
+    shared_focus = BREAKWAY_aviation_effort
+    shared_focus = BREAKAWAY_industrial_effort
+
+    focus = {
+        id = UKR_slava_ukraini
+        icon = GFX_goal_generic_demand_territory
+        x = 14
+        y = 0
+        cost = 5
+
+        completion_reward = {
+            add_political_power = 120
+            add_ideas = UKR_slava_ukraini
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_remember_the_holodomor
+        icon = GFX_focus_attack_soviet
+        y = 1
+        cost = 10
+        prerequisite = { focus = UKR_slava_ukraini }
+        relative_position_id = UKR_slava_ukraini
+
+        completion_reward = {
+            add_war_support = 0.15
+            add_ideas = UKR_remember_the_holodomor
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_securing_the_provisional_government
+        icon = GFX_goal_generic_improve_relations
+        x = -2
+        y = 1
+        cost = 10
+        prerequisite = { focus = UKR_remember_the_holodomor }
+        relative_position_id = UKR_remember_the_holodomor
+
+        completion_reward = {
+            add_political_power = 100
+            add_stability = 0.10
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_anti_stalinist_purge
+        icon = GFX_goal_anti_comintern_pact
+        y = 1
+        cost = 10
+        prerequisite = { focus = UKR_securing_the_provisional_government }
+        relative_position_id = UKR_securing_the_provisional_government
+
+        completion_reward = {
+            add_popularity = {
+                ideology = communism
+                popularity = -0.5
+            }
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_return_of_the_exiles
+        icon = GFX_focus_POL_ukrainian_army
+        y = 1
+        cost = 10
+        prerequisite = { focus = UKR_anti_stalinist_purge }
+        relative_position_id = UKR_anti_stalinist_purge
+
+        completion_reward = {
+            add_political_power = 100
+            add_timed_idea = {
+                idea = BREAKAWAY_return_of_exile_government
+                days = 180
+            }
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_military_academy
+        icon = GFX_focus_generic_military_academy
+        y = 1
+        cost = 10
+        prerequisite = { focus = UKR_remember_the_holodomor }
+        relative_position_id = UKR_remember_the_holodomor
+
+        completion_reward = {
+            add_ideas = UKR_military_academy
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_the_dnieper_line
+        icon = GFX_goal_fortify_the_westwall
+        y = 1
+        cost = 10
+        prerequisite = { focus = UKR_military_academy }
+        relative_position_id = UKR_military_academy
+
+        available = {
+			#WIP
+        }
+
+        completion_reward = {
+			#WIP, ostwall but 3 levels and 4 levels for major cities
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+	focus = {
+        id = UKR_infrastructure_effort
+		text = infrastructure_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = UKR_the_dnieper_line }
+		x = 0
+		y = 1
+		relative_position_id = UKR_the_dnieper_line
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+        ai_will_do = {
+            factor = 10
+        }
+	}
+
+    focus = {
+        id = UKR_diaspora
+        icon = GFX_focus_generic_manpower
+        x = 2
+        y = 1
+        cost = 5
+        prerequisite = { focus = UKR_remember_the_holodomor }
+        relative_position_id = UKR_remember_the_holodomor
+
+        completion_reward = {
+            add_timed_idea = {
+                idea = UKR_diaspora
+                days = 360
+            }
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_mending_ties_with_POL
+        icon = GFX_focus_generic_polish_deal
+        y = 1
+        cost = 5
+        prerequisite = { focus = UKR_diaspora }
+        relative_position_id = UKR_diaspora
+
+        completion_reward = {
+			add_ai_strategy = {
+				type = alliance
+				id = POL
+				value = 200
+			}
+			POL = {
+				add_ai_strategy = {
+					type = alliance
+					id = UKR
+					value = 200
+				}
+				add_ai_strategy = {
+					type = protect
+					id = UKR
+					value = 200
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_helping_out_BLR
+        icon = GFX_goal_generic_dangerous_deal
+        y = 1
+        cost = 5
+        prerequisite = { focus = UKR_mending_ties_with_POL }
+        relative_position_id = UKR_mending_ties_with_POL
+
+        completion_reward = {
+			if = {
+				limit = {
+					NOT = { SOV = { has_country_flag = blr_uprising_flag } }
+				}
+				custom_effect_tooltip = UKR_helping_out_BLR_tt
+				set_global_flag = UKR_helping_out_BLR
+				hidden_effect = {
+					add_opinion_modifier = {
+						target = BLR
+						modifier = UKR_helping_out_BLR
+					}
+					reverse_add_opinion_modifier = {
+						target = BLR
+						modifier = UKR_helping_out_BLR
+					}
+				}
+			}
+			else = {
+				add_opinion_modifier = {
+					target = BLR
+					modifier = UKR_helping_out_BLR
+				}
+				reverse_add_opinion_modifier = {
+					target = BLR
+					modifier = UKR_helping_out_BLR
+				}
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = BLR
+				value = 200
+			}
+			POL = {
+				add_ai_strategy = {
+					type = alliance
+					id = BLR
+					value = 200
+				}
+				add_ai_strategy = {
+					type = protect
+					id = BLR
+					value = 200
+				}
+			}
+			BLR = {
+				add_ai_strategy = {
+					type = alliance
+					id = UKR
+					value = 200
+				}
+				add_ai_strategy = {
+					type = alliance
+					id = POL
+					value = 200
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_seeking_support_from_the_league
+        icon = GFX_focus_generic_league_of_nations
+		x = 1
+        y = 1
+        cost = 5
+        prerequisite = { focus = UKR_return_of_the_exiles }
+        prerequisite = { focus = UKR_infrastructure_effort }
+        prerequisite = { focus = UKR_helping_out_BLR }
+		mutually_exclusive = { focus = UKR_recognition_outside_the_league }
+        relative_position_id = UKR_return_of_the_exiles
+
+        completion_reward = {
+			hidden_effect = {
+				set_temp_variable = { LON_members_temp = 0 }
+	 			every_country = {
+	 				limit = { 
+	 					is_league_of_nations_member = yes 
+	 				}
+					add_to_temp_variable = { LON_members_temp = 1 }
+	 			}
+				set_variable = { global.LON_members = LON_members_temp }
+				set_variable = { global.LON_members_necessary_for_recognition = global.LON_members }
+				divide_variable = { global.LON_members_necessary_for_recognition = 3 }
+				multiply_variable = { global.LON_members_necessary_for_recognition = 2 }
+				set_variable = { global.LON_members_in_favor_of_recognition = 0 }
+				set_variable = { global.LON_members_against_recognition = 0 }
+				round_variable = global.LON_members_necessary_for_recognition
+	 			every_country = {
+	 				limit = { 
+	 					is_league_of_nations_member = yes 
+	 				}
+	 				country_event = {
+	 					id = sfste_nsbreakaways.4
+	 					hours = 48
+	 					random_days = 12
+	 				}
+	 			}
+	 		}
+ 			effect_tooltip = {
+				custom_effect_tooltip = every_league_of_nations_member_tt
+				country_event = {
+ 					id = sfste_nsbreakaways.4
+ 				}
+			}
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = UKR_recognition_outside_the_league
+        icon = GFX_focus_generic_diplomatic_treaty
+		x = 1
+        y = 1
+        cost = 5
+        prerequisite = { focus = UKR_return_of_the_exiles }
+        prerequisite = { focus = UKR_infrastructure_effort }
+        prerequisite = { focus = UKR_helping_out_BLR }
+		mutually_exclusive = { focus = UKR_seeking_support_from_the_league }
+        relative_position_id = UKR_infrastructure_effort
+
+        completion_reward = {
+			every_other_country = {
+				limit = {
+					is_major = yes
+					is_league_of_nations_member = no
+					NOT = { original_tag = SOV }
+				}
+			}
+			
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+
+    focus = {
+        id = UKR_the_end_of_our_struggle
+        icon = GFX_goal_generic_demand_territory
+        y = 2
+        cost = 5
+        prerequisite = { focus = UKR_seeking_support_from_the_league focus = UKR_recognition_outside_the_league }
+        relative_position_id = UKR_infrastructure_effort
+
+		available = {
+			NOT = {
+				any_enemy_country = {
+					original_tag = SOV
+				}
+			}
+		}
+
+        completion_reward = {
+            add_political_power = 125
+            add_stability = 0.05
+            hidden_effect = {
+                set_country_flag = unlocked_other_focuses
+            }
+            unlock_decision_category_tooltip = BREAKAWAY_erase_russian_ideals
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+}

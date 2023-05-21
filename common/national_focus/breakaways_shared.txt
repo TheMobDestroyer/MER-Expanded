@@ -1,0 +1,736 @@
+    shared_focus = {
+		id = BREAKAWAY_modernize_army
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 0
+		cost = 10
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		available = {
+			if = {
+				limit = {
+					tag = UKR
+				}
+				has_completed_focus = UKR_military_academy
+				has_completed_focus = UKR_the_end_of_our_struggle
+			}
+			else = {
+				has_completed_focus = BREAKAWAY_establish_army
+				has_completed_focus = BREAKAWAY_end_of_civil_war
+			}
+		}
+
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_equipment_effort
+        text = equipment_effort
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = BREAKAWAY_modernize_army }
+		x = -1
+		y = 1
+		relative_position_id = BREAKAWAY_modernize_army
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_motorization_effort
+        text = motorization_effort
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = BREAKAWAY_modernize_army }
+		bypass = { has_tech = motorised_infantry }
+		x = 1
+		y = 1
+		relative_position_id = BREAKAWAY_modernize_army
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 3.0
+				technology = motorised_infantry
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_doctrine_effort
+        text = doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = BREAKAWAY_modernize_army }
+		x = 0
+		y = 2
+		relative_position_id = BREAKAWAY_modernize_army
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_equipment_effort_2
+        text = equipment_effort_2
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = BREAKWAY_equipment_effort }
+		x = 0
+		y = 2
+		relative_position_id = BREAKWAY_equipment_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_mechanization_effort
+        text = mechanization_effort
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = BREAKWAY_motorization_effort }
+		x = 0
+		y = 2
+		relative_position_id = BREAKWAY_motorization_effort
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_doctrine_effort_2
+        text = doctrine_effort_2
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = BREAKWAY_doctrine_effort }
+		x = 0
+		y = 2
+		relative_position_id = BREAKWAY_doctrine_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_equipment_effort_3
+        text = equipment_effort_3
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = BREAKWAY_equipment_effort_2 }
+		x = 0
+		y = 2
+		relative_position_id = BREAKWAY_equipment_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_armor_effort
+        text = armor_effort
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = BREAKWAY_mechanization_effort }
+		x = 0
+		y = 2
+		relative_position_id = BREAKWAY_mechanization_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_special_forces
+		text = special_forces
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = BREAKWAY_equipment_effort_3 }
+		prerequisite = { focus = BREAKWAY_doctrine_effort_2 }
+		prerequisite = { focus = BREAKWAY_armor_effort }
+		x = 1
+		y = 1
+		relative_position_id = BREAKWAY_equipment_effort_3
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_guerilla_resistance
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = BREAKWAY_special_forces }
+		y = 1
+		relative_position_id = BREAKWAY_special_forces
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BREAKWAY_guerilla_resistance
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		x = 5
+		y = 0
+		cost = 10
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+		available = {
+			if = {
+				limit = {
+					tag = UKR
+				}
+				has_completed_focus = UKR_military_academy
+				has_completed_focus = UKR_the_end_of_our_struggle
+			}
+			else = {
+				has_completed_focus = BREAKAWAY_establish_army
+				has_completed_focus = BREAKAWAY_end_of_civil_war
+			}
+		}
+
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_fighter_focus
+        text = fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = BREAKWAY_aviation_effort }
+		mutually_exclusive = { focus = BREAKWAY_bomber_focus }
+		x = -1
+		y = 1
+		relative_position_id = BREAKWAY_aviation_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_bomber_focus
+        text = bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = BREAKWAY_aviation_effort }
+		mutually_exclusive = { focus = BREAKWAY_fighter_focus }
+		x = 1
+		y = 1
+		relative_position_id = BREAKWAY_aviation_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_aviation_effort_2
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = BREAKWAY_bomber_focus focus = BREAKWAY_fighter_focus }
+		x = -1
+		y = 1
+		relative_position_id = BREAKWAY_bomber_focus
+		cost = 10
+
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name =  air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							NOT = { is_controlled_by = ROOT }
+							NOT = {
+								free_building_slots = {
+									building = air_base
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name =  air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_CAS_effort
+        text = CAS_effort
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = BREAKWAY_aviation_effort_2 }
+		prerequisite = { focus = BREAKWAY_motorization_effort }
+		x = -1
+		y = 1
+		relative_position_id = BREAKWAY_aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+
+	shared_focus = {
+		id = BREAKWAY_rocket_effort
+        text = rocket_effort
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = BREAKWAY_aviation_effort_2 }
+		x = 0
+		y = 2
+		relative_position_id = BREAKWAY_aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 2
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+	shared_focus = {
+        id = BREAKAWAY_industrial_effort
+		icon = GFX_goal_generic_production
+		x = 9
+		y = 0
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		available = {
+			if = {
+				limit = {
+					tag = UKR
+				}
+				has_completed_focus = UKR_the_end_of_our_struggle
+			}
+			else = {
+				has_completed_focus = BREAKAWAY_end_of_civil_war
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	shared_focus = {
+		id = BREAKAWAY_request_russian_investment
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = BREAKAWAY_industrial_effort }
+		mutually_exclusive = { focus = BREAKAWAY_our_own_industry }
+		x = -1
+		y = 1
+		relative_position_id = BREAKAWAY_industrial_effort
+		cost = 20
+
+		available = {
+			has_country_flag = russian_ally
+		}
+
+		completion_reward = {
+			SOV = { country_event = sfste_nsbreakaways.2 }
+		}
+
+		ai_will_do = {
+			factor = 7
+		}
+	}
+	shared_focus = {
+		id = BREAKAWAY_our_own_industry
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BREAKAWAY_industrial_effort }
+		mutually_exclusive = { focus = BREAKAWAY_request_russian_investment }
+		x = 1
+		y = 1
+		relative_position_id = BREAKAWAY_industrial_effort
+		cost = 20
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+            random_owned_controlled_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 2
+                        include_locked = yes
+                    }
+                    OR = {
+                        is_in_home_area = yes
+                        NOT = {
+                            owner = {
+                                any_owned_state = {
+                                    free_building_slots = {
+                                        building = industrial_complex
+                                        size > 0
+                                        include_locked = yes
+                                    }
+                                    is_in_home_area = yes
+                                }
+                            }
+                        }
+                    }
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 3
+                    instant_build = yes
+                }
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    free_building_slots = {
+                    	building = arms_factory
+                        size > 2
+                        include_locked = yes
+                    }
+                    OR = {
+                        is_in_home_area = yes
+                        NOT = {
+                            owner = {
+                                any_owned_state = {
+                                    free_building_slots = {
+                                        building = arms_factory
+                                        size > 0
+                                        include_locked = yes
+                                    }
+                                    is_in_home_area = yes
+                                }
+                            }
+                        }
+                    }
+                }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 3
+                    instant_build = yes
+                }
+            }
+		}
+
+		ai_will_do = {
+			factor = 6
+		}
+	}

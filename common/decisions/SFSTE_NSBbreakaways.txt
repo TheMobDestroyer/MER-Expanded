@@ -1,0 +1,358 @@
+political_actions = {
+
+    SFSTE_KAR_finnish_help = {
+
+        icon = generic_prepare_civil_war
+
+        visible = {
+            original_tag = KAR
+            NOT = { has_global_flag = SOV_soviet_civil_war_over }
+            OR = {
+                has_war_with = SOS
+                has_war_with = SOV
+            }
+        }
+        fire_only_once = yes
+
+        complete_effect = {
+            FIN = { country_event = sfste_nsbreakaways.1 }
+            hidden_effect = {
+                add_ai_strategy = {
+                    type = befriend
+                    id = FIN
+                    value = 500
+                }
+            }
+        }
+
+        ai_will_do = {
+            factor = 50
+        }
+    }
+
+    SFSTE_AZR_turkish_help = {
+
+        icon = generic_prepare_civil_war
+
+        visible = {
+            original_tag = AZR
+            NOT = { has_global_flag = SOV_soviet_civil_war_over }
+            OR = {
+                has_war_with = SOS
+                has_war_with = SOV
+            }
+        }
+        fire_only_once = yes
+
+        complete_effect = {
+            TUR = { country_event = sfste_nsbreakaways.3 }
+            hidden_effect = {
+                add_ai_strategy = {
+                    type = befriend
+                    id = AZR
+                    value = 500
+                }
+            }
+        }
+
+        ai_will_do = {
+            factor = 50
+        }
+    }
+
+    SFSTE_POL_support_ruthenian_uprisings = {
+
+        icon = generic_prepare_civil_war
+
+        visible = {
+            original_tag = POL
+            SOV = { has_completed_focus = SOV_beaten_but_not_defeated }
+            NOT = { 
+                has_global_flag = SOV_soviet_civil_war_over 
+                AND = {
+                    has_country_flag = ukr_uprising_flag
+					has_country_flag = blr_uprising_flag
+                }
+            }
+        }
+
+        fire_only_once = yes
+
+        complete_effect = {
+            custom_effect_tooltip = POL_ruth_support_tt
+            hidden_effect = {
+                set_global_flag = POL_ruth_support
+				add_ai_strategy = {
+					type = support
+					id = UKR
+					value = 100
+				}
+				add_ai_strategy = {
+					type = support
+					id = BLR
+					value = 100
+				}
+            }
+        }
+
+        ai_will_do = {
+            factor = 50
+        }
+    }
+
+    SFSTE_use_POL_funds_UKR = {
+
+        name = SFSTE_use_POL_funds
+
+        icon = generic_prepare_civil_war
+
+        visible = {
+            original_tag = UKR
+            has_global_flag = POL_ruth_support
+            NOT = { 
+                has_global_flag = SOV_soviet_civil_war_over 
+            }
+        }
+
+        fire_only_once = yes
+
+        days_remove = 180
+
+        complete_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = 2
+            }
+            POL = {
+                add_timed_idea = {
+                    idea = SFSTE_POL_funding_UKR
+                    days = 180
+                }
+            }
+        }
+
+        remove_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = -2
+            }
+        }
+
+        ai_will_do = {
+            factor = 50
+        }
+    }
+
+    SFSTE_use_POL_funds_BLR = {
+
+        name = SFSTE_use_POL_funds
+
+        icon = generic_prepare_civil_war
+
+        visible = {
+            original_tag = BLR
+            has_global_flag = POL_ruth_support
+            NOT = { has_global_flag = SOV_soviet_civil_war_over }
+        }
+
+        fire_only_once = yes
+
+        days_remove = 180
+
+        complete_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = 2
+            }
+            POL = {
+                add_timed_idea = {
+                    idea = SFSTE_POL_funding_BLR
+                    days = 180
+                }
+            }
+        }
+
+        remove_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = -2
+            }
+        }
+
+        ai_will_do = {
+            factor = 50
+        }
+    }
+
+    SFSTE_activate_protectorate_treaty = {
+
+        icon = generic_prepare_civil_war
+
+        visible = {
+            if = {
+                limit = {
+                    NOT = { tag = KAR }
+                }
+                has_completed_focus = BREAKAWAY_protectorate_treaty
+                is_in_faction = no
+                has_war_with = SOS
+                NOT = { has_war_with = SOP }
+            }
+            if = {
+                limit = {
+                    tag = KAR
+                }
+                NOT = { 
+                    has_war_with = FIN 
+                    FIN = { 
+                        has_capitulated = yes 
+                        is_subject = yes
+                    }
+                }
+            }
+        }
+
+        fire_only_once = yes
+        
+
+        complete_effect = {
+            if = {
+                limit = {
+                    NOT = {
+                        tag = BUK
+                        tag = KHI
+                    }
+                    set_temp_variable = {
+                        var = protectorate_democratic_var
+                        value = party_popularity@democratic
+                    }
+                }
+                else = {
+                    set_temp_variable = {
+                        var = protectorate_democratic_var
+                        value = 0
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    tag = KAR
+                }
+			    FIN = { puppet = ROOT }
+                else = {
+                    SOV = { puppet = ROOT }
+                }
+            }
+            hidden_effect = {
+                set_political_party = {
+                    ideology = neutrality
+                    popularity = 100
+                }
+                add_popularity = {
+                    ideology = democratic
+                    popularity = protectorate_democratic_var
+                }
+            }
+        }
+        
+
+        ai_will_do = {
+            base = 0 
+            modifier = {
+                surrender_progress > 0.5
+                add = 100
+            }
+        }
+    }
+}
+
+BREAKAWAY_erase_russian_ideals = {
+
+    BREAKAWAY_erase_russian_ideals_decision = {
+
+        icon = generic_nationalism
+
+        state_target = yes
+
+        target_array = controlled_states
+
+        on_map_mode = map_only
+        
+        visible = {
+            NOT = { is_subject_of = SOV }
+        }
+
+        cost = 15
+
+        target_trigger = {
+            FROM = {
+                is_core_of = SOV
+                is_core_of = ROOT
+                NOT = { has_state_flag = russian_ideals_erased }
+            }
+        }
+
+        available = {
+            FROM = { is_core_of = SOV }
+        }
+
+        days_remove = 180
+
+        modifier = {
+            political_power_cost = 0.1
+        }
+
+        remove_effect = {
+            FROM = {
+                remove_core_of = SOV
+                if = {
+                    limit = {
+                        NOT = {
+                            is_claimed_by = SOV
+                        }
+                    }
+                    add_claim_by = SOV
+                }
+                set_state_flag = russian_ideals_erased
+            }
+        }
+
+        ai_will_do = {
+            factor = 50
+            modifier = {
+                FROM = {
+                    state_population > 999999
+                }
+                factor = 10
+            }
+            modifier = {
+                FROM = {
+                    state_population > 1999999
+                }
+                factor = 5
+            }
+            modifier = {
+                FROM = {
+                    state_population > 2999999
+                }
+                factor = 2.5
+            }
+            modifier = {
+                FROM = {
+                    state_population > 3999999
+                }
+                factor = 1.25
+            }
+            modifier = { #HEAVILY FOCUS ON ERASING RUSSIAN IDEALS IN THE CAPITAL, NO MATTER THE POPULATION.
+                FROM = {
+                    is_capital = yes
+                }
+                factor = 750
+            }
+            modifier = {
+                political_power_daily < 0.5
+                factor = 0.1
+            }
+        }
+    }
+}

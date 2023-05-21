@@ -1,0 +1,406 @@
+
+focus_tree = {
+	id = russian_breakways_focus
+	
+	country = {
+		factor = 0
+	}
+	
+	default = no
+
+    continuous_focus_position = { x = 0 y = 1250 }
+
+    shared_focus = BREAKAWAY_modernize_army
+    shared_focus = BREAKWAY_aviation_effort
+    shared_focus = BREAKAWAY_industrial_effort
+
+    focus = {
+        id = BREAKAWAY_independence_from_communism
+        icon = GFX_focus_attack_soviet
+        x = 14
+        y = 0
+        cost = 5
+
+        completion_reward = {
+            add_political_power = 50
+            add_ideas = BREAKAWAY_independence_from_communism
+            add_offsite_building = { type = arms_factory level = 1 }
+            add_offsite_building = { type = industrial_complex level = 1 }
+            if = {
+                limit = {
+                    OR = {
+                        tag = UKR
+                        tag = BLR
+                        tag = GEO
+                    }
+                }
+                add_timed_idea = {
+                    idea = BREAKAWAY_return_of_exile_government
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_prov_russia_friend
+        icon = GFX_goal_anti_comintern_pact
+        x = -2
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_independence_from_communism }
+        mutually_exclusive = { focus = BREAKAWAY_prov_russia_foe }
+        relative_position_id = BREAKAWAY_independence_from_communism
+
+        available = {
+            has_country_flag = russian_ally
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_prov_russia_foe
+        icon = GFX_focus_ger_great_red_menace
+        x = 2
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_independence_from_communism }
+        mutually_exclusive = { focus = BREAKAWAY_prov_russia_friend }
+        relative_position_id = BREAKAWAY_independence_from_communism
+
+        available = {
+            has_country_flag = russian_foe
+        }
+        completion_reward = {
+            add_ideas = BREAKAWAY_defense_against_russia
+        }
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_establish_army
+        icon = GFX_goal_generic_allies_build_infantry
+        x = 2
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_prov_russia_foe focus = BREAKAWAY_prov_russia_friend }
+        relative_position_id = BREAKAWAY_prov_russia_friend
+
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.4
+				uses = 1
+				category = land_doctrine
+			}
+		}
+
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_diaspora
+        icon = GFX_focus_generic_manpower
+        x = 0
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_establish_army }
+        relative_position_id = BREAKAWAY_establish_army
+
+        bypass = {
+            tag = KAR #Karelian "diaspora" is Finns lmao
+        }
+
+        completion_reward = {
+            add_timed_idea = {
+                idea = BREAKAWAY_diaspora
+                days = 360
+            }
+        }
+        ai_will_do = {
+            factor = 6
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_planned_offense_defense
+        icon = GFX_goal_generic_allies_build_infantry
+        x = 0
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_diaspora }
+        relative_position_id = BREAKAWAY_diaspora
+
+        available = {
+            if = {
+                limit = {
+                    has_completed_focus = BREAKAWAY_military_collaboration_russia
+                }
+                NOT = { has_global_flag = SOV_soviet_civil_war_over }
+            }
+        }
+
+        completion_reward = {
+            add_ideas = BREAKAWAY_planned_offense_defense
+        }
+        ai_will_do = {
+            factor = 4
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_military_collaboration_russia
+        icon = GFX_focus_generic_diplomatic_treaty
+        x = 0
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_prov_russia_friend }
+        relative_position_id = BREAKAWAY_prov_russia_friend
+
+        completion_reward = {
+            add_to_tech_sharing_group = breakaway_russia_group
+            SOV = {
+                add_to_tech_sharing_group = breakaway_russia_group
+            }
+        }
+        ai_will_do = {
+            factor = 4
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_advancements_in_doctrines
+        icon = GFX_goal_generic_army_doctrines
+        x = 0
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_protectorate_treaty }
+        relative_position_id = BREAKAWAY_protectorate_treaty
+
+        completion_reward = {
+            add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.6
+				uses = 1
+				category = land_doctrine
+            }
+        }
+        ai_will_do = {
+            factor = 4
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_protectorate_treaty
+        icon = GFX_focus_CZE_german_puppet
+        x = 0
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_military_collaboration_russia }
+        prerequisite = { focus = BREAKAWAY_establish_army }
+        relative_position_id = BREAKAWAY_military_collaboration_russia
+
+        available = { NOT = { has_global_flag = SOV_soviet_civil_war_over } }
+
+        bypass = {
+            tag = KAR #Finland will be able to protect Karelia after they recieve aid
+        }
+
+        completion_reward = {
+            unlock_decision_tooltip = SFSTE_activate_protectorate_treaty
+        }
+        ai_will_do = {
+            factor = 4
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_fortify
+        icon = GFX_focus_ger_bulwark_against_bolshevism
+        x = 0
+        y = 1
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_prov_russia_foe }
+        relative_position_id = BREAKAWAY_prov_russia_foe
+
+        completion_reward = {
+            add_timed_idea = {
+                idea = BREAKAWAY_fortify
+                days = 400
+            }
+        }
+        ai_will_do = {
+            factor = 4
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_urgent_promotions
+        icon = GFX_focus_chi_army_reform
+        x = 0
+        y = 2
+        cost = 5
+        prerequisite = { focus = BREAKAWAY_fortify }
+        prerequisite = { focus = BREAKAWAY_establish_army }
+        relative_position_id = BREAKAWAY_fortify
+
+        completion_reward = {
+            add_ideas = BREAKAWAY_urgent_promotions
+        }
+        ai_will_do = {
+            factor = 4
+        }
+    }
+
+    focus = {
+        id = BREAKWAY_prebuild_industry
+        icon = GFX_focus_generic_industry_1
+        x = 0
+        y = 1
+        cost = 15
+        relative_position_id = BREAKAWAY_planned_offense_defense
+        prerequisite = { focus = BREAKAWAY_advancements_in_doctrines focus = BREAKAWAY_planned_offense_defense focus = BREAKAWAY_urgent_promotions }
+
+        available = { NOT = { has_global_flag = SOV_soviet_civil_war_over } }
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+    }
+
+    focus = {
+        id = BREAKAWAY_end_of_civil_war
+        icon = GFX_goal_generic_demand_territory
+        y = 1
+        cost = 2
+        relative_position_id = BREAKWAY_prebuild_industry
+
+        available = { has_global_flag = SOV_soviet_civil_war_over }
+
+        completion_reward = {
+            add_political_power = 100
+            add_stability = 0.05
+            hidden_effect = {
+                set_country_flag = unlocked_other_focuses
+                if = {
+                    limit = {
+                        has_completed_focus = BREAKAWAY_prov_russia_friend
+                    }
+                    set_rule = {
+                        can_join_factions = yes
+                    }
+			        remove_ideas = SFSTE_mostly_unrecognized
+                    clr_country_flag = SOV_unrecognized_country_flag #Country now has international recognition. Poggers
+                }
+            }
+        }
+        ai_will_do = {
+            factor = 1000
+        }
+    }
+
+    focus = {
+        id = BREAKAWAY_erase_russian_ideals
+        icon = GFX_goal_generic_war_with_comintern
+        y = 1
+        cost = 3
+        relative_position_id = BREAKAWAY_end_of_civil_war
+        prerequisite = { focus = BREAKAWAY_end_of_civil_war }
+
+        completion_reward = {
+            add_political_power = 15
+            unlock_decision_category_tooltip = BREAKAWAY_erase_russian_ideals
+        }
+        ai_will_do = {
+            factor = 200
+            modifier = {
+                factor = 5
+                has_completed_focus = BREAKAWAY_prov_russia_foe
+            }
+        }
+    }
+}
