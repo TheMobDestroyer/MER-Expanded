@@ -1,0 +1,120 @@
+POL_instate_personal_unions = {
+
+    #POL_restore_poland_saxony = {
+    #    
+    #    icon = generic_form_nation
+    #
+    #    visible = {
+    #        has_completed_focus = POL_claiming_lithuania
+    #    }
+    #
+    #    available = {
+    #        controls_state = 65
+    #    }
+    #
+    #    fire_only_once = yes
+    #
+    #    cost = 25
+    #
+    #    complete_effect = {
+    #        SAX = {
+    #            add_state_core = 65
+    #        }
+    #        release_autonomy = {
+    #            target = SAX
+    #            autonomy_state = autonomy_personal_union
+    #        }
+    #    }
+    #}
+
+    POL_establish_poland_germany = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_completed_focus = POL_hohenzollern
+        }
+
+        available = {
+            GER = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 100
+
+        complete_effect = {
+            set_autonomy = {
+                target = GER
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    POL_restore_poland_hungary_decision = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_completed_focus = POL_restore_poland_hungary
+        }
+
+        available = {
+            HUN = { 
+                is_subject_of = ROOT 
+                NOT = { has_autonomy_state = autonomy_personal_union }
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        complete_effect = {
+            set_autonomy = {
+                target = HUN
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    POL_establish_poland_romania_bulgaria = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_completed_focus = POL_merge_internal_governments
+        }
+
+        available = {
+            BUL = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            set_autonomy = {
+                target = BUL
+                autonomy_state = autonomy_personal_union
+            }
+            BUL = {
+                if = {
+					limit = {
+						has_country_leader = {
+							character = BUL_boris_iii
+							ruling_only = yes
+						}
+					}
+					retire_country_leader = yes
+                }
+            }
+        }
+    }
+}
