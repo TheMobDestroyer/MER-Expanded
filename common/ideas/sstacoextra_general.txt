@@ -46,6 +46,35 @@ ideas = {
                 defense_bonus_against = 0.2
             }
         }
+	
+		micronation_idea = { #so san marino STAYS NEUTRAL...
+			picture = neutrality_idea
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+                enemy_justify_war_goal_time = 0.1 #just use decisions smh
+                generate_wargoal_tension = -1.0
+				join_faction_tension = 1.0
+				send_volunteers_tension = 2.0
+				guarantee_tension = 2.0
+				ai_badass_factor = 0.01
+				ai_get_ally_desire_factor = -100
+                autonomy_gain_global_factor = -0.5
+                forced_surrender_limit = -0.75
+                resistance_growth_on_our_occupied_states = -0.8
+                resistance_decay_on_our_occupied_states = 1.0
+                compliance_growth_on_our_occupied_states = 1.0
+			}
+		}
 
         YUG_federal_monarchy_idea = {
             picture = generic_pp_unity_bonus
