@@ -1,0 +1,695 @@
+add_namespace = sfste_nsbreakaways
+add_namespace = sfste_soviet
+add_namespace = te_russia
+
+#Karelia requests support
+country_event = {
+    id = sfste_nsbreakaways.1
+    title = sfste_nsbreakaways.1.t
+    desc = sfste_nsbreakaways.1.d
+
+    is_triggered_only = yes
+
+    option = {
+        name = sfste_nsbreakaways.1.a
+
+        add_ai_strategy = {
+            type = send_volunteers_desire
+            id = KAR
+            value = 500
+        }
+
+        add_ai_strategy = {
+            type = befriend
+            id = KAR
+            value = 500
+        }
+
+        add_ai_strategy = {
+            type = protect
+            id = KAR
+            value = 500
+        }
+        set_rule = {
+            can_send_volunteers = yes
+        }
+        add_timed_idea = { idea = KAR_national_brotherhood_idea days = 850 }
+        ai_chance = {
+            factor = 100
+        }
+    }
+    option = {
+        name = sfste_nsbreakaways.1.b
+
+        ai_chance = {
+            factor = 0
+        }
+    }
+}
+
+#Country requests investment - Russia
+country_event = {
+    id = sfste_nsbreakaways.2
+    title = sfste_nsbreakaways.2.t
+    desc = sfste_nsbreakaways.2.d
+
+    is_triggered_only = yes
+
+    option = {
+        name = sfste_nsbreakaways.2.a
+
+        FROM = {
+            add_timed_idea = {
+                idea = BREAKAWAY_SOV_investments
+                days = 360
+            }
+        }
+        add_timed_idea = {
+            idea = SOV_investing_in_breakaway
+            days = 360
+        }
+    }
+    option = {
+        name = sfste_nsbreakaways.2.b
+
+        hidden_effect = {
+            FROM = {
+                random_owned_controlled_state = {
+                    limit = {
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 1
+                            include_locked = yes
+                        }
+                        OR = {
+                            is_in_home_area = yes
+                            NOT = {
+                                owner = {
+                                    any_owned_state = {
+                                        free_building_slots = {
+                                            building = industrial_complex
+                                            size > 0
+                                            include_locked = yes
+                                        }
+                                        is_in_home_area = yes
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+                random_owned_controlled_state = {
+                    limit = {
+                        free_building_slots = {
+                            building = arms_factory
+                            size > 1
+                            include_locked = yes
+                        }
+                        OR = {
+                            is_in_home_area = yes
+                            NOT = {
+                                owner = {
+                                    any_owned_state = {
+                                        free_building_slots = {
+                                            building = arms_factory
+                                            size > 0
+                                            include_locked = yes
+                                        }
+                                        is_in_home_area = yes
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+}
+
+#Azerbaijan requests support
+country_event = {
+    id = sfste_nsbreakaways.3
+    title = sfste_nsbreakaways.3.t
+    desc = sfste_nsbreakaways.3.d
+
+    is_triggered_only = yes
+
+    option = {
+        name = sfste_nsbreakaways.1.a
+
+        add_ai_strategy = {
+            type = send_volunteers_desire
+            id = AZR
+            value = 500
+        }
+
+        add_ai_strategy = {
+            type = befriend
+            id = AZR
+            value = 500
+        }
+
+        add_ai_strategy = {
+            type = protect
+            id = AZR
+            value = 500
+        }
+        set_rule = {
+            can_send_volunteers = yes
+        }
+        add_timed_idea = { idea = KAR_national_brotherhood_idea days = 850 }
+        ai_chance = {
+            factor = 100
+        }
+    }
+    option = {
+        name = sfste_nsbreakaways.1.b
+
+        ai_chance = {
+            factor = 0
+        }
+    }
+}
+
+#Vote on admitting Ukraine to the League
+country_event = {
+    id = sfste_nsbreakaways.4
+    title = sfste_nsbreakaways.4.t
+    desc = sfste_nsbreakaways.4.d
+
+    is_triggered_only = yes
+
+    option = { #Sure
+        name = sfste_nsbreakaways.4.a
+        
+		add_to_variable = { UKR.LON_members_in_favor_of_recognition = 1 }
+        reverse_add_opinion_modifier = {
+            target = FROM
+            modifier = SOV_hey_you_recognized_me
+        }
+        if = {
+            limit = {
+                check_variable = {
+                    var = UKR.LON_members_in_favor_of_recognition
+                    value = global.LON_members_necessary_for_recognition
+                    compare = greater_than_or_equals
+                }
+                NOT = {
+                    FROM = { has_country_flag = admitted_into_the_league }
+                }
+            }
+            FROM = { 
+                set_country_flag = admitted_into_the_league
+                country_event = { id = sfste_nsbreakaways.5 hours = 36 } 
+            }
+        }
+        ai_chance = {
+            factor = 12
+        }
+    }
+    option = { #No
+        name = sfste_nsbreakaways.4.b
+		add_to_variable = { UKR.LON_members_against_recognition = 1 }
+
+        ai_chance = {
+            factor = 1
+            modifier = {
+                factor = 12
+                any_country_with_original_tag = {
+                    original_tag_to_check = SOV
+                    has_opinion = { target = ROOT value > 49 }
+                }
+            }
+        }
+    }
+    option = { #Abstain
+        name = sfste_nsbreakaways.4.c
+        ai_chance = {
+            factor = 1
+            modifier = {
+                factor = 12
+                any_country_with_original_tag = {
+                    original_tag_to_check = SOV
+                    has_opinion = { target = ROOT value > 49 }
+                }
+            }
+        }
+    }
+}
+
+#Recognition achieved by the League
+country_event = {
+    id = sfste_nsbreakaways.5
+    title = sfste_nsbreakaways.5.t
+    desc = sfste_nsbreakaways.5.d
+
+    is_triggered_only = yes
+
+    fire_only_once = yes
+
+    option = { #Nice
+        name = sfste_nsbreakaways.5.a
+        remove_ideas = SFSTE_mostly_unrecognized
+		custom_effect_tooltip = UKR_joins_LON_tt
+        set_rule = {
+            can_join_factions = yes
+        }
+        hidden_effect = {
+		    add_to_variable = { global.LON_members = 1 }
+            clr_country_flag = SOV_unrecognized_country_flag
+            add_ideas = league_of_nations_member_idea
+        }
+    }
+}
+
+#Major has declared an offensive war against Russia
+country_event = {
+    id = sfste_soviet.1
+    title = sfste_soviet.1.t
+    desc = sfste_soviet.1.d
+    picture = GFX_report_event_gre_winter_soldiers_celebrating
+
+    trigger = {
+        original_tag = SOV
+        has_civil_war = no
+        OR = {
+            AND = {
+                date > 1936.10.31
+                date < 1937.04.01
+            }
+            AND = {
+                date > 1937.10.31
+                date < 1938.04.01
+            }
+            AND = {
+                date > 1938.10.31
+                date < 1939.04.01
+            }
+            AND = {
+                date > 1939.10.31
+                date < 1940.04.01
+            }
+            AND = {
+                date > 1940.10.31
+                date < 1941.04.01
+            }
+            AND = {
+                date > 1941.10.31
+                date < 1942.04.01
+            }
+            AND = {
+                date > 1942.10.31
+                date < 1943.04.01
+            }
+            AND = {
+                date > 1943.10.31
+                date < 1944.04.01
+            }
+            AND = {
+                date > 1944.10.31
+                date < 1945.04.01
+            }
+            AND = {
+                date > 1945.10.31
+                date < 1946.04.01
+            }
+        }
+        any_enemy_country = {
+            is_major = yes
+            has_offensive_war_with = ROOT
+            NOT = { 
+                has_idea = SFSTE_fuck_you_for_invading_russia
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+        days = 1
+    }
+
+    option = { #Russian winter overwhelms them
+        name = sfste_soviet.1.a
+
+        every_enemy_country = {
+            limit = {
+                is_major = yes
+                NOT = {
+                    has_idea = SFSTE_fuck_you_for_invading_russia
+                    has_idea = sisu
+                }
+            }
+            add_timed_idea = {
+                idea = SFSTE_fuck_you_for_invading_russia
+                days = 150
+            }
+        }
+    }
+}
+
+#Russia has declared war on major, major advances onto Russia
+country_event = {
+    id = sfste_soviet.2
+    title = sfste_soviet.2.t
+    desc = sfste_soviet.2.d
+    picture = GFX_report_event_gre_winter_soldiers_celebrating
+
+    trigger = {
+        original_tag = SOV
+        has_civil_war = no
+        OR = {
+            AND = {
+                date > 1936.10.31
+                date < 1937.04.01
+            }
+            AND = {
+                date > 1937.10.31
+                date < 1938.04.01
+            }
+            AND = {
+                date > 1938.10.31
+                date < 1939.04.01
+            }
+            AND = {
+                date > 1939.10.31
+                date < 1940.04.01
+            }
+            AND = {
+                date > 1940.10.31
+                date < 1941.04.01
+            }
+            AND = {
+                date > 1941.10.31
+                date < 1942.04.01
+            }
+            AND = {
+                date > 1942.10.31
+                date < 1943.04.01
+            }
+            AND = {
+                date > 1943.10.31
+                date < 1944.04.01
+            }
+            AND = {
+                date > 1944.10.31
+                date < 1945.04.01
+            }
+            AND = {
+                date > 1945.10.31
+                date < 1946.04.01
+            }
+        }
+        any_owned_state = {
+            NOT = { is_controlled_by = ROOT }
+        }
+        any_enemy_country = {
+            is_major = yes
+            has_defensive_war_with = ROOT
+            NOT = { 
+                has_idea = SFSTE_fuck_you_for_invading_russia
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+        days = 1
+    }
+
+    option = { #Russian winter overwhelms them
+        name = sfste_soviet.1.a
+
+        every_enemy_country = {
+            limit = {
+                is_major = yes
+                NOT = {
+                    has_idea = SFSTE_fuck_you_for_invading_russia
+                    has_idea = sisu
+                }
+            }
+            add_timed_idea = {
+                idea = SFSTE_fuck_you_for_invading_russia
+                days = 150
+            }
+            hidden_effect = { set_country_flag = SFSTE_russia_cold }
+        }
+    }
+}
+
+#Recognition of which Russia?
+country_event = {
+    id = sfste_soviet.3
+    title = sfste_soviet.3.t
+    desc = sfste_soviet.3.d
+
+    is_triggered_only = yes
+
+    option = { #Continue recognition of the Soviet Union
+		trigger = {
+            NOT = {
+				OR = {
+					has_government = fascism
+					AND = {
+						tag = JAP
+						has_government = neutrality
+					}
+					AND = {
+						tag = ITA
+						has_government = neutrality
+					}
+					AND = {
+						tag = GER
+						has_government = neutrality
+					}
+					AND = {
+						tag = ENG
+						has_government = neutrality
+					}
+                    AND = {
+                        original_tag = YUG
+                        NOT = { has_government = communism }
+                    }
+				}
+            }
+		}
+        name = sfste_soviet.3.a
+    }
+
+    option = { #Recognize the RPG
+        name = sfste_soviet.3.b
+
+        reverse_add_opinion_modifier = {
+            target = SOV
+            modifier = SOV_hey_you_recognized_me
+        }
+        if = {
+            limit = {
+                NOT = {
+                    OR = {
+                        has_government = fascism
+                        AND = {
+                            tag = JAP
+                            has_government = neutrality
+                        }
+                        AND = {
+                            tag = ITA
+                            has_government = neutrality
+                        }
+                        AND = {
+                            tag = GER
+                            has_government = neutrality
+                        }
+                        AND = {
+                            tag = ENG
+                            has_government = neutrality
+                        }
+                    }
+                }
+            }
+            add_timed_idea = {
+                idea = SFSTE_lend_lease_of_RPG
+                days = 730
+            }
+        }
+    }
+}
+#The fading star
+country_event = {
+    id = sfste_soviet.4
+    title = SOV_the_fading_star
+    desc = sfste_soviet.4.d
+    picture = GFX_report_event_soviet_invasion_map
+    
+    trigger = {
+        original_tag = SOV
+        has_civil_war = no
+        has_war_with = GER
+        has_government = communism
+        NOT = {
+			count_triggers = {
+				amount = 3
+                controls_state = 219
+                controls_state = 195
+                controls_state = 137
+                controls_state = 217
+			}
+        }
+    }
+
+    mean_time_to_happen = {
+        days = 7
+    }
+
+    fire_only_once = yes
+
+    option = {
+        name = sfste_soviet.4.a
+
+        add_ideas = SOV_the_fading_star
+    }
+}
+#Peace with Germany?
+country_event = {
+    id = sfste_soviet.5
+    title = sfste_soviet.5.t
+    desc = sfste_soviet.5.d
+    picture = GFX_report_event_generic_peaceful_annexation
+    
+    trigger = {
+        has_stability < 0.2
+        has_idea = SOV_the_fading_star
+        NOT = { has_global_flag = yalta_agreed_flag }
+    }
+
+    mean_time_to_happen = {
+        days = 7
+    }
+
+    fire_only_once = yes
+
+    option = {
+        name = sfste_soviet.5.a
+        remove_ideas = SOV_the_fading_star
+        hidden_effect = {
+            GER = { 
+                set_country_flag = GER_barbarossa_3_completed
+            }
+        }
+
+        ai_chance = {
+            factor = 60
+        }
+    }
+
+    option = {
+        name = sfste_soviet.5.b
+
+        ai_chance = {
+            factor = 40
+        }
+    }
+}
+# Tsar Ultimatum
+country_event = {
+	id = te_russia.1
+	title = te_russia.1.t
+	desc = te_russia.1.d
+	picture = GFX_report_event_soviet_tanks_snow
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = finland.1.a
+		ai_chance = { 
+			base = 25
+			modifier = { # Don't accept if in a faction that can protect them
+				factor = 0
+				NOT = { is_in_faction_with = FROM }
+				OR = {
+					any_other_country = {
+						is_major = yes
+						OR = {
+							is_in_faction_with = FIN
+							has_guaranteed = FIN
+						}
+					}
+					has_idea = anti_soviet_pact
+				}
+			}
+		}
+		FROM = {
+			country_event = { days = 5 id = te_russia.2 }
+			effect_tooltip = {
+                puppet = FIN
+                transfer_state = 722
+			}
+		}
+	}
+	option = { # Refuse
+		name = finland.1.b
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0
+				is_in_faction_with = FROM
+			}
+		}
+		FROM = {
+			country_event = { days = 5 id = te_russia.3 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = FIN
+				}
+			}
+		}
+	}
+}
+
+# Finland Accepts Demands
+country_event = {
+	id = te_russia.2
+	title = soviet.12.t
+	desc = te_russia.2.d
+	picture = GFX_report_event_soviet_finnish_pact
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.12.a
+		SOV = { 
+            puppet = FIN
+			transfer_state = 722
+		}
+	}
+}
+
+# Finland Refuses Demands
+country_event = {
+	id = te_russia.3
+	title = soviet.13.t
+	desc = te_russia.3.d
+	picture = GFX_report_event_soviet_tanks_snow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.13.a
+        add_state_claim = 722
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FIN
+		}
+	}
+}
