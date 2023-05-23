@@ -1,0 +1,94 @@
+ROM_instate_personal_unions = {
+
+    ROM_establish_romania_germany = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            GER = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 100
+
+        complete_effect = {
+            set_autonomy = {
+                target = GER
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    ROM_establish_romania_hungary = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            HUN = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        cost = 25
+
+        fire_only_once = yes
+
+        complete_effect = {
+            set_autonomy = {
+                target = HUN
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    ROM_establish_romania_bulgaria = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            BUL = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            set_autonomy = {
+                target = BUL
+                autonomy_state = autonomy_personal_union
+            }
+            BUL = {
+                if = {
+					limit = {
+						has_country_leader = {
+							character = BUL_boris_iii
+							ruling_only = yes
+						}
+					}
+					retire_country_leader = yes
+                }
+            }
+        }
+    }
+}

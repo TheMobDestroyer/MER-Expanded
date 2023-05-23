@@ -1,0 +1,258 @@
+SPR_instate_personal_unions = {
+
+    SPR_reestablish_the_iberian_union = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+            has_completed_focus = SPA_restore_the_iberian_union
+        }
+
+        available = {
+            POR = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            POR = { set_cosmetic_tag = KOP_kingdom_portugal }
+            set_autonomy = {
+                target = POR
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    SPR_unite_the_bourbon_thrones = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+            has_completed_focus = SPA_claim_the_french_throne
+        }
+
+        available = {
+            FRA = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        cost = 25
+
+        fire_only_once = yes
+
+        complete_effect = {
+            set_autonomy = {
+                target = FRA
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    SPR_take_throne_of_ENG = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            ENG = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            set_autonomy = {
+                target = ENG
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    SPR_take_throne_of_SCO = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            SCO = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            set_autonomy = {
+                target = SCO
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    SPR_take_throne_of_IRE = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            IRE = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            IRE = { set_cosmetic_tag = generic_kingdom_of_puppet }
+            set_autonomy = {
+                target = IRE
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    SPR_take_throne_of_AUS = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            AUS = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            AUS = { set_cosmetic_tag = AUS_archduchy }
+				AUS = {
+					hidden_effect = {
+						set_politics = {
+							ruling_party = fascism
+							long_name = AUS_neutrality_party
+							name = AUS_neutrality_party
+						}
+						set_popularities = {
+							fascism = 75
+							democratic = 1
+							communism = 1
+							neutrality = 23
+						}
+						hidden_effect = {
+							retire_country_leader = yes
+						}
+
+						AUS_kurt_schuschnigg = {
+							remove_country_leader_role = {
+								ideology = centrism
+							}
+							add_country_leader_role = {
+								country_leader = {
+									expire = "1965.1.1.1"
+									ideology = fascism_ideology
+									traits = {
+										
+									}
+								}
+								promote_leader = yes
+							}
+						}
+						set_party_name = { ideology = neutrality long_name = bourbon_party name = bourbon_party }
+					}
+				}
+            set_autonomy = {
+                target = AUS
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    SPR_take_throne_of_HUN = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            HUN = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            set_autonomy = {
+                target = HUN
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+
+    SPR_take_throne_of_CZE = {
+
+        icon = generic_form_nation
+
+        visible = {
+            has_government = neutrality
+        }
+
+        available = {
+            CZE = { 
+                is_subject_of = ROOT 
+                has_government = neutrality
+            }
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+
+        complete_effect = {
+            set_autonomy = {
+                target = CZE
+                autonomy_state = autonomy_personal_union
+            }
+        }
+    }
+}
