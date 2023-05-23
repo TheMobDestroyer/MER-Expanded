@@ -1,0 +1,23 @@
+spriteTypes = {	
+
+	spriteType = {
+		name = "GFX_autonomy_issr_icon"
+		texturefile = "gfx/interface/autonomy/autonomy_issr_icon.dds"
+	}		
+	
+	spriteType = {
+		name = "GFX_autonomy_ssr_icon"
+		texturefile = "gfx/interface/autonomy/autonomy_ssr_icon.dds"
+	}	
+	
+	spriteType = {
+		name = "GFX_autonomy_assr_icon"
+		texturefile = "gfx/interface/autonomy/autonomy_assr_icon.dds"
+	}
+
+	spriteType = {
+		name = "GFX_autonomy_ao_icon"
+		texturefile = "gfx/interface/autonomy/autonomy_ao_icon.dds"
+	}
+
+}
