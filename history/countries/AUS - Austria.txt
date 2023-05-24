@@ -18,23 +18,18 @@ if = {
 		set_air_oob = "AUS_1936_air_legacy"
 		set_technology = {
 			early_fighter = 1
-
 		}
 	}
 }
 if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
+	limit = { NOT = { has_dlc = "No Step Back" } }
 	set_technology = {
 		gwtank = 1
 		basic_light_tank = 1
 	}
 }
 if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
+	limit = { has_dlc = "No Step Back" }
 	set_technology = {
 		gwtank_chassis = 1
 		basic_light_tank_chassis = 1
@@ -44,6 +39,7 @@ if = {
 every_owned_state = {
 	set_state_flag = AUS_INITIAL_STATE
 }
+
 set_research_slots = 3
 
 set_technology = {
@@ -53,9 +49,9 @@ set_technology = {
 	tech_engineers = 1
 	tech_support = 1
 	tech_mountaineers = 1
-#	early_fighter = 1
 	basic_train = 1
 }
+
 add_ideas = {
 	disarmed_nation
 	saint_germain
@@ -65,9 +61,9 @@ add_ideas = {
 	strong_catholic_influence
 }
 
-
 recruit_character = AUS_kurt_schuschnigg
 recruit_character = AUS_karl_renner
+recruit_character = AUS_arthur_seyss-inquart
 recruit_character = AUS_alfred_klahr
 recruit_character = AUS_karl_eglseer
 recruit_character = AUS_odilo_globocnik
@@ -81,14 +77,15 @@ recruit_character = AUS_otto_schobel
 recruit_character = AUS_viktor_seebauer
 recruit_character = AUS_lothar_rendulic
 recruit_character = AUS_ernst_kaltenbrunner
+recruit_character = AUS_eduard_freiherr
 recruit_character = AUS_franz_bohme
 recruit_character = AUS_eugen_beyer
 recruit_character = AUS_julius_raab
 recruit_character = AUS_leopold_figl
+
 recruit_character = AUS_alfred_jansa
 recruit_character = AUS_siegmund_knaus
 recruit_character = AUS_eduard_barger
-recruit_character = AUS_arthur_seyss-inquart
 recruit_character = AUS_edmund_glaise-horstenau
 recruit_character = AUS_guido_schmidt
 recruit_character = AUS_wilhelm_miklas
@@ -98,7 +95,6 @@ recruit_character = AUS_ernst_fischer
 recruit_character = AUS_grete_jost
 recruit_character = AUS_viktor_matejka
 recruit_character = AUS_hanna_sturm
-
 
 set_politics = {
 	ruling_party = fascism
