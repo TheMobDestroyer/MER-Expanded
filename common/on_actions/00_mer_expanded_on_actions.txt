@@ -1,0 +1,43 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			AUS = {
+				if = {
+					limit = {
+						OR = {
+							#AND = {
+							#	is_historical_focus_on = no
+							#	has_game_rule = {
+							#		rule = AUS_ai_behavior
+							#		option = DEFAULT
+							#	}
+							#}
+							has_game_rule = {
+								rule = AUS_ai_behavior
+								option = RANDOM
+							}
+						}
+					}
+					random_list = {
+						10 = {
+							modifier = {
+								factor = 0.25
+								game_weight_can_add_unaligned = no
+							}
+							set_country_flag = AUS_AI_RANDOM_MONARCHIST_AUS_HUN
+							set_add_unaligned_weight_small = yes
+						}
+						20 = {
+							modifier = {
+								factor = 0.25
+								game_weight_can_add_fascist = no
+							}
+							set_country_flag = AUS_AI_RANDOM_HISTORICAL
+							set_add_fascist_weight_small = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}

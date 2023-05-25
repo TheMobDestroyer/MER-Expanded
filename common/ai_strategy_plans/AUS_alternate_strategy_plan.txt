@@ -6,14 +6,13 @@ AUS_alternate_monarchist_aus_hun = {
 		original_tag = AUS
 	}
 	enable = {
-		always = yes
-		#OR = {
-		#	has_country_flag = AUS_AI_RANDOM_MONARCHIST_AUS_HUN
-		#	has_game_rule = {
-		#		rule = AST_ai_behavior
-		#		option = MONARCHIST_AUS_HUN
-		#	}
-		#}
+		OR = {
+			has_country_flag = AUS_AI_RANDOM_MONARCHIST_AUS_HUN
+			has_game_rule = {
+				rule = AUS_ai_behavior
+				option = MONARCHIST_AUS_HUN
+			}
+		}
 	}
 	abort = {
 		

@@ -1,4 +1,4 @@
-CZE_historical_strategy_plan = {
+AUS_historical_strategy_plan = {
 	name = "AUS historical plan"
 	desc = "Let's die to Germany! Yaaaaaaaaaay!"
 
@@ -6,14 +6,13 @@ CZE_historical_strategy_plan = {
 		original_tag = AUS
 	}
 	enable = {
-		always = no 
 		OR = {
 			AND = {
 				is_historical_focus_on = yes
-				#has_game_rule = {
-				#	rule = AUS_ai_behavior
-				#	option = DEFAULT
-				#}
+				has_game_rule = {
+					rule = AUS_ai_behavior
+					option = DEFAULT
+				}
 			}
 			
 			has_country_flag = AUS_AI_RANDOM_HISTORICAL
