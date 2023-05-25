@@ -8,4 +8,4 @@ tags={
 }
 dependencies={ "Magna Europa: Reloaded" }
 name="ME:R Expanded"
-supported_version="1.12.13"
+supported_version="1.12.1*"
