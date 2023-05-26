@@ -11163,7 +11163,7 @@ country_event = {
 		IF = {
 			limit = { has_global_flag =  SOV_soviet_civil_war } # No point in kicking off if war has ended already
 			random_list = {
-				35 = { } # Nothing happens 
+				30 = { } # Nothing happens 
 				# the "Western" Front
 				6 = { # Ukrainian uprising
 					modifier = {
@@ -11171,7 +11171,7 @@ country_event = {
 						always = yes
 					}
 					modifier = {
-						factor = 2 # To keep a ukrainian uprising always slightly more likely than the others + it has a unique focus tree
+						factor = 3 # To keep a ukrainian uprising always slightly more likely than the others + it has a unique focus tree
 						always = yes
 					}
 					modifier = {
@@ -11510,6 +11510,17 @@ country_event = {
 				}
 				UKR = {
 					load_focus_tree = ukraine_breakaway_focus
+					retire_ideology_leader = democratic
+					create_country_leader = {
+						name = "Provisional Government"
+						desc = ""
+						picture = "gfx/leaders/UKR/prov_gov_ukr.dds"
+						expire = "1953.3.1"
+						ideology = conservatism
+						traits = {
+							internal_rivalry
+						}
+					}
 				}
 			}
 			# Capture any Stalinist soldiers in our territory

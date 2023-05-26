@@ -93,6 +93,17 @@ focus_tree = {
         relative_position_id = UKR_anti_stalinist_purge
 
         completion_reward = {
+			create_country_leader = {
+				name = "Andriy Livytski"
+				desc = ""
+				picture = GFX_portrait_europe_generic_4
+				expire = "1953.3.1"
+				ideology = conservatism
+				traits = {
+					
+				}
+			}
+			set_cosmetic_tag = UKR_UPR
             add_political_power = 100
             add_timed_idea = {
                 idea = BREAKAWAY_return_of_exile_government
