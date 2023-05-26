@@ -51,11 +51,9 @@ autonomy_state = {
 				}
 				AND = {
 					ROOT = {
-						NOT = {
-							AND = {
-								has_government = communism
-								has_country_flag = sovietised_flag
-							}
+						AND = {
+							has_government = communism
+							has_country_flag = sovietised_flag
 						}
 					}
 				}
