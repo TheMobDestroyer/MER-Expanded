@@ -1,4 +1,5 @@
 ﻿l_english:
+ AUS_AI_BEHAVIOR:0 "@AUS Austria"
  RULE_OPTION_HISTORICAL_AUS:0 "Historical"
  RULE_OPTION_HISTORICAL_AUS_AI_DESC:0 "The Austrian AI will build itself up for a bit before succumbing to Germany for a brotherly Anschluss."
  RULE_OPTION_MONARCHIST_AUS_HUN:0 "Austria-Hungary"
