@@ -1,31 +1,52 @@
 POL_instate_personal_unions = {
 
-    #POL_restore_poland_saxony = {
-    #    
-    #    icon = generic_form_nation
-    #
-    #    visible = {
-    #        has_completed_focus = POL_claiming_lithuania
-    #    }
-    #
-    #    available = {
-    #        controls_state = 65
-    #    }
-    #
-    #    fire_only_once = yes
-    #
-    #    cost = 25
-    #
-    #    complete_effect = {
-    #        SAX = {
-    #            add_state_core = 65
-    #        }
-    #        release_autonomy = {
-    #            target = SAX
-    #            autonomy_state = autonomy_personal_union
-    #        }
-    #    }
-    #}
+    POL_restore_poland_saxony = {
+        
+        icon = generic_form_nation
+    
+        visible = {
+            has_completed_focus = POL_claiming_lithuania
+        }
+    
+        available = {
+            SAX = {
+                OR = {
+                    is_subject_of = ROOT
+                    AND = {
+                        all_core_state = {
+                            is_owned_and_controlled_by = ROOT
+                        }
+                    }
+                }
+            }
+        }
+    
+        fire_only_once = yes
+    
+        cost = 25
+    
+        complete_effect = {
+            if = {
+                limit = {
+                    NOT = { country_exists = SAX }
+                }
+                release_autonomy = {
+                    target = SAX
+                    autonomy_state = autonomy_personal_union
+                }
+            }
+            else = {
+                set_autonomy = {
+                    target = SAX
+                    autonomy_state = autonomy_personal_union
+                }
+            }
+        }
+
+        ai_will_do = {
+            factor = 100
+        }
+    }
 
     POL_establish_poland_germany = {
 
