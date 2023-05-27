@@ -296,7 +296,7 @@ BREAKAWAY_erase_russian_ideals = {
             FROM = { is_core_of = SOV }
         }
 
-        days_remove = 180
+        days_remove = 18
 
         modifier = {
             political_power_cost = 0.1
