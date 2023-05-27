@@ -63,7 +63,7 @@ ideas = {
 				democratic_drift = 0.05
 			}	
 		}
-		regulate_economy = {
+		regulated_economy = {
 			picture = tur_etatism
 			allowed = {
 				

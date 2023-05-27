@@ -62,7 +62,7 @@
 
 	focus = {
 		id = AUS_pro-austrian_propaganda
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_focus_generic_fascist_propaganda
 		x = 20
 		y = 0
 		offset = {
@@ -176,8 +176,8 @@
 		completion_reward = {
 			set_party_name = {
 				ideology = neutrality
-				long_name = "the Habsburg Monarchy"
-				name = "Habsburg Monarchy"
+				long_name = "the House of Habsburg-Lorraine"
+				name = "House of Habsburg-Lorraine"
 			}
 			create_country_leader = {
 				name = "Otto von Habsburg"
@@ -2289,7 +2289,7 @@
 	}
 	focus = {
 		id = AUS_invite_netherlands
-		icon = GFX_focus_chi_reach_out_to_france
+		icon = GFX_focus_hol_oranje_boven
 		x = 1
 		y = 2
 		relative_position_id = AUS_seek_a_continental_alliance
@@ -7778,7 +7778,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_ideas = regulate_economy
+			add_ideas = regulated_economy
 		}
 	}
 	focus = {
