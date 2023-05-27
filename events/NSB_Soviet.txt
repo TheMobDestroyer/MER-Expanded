@@ -11646,6 +11646,7 @@ country_event = {
 		}
 		var:SOV.SOV_nationalist_country = {
 			give_military_access = ROOT
+			set_country_flag = russian_ally
 		}
 		ROOT = {
 			give_military_access = var:SOV.SOV_nationalist_country
@@ -11671,6 +11672,7 @@ country_event = {
 				target = ROOT
 				type = independence_wargoal
 			}
+			set_country_flag = russian_foe
 			
 
 		}
