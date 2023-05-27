@@ -41,6 +41,23 @@ POL_instate_personal_unions = {
                     autonomy_state = autonomy_personal_union
                 }
             }
+            SAX = {
+                set_party_name = { 
+                    ideology = neutrality 
+                    long_name = POL_wettin_party
+                    name = POL_wettin_party 
+                }
+                create_country_leader = { #Why have a person in your place when you are legitimate?
+                    name = "Friedrich Christian"
+                    desc = ""
+                    picture = GFX_portrait_SAX_friedrich_christian
+                    expire = "1953.3.1"
+                    ideology = despotism
+                    traits = {
+                        
+                    }
+                }
+            }
         }
 
         ai_will_do = {

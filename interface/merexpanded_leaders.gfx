@@ -1,0 +1,7 @@
+spriteTypes = {
+
+	SpriteType = {
+		name = "GFX_portrait_SAX_friedrich_christian"
+		texturefile = "gfx/leaders/SAX/portrait_SAX_friedrich_christian.dds"
+	}
+}
