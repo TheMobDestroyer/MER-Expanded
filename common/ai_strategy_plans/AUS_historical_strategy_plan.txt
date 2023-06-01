@@ -23,17 +23,11 @@ AUS_historical_strategy_plan = {
 		}
 	}
 	abort = {
-		always = yes
-		#GER = {
-		#	not = {
-		#		has_government = fascism
-		#	}
-		#}
-		#
-		#has_game_rule = {
-		#	rule = AUS_ai_behavior
-		#	option = DEFAULT
-		#}
+		GER = {
+			not = {
+				has_government = fascism
+			}
+		}
 	}
 
 	ai_national_focuses = {
