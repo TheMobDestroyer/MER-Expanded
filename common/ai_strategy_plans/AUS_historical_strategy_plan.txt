@@ -24,7 +24,7 @@ AUS_historical_strategy_plan = {
 	}
 	abort = {
 		GER = {
-			not = {
+			NOT = {
 				has_government = fascism
 			}
 		}
