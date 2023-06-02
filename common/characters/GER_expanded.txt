@@ -1,0 +1,11 @@
+characters={
+	GER_BAY_crown_prince_rupprecht={
+		name="Rupprecht"
+		portraits={
+			army={
+				large="GFX_Portrait_Germany_Rupprecht_Bayern_kr"
+			}	
+		}
+		#Keep empty so that Rupprecht can become a field marshal later.
+	}
+}
