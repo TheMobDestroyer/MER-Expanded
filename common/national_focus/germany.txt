@@ -5944,7 +5944,7 @@ focus_tree = {
 				}
 
 				AUS = {
-					country_event = germany.28
+					country_event = austria.40
 				}				
 				custom_effect_tooltip = anschluss_mefo_bills_tt
 			}
