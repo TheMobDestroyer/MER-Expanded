@@ -3268,46 +3268,26 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_hermann_goring_werke"
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
+			392 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
 					}
-					NOT = { # keeps things a lil more in line with the state development, who wants to build a factory in a backwater
-						has_state_category = wasteland
-						has_state_category = enclave
-						has_state_category = tiny_island
-						has_state_category = small_island
-						has_state_category = pastoral
-						has_state_category = rural
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
 					}
+					set_state_flag = GER_industrial_effort_2IC
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = GER_industrial_effort_2IC
 			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-					NOT = { 
-						has_state_category = wasteland
-						has_state_category = enclave
-						has_state_category = tiny_island
-						has_state_category = small_island
-						has_state_category = pastoral
-						has_state_category = rural
-					}
-				}
+			1726 = {
+				set_state_category = rural
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -3372,54 +3352,106 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_kdf_wagen"
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
+			
+				if = {
+					limit = {
+						1964 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
 					}
-					NOT = { 
-						has_state_category = wasteland
-						has_state_category = enclave
-						has_state_category = tiny_island
-						has_state_category = small_island
-						has_state_category = pastoral
-						has_state_category = rural
+				1964 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = GER_industrial_effort_2_2IC
+				}
+				else = {
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+							NOT = { 
+								has_state_category = wasteland
+								has_state_category = enclave
+								has_state_category = tiny_island
+								has_state_category = small_island
+								has_state_category = pastoral
+								has_state_category = rural
+							}
+						}
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+						set_state_flag = GER_industrial_effort_2_2IC
 					}
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = GER_industrial_effort_2_2IC
+				
 			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
+			
+				if = {
+					limit = {
+						1726 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
 					}
-					NOT = { 
-						has_state_category = wasteland
-						has_state_category = enclave
-						has_state_category = tiny_island
-						has_state_category = small_island
-						has_state_category = pastoral
-						has_state_category = rural
+					1726 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+						custom_effect_tooltip = GER_found_wolfsburg_tt
+						hidden_effect = { set_province_name = { id = 11719 name = Wolfsburg } set_victory_points = { province = 11719 value = 10 } }
+						set_state_flag = GER_industrial_effort_2_2IC
 					}
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
+			
+				else = {
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+							NOT = { 
+								has_state_category = wasteland
+								has_state_category = enclave
+								has_state_category = tiny_island
+								has_state_category = small_island
+								has_state_category = pastoral
+								has_state_category = rural
+							}
+						}
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+						set_state_flag = GER_industrial_effort_2_2IC
+					}
 				}
-				set_state_flag = GER_industrial_effort_2_2IC
-			}
+				
+			
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -5370,6 +5402,7 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = GER_rhineland }
 		mutually_exclusive = { focus = GER_china_friend }
+		allow_branch = { has_global_flag = NEVER }
 		available = {
 			is_subject = no
 			AND = {
@@ -5400,13 +5433,7 @@ focus_tree = {
 		}	
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_japan_friend"
-			JAP = {
-				add_opinion_modifier = { target = GER modifier = ger_jap_diplomacy_focus }
-			}
-			event_target:WTT_current_china_leader = {
-				add_opinion_modifier = { target = GER modifier = withdrew_advisors }
-				country_event = { id = china.3 hours = 6 }
-			}
+			
 			custom_effect_tooltip = GER_japan_friend_tt
 			set_global_flag = falkenhausen_recalled
 			if = {
@@ -5433,6 +5460,7 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = GER_rhineland }
 		mutually_exclusive = { focus = GER_japan_friend }
+		allow_branch = { has_global_flag = NEVER }
 		available = {
 			is_subject = no
 			AND = {
@@ -5463,14 +5491,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_china_friend"
-			event_target:WTT_current_china_leader = {
-				add_offsite_building = { type = arms_factory level = 2 }
-				add_opinion_modifier = { target = GER modifier = ger_chi_diplomacy_focus }
-				set_country_flag = GER_befriended_by_germany_flag
-			}
-			JAP = {
-				add_opinion_modifier = { target = GER modifier = supported_the_chinese }
-			}
+			
 		}
 	}
 
@@ -5788,6 +5809,13 @@ focus_tree = {
 		available_if_capitulated = no
 		available = {
 			is_subject = no
+			OR = {
+				has_army_manpower = { size > 499999 }
+				AND = {
+					is_historical_focus_on = yes
+					date > 1938.1.1
+				}
+			}
 			NOT = { has_idea = rhineland_challenge_met }
 		}
 		cancel = {
@@ -5916,7 +5944,7 @@ focus_tree = {
 				}
 
 				AUS = {
-					country_event = austria.40
+					country_event = germany.28
 				}				
 				custom_effect_tooltip = anschluss_mefo_bills_tt
 			}
@@ -5991,7 +6019,7 @@ focus_tree = {
 							}							
 						}
 					}
-					country_event = { id = austria.40 days = 1 }
+					country_event = { id = germany.126 days = 1 }
 				}
 			}
 			every_state = {
@@ -6015,10 +6043,7 @@ focus_tree = {
 		id = GER_demand_memel
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = GER_anschluss }
-		available = { 
-			is_subject = no 
-			has_army_manpower = { size > 499999 }
-		}
+		available = { is_subject = no }
 		x = 1
 		y = 1
 		relative_position_id = GER_anschluss
@@ -6071,7 +6096,7 @@ focus_tree = {
 				481 = { add_claim_by = GER }
 				2262 = { add_claim_by = GER }
 			}
-			add_named_threat = { threat = 3 name = GER_demand_memel_threat }
+			add_named_threat = { threat = 5 name = GER_demand_memel_threat }
 			if = {
 				limit = {
 					LIT = { 
@@ -6269,7 +6294,7 @@ focus_tree = {
 		}	
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_danzig_or_war"
-			add_named_threat = { threat = 5 name = GER_danzig_or_war }
+			add_named_threat = { threat = 10 name = GER_danzig_or_war }
 			if = {
 				limit = {
 					287 = {
@@ -6366,6 +6391,7 @@ focus_tree = {
 				custom_effect_tooltip = GER_danzig_or_war_POL_civil_war
 			}
 			unlock_decision_tooltip = GER_generalgouvernement_form
+			unlock_decision_tooltip = GER_sieze_danzig
 		}
 	}
 	
@@ -6672,10 +6698,10 @@ focus_tree = {
 					has_dlc = "Death or Dishonor"
 					CZE = { NOT = { is_in_faction_with = GER } } #in case AH is in faction with GER and dragged a subject CZE along.
 					OR = {
-						69 = { is_owned_by = HUN } #AH restored
+						473 = { is_owned_by = HUN } #AH restored
 						AND = {
 							CZE = { is_subject_of = HUN }
-							69 = { is_owned_by = CZE }
+							473 = { is_owned_by = CZE }
 						}
 					}
 				}
@@ -6715,7 +6741,7 @@ focus_tree = {
 				ENG = {
 					country_event = germany.40
 				}
-				add_named_threat = { threat = 3 name = GER_demand_sudetenland_threat }
+				add_named_threat = { threat = 5 name = GER_demand_sudetenland_threat }
 			}
 			if = {
 				limit = {
@@ -6727,7 +6753,7 @@ focus_tree = {
 					NOT = { has_war_with = FRA }
 					CZE = { is_subject = no }
 					CZE = { is_in_faction_with = HOL }
-					CZE = { controls_state = 69 }
+					CZE = { controls_state = 473 }
 					OR = {
 						HUN = {
 							NOT = {
@@ -6742,7 +6768,7 @@ focus_tree = {
 				HOL = {
 					country_event = germany.40
 				}
-				add_named_threat = { threat = 3 name = GER_demand_sudetenland_threat }
+				add_named_threat = { threat = 5 name = GER_demand_sudetenland_threat }
 			}
 			custom_effect_tooltip = mer_GER_demand_sudetenland_claim_west # initially only claimed western sudetenland
 			hidden_effect = {
@@ -6775,7 +6801,7 @@ focus_tree = {
 						country_event = { id = germany.1041 days = 2 random_days = 10 }
 					}
 				}
-				add_named_threat = { threat = 3 name = GER_demand_sudetenland_threat }
+				add_named_threat = { threat = 5 name = GER_demand_sudetenland_threat }
 			}
 		}
 	}
@@ -6947,7 +6973,7 @@ focus_tree = {
 				limit = { NOT = { country_exists = CZE } }
 				country_event = { id = germany.55 hours = 6 }
 			}
-			add_named_threat = { threat = 5 name = GER_end_of_czechoslovakia }
+			add_named_threat = { threat = 10 name = GER_end_of_czechoslovakia }
 			custom_effect_tooltip = end_of_czechoslovakia_mefo_bills_tt
 		}
 	}
@@ -7185,11 +7211,11 @@ focus_tree = {
 					exists = yes
 					is_in_faction_with = GER
 				}
-				owns_state = 70
+				owns_state = 1437
 			}
-			NOT = { owns_state = 85 }
+			NOT = { owns_state = 280 }
 			NOT = { has_war_with = POL }
-			POL = { owns_state = 72 }
+			POL = { owns_state = 267 }
 		}
 
 
@@ -7303,7 +7329,7 @@ focus_tree = {
 		}	
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_war_with_france"
-			add_named_threat = { threat = 5 name = GER_war_with_france_threat }
+			add_named_threat = { threat = 10 name = GER_war_with_france_threat }
  			create_wargoal = {
  				type = take_state_focus
  				target = FRA
@@ -7598,6 +7624,7 @@ focus_tree = {
 					transfer_state = 547
 				}
 			}
+			GER_rename_alsace_lorraine = yes
 			# take care of this later
 			#28 = { set_state_name = "Elsass-Lothringen" }
 			#set_province_name = { id = 13296 name = "Strassburg" }
@@ -8471,7 +8498,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_demand_slovenia
 		prerequisite = { focus = GER_anschluss }"
-			add_named_threat = { threat = 2 name = GER_demand_slovenia_threat }
+			add_named_threat = { threat = 5 name = GER_demand_slovenia_threat }
 			YUG = { add_opinion_modifier = { target = GER modifier = GER_demand_slovenia_YUG } }
 			if = {
 				limit = {
@@ -8715,7 +8742,7 @@ focus_tree = {
 				limit = {
 					ITA = {
 						OR = {
-							has_completed_focus = ITA_slovenia_dalmatia_claims
+							has_completed_focus = ITA_balkan_ambition
 							owns_state = 1521
 						}
 						is_friend_or_potential_friend_of_GER = yes
@@ -8732,7 +8759,7 @@ focus_tree = {
 					ITA = {
 						add_opinion_modifier = { target = GER modifier = GER_first_ljubljana_award_GER }
 						if = {
-							limit = { has_completed_focus = ITA_slovenia_dalmatia_claims }
+							limit = { has_completed_focus = ITA_balkan_ambition }
 							transfer_state = 1476
 						}
 						if = {
@@ -8876,7 +8903,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_second_ljubljana_award
 		mutually_exclusive = { focus = GER_war_with_greece } 
 		prerequisite = { focus = GER_fate_of_yugoslavia }"
-			add_named_threat = { threat = 2 name = GER_second_ljubljana_award }
+			add_named_threat = { threat = 5 name = GER_second_ljubljana_award }
 			if = {
 				limit = {
 					GRE = {
@@ -8889,7 +8916,7 @@ focus_tree = {
 					ITA = {
 						NOT = { has_war_with = GRE }
 						country_exists = ITA
-						has_completed_focus = ITA_greece_war_goal
+						has_completed_focus = ITA_war_with_greece
 						OR = {
 							is_in_faction_with = GER
 							is_in_faction = no							
@@ -9492,24 +9519,7 @@ focus_tree = {
 				}
 			}
 			add_named_threat = { threat = 5 name = GER_our_place_in_the_sun }
-			if = {
-				limit = {
-					743 = { is_controlled_by = event_target:WTT_current_china_leader }
-					NOT = {
-						has_war_with = event_target:WTT_current_china_leader
-					}
-				}
-				event_target:WTT_current_china_leader = { country_event = { id = wtt_germany.38 days = 1 } }
-			}
-			if = {
-				limit = {
-					743 = { is_controlled_by = JAP }
-					NOT = {
-						has_war_with = JAP
-					}
-				}
-				JAP = { country_event = { id = wtt_germany.43 days = 1 } }
-			}
+			
 		}
 	}
 
@@ -11062,6 +11072,10 @@ focus_tree = {
 				days = 720
 			}
 			set_party_name = { ideology = neutrality long_name = GER_neutrality_party_kaiserreich_long name = GER_neutrality_party_kaiserreich }
+			hidden_effect = { 
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = GER_republic
+			}
 		}
 	}
 
