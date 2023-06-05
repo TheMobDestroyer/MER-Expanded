@@ -11621,6 +11621,7 @@ country_event = {
 				}
 				set_country_flag = SOV_breakaway_country_flag
 				set_country_flag = SOV_unrecognized_country_flag 
+				add_ideas = SFSTE_mostly_unrecognized
 				set_rule = { can_join_factions = no }
 			}
 			# Renaming of cities where apropriate 
