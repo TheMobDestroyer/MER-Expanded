@@ -1,0 +1,32 @@
+add_namespace = mer_ukraine
+
+country_event = { #Warning for Ukraine to purge Stalinists
+    id = mer_ukraine.1
+    title = mer_ukraine.1.t
+    desc = mer_ukraine.1.d
+
+    is_triggered_only = yes
+
+    option = { #ok
+        name = mer_ukraine.1.a
+        every_owned_state = {
+            limit = {
+                OR = {
+                    is_core_of = ODS
+                    is_core_of = DKR
+                }
+            }
+            add_dynamic_modifier = { modifier = UKR_oopsies_communist_partisans scope = UKR }
+            if = {
+                limit = {
+                    is_controlled_by = SOS
+                }
+                set_state_owner_to = SOS
+            }
+        }
+        activate_mission_tooltip = UKR_purge_stalinists_or_else
+        hidden_effect = {
+            set_country_flag = UKR_purge_stalinists_or_else_flag 
+        }
+    }
+}

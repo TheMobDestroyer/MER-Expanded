@@ -11170,6 +11170,10 @@ country_event = {
 						add = SOV_civil_war_months
 						always = yes
 					}
+					modifier = { #let the player play ukraine
+						factor = 600
+						has_global_flag = will_switch_to_ukr
+					}
 					modifier = {
 						factor = 3 # To keep a ukrainian uprising always slightly more likely than the others + it has a unique focus tree
 						always = yes
@@ -11522,6 +11526,15 @@ country_event = {
 						}
 					}
 				}
+				if = {
+					limit = {
+						has_global_flag = will_switch_to_ukr
+					}
+					UKR = { change_tag_from = event_target:switching_to_UKR }
+					event_target:switching_to_UKR = {
+						clear_global_event_target = switching_to_UKR
+					}
+				}
 			}
 			# Capture any Stalinist soldiers in our territory
 			every_state = {
@@ -11656,6 +11669,11 @@ country_event = {
 		name = NSB_soviet_nationalist.001.b	
 		ai_chance = {
 			base = 1
+			modifier = { #Be kind to the player, don't make them fight for survival
+				check_variable = { var:SOV.SOV_nationalist_country = UKR }
+				has_global_flag = will_switch_to_ukr
+				factor = 0
+			}
 		}
 		var:SOV.SOV_nationalist_country = {
 			declare_war_on = {

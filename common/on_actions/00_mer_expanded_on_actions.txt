@@ -40,4 +40,27 @@ on_actions = {
 			}
 		}
 	}
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = { has_dynamic_modifier = { modifier = UKR_oopsies_communist_partisans } }
+				}
+				if = {
+					limit = {
+						ROOT = { tag = UKR }
+						FROM = { tag = SOS }
+					}
+					FROM.FROM = { set_state_owner_to = UKR }
+				}
+				if = {
+					limit = {
+						ROOT = { tag = SOS }
+						FROM = { tag = UKR }
+					}
+					FROM.FROM = { set_state_owner_to = SOS }
+				}
+			}
+		}
+	}
 }

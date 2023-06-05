@@ -1,0 +1,126 @@
+political_actions = {
+    UKR_purge_stalinists_or_else = {
+        priority = 100
+        icon = revolt
+        fire_only_once = yes
+		cancel_if_not_visible = yes
+        visible = {
+            has_country_flag = UKR_purge_stalinists_or_else_flag
+        }
+        available = {
+            has_completed_focus = UKR_anti_stalinist_purge
+        }
+        activation = {
+            has_country_flag = UKR_purge_stalinists_or_else_flag
+        }
+        cancel_if_not_visible = no
+        fire_only_once = yes
+        is_good = no
+        days_mission_timeout = 180
+        timeout_effect = {
+            custom_effect_tooltip = stalinist_revolt_tt
+            hidden_effect = {
+                every_owned_state = {
+                    limit = {
+                        is_core_of = ODS
+                    }
+                    transfer_state_to = ODS
+                }
+                every_owned_state = {
+                    limit = {
+                        is_core_of = DKR
+                    }
+                    transfer_state_to = DKR
+                }
+                ROOT = {
+                    transfer_units_fraction = {
+                        target = ODS
+                        size = 0.1
+                        navy_ratio = 0.5
+                        stockpile_ratio = 0.15
+                    }
+                    transfer_units_fraction = {
+                        target = DKR
+                        size = 0.11
+                        navy_ratio = 1
+                        stockpile_ratio = 0.15
+                    }
+                }
+                if = {
+                    limit = { #if you don't purge stalinists before the stalinists fall... you're a complete idiot
+                        country_exists = SOS
+                    }
+                    SOS = {
+                        puppet = ODS
+                        puppet = DKR
+                    }
+                }
+                ODS = {
+                    set_political_party = {
+                        ideology = communism
+                        popularity = 95
+                    }
+                    declare_war_on = {
+                        target = ROOT
+                        type = annex_everything
+                    }
+                }
+                DKR = {
+                    set_political_party = {
+                        ideology = communism
+                        popularity = 95
+                    }
+                    declare_war_on = {
+                        target = ROOT
+                        type = annex_everything
+                    }
+                }
+                every_state = {
+                    limit = {
+                        has_dynamic_modifier = { modifier = UKR_oopsies_communist_partisans scope = UKR }
+                    }
+                    remove_dynamic_modifier = { modifier = UKR_oopsies_communist_partisans }
+                }
+            }
+        }
+        complete_effect = {
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        has_dynamic_modifier = { modifier = UKR_oopsies_communist_partisans scope = UKR }
+                    }
+                    set_state_owner_to = UKR
+                    remove_dynamic_modifier = { modifier = UKR_oopsies_communist_partisans }
+                }
+            }
+        }
+    }
+
+    play_as_UKR = {
+
+        allowed = {
+            has_dlc = "No Step Back"
+        }
+
+        visible = {
+            SOV = { has_completed_focus = SOV_beaten_but_not_defeated }
+            has_idea = micronation_idea
+            is_ai = no
+        }
+
+        available = {
+            has_idea = micronation_idea
+            is_ai = no
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+            custom_effect_tooltip = will_switch_to_ukr_tt
+            hidden_effect = {
+                set_global_flag = will_switch_to_ukr
+                save_global_event_target_as = switching_to_UKR
+            }
+		}
+    }
+}

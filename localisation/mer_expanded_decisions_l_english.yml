@@ -3,3 +3,6 @@
  MER_get_ze_crown_prince_desc:0 "With Wilhelm II back in power, the Crown Prince can once again command armies under his helm."
  MER_get_rupprecht:0 "Recall Rupprecht of Bavaria"
  MER_get_rupprecht_desc:0 "With the German monarchy restored it is only natural for the new king of Bavaria who once commanded armies as crown prince of Bavaria to command our armies again."
+ play_as_UKR:0 "Play as the Ukrainian Uprising in the Second Russian Civil War"
+ play_as_UKR_desc:0 "You specifically chose a micronation to play probably to play as Ukraine in the 2RCW. This is the decision."
+ UKR_purge_stalinists_or_else:0 "Incoming Stalinist Revolt"

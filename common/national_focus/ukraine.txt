@@ -41,6 +41,12 @@ focus_tree = {
         completion_reward = {
             add_war_support = 0.15
             add_ideas = UKR_remember_the_holodomor
+			hidden_effect = {
+				country_event = {
+					id = mer_ukraine.1
+					random_days = 5
+				}
+			}
         }
         ai_will_do = {
             factor = 10
@@ -78,6 +84,12 @@ focus_tree = {
                 ideology = communism
                 popularity = -0.5
             }
+			if = {
+				limit = {
+					has_active_mission = UKR_purge_stalinists_or_else
+				}
+				custom_effect_tooltip = stalinist_revolt_crushed_tt
+			}
         }
         ai_will_do = {
             factor = 10
