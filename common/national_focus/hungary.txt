@@ -14410,18 +14410,18 @@ focus_tree = {
 			date > 1940.1.1
 			custom_trigger_tooltip = {
 				tooltip = HUN_has_gained_new_territory_since_start
-				OR = {
-					owns_state = 45		#Backa
-					owns_state = 82		#Banat
-					owns_state = 83		#Southern Partium
-					owns_state = 109	#Slavonia
-					owns_state = 664	#Southern Slovakia
-					owns_state = 909	#Burgenland
-					owns_state = 910	#Torontal
-					owns_state = 912	#Muraköz
-					owns_state = 914	#Beregszasz
-					owns_state = 915	#Croatia
-					owns_state = 918	#Northern Partium
+				any_owned_state = {
+					OR = {
+						state = 695
+						is_core_of = SLO
+						is_core_of = TRA
+						is_core_of = VJV
+						is_core_of = CRO
+						AND = {
+							is_core_of = BUR
+							is_core_of = AUS
+						}
+					}
 				}
 			}
 		}
