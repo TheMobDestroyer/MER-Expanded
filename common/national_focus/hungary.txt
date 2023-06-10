@@ -1706,7 +1706,7 @@ focus_tree = {
 
 		available = {
 			has_tech = tech_military_police
-			owns_state = 927		#Budapest
+			owns_state = 633		#Budapest
 			if = {
 				limit = { has_country_flag = HUN_realism }
 				has_manpower > 5999
@@ -1851,7 +1851,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_highly_planned_economy }
 		available = {
 			has_government = communism
-			owns_state = 927	#Budapest
+			owns_state = 633	#Budapest
 		}
 		x = 5
 		y = 5
@@ -1863,7 +1863,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			927 = {		#Budapest
+			633 = {		#Budapest
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = infrastructure
@@ -1884,7 +1884,7 @@ focus_tree = {
 			owns_state = 43		#Northern Hungary
 			owns_state = 916	#Bács-Kiskun
 			owns_state = 154	#Alföld
-			owns_state = 927	#Budapest
+			owns_state = 633	#Budapest
 		}
 		x = 8
 		y = 3
@@ -1929,7 +1929,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}	
-			927 = {		#Budapest
+			633 = {		#Budapest
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -5273,7 +5273,7 @@ focus_tree = {
 	focus = {
 		id = HUN_home_defense_focus
 		icon = GFX_goal_generic_fortify_city
-		available = { owns_state = 927 }	#Budapest
+		available = { owns_state = 633 }	#Budapest
 		x = 1
 		y = -1
 		relative_position_id = HUN_a_bastion_against_fascism
@@ -5292,7 +5292,7 @@ focus_tree = {
 			add_war_support = 0.05
 			custom_effect_tooltip = HUN_budapest_will_be_reinforced
 			hidden_effect = {
-				927 = {
+				633 = {
 					add_building_construction = {
 						type = bunker
 						level = 4
@@ -6421,7 +6421,7 @@ focus_tree = {
 			any_other_country = {
 				is_in_faction_with = ROOT
 			}
-			owns_state = 927	# Budapest
+			owns_state = 633	# Budapest
 			has_dlc = "Together for Victory"
 		}	
 		x = -7
@@ -9990,7 +9990,7 @@ focus_tree = {
 			owns_state = 43 	#Northern Hungary
 			owns_state = 154 	#Alföld
 			owns_state = 931 	#Southern Transdanubia
-			owns_state = 927 	#Pest
+			owns_state = 633 	#Pest
 		}
 
 		ai_will_do = {
@@ -10023,7 +10023,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			927 = {		#Pest
+			633 = {		#Pest
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -10046,7 +10046,7 @@ focus_tree = {
 		available = {
 			has_government = fascism
 			owns_state = 931 	#Southern Transdanubia
-			owns_state = 927 	#Northern Hungary
+			owns_state = 633 	#Northern Hungary
 		}
 
 		ai_will_do = {
@@ -10064,7 +10064,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			927 = {		#Northern Hungary
+			633 = {		#Northern Hungary
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -10505,7 +10505,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_maintain_conservative_government }
 		available = {
 			owns_state = 930 	#Western Transdanubia
-			owns_state = 927 	#Budapest
+			owns_state = 633 	#Budapest
 		}
 		x = 29
 		y = 2
@@ -10524,7 +10524,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}	 
-			927 = {	#Budapest
+			633 = {	#Budapest
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -12525,7 +12525,7 @@ focus_tree = {
 		id = HUN_agricultural_modernisation
 		icon = GFX_goal_generic_production2
 		available = {	
-			owns_state = 155 	#Transdanubia
+			owns_state = 633 	#Budapest
 		}
 		x = 7	#X-ANCHOR (for industrial branch)
 		y = 0
@@ -12549,7 +12549,7 @@ focus_tree = {
 				uses = 1
 				category = industry
 			}
-			155 = {
+			633 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -12565,7 +12565,7 @@ focus_tree = {
 		icon = GFX_goal_alfold_oil_fields
 		prerequisite = { focus = HUN_agricultural_modernisation }
 		available = {		
-			owns_state = 931 	#Southern Transdanubia
+			owns_state = 676 	#Southern Transdanubia
 		}
 		x = -3
 		y = 1
@@ -12812,7 +12812,7 @@ focus_tree = {
 		icon = GFX_focus_generic_steel
 		prerequisite = { focus = HUN_agricultural_modernisation }
 		available = {	
-			owns_state = 927 	#Budapest
+			owns_state = 633 	#Budapest
 		}
 		x = -1
 		y = 1
@@ -12826,7 +12826,7 @@ focus_tree = {
 			add_resource = {
 				type = steel
 				amount = 8
-				state = 927
+				state = 633
 			}
 		}
 	}
@@ -12836,7 +12836,7 @@ focus_tree = {
 		icon = GFX_focus_generic_aluminum
 		prerequisite = { focus = HUN_agricultural_modernisation }
 		available = {	
-			owns_state = 927 	#Budapest
+			owns_state = 633 	#Budapest
 		}
 		x = 1
 		y = 1
@@ -12850,7 +12850,7 @@ focus_tree = {
 			add_resource = {
 				type = aluminium
 				amount = 12
-				state = 927
+				state = 633
 			}
 		}
 	}
@@ -12860,7 +12860,7 @@ focus_tree = {
 		icon = GFX_goal_generic_production2
 		prerequisite = { focus = HUN_agricultural_modernisation }
 		available = {	
-			owns_state = 916 	#Bács-Kiskun
+			owns_state = 1821 	#Bács-Kiskun
 		}
 		x = 0
 		y = 2
@@ -12887,7 +12887,7 @@ focus_tree = {
 		icon = GFX_goal_synthetic_rubber
 		prerequisite = { focus = HUN_agricultural_modernisation }
 		available = {		
-			owns_state = 155 	#Transdanubia
+			owns_state = 659 	#Transdanubia
 		}
 		x = 3
 		y = 1
@@ -12956,7 +12956,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_industrial_effort focus = HUN_fortification_effort }
 		prerequisite = { focus = HUN_aviation_effort }
 		available = {	
-			owns_state = 927 	#Pest
+			owns_state = 633 	#Pest
 		}
 		x = 3
 		y = 3
@@ -12967,7 +12967,7 @@ focus_tree = {
 		}	
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			927 = {
+			633 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -12989,7 +12989,7 @@ focus_tree = {
 		icon = GFX_goal_hungarian_lloyd_aircraft_factory
 		prerequisite = { focus = HUN_budapest_ferihegy_airport }
 		available = {	
-			owns_state = 43 	#Northern Hungary
+			owns_state = 633 	#Northern Hungary
 		}
 		x = 3
 		y = 4
@@ -13000,7 +13000,7 @@ focus_tree = {
 		}	
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			43 = {
+			633 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -13045,7 +13045,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = HUN_industrial_effort focus = HUN_fortification_effort }
 		available = {
-			owns_state = 930 	#Western Transdanubia
+			owns_state = 624 	#Western Transdanubia
 		}
 		x = -1
 		y = 4
@@ -13119,7 +13119,7 @@ focus_tree = {
 			owns_state = 154 	#Alföld
 			owns_state = 155 	#Transdanubia
 			owns_state = 916 	#Bács-Kiskun
-			owns_state = 927 	#Budapest
+			owns_state = 633 	#Budapest
 			owns_state = 930 	#Western Transdanubia
 			owns_state = 931 	#Southern Transdanubia
 		}
@@ -13136,7 +13136,7 @@ focus_tree = {
 			916 = {	#Bács-Kiskun
 				infrastructure > 4
 			}
-			927 = {	#Budapest
+			633 = {	#Budapest
 				infrastructure > 4
 			}
 			930 = {	#Western Transdanubia
@@ -13227,7 +13227,7 @@ focus_tree = {
 					}
 				}
 			}
-			927 = {
+			633 = {
 				if = {
 					limit = { owner = { has_country_flag = HUN_realism } }
 					add_building_construction = {
@@ -13895,7 +13895,7 @@ focus_tree = {
 			factor = 10
 		}	
 		completion_reward = {
-			155 = {		#Transdanubia
+			722 = {		#Pecs
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -13962,7 +13962,7 @@ focus_tree = {
 		icon = GFX_goal_expand_the_danube_aircraft_factory
 		prerequisite = { focus = HUN_the_gyori_program }
 		available = {	
-			owns_state = 43 	#Northern Hungary
+			owns_state = 633 	#Northern Hungary
 			if = {
 				limit = { has_country_flag = HUN_realism }
 				NOT = { has_idea = trianon_restrictions }
@@ -13986,7 +13986,7 @@ focus_tree = {
 				uses = 1
 				category = air_doctrine
 			}
-			43 = {
+			633 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -14467,7 +14467,7 @@ focus_tree = {
 		icon = GFX_goal_croatian_ports
 		prerequisite = { focus = HUN_revive_the_navy }
 		available = {	
-			owns_state = 923	#Pag
+			owns_state = 2924	#Pag
 		}
 		x = 7
 		y = 1
@@ -14477,7 +14477,7 @@ focus_tree = {
 			factor = 50
 		}	
 		completion_reward = {
-			923 = {
+			2924 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
@@ -14487,7 +14487,7 @@ focus_tree = {
 				add_building_construction = {
 					type = naval_base
 					level = 4
-					province = 591	#Jablanac
+					province = 20125	#Jablanac
 					instant_build = yes
 				}
 			}
@@ -14499,7 +14499,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		prerequisite = { focus = HUN_revive_the_navy }
 		available = {
-			owns_state = 913	#Fiume
+			owns_state = 755	#Fiume
 		}
 		x = 13
 		y = 1
@@ -14510,7 +14510,7 @@ focus_tree = {
 		}	
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			913 = {
+			755 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = dockyard
@@ -14598,7 +14598,7 @@ focus_tree = {
 		icon = GFX_goal_generic_build_navy
 		prerequisite = { focus = HUN_escort_fleet focus = HUN_raiding_fleet}
 		available = {
-			owns_state = 923	#Pag
+			owns_state = 2924	#Pag
 			has_completed_focus = HUN_naval_defense
 		}
 		x = 13
@@ -14609,7 +14609,7 @@ focus_tree = {
 			factor = 50
 		}	
 		completion_reward = {
-			923 = {
+			2924 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
@@ -14705,8 +14705,8 @@ focus_tree = {
 		icon = GFX_focus_generic_adriatic_sea_focus
 		prerequisite = { focus = HUN_revive_the_navy }
 		available = {
-			owns_state = 923	#Pag
-			owns_state = 103	#Dalmatia
+			owns_state = 2924	#Pag
+			owns_state = 815	#Dalmatia
 			NOT = { has_war_with = ENG }
 			ENG = {
 				exists = yes
@@ -14721,7 +14721,7 @@ focus_tree = {
 		}	
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			923 = {
+			2924 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = dockyard
@@ -14729,7 +14729,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			103 = {
+			815 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
@@ -14745,8 +14745,8 @@ focus_tree = {
 		icon = GFX_focus_generic_navy_battleship2
 		prerequisite = { focus = HUN_vickers_shipyard }
 		available = {
-			owns_state = 923	#Pag
-			owns_state = 103	#Dalmatia
+			owns_state = 2924	#Pag
+			owns_state = 815	#Dalmatia
 		}
 		x = 16
 		y = 2
@@ -15526,7 +15526,7 @@ focus_tree = {
 		cost = 5
 		
 		available = {
-			owns_state = 927                # Budapest
+			owns_state = 633                # Budapest
 		}
 
 		ai_will_do = {
@@ -15555,7 +15555,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = { 927 }
+				prioritize = { 633 }
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
 					division = "name = \"1.Határvadász Dandár\" division_template = \"Border Guard Division\" start_experience_factor = 0.9" 
@@ -15604,7 +15604,7 @@ focus_tree = {
 					has_tech = improved_light_tank_chassis
 				}
 			}
-			owns_state = 927                # Budapest
+			owns_state = 633                # Budapest
 			if = {
 				limit = { has_country_flag = HUN_realism }
 				has_manpower > 15200
@@ -15663,7 +15663,7 @@ focus_tree = {
 					has_tech = improved_medium_tank_chassis
 				}
 			}	
-			owns_state = 927                # Budapest
+			owns_state = 633                # Budapest
 			if = {
 				limit = { has_country_flag = HUN_realism }
 				has_manpower > 6200
@@ -15722,7 +15722,7 @@ focus_tree = {
 					has_tech = basic_medium_tank_chassis
 				}
 			}
-			owns_state = 927 	#Budapest
+			owns_state = 633 	#Budapest
 		}
 		x = -10
 		y = 5
@@ -15756,7 +15756,7 @@ focus_tree = {
 					has_tech = improved_medium_tank_chassis
 				}
 			}
-			owns_state = 927 	#Budapest
+			owns_state = 633 	#Budapest
 		}
 		x = -10
 		y = 7
@@ -15836,7 +15836,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_huba_order_of_battle }
 		available = {
 			has_tech = paratroopers
-			owns_state = 927		#Budapest
+			owns_state = 633		#Budapest
 			if = {
 				limit = { has_country_flag = HUN_realism }
 				has_manpower > 1999
