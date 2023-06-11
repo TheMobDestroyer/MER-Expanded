@@ -12599,11 +12599,10 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = HUN_found_maort }
 		available = {	
-			NOT = {
-				any_owned_state = {
-					NOT = { 
-						has_state_flag = HUN_INITIAL_STATE
-					}
+			all_state = {
+				OR = {
+					is_owned_by = HUN
+					NOT = { has_state_flag = HUN_INITIAL_STATE }
 				}
 			}
 		}
