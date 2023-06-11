@@ -12581,9 +12581,9 @@ focus_tree = {
 			add_resource = {
 				type = oil
 				amount = 10
-				state = 931
+				state = 676
 			}
-			931 = {
+			676 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -12599,13 +12599,13 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = HUN_found_maort }
 		available = {	
-			has_full_control_of_state = 43  #Northern Hungary
-			has_full_control_of_state = 154 #Alföld
-			has_full_control_of_state = 155 #Transdanubia
-			has_full_control_of_state = 916 #Bács-Kiskun
-			has_full_control_of_state = 927 #Budapest
-			has_full_control_of_state = 930 #Western Transdanubia
-			has_full_control_of_state = 931 #Southern Transdanubia
+			NOT = {
+				any_owned_state = {
+					NOT = { 
+						has_state_flag = HUN_INITIAL_STATE
+					}
+				}
+			}
 		}
 		x = -3
 		y = 2
@@ -12619,57 +12619,20 @@ focus_tree = {
 			# Budapest - Győr
 			build_railway = {
 			    #level = 1 
-				start_province = 9660
-				target_province = 6720
+				start_province = 18280
+				target_province = 13650
 			}
 			# Budapest - Debrecen
 			build_railway = {
 			    #level = 1 
-				start_province = 9660
-				target_province = 730
+				start_province = 18280
+				target_province = 8222
 			}
 			# Budapest - Miskolc
 			build_railway = {
 			    #level = 1 
-				start_province = 9660
-				target_province = 6751
-			}
-
-			#Supply Hub in Debrecen
-			154 = {
-				add_building_construction = {
-					type = supply_node
-					level = 1
-					province = 730
-					instant_build = yes
-				}
-			}
-			#Supply Hub in Győr
-			930 = {
-				add_building_construction = {
-					type = supply_node
-					level = 1
-					province = 6720
-					instant_build = yes
-				}
-			}
-			#Supply Hub in Miskolc
-			43 = {
-				add_building_construction = {
-					type = supply_node
-					level = 1
-					province = 6751
-					instant_build = yes
-				}
-			}
-			#Supply Hub in Pécs
-			931 = {
-				add_building_construction = {
-					type = supply_node
-					level = 1
-					province = 11610
-					instant_build = yes
-				}
+				start_province = 18280
+				target_province = 13489
 			}
 		}
 	}
@@ -12786,8 +12749,8 @@ focus_tree = {
 			# Budapest - Pag
 			build_railway = {
 			    #level = 1 
-				start_province = 9660
-				target_province = 591
+				start_province = 18280
+				target_province = 20125
 			}
 			# Croatia - Bosnia
 			build_railway = {

@@ -455,3 +455,6 @@ if = {
 		}
 	}
 }
+every_owned_state = {
+	set_state_flag = HUN_INITIAL_STATE
+}
