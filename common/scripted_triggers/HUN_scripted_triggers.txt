@@ -417,19 +417,23 @@ owns_land_in_region_hungary_slovakia = {
 }
 
 owns_land_in_region_bohemia_moravia = {
-	OR = {					
-		owns_state = 69	#Sudetenland
-		owns_state = 9	#Bohemia
-		owns_state = 75	#Moravia
+	any_owned_state = {
+		OR = {
+			is_core_of = BOH
+			AND = {
+				is_core_of = MRV
+				NOT = { is_core_of = CSN }
+			}
+		}
 	}
 }
 
 owns_land_in_region_region_galicia_lodomeria = {
-	OR = {
-		owns_state = 72	#Zaolzie
-		owns_state = 88	#Krakow
-		owns_state = 89	#Stanislawow
-		owns_state = 91	#Lwow
+	any_owned_state = {
+		OR = {
+			is_core_of = GAL
+			is_core_of = CSN
+		}
 	}
 }
 

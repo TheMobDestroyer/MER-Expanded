@@ -112,7 +112,7 @@ country_event = {
 		}
 		CRO = {
 			transfer_state = 915	#Croatia
-			set_capital = { state = 915 }		#Croatia
+			set_capital = { state = 1464 }		#Croatia
 		}	
 		hidden_effect = { country_event = { id = hungary_flavor_partition.35 } }
 		915 = { set_state_flag = HUN_claim_forbidden clr_state_flag = HUN_is_claimed_by_HUN }	#Croatia		
