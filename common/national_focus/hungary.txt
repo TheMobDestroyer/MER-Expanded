@@ -6626,7 +6626,8 @@ focus_tree = {
 		prerequisite = { focus = HUN_befriend_austria }
 		available = {
 			AUS = {
-				owns_state = 909 #Burgenland
+				owns_state = 621
+				owns_state = 1805
 				NOT = { has_war_with = ROOT }
 			}
 			if = {
@@ -6677,10 +6678,14 @@ focus_tree = {
 					AUS = { is_ai = yes }
 				}
 				AND = {
-					owns_state = 4		#Lower Austria
-					owns_state = 152	#Upper Austria
-					owns_state = 153	#Tyrol
-					owns_state = 909	#Burgenland
+					all_state = {
+						if = {
+							limit = {
+								has_state_flag = AUS_INITIAL_STATE
+							}
+							is_owned_by = ROOT
+						}
+					}
 					AUS = { exists = no }
 				}
 			}
@@ -8063,13 +8068,12 @@ focus_tree = {
 				create_politician_wilhelm_hohenzollern_ger = yes 	
 				custom_effect_tooltip = HUN_GER_wilhelm_non_aligned_party	
 			}
-			66 = {
-				add_claim_by = HUN
-				set_state_flag = HUN_can_be_integrated #Niederschlesien
-			}
-			67 = {
-				add_claim_by = HUN
-				set_state_flag = HUN_can_be_integrated #Oberschlesien
+			every_state = {
+				limit = {
+					is_core_of = SIL
+					is_core_of = LUS
+				}
+				add_claim_by = ROOT
 			}
 			create_wargoal = {
 				type = take_state_focus
@@ -9472,7 +9476,8 @@ focus_tree = {
 			has_war_support > 0.5
 			has_manpower > 49999
 			GER = {
-				owns_state = 909	# Burgenland
+				owns_state = 621
+				owns_state = 1805
 				OR = {
 					AND = {
 						has_idea = all_adults_serve
@@ -9483,7 +9488,8 @@ focus_tree = {
 			}
 		}
 		bypass = {
-			owns_state = 909	# Burgenland
+			owns_state = 621
+			owns_state = 1805
 		}
 		x = 11
 		y = 4
@@ -9501,7 +9507,8 @@ focus_tree = {
 			hidden_effect = { GER = { country_event = { id = hungary_flavor_ger.21 } } }
 			effect_tooltip = {
 				add_manpower = -50000
-				transfer_state = 909	# Burgenland
+				transfer_state = 621
+				transfer_state = 1805
 				GER = {
 					add_manpower = 50000
 					custom_effect_tooltip = needs_approval
@@ -9523,7 +9530,8 @@ focus_tree = {
 			has_war_support > 0.5
 			has_manpower > 49999
 			GER = {
-				owns_state = 909	# Burgenland
+				owns_state = 621
+				owns_state = 1805
 				OR = {
 					AND = {
 						has_idea = all_adults_serve
@@ -9534,7 +9542,8 @@ focus_tree = {
 			}
 		}
 		bypass = {
-			owns_state = 909	# Burgenland
+			owns_state = 621
+			owns_state = 1805
 		}
 		x = 11
 		y = 4
@@ -9552,7 +9561,8 @@ focus_tree = {
 			hidden_effect = { GER = { country_event = { id = hungary_flavor_ger.21 } } }
 			effect_tooltip = {
 				add_manpower = -50000
-				transfer_state = 909	# Burgenland
+				transfer_state = 621
+				transfer_state = 1805
 				GER = {
 					add_manpower = 50000
 					custom_effect_tooltip = needs_approval

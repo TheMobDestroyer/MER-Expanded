@@ -3023,12 +3023,12 @@ HUN_foreign_investment_category = {
 
 		available = {
 			has_government = communism
-			owns_state = 927	#Budapest
+			owns_state = 633	#Budapest
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		
 		highlight_states = {
-			state = 927	#Budapest
+			state = 633	#Budapest
 		}
 
 		cost = 20
@@ -3050,7 +3050,7 @@ HUN_foreign_investment_category = {
 			factor = 100
 		}
 		remove_effect = {
-			927 = {		#Budapest
+			633 = {		#Budapest
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -3070,12 +3070,12 @@ HUN_foreign_investment_category = {
 				has_government = democratic
 				has_government = neutrality
 			}
-			owns_state = 927	#Budapest
+			owns_state = 633	#Budapest
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		
 		highlight_states = {
-			state = 927	#Budapest
+			state = 633	#Budapest
 		}
 
 		cost = 20
@@ -3102,7 +3102,7 @@ HUN_foreign_investment_category = {
 			factor = 100
 		}
 		remove_effect = {
-			927 = {		#Budapest
+			633 = {		#Budapest
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -3166,12 +3166,12 @@ HUN_foreign_investment_category = {
 		available = {
 			has_government = fascism
 			has_idea = dunai_repulogepgyar
-			owns_state = 927	#Budapest
+			owns_state = 633	#Budapest
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		
 		highlight_states = {
-			state = 927	#Budapest
+			state = 633	#Budapest
 		}
 
 		cost = 20
@@ -3193,7 +3193,7 @@ HUN_foreign_investment_category = {
 			factor = 100
 		}
 		remove_effect = {
-			927 = {		#Budapest
+			633 = {		#Budapest
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -3585,7 +3585,7 @@ HUN_foreign_investment_category = {
 				exists = yes
 				is_in_faction_with = ROOT
 			}
-			owns_state = 927	#Pest
+			owns_state = 633	#Pest
 		}
 	
 		allowed = {
@@ -3609,7 +3609,7 @@ HUN_foreign_investment_category = {
 		
 		remove_effect = {
 			#Pest
-			927 = {
+			633 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -4684,7 +4684,7 @@ HUN_industrial_development_category = {
 		icon = rubber
 		
 		available = {
-		    927 = {		#Pest
+		    633 = {		#Pest
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4697,7 +4697,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 927	#Pest
+			state = 633	#Pest
 		}
 
 		cost = 50
@@ -4709,7 +4709,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			927 = {		#Pest
+			633 = {		#Pest
 				NOT = { has_state_flag = HUN_expand_the_ruanta_done }
 				OWNER = {
 					OR = {
@@ -4726,15 +4726,15 @@ HUN_industrial_development_category = {
 			add_resource = {
 				type = rubber
 				amount = 8
-				state = 927
+				state = 633
 			}
 			if = {
 				limit = {
-					927 = {	#Pest
+					633 = {	#Pest
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				927 = {	#Pest
+				633 = {	#Pest
 				    set_state_flag = HUN_expand_the_ruanta_done
 					OWNER = {
 						add_autonomy_ratio = {
@@ -4823,7 +4823,7 @@ HUN_industrial_development_category = {
 		icon = generic_construction
 		
 		available = {
-			927 = {		#Budapest
+			633 = {		#Budapest
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4836,7 +4836,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 927	#Budapest
+			state = 633	#Budapest
 		}
 
 		cost = 50
@@ -4848,7 +4848,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			927 = {		
+			633 = {		
 				NOT = { has_state_flag = HUN_budapest_industrial_district_done }
 				OWNER = {
 					OR = {
@@ -4862,7 +4862,7 @@ HUN_industrial_development_category = {
 			factor = 100
 		}
 		remove_effect = {
-			927 = {		#Budapest
+			633 = {		#Budapest
 				set_state_flag = HUN_budapest_industrial_district_done
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -4873,11 +4873,11 @@ HUN_industrial_development_category = {
 			}
 			if = {
 				limit = {
-					927 = {	#Budapest
+					633 = {	#Budapest
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				927 = {	#Budapest
+				633 = {	#Budapest
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.150
@@ -5411,7 +5411,7 @@ HUN_defensive_preparations_category = {
 					}
 				}
 			}
-			927 = {	#Budapest
+			633 = {	#Budapest
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -5472,7 +5472,7 @@ HUN_defensive_preparations_category = {
 					instant_build = yes
 				}
 			}
-			927 = {		#Budapest
+			633 = {		#Budapest
 				add_building_construction = {
 					type = air_base
 					level = 3
@@ -6104,7 +6104,7 @@ HUN_defensive_preparations_category = {
 					}
 				}
 			}
-			927 = {	#Budapest
+			633 = {	#Budapest
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -6152,7 +6152,7 @@ HUN_defensive_preparations_category = {
 					instant_build = yes
 				}
 			}
-			927 = {		#Budapest
+			633 = {		#Budapest
 				add_building_construction = {
 					type = radar_station
 					level = 1

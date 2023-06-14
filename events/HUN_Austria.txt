@@ -73,15 +73,19 @@ country_event = {
 					limit = { has_country_flag = HUN_realism }
 					random_list = { 
 						50 = { 
-							transfer_state = 909 #Burgenland 
-							add_state_core = 909 #Burgenland
+							transfer_state = 621
+							transfer_state = 1805 
+							add_state_core = 909
+							add_state_core = 1805 
 							add_war_support = -0.02
 						} 
 						50 = { }
 					}
 					else = {
-						transfer_state = 909 #Burgenland 
-						add_state_core = 909 #Burgenland
+						transfer_state = 621
+						transfer_state = 1805 
+						add_state_core = 909
+						add_state_core = 1805 
 						add_war_support = -0.02
 					}
 				}
