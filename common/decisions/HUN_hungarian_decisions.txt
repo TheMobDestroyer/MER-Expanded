@@ -232,7 +232,7 @@ HUN_self_government_category = {
 				owns_state = 70		#Western Slovakia
 				owns_state = 71		#Eastern Slovakia
 				owns_state = 664	#Southern Slovakia
-				owns_state = 928	#Sobrance
+				owns_state = 562	#Sobrance
 			}
 		}
 
@@ -252,7 +252,7 @@ HUN_self_government_category = {
 				owns_state = 70		#Western Slovakia
 				owns_state = 71		#Eastern Slovakia
 				owns_state = 664	#Southern Slovakia
-				owns_state = 928	#Sobrance
+				owns_state = 562	#Sobrance
 			}
 		}
 		ai_will_do = {
@@ -427,7 +427,7 @@ HUN_self_government_category = {
 		fire_only_once = yes
 		
 		available = {
-			928 = {		#Sobrance
+			562 = {		#Sobrance
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -476,11 +476,11 @@ HUN_self_government_category = {
 				owns_state = 71		#Eastern Slovakia
 				OR = {
 					NOT = { owns_state = 73 }	#Carpathian Ruthenia
-					NOT = { owns_state = 928 }	#Sobrance
+					NOT = { owns_state = 562 }	#Sobrance
 					NOT = { owns_state = 914 }	#Berehovo
 				}
 			}
-			928 = {		#Sobrance
+			562 = {		#Sobrance
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -550,7 +550,7 @@ HUN_self_government_category = {
 				is_subject_of = ROOT
 				owns_state = 70		#Western Slovakia
 				owns_state = 71		#Eastern Slovakia
-				owns_state = 928	#Sobrance
+				owns_state = 562	#Sobrance
 				owns_state = 73		#Carpathian Ruthenia
 			}
 			RUT = { exists = no }
@@ -568,7 +568,7 @@ HUN_self_government_category = {
 				is_subject_of = ROOT
 				owns_state = 70		#Western Slovakia
 				owns_state = 71		#Eastern Slovakia
-				owns_state = 928	#Sobrance
+				owns_state = 562	#Sobrance
 				owns_state = 73		#Carpathian Ruthenia
 			}
 			RUT = { exists = no }
@@ -579,8 +579,8 @@ HUN_self_government_category = {
 		remove_effect = {
 			SLO = {
 				if = {
-					limit = { owns_state = 928 }	#Sobrance
-					add_state_core = 928	#Sobrance
+					limit = { owns_state = 562 }	#Sobrance
+					add_state_core = 562	#Sobrance
 				}
 				if = {
 					limit = { owns_state = 73 }	#Carpathian Ruthenia
@@ -943,7 +943,7 @@ HUN_border_issues_category = {
 		icon = border_war
 
 		available = {
-			928 = {		#Sobrance
+			562 = {		#Sobrance
 				OWNER = {
 					OR = {
 						tag = SLO
@@ -965,7 +965,7 @@ HUN_border_issues_category = {
 		fire_only_once = yes
 
 		highlight_states = {
-			state = 928		#Sobrance
+			state = 562		#Sobrance
 		}
 	
 		allowed = {
@@ -973,7 +973,7 @@ HUN_border_issues_category = {
 		}
 		
 		visible = {
-			928 = {		#Sobrance
+			562 = {		#Sobrance
 				OWNER = {
 					OR = {
 						tag = SLO
@@ -4288,7 +4288,7 @@ HUN_industrial_development_category = {
 		icon = steel
 		
 		available = {
-			84 = {		#Transylvania
+			737 = {
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4296,7 +4296,7 @@ HUN_industrial_development_category = {
 					}
 				}
 			}
-			929 = {		#Szeklerland
+			1586 = {
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4309,7 +4309,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 929	#Szeklerland
+			state = 1596
 		}
 
 		cost = 50
@@ -4321,7 +4321,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			84 = {		#Transylvania
+			737 = {
 				NOT = { has_state_flag = HUN_mines_in_transylvania_done }
 				OWNER = {
 					OR = {
@@ -4330,7 +4330,7 @@ HUN_industrial_development_category = {
 					}
 				}
 			}
-			929 = {		#Szeklerland
+			1586 = {
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4343,7 +4343,7 @@ HUN_industrial_development_category = {
 			factor = 100
 		}
 		remove_effect = {
-			84 = {
+			737 = {
 				set_state_flag = HUN_mines_in_transylvania_done
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -4352,7 +4352,7 @@ HUN_industrial_development_category = {
 					instant_build = yes
 				}
 			}			
-			929 = {
+			1586 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -4363,15 +4363,15 @@ HUN_industrial_development_category = {
 			add_resource = {
 				type = steel
 				amount = 16
-				state = 929
+				state = 1586
 			}
 			if = {
 				limit = {
-					84 = {	#Transylvania
+					737 = {	#Transylvania
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				84 = {	#Transylvania
+				737 = {	#Transylvania
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.100
@@ -4382,11 +4382,11 @@ HUN_industrial_development_category = {
 			}
 			if = {
 				limit = {
-					929 = {	#Szeklerland
+					1586 = {	#Szeklerland
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				929 = {	#Szeklerland
+				1586 = {	#Szeklerland
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.100
@@ -4545,7 +4545,7 @@ HUN_industrial_development_category = {
 		icon = steel
 		
 		available = {
-			930 = {		#Western Transdanubia
+			624 = {
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4558,7 +4558,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 930	#Western Transdanubia
+			state = 624
 		}
 
 		cost = 50
@@ -4570,7 +4570,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			930 = {		#Western Transdanubia
+			624 = {
 				NOT = { has_state_flag = HUN_raba_steel_works_done }
 				OWNER = {
 					OR = {
@@ -4587,15 +4587,15 @@ HUN_industrial_development_category = {
 			add_resource = {
 				type = steel
 				amount = 4
-				state = 930		#Western Transdanubia
+				state = 624
 			}
 			if = {
 				limit = {
-					930 = {	#Western Transdanubia
+					624 = {
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				930 = {	#Western Transdanubia
+				624 = {
 				    set_state_flag = HUN_raba_steel_works_done
 					OWNER = {
 						add_autonomy_ratio = {
@@ -4613,7 +4613,7 @@ HUN_industrial_development_category = {
 		icon = steel
 		
 		available = {
-			930 = {		#Western Transdanubia
+			624 = {
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4626,7 +4626,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 930	#Western Transdanubia
+			state = 624
 		}
 
 		cost = 50
@@ -4638,7 +4638,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			930 = {		#Western Transdanubia
+			624 = {
 				NOT = { has_state_flag = HUN_expand_the_raba_done }
 				OWNER = {
 					OR = {
@@ -4652,7 +4652,7 @@ HUN_industrial_development_category = {
 			factor = 100
 		}
 		remove_effect = {
-			930 = {		#Western Transdanubia
+			624 = {
 				set_state_flag = HUN_expand_the_raba_done
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -4663,11 +4663,11 @@ HUN_industrial_development_category = {
 			}
 			if = {
 				limit = {
-					930 = {	#Western Transdanubia
+					624 = {
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				930 = {	#Western Transdanubia
+				624 = {
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.50
@@ -4752,7 +4752,7 @@ HUN_industrial_development_category = {
 		icon = generic_construction
 		
 		available = {
-			43 = {		#Northern Hungary
+			595 = {		#Northern Hungary
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4765,7 +4765,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 43	#Northern Hungary
+			state = 596	#Northern Hungary
 		}
 
 		cost = 50
@@ -4777,7 +4777,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			43 = {		
+			596 = {		
 				NOT = { has_state_flag = HUN_miskolc_arms_factory_done }
 				OWNER = {
 					OR = {
@@ -4791,7 +4791,7 @@ HUN_industrial_development_category = {
 			factor = 100
 		}
 		remove_effect = {
-			43 = {		#Northern Hungary
+			596 = {		#Northern Hungary
 				set_state_flag = HUN_miskolc_arms_factory_done
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -4802,11 +4802,11 @@ HUN_industrial_development_category = {
 			}
 			if = {
 				limit = {
-					43 = {	#Northern Hungary
+					596 = {	#Northern Hungary
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				43 = {	#Northern Hungary
+				596 = {	#Northern Hungary
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.150
@@ -4894,7 +4894,7 @@ HUN_industrial_development_category = {
 		icon = generic_construction
 		
 		available = {
-			930 = {		#Western Transdanubia
+			624 = {		#Western Transdanubia
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4907,7 +4907,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 930	#Western Transdanubia
+			state = 624	#Western Transdanubia
 		}
 
 		cost = 50
@@ -4919,7 +4919,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			930 = {		
+			624 = {		
 				NOT = { has_state_flag = HUN_transdanubian_construction_grants_done }
 				OWNER = {
 					OR = {
@@ -4933,7 +4933,7 @@ HUN_industrial_development_category = {
 			factor = 100
 		}
 		remove_effect = {
-			930 = {		#Western Transdanubia
+			624 = {		#Western Transdanubia
 				set_state_flag = HUN_transdanubian_construction_grants_done
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -4944,11 +4944,11 @@ HUN_industrial_development_category = {
 			}
 			if = {
 				limit = {
-					930 = {	#Western Transdanubia
+					624 = {	#Western Transdanubia
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				930 = {	#Western Transdanubia
+				624 = {	#Western Transdanubia
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.150
@@ -4965,7 +4965,7 @@ HUN_industrial_development_category = {
 		icon = generic_construction
 		
 		available = {
-			70 = {		#Western Slovakia
+			586 = {		#Western Slovakia
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -4978,7 +4978,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 70	#Western Slovakia
+			state = 586	#Western Slovakia
 		}
 
 		cost = 50
@@ -4990,7 +4990,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			70 = {		
+			586 = {		
 				NOT = { has_state_flag = HUN_coal_mines_in_nyitra_done }
 				OWNER = {
 					OR = {
@@ -5004,7 +5004,7 @@ HUN_industrial_development_category = {
 			factor = 100
 		}
 		remove_effect = {
-			70 = {		#Western Slovakia
+			586 = {		#Western Slovakia
 				set_state_flag = HUN_coal_mines_in_nyitra_done
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -5015,11 +5015,11 @@ HUN_industrial_development_category = {
 			}
 			if = {
 				limit = {
-					70 = {	#Western Slovakia
+					586 = {	#Western Slovakia
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				70 = {	#Western Slovakia
+				586 = {	#Western Slovakia
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.150
@@ -5036,7 +5036,7 @@ HUN_industrial_development_category = {
 		icon = generic_construction
 		
 		available = {
-			45 = {		#Backa
+			1514 = {		#Backa
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -5049,7 +5049,7 @@ HUN_industrial_development_category = {
 		}
 		
 		highlight_states = {
-			state = 45	#Backa
+			state = 1514	#Backa
 		}
 
 		cost = 50
@@ -5061,7 +5061,7 @@ HUN_industrial_development_category = {
 		}
 		
 		visible = {
-			45 = {		
+			1514 = {		
 				NOT = { has_state_flag = HUN_metal_processing_in_vojvodina_done }
 				OWNER = {
 					OR = {
@@ -5075,7 +5075,7 @@ HUN_industrial_development_category = {
 			factor = 100
 		}
 		remove_effect = {
-			45 = {		#Backa
+			1514 = {		#Backa
 				set_state_flag = HUN_metal_processing_in_vojvodina_done
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -5086,11 +5086,11 @@ HUN_industrial_development_category = {
 			}
 			if = {
 				limit = {
-					45 = {	#Backa
+					1514 = {	#Backa
 						NOT = { is_owned_by = ROOT }
 					} 
 				}
-				45 = {	#Backa
+				1514 = {	#Backa
 					OWNER = {
 						add_autonomy_ratio = {
 							value = -0.150
@@ -5312,7 +5312,7 @@ HUN_defensive_preparations_category = {
 		icon = generic_construction
 
 		available = {
-			928 = {	#Sobrance
+			562 = {	#Sobrance
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -5358,7 +5358,7 @@ HUN_defensive_preparations_category = {
 		remove_effect = {
 			custom_effect_tooltip = HUN_slovakia_forts
 			hidden_effect = {
-				928 = {	#Sobrance
+				562 = {	#Sobrance
 					set_building_level = {
 						type = bunker
 						level = 5
@@ -5427,7 +5427,7 @@ HUN_defensive_preparations_category = {
 					}
 				}
 			}
-			930 = {	#Western Transdanubia
+			624 = {	#Western Transdanubia
 				OWNER = {
 					OR = {
 						tag = ROOT
@@ -5496,7 +5496,7 @@ HUN_defensive_preparations_category = {
 					instant_build = yes
 				}
 			}
-			930 = {		#Western Transdanubia
+			624 = {		#Western Transdanubia
 				add_building_construction = {
 					type = air_base
 					level = 1
@@ -6805,7 +6805,7 @@ HUN_united_lands_hungaria_category = {
 							add_state_core = 664	#Southern Slovakia
 							add_state_core = 70		#Western Slovakia
 							add_state_core = 71		#Eastern Slovakia
-							add_state_core = 928	#Sobrance
+							add_state_core = 562	#Sobrance
 						}
 					} 
 					60 = {
@@ -6821,7 +6821,7 @@ HUN_united_lands_hungaria_category = {
 								add_state_core = 664	#Southern Slovakia
 								add_state_core = 70		#Western Slovakia
 								add_state_core = 71		#Eastern Slovakia
-								add_state_core = 928	#Sobrance
+								add_state_core = 562	#Sobrance
 							}
 						} 
 						30 = {
