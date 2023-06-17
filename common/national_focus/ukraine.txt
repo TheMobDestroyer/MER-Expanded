@@ -462,6 +462,19 @@ focus_tree = {
 						}
 					}
 				}
+				else_if = {
+					limit = {
+						NOT = { has_full_control_of_state = 2132 }
+					}
+					2068 = {
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 12174
+							instant_build = yes
+						}
+					}
+				}
 			}
         }
         ai_will_do = {
