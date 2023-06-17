@@ -170,7 +170,6 @@ focus_tree = {
 					has_full_control_of_state = 2081 #2025 (4) 13272
 					has_full_control_of_state = 2055 #12436 12357 2965
 					has_full_control_of_state = 2068 #9243
-					has_full_control_of_state = 2132 #all provinces
 				}
 			}
         }
@@ -448,13 +447,18 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-				2132 = {
-					add_building_construction = {
-						type = bunker
-						level = 3
-						instant_build = yes
-						province = {
-							all_provinces = yes
+				if = {
+					limit = {
+						has_full_control_of_state = 2132
+					}
+					2132 = {
+						add_building_construction = {
+							type = bunker
+							level = 3
+							instant_build = yes
+							province = {
+								all_provinces = yes
+							}
 						}
 					}
 				}
