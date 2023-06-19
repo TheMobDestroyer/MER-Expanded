@@ -226,6 +226,21 @@ SPR_instate_personal_unions = {
                 target = HUN
                 autonomy_state = autonomy_personal_union
             }
+            HUN = {
+                if = {
+                    limit = {
+                        has_completed_focus = HUN_dismantle_the_monarchy
+                    }
+                    uncomplete_national_focus = {
+                        focus = HUN_dismantle_the_monarchy
+                        refund_political_power = no
+                    }
+                }
+                drop_cosmetic_tag = yes
+                complete_national_focus = HUN_settle_the_matter_of_the_monarchy
+                complete_national_focus = HUN_form_a_parliamentary_monarchy
+			    HUN_king_on_the_throne_effects = yes
+            }
         }
     }
 
