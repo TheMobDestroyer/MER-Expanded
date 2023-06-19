@@ -159,42 +159,10 @@ SPR_instate_personal_unions = {
         cost = 25
 
         complete_effect = {
-            AUS = { set_cosmetic_tag = AUS_archduchy }
-				AUS = {
-					hidden_effect = {
-						set_politics = {
-							ruling_party = fascism
-							long_name = AUS_neutrality_party
-							name = AUS_neutrality_party
-						}
-						set_popularities = {
-							fascism = 75
-							democratic = 1
-							communism = 1
-							neutrality = 23
-						}
-						hidden_effect = {
-							retire_country_leader = yes
-						}
-
-						AUS_kurt_schuschnigg = {
-							remove_country_leader_role = {
-								ideology = centrism
-							}
-							add_country_leader_role = {
-								country_leader = {
-									expire = "1965.1.1.1"
-									ideology = fascism_ideology
-									traits = {
-										
-									}
-								}
-								promote_leader = yes
-							}
-						}
-						set_party_name = { ideology = neutrality long_name = bourbon_party name = bourbon_party }
-					}
-				}
+            AUS = { 
+                set_cosmetic_tag = AUS_kingdom 
+				set_party_name = { ideology = neutrality long_name = bourbon_party name = bourbon_party }
+            }
             set_autonomy = {
                 target = AUS
                 autonomy_state = autonomy_personal_union
@@ -264,6 +232,10 @@ SPR_instate_personal_unions = {
         cost = 25
 
         complete_effect = {
+            CZE = {
+                set_cosmetic_tag = CZE_ONLY
+				set_party_name = { ideology = neutrality long_name = bourbon_party name = bourbon_party }
+            }
             set_autonomy = {
                 target = CZE
                 autonomy_state = autonomy_personal_union
