@@ -51,7 +51,7 @@
  SPR_take_throne_of_AUS_desc:0 "The Habsburgs had control over Spain until the untimely death of Carlos II, leading to the Bourbons taking the throne. Now the Habsburgs have been deposed from their homeland, so why not we take it ourselves?"
  bourbon_party:0 "Bourbons"
  SPR_take_throne_of_CZE:0 "Crown [ROOT.GetLeader] King of Bohemia"
- SPR_take_throne_of_HUN_desc:0 "The Habsburgs had control over Spain until the untimely death of Carlos II, leading to the Bourbons taking the throne. Now the Habsburgs have been deposed from Bohemia, so why not we take it ourselves?"
+ SPR_take_throne_of_CZE_desc:0 "The Habsburgs had control over Spain until the untimely death of Carlos II, leading to the Bourbons taking the throne. Now the Habsburgs have been deposed from Bohemia, so why not we take it ourselves?"
  SPR_take_throne_of_HUN:0 "Crown [ROOT.GetLeader] King of Hungary"
  SPR_take_throne_of_HUN_desc:0 "The Habsburgs had control over Spain until the untimely death of Carlos II, leading to the Bourbons taking the throne. Now the Habsburgs have been deposed from Hungary, so why not we take it ourselves? A kingdom without a king for a long period of time is not a true kingdom."
  #ROMANIA STUFF
