@@ -202,34 +202,25 @@ focus_tree = {
 				YUG = { is_subject_of = ROOT }
 				YUG = { has_government = communism }
 			}
-			930 = {	# Western Transdanubia
-				OWNER = {
-					OR = {
-						tag = ROOT
-						is_subject_of = ROOT
+			custom_trigger_tooltip = {
+				tooltip = HUN_yug_wall_controlled_states_tt
+				any_controlled_state = {
+					if = {
+						limit = {
+							has_state_flag = HUN_INITIAL_STATE 
+							
+						}
+						any_neighbor_state = {
+							if = {
+								limit = {
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+							has_state_flag = YUG_INITIAL_STATE
+							
+						}
 					}
 				}
-			}
-			916 = {	#Bács-Kiskun
-				OWNER = {
-					OR = {
-						tag = ROOT
-						is_subject_of = ROOT
-					}
-				}
-			}
-			931 = {	#Suthern Transdanubia
-				OWNER = {
-					OR = {
-						tag = ROOT
-						is_subject_of = ROOT
-					}
-				}
-			}
-			OR = {
-				930 = { any_neighbor_state = { is_owned_by = YUG } }
-				916 = { any_neighbor_state = { is_owned_by = YUG } }
-				931 = { any_neighbor_state = { is_owned_by = YUG } }
 			}
 		}		
 		x = 3
@@ -244,35 +235,26 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = HUN_yugoslavian_wall_forts
 			hidden_effect = {
-				930 = {		#Western Transdanubia
-					set_building_level = {
-						type = bunker
-						level = 4
-						province = {
-							id = 11627
-							id = 3670
+				every_state = {
+					limit = {
+						has_state_flag = HUN_INITIAL_STATE
+						any_neighbor_state = {
+							if = {
+								limit = {
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+							has_state_flag = YUG_INITIAL_STATE
+							
 						}
 					}
-				}	
-				916 = {		#Bács-Kiskun
 					set_building_level = {
 						type = bunker
 						level = 4
 						province = {
-							id = 6670
-							id = 11646
-							id = 679
-						}
-					}
-				}
-				154 = {		#Southern Transdanubia
-					set_building_level = {
-						type = bunker
-						level = 4
-						province = {
-							id = 9624
-							id = 11610
-							id = 9643
+							all_provinces = yes 
+							limit_to_border = yes 
+							level < 4
 						}
 					}
 				}
@@ -1072,7 +1054,7 @@ focus_tree = {
 		}
 	}
 	
-	focus = {
+	focus = {'
 		id = HUN_unite_the_nations
 		icon = GFX_goal_unite_the_nations
 		prerequisite = { focus = HUN_the_new_way }
@@ -1094,58 +1076,25 @@ focus_tree = {
 				if = {
 					limit = { has_country_flag = HUN_realism }
 					#With realism, most of the claimed territories start as claims, some can be later 'cored' (integrated)
-					if = { limit = { NOT = { 82 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 82 } 		#Banat
-					if = { limit = { NOT = { 83 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 83 }		#Grisana
-					if = { limit = { NOT = { 84 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 84 }		#Transylvania
-					if = { limit = { NOT = { 76 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 76 }		#North Transylvania
-					if = { limit = { NOT = { 929 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 929 }		#Szeklerland
-					if = { limit = { NOT = { 917 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 917 }		#Maramaros
-					if = { limit = { NOT = { 918 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 918 }		#Northern Partium
-					if = { limit = { NOT = { 73 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 73 }		#Carpathian Ruthenia
-					if = { limit = { NOT = { 914 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 914 }		#Beregszasz
-					if = { limit = { NOT = { 664 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 664 }		#Southern Slovakia	
-					if = { limit = { NOT = { 71 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 71 }		#Eastern Slovakia	
-					if = { limit = { NOT = { 928 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 928 }		#Sobrance	
-					if = { limit = { NOT = { 70 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 70 }		#Western Slovakia	
-					if = { limit = { NOT = { 909 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 909 } 	#Burgenland
-					if = { limit = { NOT = { 913 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 913 } 	#Fiume
-					if = { limit = { NOT = { 109 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 109 }		#Slavonia
-					if = { limit = { NOT = { 915 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 915 }		#Croatia
-					if = { limit = { NOT = { 921 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 921 }		#Lika
-					if = { limit = { NOT = { 923 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 923 }		#Pag
-					if = { limit = { NOT = { 45 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 45 }		#Novi Sad	
-					if = { limit = { NOT = { 910 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 910 } 	#Panceva
-					if = { limit = { NOT = { 911 = { has_state_flag = HUN_claim_forbidden } } } add_state_claim = 911 } 	#Srem
-					if = { limit = { NOT = { 912 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 912 } 		#Muraköz
+					every_state = {
+						limit = {
+							NOT = { has_state_flag = HUN_claim_forbidden }
+							is_hun_larp = yes 
+						}
+						add_claim_by = ROOT 
+					}
 				
 				}
 				#Without realism, all claims are immediately cores
 				if = {
 					limit = { NOT = { has_country_flag = HUN_realism } }
-					if = { limit = { NOT = { 82 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 82 } 		#Banat
-					if = { limit = { NOT = { 83 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 83 }		#Grisana
-					if = { limit = { NOT = { 84 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 84 }		#Transylvania
-					if = { limit = { NOT = { 76 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 76 }		#North Transylvania
-					if = { limit = { NOT = { 929 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 929 }		#Szeklerland
-					if = { limit = { NOT = { 917 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 917 }		#Maramaros
-					if = { limit = { NOT = { 918 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 918 }		#Northern Partium
-					if = { limit = { NOT = { 73 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 73 }		#Carpathian Ruthenia
-					if = { limit = { NOT = { 914 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 914 }		#Beregszasz
-					if = { limit = { NOT = { 664 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 664 }		#Southern Slovakia	
-					if = { limit = { NOT = { 71 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 71 }		#Eastern Slovakia
-					if = { limit = { NOT = { 928 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 928 }		#Sobrance	
-					if = { limit = { NOT = { 70 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 70 }		#Western Slovakia	
-					if = { limit = { NOT = { 909 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 909 } 		#Burgenland
-					if = { limit = { NOT = { 913 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 913 } 		#Fiume
-					if = { limit = { NOT = { 109 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 109 }		#Slavonia
-					if = { limit = { NOT = { 915 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 915 }		#Croatia
-					if = { limit = { NOT = { 921 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 921 }		#Lika
-					if = { limit = { NOT = { 923 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 923 }		#Pag
-					if = { limit = { NOT = { 45 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 45 }		#Novi Sad	
-					if = { limit = { NOT = { 910 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 910 } 		#Panceva
-					if = { limit = { NOT = { 911 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 911 } 		#Srem
-					if = { limit = { NOT = { 912 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 912 } 		#Muraköz
-					if = { limit = { NOT = { 764 = { has_state_flag = HUN_claim_forbidden } } } add_state_core = 764 } 		#Belgrade
+					every_state = {
+						limit = {
+							NOT = { has_state_flag = HUN_claim_forbidden }
+							is_hun_larp = yes 
+						}
+						add_core_of = ROOT 
+					} 		
 				}
 			}
 			if = {
@@ -1180,26 +1129,20 @@ focus_tree = {
 				is_puppet = no
 				is_neighbor_of = HUN
 				is_neighbor_of = SOV
-				owns_state = 78 	#Bessarabia
-				owns_state = 79 	#Moldavia
-				owns_state = 80 	#North Bucovina
-				owns_state = 83		#Grisana
-				owns_state = 84		#Transylvania
-				owns_state = 926	#South Bucovina
-				owns_state = 76		#North Transylvania	
-				owns_state = 929	#Szeklerland
-				owns_state = 917	#Maramaros
-				owns_state = 918	#Northern Partium
+				any_owned_state = {
+					region = 12
+				}
 			}
 		}
 		bypass = {
-			owns_state = 82 	#Banat
-			owns_state = 83		#Grisana
-			owns_state = 84		#Transylvania
-			owns_state = 76		#North Transylvania	
-			owns_state = 929	#Szeklerland
-			owns_state = 917	#Maramaros
-			owns_state = 918	#Northern Partium
+			all_state = {
+				if = {
+					limit = {
+						region = 12
+					}
+					is_owned_by = ROOT 
+				}
+			}
 		}
 		x = -7
 		y = 8
@@ -1273,7 +1216,7 @@ focus_tree = {
 				}
 				AND = {
 					POL = { exists = no }
-					SOV = { owns_state = 10 }	# Warszawa
+					SOV = { owns_state = 508 }	# Warszawa
 				}
 			}
 		}
@@ -1880,11 +1823,17 @@ focus_tree = {
 		prerequisite = { focus = HUN_the_rakosi_administration focus = HUN_rescue_bela_kun }
 		available = {
 			has_government = communism
-			owns_state = 930	#Western Transdanubia
-			owns_state = 43		#Northern Hungary
-			owns_state = 916	#Bács-Kiskun
-			owns_state = 154	#Alföld
-			owns_state = 633	#Budapest
+			custom_trigger_tooltip = {
+				tooltip = HUN_controls_all_inital_states_tt
+				all_state = {
+					if = {
+						limit = {
+							has_state_flag = HUN_INITIAL_STATE
+						}
+						is_owned_by = ROOT
+					}
+				}
+			}
 		}
 		x = 8
 		y = 3
@@ -1897,7 +1846,7 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			930 = {		#Western Transdanubia
+			648 = {		#Western Transdanubia
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -1905,7 +1854,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			43 = {		#Northern Hungary
+			596 = {		#Northern Hungary
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -1913,7 +1862,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			916 = {		#Bács-Kiskun
+			722 = {		#Bács-Kiskun
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -1921,7 +1870,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			154 = {		#Alföld
+			631 = {		#Alföld
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -2108,17 +2057,26 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			# Budapest - Szeged
+			# Debrecen - Nyiregyháza - Sárospatak
 			build_railway = {
-				path = { 9660 13239 6700 11646 679 }
+				start_province = 8222
+				target_province = 13539
 			}
-			
-			#Supply Hub in Kecskemét
-			916 = {
+			build_railway = {
+				start_province = 20402
+				target_province = 13539
+			}
+			#Pecs - Szeged
+			build_railway = {
+				start_province = 8687
+				target_province = 20092
+			}
+			#Supply Hub in Nyiregyhaza
+			603 = {
 				add_building_construction = {
 					type = supply_node
 					level = 1
-					province = 6700
+					province = 13539
 					instant_build = yes
 				}
 			}
@@ -2131,10 +2089,10 @@ focus_tree = {
 		prerequisite = { focus = HUN_goulash_communism }
 		available = {
 			has_government = communism
-			owns_state = 155	#Transdanubia
-			owns_state = 43		#Northern Hungary
-			owns_state = 916	#Bács-Kiskun
-			owns_state = 154	#Alföld
+			owns_state = 722	#Transdanubia
+			owns_state = 596		#Northern Hungary
+			owns_state = 1821	#Bács-Kiskun
+			owns_state = 631	#Alföld
 		}
 		x = -2
 		y = 4
@@ -2147,7 +2105,7 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			155 = {		#Transdanubia
+			722 = {		#Transdanubia
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -2155,7 +2113,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			43 = {		#Northern Hungary
+			596 = {		#Northern Hungary
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -2163,7 +2121,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			916 = {		#Bács-Kiskun
+			1821 = {		#Bács-Kiskun
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -2171,7 +2129,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			154 = {		#Alföld
+			631 = {		#Alföld
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -2566,7 +2524,7 @@ focus_tree = {
 				}
 				AND = {
 					POL = { exists = no }
-					SOV = { owns_state = 10 }	# Warszawa
+					SOV = { owns_state = 508 }	# Warszawa
 				}
 			}
 		}
@@ -3078,11 +3036,21 @@ focus_tree = {
 				if = {
 				
 					limit = { has_completed_focus = HUN_territorial_policy }
-					add_state_core = 664	#Southern Slovakia
-					add_state_core = 914	#Beregszasz
-					add_state_core = 45		#Backa
-					add_state_core = 912	#Muraköz
-					add_state_core = 929	#Szeklerland
+					every_state = {
+						limit = {
+							OR = {
+								is_southern_slovakia = yes 
+								state = 1472
+								state = 2856
+								state = 735
+								state = 1516
+								state = 1515
+								state = 1514
+								state = 712
+							}
+						}
+						add_core_of = ROOT
+					}
 				}
 			}
 			if = {
@@ -3168,11 +3136,21 @@ focus_tree = {
 			hidden_effect = {
 				if = {
 					limit = { has_completed_focus = HUN_territorial_policy }
-					add_state_core = 664	#Southern Slovakia
-					add_state_core = 914	#Beregszasz
-					add_state_core = 45		#Backa
-					add_state_core = 912	#Muraköz
-					add_state_core = 929	#Szeklerland
+					every_state = {
+						limit = {
+							OR = {
+								is_southern_slovakia = yes 
+								state = 1472
+								state = 2856
+								state = 735
+								state = 1516
+								state = 1515
+								state = 1514
+								state = 712
+							}
+						}
+						add_core_of = ROOT
+					}
 				}
 			}
 			custom_effect_tooltip = HUN_enables_formation_of_petofi_circle
@@ -3539,18 +3517,14 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = HUN_has_gained_new_territory_since_start
-				OR = {
-					owns_state = 45		#Backa
-					owns_state = 82		#Banat
-					owns_state = 83		#Southern Partium
-					owns_state = 109	#Slavonia
-					owns_state = 664	#Southern Slovakia
-					owns_state = 909	#Burgenland
-					owns_state = 910	#Torontal
-					owns_state = 912	#Muraköz
-					owns_state = 914	#Beregszasz
-					owns_state = 915	#Croatia
-					owns_state = 918	#Northern Partium
+				any_owned_state = {
+					OR = {
+						is_southern_slovakia = yes 
+						is_core_of = VJV
+						is_core_of = CRO
+						state = 1805
+						region = 12
+					}
 				}
 			}
 		}
@@ -3661,9 +3635,9 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = HUN_convertible_factories }
 		available = {
-			owns_state = 154	#Alföld
-			owns_state = 916	#Bács-Kiskun
-			owns_state = 43		#Northern Hungary
+			owns_state = 619	#Alföld
+			owns_state = 676	#Bács-Kiskun
+			owns_state = 603		#Northern Hungary
 		}
 		x = 1
 		y = 5
@@ -3674,7 +3648,7 @@ focus_tree = {
 		}	
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			43 = {		#Northern Hungary
+			603 = {		#Northern Hungary
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -3682,7 +3656,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			154 = {		#Alföld
+			676 = {		#Alföld
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -3690,7 +3664,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			916 = {		#Bács-Kiskun
+			619 = {		#Bács-Kiskun
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -4015,17 +3989,21 @@ focus_tree = {
 				exists = yes
 				is_puppet = no
 			    NOT = { has_war_with = HUN }
-				owns_state = 83	    #Southern Partium
-				owns_state = 918	#Northern Partium
-				owns_state = 917	#Maramures
-				owns_state = 76	    #North Transylvania
-				owns_state = 929	#Szeklerland
+				
 			}	
+			any_state = {
+					if = {
+						limit = {
+							region = 12
+						}
+						is_owned_by = ROM '
+					}
+				}
 			YUG = {
 				exists = yes
 				is_puppet = no
 			    NOT = { has_war_with = HUN }
-			    912 = {	#Prekmurje
+			    695 = {	#Prekmurje
 				    custom_trigger_tooltip = {
 					    tooltip = HUN_is_owned_by_yug_or_subject 
 					    OR = {
@@ -4034,7 +4012,7 @@ focus_tree = {
 					    }
 				    }
 			    }
-			    45 = {	#Backa
+			    1514 = {	#Backa
 				    custom_trigger_tooltip = {
 					    tooltip = HUN_is_owned_by_yug_or_subject 
 					    OR = {
@@ -4048,9 +4026,17 @@ focus_tree = {
 				exists = yes
 				is_puppet = no
 			    NOT = { has_war_with = HUN }
-				owns_state = 664	#Southern Slovakia
-				owns_state = 914	#Berehovo
-				owns_state = 73	    #Carpathian Ruthenia
+			}
+			all_state = {
+				if = {
+					limit = {
+						OR = {
+							is_southern_slovakia = yes 
+							is_core_of = CRP
+						}
+					}
+					is_owned_by = CZE
+				}
 			}
 		}
 		x = -8
