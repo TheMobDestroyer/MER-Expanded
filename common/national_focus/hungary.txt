@@ -1054,7 +1054,7 @@ focus_tree = {
 		}
 	}
 	
-	focus = {'
+	focus = {
 		id = HUN_unite_the_nations
 		icon = GFX_goal_unite_the_nations
 		prerequisite = { focus = HUN_the_new_way }
