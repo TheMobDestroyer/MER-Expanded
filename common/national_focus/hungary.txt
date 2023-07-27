@@ -3996,7 +3996,7 @@ focus_tree = {
 						limit = {
 							region = 12
 						}
-						is_owned_by = ROM '
+						is_owned_by = ROM
 					}
 				}
 			YUG = {
